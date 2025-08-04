@@ -45,6 +45,20 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.6);
       transition: opacity 0.5s ease-in-out;
     }
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #ff5e5e;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #ff3a3a;
+    }
   </style>
 </head>
 <body>
@@ -52,32 +66,41 @@
     <h1>Welcome to Axly</h1>
     <p>Loading your custom art bundle...</p>
     <div class="preview">
-      <img id="previewImage" src="images/BG1.png" alt="Preview Art" />
+      <img id="previewImage" src="" alt="Preview Art" />
     </div>
-    <p style="font-size:0.9rem; margin-top:1rem;">You’ll be redirected in 15 seconds.</p>
+    <a class="button" href="https://ko-fi.com/r9customs" target="_blank">Visit Ko-fi Now</a>
+    <p style="font-size:0.9rem; margin-top:1rem;">Redirecting in 15 seconds...</p>
   </div>
 
   <script>
-    const bgImages = Array.from({length: 20}, (_, i) => `images/BG${i + 1}.png`);
-    const featured = ["images/BG1.png", "images/BG2.png", "images/BG3.png"];
+    const imageCount = 20;
+    const allImages = Array.from({length: imageCount}, (_, i) => `images/BG${i + 1}.jpeg`);
 
     // Set random background
-    const randomBG = bgImages[Math.floor(Math.random() * bgImages.length)];
-    document.body.style.backgroundImage = `url('${randomBG}')`;
+    const bg = allImages[Math.floor(Math.random() * imageCount)];
+    document.body.style.backgroundImage = `url('${bg}')`;
 
-    // Cycle preview images
+    // Pick 3 random preview images without duplicates
+    function getRandomPreviews(count) {
+      const shuffled = [...allImages].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+
+    const previews = getRandomPreviews(3);
     const preview = document.getElementById('previewImage');
     let index = 0;
+
     function cycleImages() {
       preview.style.opacity = 0;
       setTimeout(() => {
-        preview.src = featured[index];
+        preview.src = previews[index];
         preview.style.opacity = 1;
-        index = (index + 1) % featured.length;
+        index = (index + 1) % previews.length;
       }, 300);
     }
-    setInterval(cycleImages, 4000); // every 4 sec
+
+    cycleImages(); // Show first immediately
+    setInterval(cycleImages, 4000); // Change every 4 sec
   </script>
 </body>
 </html>
-
