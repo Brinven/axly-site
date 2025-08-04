@@ -2,51 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Axly Art Shoppe</title>
-  <meta http-equiv="refresh" content="5;url=https://ko-fi.com/r9customs" />
+  <title>Axly Art</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="refresh" content="15;url=https://ko-fi.com/r9customs" />
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: #0a0a0a;
-      color: #f0f0f0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: sans-serif;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fff;
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
-      height: 100vh;
-      background-image: linear-gradient(145deg, #1a1a1a, #0f0f0f);
       text-align: center;
+      overflow: hidden;
+    }
+    .overlay {
+      background: rgba(0,0,0,0.5);
+      padding: 40px 20px;
+      width: 100%;
     }
     h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+      font-size: 3em;
+      margin-bottom: 0.5em;
     }
     p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      max-width: 600px;
+      font-size: 1.2em;
+      margin: 0;
     }
-    a.button {
-      padding: 15px 30px;
-      background-color: #ff5e5e;
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.2rem;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
+    .preview {
+      height: 180px;
+      margin-top: 20px;
     }
-    a.button:hover {
-      background-color: #ff3a3a;
+    .preview img {
+      height: 180px;
+      width: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      transition: opacity 0.5s ease-in-out;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to Axly</h1>
-  <p>High-quality fantasy art, custom image bundles, and more — hosted on Ko-fi.</p>
-  <a class="button" href="https://ko-fi.com/r9customs" target="_blank">Go to Ko-fi Now</a>
-  <p style="font-size:0.9rem; margin-top:2rem;">You will be redirected automatically in 5 seconds.</p>
+  <div class="overlay">
+    <h1>Welcome to Axly</h1>
+    <p>Loading your custom art bundle...</p>
+    <div class="preview">
+      <img id="previewImage" src="images/BG1.png" alt="Preview Art" />
+    </div>
+    <p style="font-size:0.9rem; margin-top:1rem;">You’ll be redirected in 15 seconds.</p>
+  </div>
+
+  <script>
+    const bgImages = Array.from({length: 20}, (_, i) => `images/BG${i + 1}.png`);
+    const featured = ["images/BG1.png", "images/BG2.png", "images/BG3.png"];
+
+    // Set random background
+    const randomBG = bgImages[Math.floor(Math.random() * bgImages.length)];
+    document.body.style.backgroundImage = `url('${randomBG}')`;
+
+    // Cycle preview images
+    const preview = document.getElementById('previewImage');
+    let index = 0;
+    function cycleImages() {
+      preview.style.opacity = 0;
+      setTimeout(() => {
+        preview.src = featured[index];
+        preview.style.opacity = 1;
+        index = (index + 1) % featured.length;
+      }, 300);
+    }
+    setInterval(cycleImages, 4000); // every 4 sec
+  </script>
 </body>
 </html>
+
