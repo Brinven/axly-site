@@ -1,106 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Axly Art</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="refresh" content="15;url=https://ko-fi.com/r9customs" />
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: #fff;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      text-align: center;
-      overflow: hidden;
-    }
-    .overlay {
-      background: rgba(0,0,0,0.5);
-      padding: 40px 20px;
-      width: 100%;
-    }
-    h1 {
-      font-size: 3em;
-      margin-bottom: 0.5em;
-    }
-    p {
-      font-size: 1.2em;
-      margin: 0;
-    }
-    .preview {
-      height: 180px;
-      margin-top: 20px;
-    }
-    .preview img {
-      height: 180px;
-      width: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
-      transition: opacity 0.5s ease-in-out;
-    }
-    .button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background-color: #ff5e5e;
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-    }
-    .button:hover {
-      background-color: #ff3a3a;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axly Customs - Professional Custom Art</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        .links {
+            margin: 20px 0;
+        }
+
+        .links a {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .links a:hover {
+            background-color: #0056b3;
+        }
+
+        .preview {
+            margin-top: 20px;
+            width: 300px;
+            height: 300px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
 </head>
 <body>
-  <div class="overlay">
-    <h1>Welcome to Axly</h1>
-    <p>Loading your custom art bundle...</p>
+
+    <header>
+        <h1>Welcome to Axly Customs!</h1>
+        <p>Your go-to spot for amazing custom art creations. Check out our gallery or support us directly!</p>
+        <div class="links">
+            <a href="https://ko-fi.com/r9customs" target="_blank">Visit Ko-Fi</a>
+            <a href="https://www.deviantart.com/axlyscustoms" target="_blank">Visit DeviantArt</a>
+        </div>
+    </header>
+
     <div class="preview">
-      <img id="previewImage" src="" alt="Preview Art" />
+        <img id="preview-img" src="" alt="Art Preview">
     </div>
-    <a class="button" href="https://ko-fi.com/r9customs" target="_blank">Visit Ko-fi Now</a>
-    <p style="font-size:0.9rem; margin-top:1rem;">Redirecting in 15 seconds...</p>
-  </div>
 
-  <script>
-    const imageCount = 20;
-    const allImages = Array.from({length: imageCount}, (_, i) => `images/BG${i + 1}.jpeg`);
+    <script>
+        // Array of image URLs - replace these with your actual image URLs from DeviantArt!
+        // To get them: Go to your DeviantArt art page, right-click the image, and select "Copy image address".
+        // Note: DeviantArt might not allow hotlinking forever, so consider hosting them yourself if needed.
+        const images = [
+            'https://example.com/your-image1.jpg',  // Replace with real URL, e.g., from High Priestess
+            'https://example.com/your-image2.jpg',  // Replace with real URL, e.g., from Emerald Goddess
+            // Add more as you upload to DeviantArt!
+        ];
 
-    // Set random background
-    const bg = allImages[Math.floor(Math.random() * imageCount)];
-    document.body.style.backgroundImage = `url('${bg}')`;
+        let currentIndex = 0;
 
-    // Pick 3 random preview images without duplicates
-    function getRandomPreviews(count) {
-      const shuffled = [...allImages].sort(() => 0.5 - Math.random());
-      return shuffled.slice(0, count);
-    }
+        function changeBackground() {
+            document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
+            currentIndex = (currentIndex + 1) % images.length;
+        }
 
-    const previews = getRandomPreviews(3);
-    const preview = document.getElementById('previewImage');
-    let index = 0;
+        function changePreview() {
+            const previewImg = document.getElementById('preview-img');
+            previewImg.style.opacity = 0;  // Fade out
+            setTimeout(() => {
+                previewImg.src = images[currentIndex];
+                previewImg.style.opacity = 1;  // Fade in
+            }, 1000);
+        }
 
-    function cycleImages() {
-      preview.style.opacity = 0;
-      setTimeout(() => {
-        preview.src = previews[index];
-        preview.style.opacity = 1;
-        index = (index + 1) % previews.length;
-      }, 300);
-    }
+        // Initial setup
+        if (images.length > 0) {
+            document.body.style.backgroundImage = `url('${images[0]}')`;
+            document.getElementById('preview-img').src = images[0];
+        }
 
-    cycleImages(); // Show first immediately
-    setInterval(cycleImages, 4000); // Change every 4 sec
-  </script>
+        // Rotate every 5 seconds
+        setInterval(() => {
+            changeBackground();
+            changePreview();
+        }, 5000);
+    </script>
+
 </body>
 </html>
