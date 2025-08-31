@@ -26,6 +26,7 @@
             padding: 20px;
             border-radius: 10px;
             max-width: 800px;
+            width: 90%; /* Responsive width */
         }
 
         h1 {
@@ -39,10 +40,13 @@
 
         .links {
             margin: 20px 0;
+            display: flex;
+            flex-direction: column; /* Stack vertically by default */
+            align-items: center;
         }
 
         .links a {
-            margin: 10px;
+            margin: 10px 0; /* Space between stacked links */
             padding: 10px 20px;
             background-color: #007bff;
             color: white;
@@ -50,10 +54,24 @@
             border-radius: 5px;
             font-weight: bold;
             transition: background-color 0.3s;
+            width: 80%; /* Full width on mobile */
+            max-width: 250px; /* Cap width for larger screens */
         }
 
         .links a:hover {
             background-color: #0056b3;
+        }
+
+        /* Adjust layout for larger screens */
+        @media (min-width: 600px) {
+            .links {
+                flex-direction: row; /* Side by side on desktop */
+                justify-content: center;
+            }
+            .links a {
+                margin: 0 10px; /* Space between side-by-side links */
+                width: auto; /* Reset width for desktop */
+            }
         }
 
         .preview {
@@ -72,6 +90,20 @@
             object-fit: cover;
             transition: opacity 1s ease-in-out;
         }
+
+        /* Mobile-specific tweaks */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em; /* Smaller header on mobile */
+            }
+            p {
+                font-size: 1em; /* Smaller text on mobile */
+            }
+            .preview {
+                width: 200px; /* Smaller preview on mobile */
+                height: 200px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -80,8 +112,8 @@
         <h1>Welcome to Axly's Customs!</h1>
         <p>Your go-to spot for amazing custom art creations. Check out our gallery or support us directly!</p>
         <div class="links">
-            <a href="https://ko-fi.com/r9customs" target="_blank">Visit Axly at Ko-Fi</a>
             <a href="https://www.deviantart.com/axlyscustoms" target="_blank">Visit Axly at DeviantArt</a>
+            <a href="https://ko-fi.com/r9customs" target="_blank">Visit Axly at Ko-Fi</a>
         </div>
     </header>
 
