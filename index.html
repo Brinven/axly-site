@@ -22,66 +22,121 @@
         }
 
         header {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 800px;
-            width: 90%; /* Responsive width */
+            background: rgba(255, 255, 255, 0.25);
+            padding: 25px 20px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         h1 {
-            margin: 0;
-            font-size: 2.5em;
+            margin: 0 0 12px 0;
+            font-size: 2.2em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         p {
-            font-size: 1.2em;
+            font-size: 1.1em;
+            margin: 0 0 8px 0;
+            color: #333;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
         }
 
+
         .links {
-            margin: 20px 0;
-            display: flex;
-            flex-direction: column; /* Stack vertically by default */
-            align-items: center;
+            margin: 25px auto 0 auto;
+            display: grid;
+            grid-template-columns: 1fr; /* Single column on mobile */
+            gap: 12px;
+            width: 100%;
+            max-width: 450px;
+            justify-items: center;
         }
 
         .links a {
-            margin: 10px 0; /* Space between stacked links */
-            padding: 10px 20px;
-            background-color: #007bff;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            width: 80%; /* Full width on mobile */
-            max-width: 250px; /* Cap width for larger screens */
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: block;
+            text-align: center;
         }
 
         .links a:hover {
-            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .links a:active {
+            transform: translateY(0);
+        }
+
+        /* Facebook link - blue gradient */
+        .links a[href*="facebook"] {
+            background: linear-gradient(135deg, #4267B2 0%, #365899 100%);
+        }
+
+        .links a[href*="facebook"]:hover {
+            background: linear-gradient(135deg, #365899 0%, #4267B2 100%);
+        }
+
+        /* Ko-Fi link - red/pink gradient */
+        .links a[href*="ko-fi"] {
+            background: linear-gradient(135deg, #FF5E5B 0%, #C73E1D 100%);
+        }
+
+        .links a[href*="ko-fi"]:hover {
+            background: linear-gradient(135deg, #C73E1D 0%, #FF5E5B 100%);
+        }
+
+        /* DeviantArt link - green gradient */
+        .links a[href*="deviantart"] {
+            background: linear-gradient(135deg, #05CC47 0%, #00A33C 100%);
+        }
+
+        .links a[href*="deviantart"]:hover {
+            background: linear-gradient(135deg, #00A33C 0%, #05CC47 100%);
+        }
+
+        /* thothai link - teal/purple gradient */
+        .links a[href*="thothai"] {
+            background: linear-gradient(135deg, #20B2AA 0%, #9370DB 100%);
+        }
+
+        .links a[href*="thothai"]:hover {
+            background: linear-gradient(135deg, #9370DB 0%, #20B2AA 100%);
         }
 
         /* Adjust layout for larger screens */
         @media (min-width: 600px) {
             .links {
-                flex-direction: row; /* Side by side on desktop */
-                justify-content: center;
-            }
-            .links a {
-                margin: 0 10px; /* Space between side-by-side links */
-                width: auto; /* Reset width for desktop */
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on desktop */
+                gap: 14px;
             }
         }
 
         .preview {
-            margin-top: 20px;
+            margin-top: 30px;
             width: 300px;
             height: 300px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
             overflow: hidden;
             background: white;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
 
         .preview img {
@@ -112,8 +167,10 @@
         <h1>Welcome to Axly's Customs!</h1>
         <p>Your go-to spot for amazing custom art creations. Check out our gallery or support us directly!</p>
         <div class="links">
-            <a href="https://www.deviantart.com/axlyscustoms" target="_blank">Visit Axly at DeviantArt</a>
-            <a href="https://ko-fi.com/r9customs" target="_blank">Visit Axly at Ko-Fi</a>
+            <a href="https://www.deviantart.com/axlyscustoms" target="_blank" rel="noopener noreferrer">DeviantArt</a>
+            <a href="https://ko-fi.com/r9customs" target="_blank" rel="noopener noreferrer">Ko-Fi</a>
+            <a href="https://www.facebook.com/share/1HWYA9LHNQ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://thothai.axly.com" target="_blank" rel="noopener noreferrer">ThothAI</a>
         </div>
     </header>
 

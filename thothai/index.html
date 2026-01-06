@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThothAI - Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated background particles effect */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(100, 150, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(200, 150, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(150, 200, 255, 0.05) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .logo-container {
+            margin-bottom: 40px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo-container img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(200, 150, 100, 0.5));
+        }
+
+        h1 {
+            font-size: 4em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #c9a961 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #b8b8b8;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: #888;
+            margin-bottom: 50px;
+            font-style: italic;
+        }
+
+        .coming-soon {
+            font-size: 2em;
+            color: #d4af37;
+            font-weight: 600;
+            margin-top: 60px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            opacity: 0.9;
+        }
+
+        .divider {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 40px auto;
+            opacity: 0.6;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+                letter-spacing: 1px;
+            }
+
+            .subtitle {
+                font-size: 1.2em;
+            }
+
+            .tagline {
+                font-size: 1em;
+            }
+
+            .coming-soon {
+                font-size: 1.5em;
+                letter-spacing: 2px;
+            }
+
+            .logo-container img {
+                max-width: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .tagline {
+                font-size: 0.9em;
+            }
+
+            .coming-soon {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <!-- Place your ThothAI logo at: ../images/thothai-logo.png or ./logo.png -->
+            <img src="../images/thothai-logo.png" alt="ThothAI Logo" id="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
+            <div id="logo-fallback" style="display: none; font-size: 4em; color: #d4af37; filter: drop-shadow(0 0 20px rgba(200, 150, 100, 0.5));">𓅆</div>
+        </div>
+        
+        <h1>ThothAI</h1>
+        
+        <div class="subtitle">AI Librarian</div>
+        
+        <div class="tagline">Knowledge. Wisdom. Intelligence.</div>
+        
+        <div class="divider"></div>
+        
+        <div class="coming-soon">Coming Soon</div>
+    </div>
+</body>
+</html>
+
