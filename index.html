@@ -179,22 +179,10 @@
     </div>
 
     <script>
-        // Array of image paths
-        let images = [
-            'images/1.jpeg',  // Nun-like figure in dark setting
-            'images/2.jpeg',  // Cowboy woman with gun in apocalyptic town
-            'images/3.jpeg',  // Green elf in forest (fierce one)
-            'images/4.jpeg',  // Demon elf on throne
-            'images/5.jpeg',  // Haunted mansion
-            'images/6.jpeg',  // Warrior woman leading army
-            'images/7.jpeg',  // Angel warrior with wings
-            'images/8.jpeg',  // Space station
-            'images/9.jpeg',  // Hooded warrior in snow
-            'images/10.jpeg'  // Green goblin elf in forest (playful one)
-            // Add more here if you want, e.g., 'images/11.jpeg',
-        ];
+        let images = [];
+        let currentIndex = 0;
 
-        // Shuffle function (Fisher-Yates) to randomize the array on load
+        // Shuffle function (Fisher-Yates)
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -203,17 +191,14 @@
             return array;
         }
 
-        // Shuffle the images right away!
-        images = shuffleArray(images);
-
-        let currentIndex = 0;
-
         function changeBackground() {
+            if (images.length === 0) return;
             document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
             currentIndex = (currentIndex + 1) % images.length;
         }
 
         function changePreview() {
+            if (images.length === 0) return;
             const previewImg = document.getElementById('preview-img');
             previewImg.style.opacity = 0;  // Fade out
             setTimeout(() => {
@@ -222,17 +207,25 @@
             }, 1000);
         }
 
-        // Initial setup
-        if (images.length > 0) {
-            document.body.style.backgroundImage = `url('${images[0]}')`;
-            document.getElementById('preview-img').src = images[0];
-        }
-
-        // Rotate every 5 seconds
-        setInterval(() => {
-            changeBackground();
-            changePreview();
-        }, 5000);
+        // Load images from JSON
+        fetch('images.json')
+            .then(response => response.json())
+            .then(data => {
+                images = shuffleArray(data);
+                
+                // Initial setup
+                if (images.length > 0) {
+                    document.body.style.backgroundImage = `url('${images[0]}')`;
+                    document.getElementById('preview-img').src = images[0];
+                    
+                    // Start rotation
+                    setInterval(() => {
+                        changeBackground();
+                        changePreview();
+                    }, 5000);
+                }
+            })
+            .catch(error => console.error('Error loading images:', error));
     </script>
 
 </body>

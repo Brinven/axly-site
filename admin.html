@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axly's Customs - Admin Panel</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #4a4a4a;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: opacity 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        #status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .image-list {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .image-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .image-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        .image-info {
+            flex-grow: 1;
+        }
+
+        .delete-btn {
+            background: #ff4d4d;
+            width: auto;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Admin Panel</h1>
+
+        <div class="form-group" id="auth-section">
+            <label for="pat">GitHub Personal Access Token (PAT)</label>
+            <input type="password" id="pat" placeholder="Enter your GitHub PAT">
+            <button onclick="saveToken()" style="margin-top: 10px;">Save Token</button>
+            <p style="font-size: 0.8em; color: #666; margin-top: 5px;">Token is saved in your browser's local storage.
+            </p>
+        </div>
+
+        <div id="upload-section" style="display: none;">
+            <div class="form-group">
+                <label for="file-input">Upload New Image</label>
+                <input type="file" id="file-input" accept="image/*">
+            </div>
+            <button onclick="uploadImage()" id="upload-btn">Upload & Add to Rotation</button>
+        </div>
+
+        <div id="status"></div>
+
+        <div class="image-list" id="image-list-section" style="display: none;">
+            <h3>Current Images</h3>
+            <div id="image-list">Loading...</div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration - UPDATE THESE
+        const OWNER = 'Brinven'; // Replace with your GitHub username
+        const REPO = 'axly-site';   // Replace with your repository name
+        const BRANCH = 'main';      // Branch to commit to
+        const IMAGES_JSON_PATH = 'images.json';
+
+        let token = localStorage.getItem('github_pat');
+
+        // Initialize
+        if (token) {
+            document.getElementById('pat').value = token;
+            showAdminInterface();
+        }
+
+        function saveToken() {
+            const inputToken = document.getElementById('pat').value.trim();
+            if (inputToken) {
+                localStorage.setItem('github_pat', inputToken);
+                token = inputToken;
+                showAdminInterface();
+                showStatus('Token saved!', 'success');
+            }
+        }
+
+        function showAdminInterface() {
+            document.getElementById('upload-section').style.display = 'block';
+            document.getElementById('image-list-section').style.display = 'block';
+            loadImages();
+        }
+
+        function showStatus(message, type) {
+            const statusEl = document.getElementById('status');
+            statusEl.textContent = message;
+            statusEl.className = type;
+            statusEl.style.display = 'block';
+            setTimeout(() => { statusEl.style.display = 'none'; }, 5000);
+        }
+
+        async function loadImages() {
+            try {
+                const response = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${IMAGES_JSON_PATH}?ref=${BRANCH}`, {
+                    headers: { 'Authorization': `token ${token}` }
+                });
+
+                if (!response.ok) throw new Error('Failed to fetch images.json');
+
+                const data = await response.json();
+                const content = atob(data.content);
+                const images = JSON.parse(content);
+
+                const listEl = document.getElementById('image-list');
+                listEl.innerHTML = '';
+
+                images.forEach(img => {
+                    const div = document.createElement('div');
+                    div.className = 'image-item';
+                    div.innerHTML = `
+                        <div style="display:flex; align-items:center;">
+                            <img src="${img}" alt="${img}">
+                            <span class="image-info">${img}</span>
+                        </div>
+                        <!-- Delete functionality could be added here -->
+                    `;
+                    listEl.appendChild(div);
+                });
+            } catch (error) {
+                console.error(error);
+                showStatus('Error loading images: ' + error.message, 'error');
+            }
+        }
+
+        async function uploadImage() {
+            const fileInput = document.getElementById('file-input');
+            const file = fileInput.files[0];
+            if (!file) {
+                showStatus('Please select a file first.', 'error');
+                return;
+            }
+
+            const uploadBtn = document.getElementById('upload-btn');
+            uploadBtn.disabled = true;
+            uploadBtn.textContent = 'Uploading...';
+
+            try {
+                // 1. Read file content
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+
+                reader.onload = async function () {
+                    const base64Content = reader.result.split(',')[1];
+                    const fileName = 'images/' + file.name; // Upload to images/ folder
+
+                    // 2. Upload Image to GitHub
+                    const uploadResponse = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${fileName}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: `Add ${file.name} via Admin Panel`,
+                            content: base64Content,
+                            branch: BRANCH
+                        })
+                    });
+
+                    if (!uploadResponse.ok) {
+                        const err = await uploadResponse.json();
+                        throw new Error('Image upload failed: ' + err.message);
+                    }
+
+                    // 3. Update images.json
+                    await updateImagesJson(fileName);
+
+                    showStatus('Image uploaded and rotation updated successfully!', 'success');
+                    fileInput.value = ''; // Clear input
+                    loadImages(); // Refresh list
+                };
+
+            } catch (error) {
+                console.error(error);
+                showStatus('Error: ' + error.message, 'error');
+            } finally {
+                uploadBtn.disabled = false;
+                uploadBtn.textContent = 'Upload & Add to Rotation';
+            }
+        }
+
+        async function updateImagesJson(newImagePath) {
+            // Get current images.json sha and content
+            const getResponse = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${IMAGES_JSON_PATH}?ref=${BRANCH}`, {
+                headers: { 'Authorization': `token ${token}` }
+            });
+
+            if (!getResponse.ok) throw new Error('Failed to fetch images.json for update');
+
+            const data = await getResponse.json();
+            const sha = data.sha;
+            const currentContent = JSON.parse(atob(data.content));
+
+            // Add new image if not exists
+            if (!currentContent.includes(newImagePath)) {
+                currentContent.push(newImagePath);
+            } else {
+                return; // Already exists
+            }
+
+            // Commit updated images.json
+            const updateResponse = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${IMAGES_JSON_PATH}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: `Update images.json for ${newImagePath}`,
+                    content: btoa(JSON.stringify(currentContent, null, 4)),
+                    sha: sha,
+                    branch: BRANCH
+                })
+            });
+
+            if (!updateResponse.ok) throw new Error('Failed to update images.json');
+        }
+    </script>
+</body>
+
+</html>
