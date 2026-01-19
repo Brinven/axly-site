@@ -1,183 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThothAI - Coming Soon</title>
+    <title>Thoth AI - The Librarian</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Orbitron:wght@400;500;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg-color: #0a0a12;
+            --bg-secondary: #13131f;
+            --text-primary: #e0e1dd;
+            --text-secondary: #a0a0b0;
+            --accent-gold: #d4af37;
+            --accent-silver: #c0c0c0;
+            --glow-color: rgba(212, 175, 55, 0.4);
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-            color: #e0e0e0;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                linear-gradient(180deg, var(--bg-color) 0%, var(--bg-secondary) 100%);
             min-height: 100vh;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cinzel Decorative', serif;
+            /* Ancient feel */
+            color: var(--accent-gold);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 0 0 15px var(--glow-color);
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        p {
+            line-height: 1.6;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .hero {
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            min-height: 90vh;
+            width: 100%;
+            text-align: center;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .hero::before {
+            /* Tech overlay lines */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .logo-container {
+            width: 250px;
+            height: 250px;
+            margin-bottom: 2rem;
+            border-radius: 50%;
+            padding: 10px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
+            box-shadow: 0 0 50px var(--glow-color);
+            position: relative;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--bg-color);
+            background: black;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+        }
+
+        .tagline {
+            font-family: 'Orbitron', sans-serif;
+            /* Tech feel */
+            font-size: 1.5rem;
+            color: var(--accent-silver);
+            margin-bottom: 2rem;
+            letter-spacing: 4px;
+        }
+
+        .btn {
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 15px 40px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: var(--accent-gold);
+            color: var(--bg-color);
+            box-shadow: 0 0 30px var(--glow-color);
+        }
+
+        section {
+            padding: 5rem 2rem;
+            width: 100%;
+            max-width: 1200px;
+            box-sizing: border-box;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        /* Animated background particles effect */
-        body::before {
-            content: '';
+        .card::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(100, 150, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(200, 150, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(150, 200, 255, 0.05) 0%, transparent 50%);
-            animation: pulse 8s ease-in-out infinite;
-            z-index: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent-gold);
         }
 
-        .container {
-            position: relative;
-            z-index: 1;
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card h3 {
+            color: var(--accent-silver);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .modes-section {
+            background: linear-gradient(135deg, rgba(20, 20, 30, 0.9), rgba(10, 10, 18, 0.9));
+            border-radius: 20px;
+            padding: 4rem;
+            margin: 4rem 0;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .platform-icons {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .platform {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--accent-silver);
+        }
+
+        .platform i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 2rem;
             text-align: center;
-            max-width: 800px;
+            color: #666;
+            font-size: 0.9rem;
             width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .logo-container {
-            margin-bottom: 40px;
-            animation: float 3s ease-in-out infinite;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .logo-container img {
-            max-width: 300px;
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(0 0 20px rgba(200, 150, 100, 0.5));
-        }
-
-        h1 {
-            font-size: 4em;
-            font-weight: 700;
-            background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #c9a961 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        .subtitle {
-            font-size: 1.5em;
-            color: #b8b8b8;
-            margin-bottom: 10px;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        .tagline {
-            font-size: 1.2em;
-            color: #888;
-            margin-bottom: 50px;
-            font-style: italic;
-        }
-
-        .coming-soon {
-            font-size: 2em;
-            color: #d4af37;
-            font-weight: 600;
-            margin-top: 60px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            opacity: 0.9;
-        }
-
-        .divider {
-            width: 200px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #d4af37, transparent);
-            margin: 40px auto;
-            opacity: 0.6;
-        }
-
-        /* Responsive design */
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5em;
-                letter-spacing: 1px;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            .subtitle {
-                font-size: 1.2em;
+            h2 {
+                font-size: 2rem;
             }
 
-            .tagline {
-                font-size: 1em;
-            }
-
-            .coming-soon {
-                font-size: 1.5em;
-                letter-spacing: 2px;
-            }
-
-            .logo-container img {
-                max-width: 200px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2em;
-            }
-
-            .subtitle {
-                font-size: 1em;
-            }
-
-            .tagline {
-                font-size: 0.9em;
-            }
-
-            .coming-soon {
-                font-size: 1.2em;
+            .logo-container {
+                width: 180px;
+                height: 180px;
             }
         }
     </style>
+    <!-- Use FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <div class="container">
-        <div class="logo-container">
-            <!-- Place your ThothAI logo at: ../images/thothai-logo.png or ./logo.png -->
-            <img src="../images/thothai-logo.png" alt="ThothAI Logo" id="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
-            <div id="logo-fallback" style="display: none; font-size: 4em; color: #d4af37; filter: drop-shadow(0 0 20px rgba(200, 150, 100, 0.5));">𓅆</div>
-        </div>
-        
-        <h1>ThothAI</h1>
-        
-        <div class="subtitle">AI Librarian</div>
-        
-        <div class="tagline">Knowledge. Wisdom. Intelligence.</div>
-        
-        <div class="divider"></div>
-        
-        <div class="coming-soon">Coming Soon</div>
-    </div>
-</body>
-</html>
 
+<body>
+
+    <div class="hero">
+        <div class="hero-content">
+            <div class="logo-container">
+                <img src="thoth-logo.jpg" alt="Thoth AI Logo">
+            </div>
+            <h1>Thoth AI</h1>
+            <div class="tagline">The Librarian</div>
+            <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto 2rem auto;">
+                Ancient wisdom meets modern intelligence. A powerful LLM with built-in RAG capabilities, allowing you to
+                converse with your own customized Knowledgebases.
+            </p>
+            <a href="#features" class="btn">Discover More</a>
+        </div>
+    </div>
+
+    <section id="features">
+        <h2>The Power of Thoth</h2>
+        <div class="feature-grid">
+            <div class="card">
+                <h3><i class="fa-solid fa-brain" style="color:var(--accent-gold); margin-right: 10px;"></i> RAG
+                    Intelligence</h3>
+                <p>Retrieval-Augmented Generation at its core. Ingest your PDFs and documents into custom
+                    "Knowledgebases" and let Thoth reference them instantly.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-comments" style="color:var(--accent-gold); margin-right: 10px;"></i> Natural
+                    Conversation</h3>
+                <p>Talk to your data as naturally as you talk to a friend. Thoth understands context, nuance, and
+                    complex queries across your entire library.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-shield-halved" style="color:var(--accent-gold); margin-right: 10px;"></i>
+                    Secure & Private</h3>
+                <p>Your knowledge stays yours. Thoth processes data locally or securely, ensuring your proprietary
+                    information never leaves your control.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="modes-section">
+            <h2>Dual Modes</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; text-align: left;">
+                <div style="flex: 1; min-width: 250px;">
+                    <h3 style="color: var(--accent-gold); border-bottom: 1px solid #333; padding-bottom: 10px;">Chat
+                        Mode</h3>
+                    <p>Standard interaction with the LLM. Perfect for brainstorming, creative writing, coding
+                        assistance, and general knowledge queries. It's the AI assistant you know and love, but sharper.
+                    </p>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                    <h3 style="color: var(--accent-gold); border-bottom: 1px solid #333; padding-bottom: 10px;">RAG Mode
+                    </h3>
+                    <p>The Librarian enters the archives. In this mode, Thoth strictly uses your ingested Knowledgebases
+                        to answer questions, citing sources and providing page references for every claim.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="text-align: center; margin-bottom: 4rem;">
+        <h2>Available Platforms</h2>
+        <div class="platform-icons">
+            <div class="platform">
+                <i class="fa-brands fa-windows"></i>
+                <span style="font-family: 'Orbitron'; font-size: 1.2rem;">Windows</span>
+                <span style="font-size: 0.9rem; margin-top: 5px; color: #666;">Desktop Performance</span>
+            </div>
+            <div class="platform">
+                <i class="fa-brands fa-apple"></i>
+                <span style="font-family: 'Orbitron'; font-size: 1.2rem;">iOS</span>
+                <span style="font-size: 0.9rem; margin-top: 5px; color: #666;">Mobile Wisdom</span>
+            </div>
+        </div>
+        <p style="margin-top: 3rem; font-style: italic; color: #555;">Mac & Android versions coming soon.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Thoth AI. Built by Axly's Customs.</p>
+        <p><a href="../index.html" style="color: #444; text-decoration: none;">Return to Home</a></p>
+    </footer>
+
+</body>
+
+</html>
