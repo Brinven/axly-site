@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +23,7 @@
         }
 
         header {
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.85);
             padding: 25px 20px;
             border-radius: 15px;
             max-width: 600px;
@@ -45,15 +46,16 @@
         p {
             font-size: 1.1em;
             margin: 0 0 8px 0;
-            color: #333;
-            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+            color: #111;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
         }
 
 
         .links {
             margin: 25px auto 0 auto;
             display: grid;
-            grid-template-columns: 1fr; /* Single column on mobile */
+            grid-template-columns: 1fr;
+            /* Single column on mobile */
             gap: 12px;
             width: 100%;
             max-width: 450px;
@@ -123,7 +125,8 @@
         /* Adjust layout for larger screens */
         @media (min-width: 600px) {
             .links {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns on desktop */
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 columns on desktop */
                 gap: 14px;
             }
         }
@@ -149,18 +152,24 @@
         /* Mobile-specific tweaks */
         @media (max-width: 600px) {
             h1 {
-                font-size: 1.8em; /* Smaller header on mobile */
+                font-size: 1.8em;
+                /* Smaller header on mobile */
             }
+
             p {
-                font-size: 1em; /* Smaller text on mobile */
+                font-size: 1em;
+                /* Smaller text on mobile */
             }
+
             .preview {
-                width: 200px; /* Smaller preview on mobile */
+                width: 200px;
+                /* Smaller preview on mobile */
                 height: 200px;
             }
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -169,7 +178,8 @@
         <div class="links">
             <a href="https://www.deviantart.com/axlyscustoms" target="_blank" rel="noopener noreferrer">DeviantArt</a>
             <a href="https://ko-fi.com/r9customs" target="_blank" rel="noopener noreferrer">Ko-Fi</a>
-            <a href="https://www.facebook.com/share/1HWYA9LHNQ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.facebook.com/share/1HWYA9LHNQ/?mibextid=wwXIfr" target="_blank"
+                rel="noopener noreferrer">Facebook</a>
             <a href="/thothai/" target="_blank" rel="noopener noreferrer">ThothAI</a>
         </div>
     </header>
@@ -212,12 +222,12 @@
             .then(response => response.json())
             .then(data => {
                 images = shuffleArray(data);
-                
+
                 // Initial setup
                 if (images.length > 0) {
                     document.body.style.backgroundImage = `url('${images[0]}')`;
                     document.getElementById('preview-img').src = images[0];
-                    
+
                     // Start rotation
                     setInterval(() => {
                         changeBackground();
@@ -229,4 +239,5 @@
     </script>
 
 </body>
+
 </html>
