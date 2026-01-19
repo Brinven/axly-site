@@ -39,6 +39,29 @@
             min-height: 100vh;
         }
 
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 10px var(--glow-color);
+            transform: translateX(-3px);
+        }
+
         h1,
         h2,
         h3 {
@@ -289,6 +312,8 @@
 
 <body>
 
+    <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Axly.com</a>
+
     <div class="hero">
         <div class="hero-content">
             <div class="logo-container">
@@ -322,9 +347,10 @@
             <div class="card">
                 <h3><i class="fa-solid fa-shield-halved" style="color:var(--accent-gold); margin-right: 10px;"></i>
                     Secure & Private</h3>
-                <p>Your knowledge stays yours. Thoth processes data locally or securely, ensuring your proprietary
+                <p>Your knowledge stays yours. Thoth processes data locally and securely, ensuring your proprietary
                     information never leaves your control.</p>
             </div>
+
         </div>
     </section>
 
