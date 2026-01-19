@@ -262,7 +262,7 @@
                 <div id="image-list">
                     <!-- Images will be populated here -->
                 </div>
-                <div style="text-align: center; margin-top: 20px; color: #888; font-size: 0.8em;">v1.01</div>
+                <div style="text-align: center; margin-top: 20px; color: #888; font-size: 0.8em;">v1.02</div>
             </div>
         </div>
     </div>
@@ -539,12 +539,21 @@
             const response = await fetch(url, { ...options, headers });
 
             if (!response.ok) {
-                let msg = response.statusText;
+                let errorDetails = '';
                 try {
                     const errData = await response.json();
-                    msg = errData.message || msg;
+                    errorDetails = errData.message ? ` (${errData.message})` : '';
                 } catch (e) { }
-                throw new Error(msg);
+
+                if (response.status === 401) {
+                    throw new Error(`Unauthorized (401). Your PAT is invalid or expired. Please check your token.${errorDetails}`);
+                } else if (response.status === 403) {
+                    throw new Error(`Forbidden (403). Permission denied. Ensure your PAT has 'repo' or 'public_repo' scopes.${errorDetails}`);
+                } else if (response.status === 404) {
+                    throw new Error(`Not Found (404). The resource does not exist.${errorDetails}`);
+                } else {
+                    throw new Error(`Error ${response.status}: ${response.statusText}${errorDetails}`);
+                }
             }
             // For DELETE calls, response might be 204 No Content
             if (response.status === 204) return null;
