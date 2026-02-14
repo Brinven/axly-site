@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thoth AI - Privacy Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Orbitron:wght@400;500;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0a0a12;
+            --bg-secondary: #13131f;
+            --text-primary: #e0e1dd;
+            --text-secondary: #a0a0b0;
+            --accent-gold: #d4af37;
+            --accent-silver: #c0c0c0;
+            --glow-color: rgba(212, 175, 55, 0.4);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                linear-gradient(180deg, var(--bg-color) 0%, var(--bg-secondary) 100%);
+            min-height: 100vh;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 10px var(--glow-color);
+            transform: translateX(-3px);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel Decorative', serif;
+            color: var(--accent-gold);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem 0;
+            text-shadow: 0 0 15px var(--glow-color);
+        }
+
+        p, li {
+            line-height: 1.8;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .header {
+            text-align: center;
+            padding: 6rem 2rem 2rem 2rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .effective-date {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--accent-silver);
+            letter-spacing: 2px;
+            margin-top: 1rem;
+        }
+
+        .policy-content {
+            max-width: 800px;
+            width: 100%;
+            padding: 2rem;
+            box-sizing: border-box;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .policy-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .btn {
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 15px 40px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: var(--accent-gold);
+            color: var(--bg-color);
+            box-shadow: 0 0 30px var(--glow-color);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 2rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .header { padding-top: 5rem; }
+            .policy-content { padding: 1rem; }
+            .policy-section { padding: 1.5rem; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Thoth AI</a>
+
+    <div class="header">
+        <h1>Privacy Policy</h1>
+        <div class="effective-date">Effective: February 13, 2026</div>
+    </div>
+
+    <div class="policy-content">
+
+        <div class="policy-section">
+            <h2>Overview</h2>
+            <p>Thoth AI ("the App") is built with privacy at its core. The App runs entirely on your device using
+                on-device language models. <span class="highlight">We do not collect, transmit, or store any of your
+                personal data on external servers.</span></p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Data Collection</h2>
+            <p>Thoth AI does <span class="highlight">not</span> collect any personal information. Specifically:</p>
+            <ul>
+                <li>No account or sign-up is required</li>
+                <li>No personal identifiers are collected (name, email, phone number, etc.)</li>
+                <li>No usage analytics or tracking data is gathered</li>
+                <li>No advertising identifiers are used</li>
+                <li>No cookies or similar tracking technologies are employed</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>Your Documents &amp; Data</h2>
+            <p>All documents (PDFs) you import into Thoth AI are processed and stored <span class="highlight">entirely
+                on your device</span>. This includes:</p>
+            <ul>
+                <li><strong>Knowledgebases</strong> &mdash; created and stored locally in the app's sandboxed storage</li>
+                <li><strong>Embeddings &amp; vector data</strong> &mdash; generated on-device and stored in a local database</li>
+                <li><strong>Chat history</strong> &mdash; kept only in the app's local memory during your session</li>
+                <li><strong>LLM inference</strong> &mdash; all AI processing happens on-device; no queries are sent to any server</li>
+            </ul>
+            <p>Your documents never leave your device. We have no ability to access, read, or retrieve any content you
+                import into the App.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Model Downloads</h2>
+            <p>The App may download AI model files from third-party repositories (such as Hugging Face) when you choose
+                to install a model. These downloads are standard HTTPS requests to fetch publicly available model weights.
+                No personal data is transmitted during this process.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Third-Party Services</h2>
+            <p>Thoth AI does not integrate with any third-party analytics, advertising, or tracking services. The App
+                does not share any data with third parties.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Children's Privacy</h2>
+            <p>Thoth AI does not knowingly collect any information from children under 13. Since the App collects no
+                personal data from any user, it is compliant with the Children's Online Privacy Protection Act (COPPA).</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Changes to This Policy</h2>
+            <p>If we update this privacy policy, the revised version will be posted on this page with an updated
+                effective date. Since we collect no user data, we have no means to notify you directly of changes.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>Contact</h2>
+            <p>If you have questions about this privacy policy, please contact us at:</p>
+            <p style="color: var(--accent-gold); font-family: 'Orbitron', sans-serif; font-size: 0.95rem;">
+                support@axly.com</p>
+        </div>
+
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="index.html" class="btn">Back to Thoth AI</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Thoth AI. Built by Axly's Customs.</p>
+        <p><a href="../index.html" style="color: #444; text-decoration: none;">Return to Home</a></p>
+    </footer>
+
+</body>
+
+</html>
