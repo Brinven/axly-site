@@ -1,243 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Axly's Customs - Professional Custom Art</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            color: #333;
-            background-size: cover;
-            background-position: center;
-            transition: background-image 1s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axly's Customs — Tools That Put AI to Work</title>
+  <meta name="description" content="Axly's Customs builds practical AI-powered tools. Home of Goldmine (AI tool discovery), ThothAI (local document AI), and custom digital art.">
+  <meta name="theme-color" content="#09090b">
+  <meta property="og:title" content="Axly's Customs — Tools That Put AI to Work">
+  <meta property="og:description" content="We build practical AI-powered tools. Home of Goldmine, ThothAI, and custom digital art.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        header {
-            background: rgba(255, 255, 255, 0.85);
-            padding: 25px 20px;
-            border-radius: 15px;
-            max-width: 600px;
-            width: 90%;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
+    :root {
+      --bg: #fafafa;
+      --bg-elevated: #ffffff;
+      --bg-subtle: #f4f4f5;
+      --text: #18181b;
+      --text-secondary: #52525b;
+      --text-muted: #a1a1aa;
+      --border: #e4e4e7;
+      --accent: #10b981;
+      --accent-soft: #ecfdf5;
+      --accent-text: #047857;
+      --purple: #8b5cf6;
+      --purple-soft: #f5f3ff;
+      --purple-text: #6d28d9;
+      --amber: #f59e0b;
+      --amber-soft: #fffbeb;
+      --amber-text: #b45309;
+    }
 
-        h1 {
-            margin: 0 0 12px 0;
-            font-size: 2.2em;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    .dark {
+      --bg: #09090b;
+      --bg-elevated: #18181b;
+      --bg-subtle: #1c1c1f;
+      --text: #fafafa;
+      --text-secondary: #a1a1aa;
+      --text-muted: #52525b;
+      --border: #27272a;
+      --accent: #10b981;
+      --accent-soft: #052e16;
+      --accent-text: #6ee7b7;
+      --purple: #a78bfa;
+      --purple-soft: #1e1b3a;
+      --purple-text: #c4b5fd;
+      --amber: #fbbf24;
+      --amber-soft: #1c1408;
+      --amber-text: #fcd34d;
+    }
 
-        p {
-            font-size: 1.1em;
-            margin: 0 0 8px 0;
-            color: #111;
-            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-        }
+    body {
+      font-family: 'Geist', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100dvh;
+      transition: background 0.3s, color 0.3s;
+    }
 
+    /* Theme toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 4px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 4px;
+      z-index: 50;
+    }
+    .theme-btn {
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border: none; border-radius: 8px;
+      background: transparent; color: var(--text-muted);
+      cursor: pointer; font-size: 16px; transition: all 0.15s;
+    }
+    .theme-btn.active { background: var(--accent); color: #fff; }
+    .theme-btn:hover:not(.active) { color: var(--text); background: var(--border); }
 
-        .links {
-            margin: 25px auto 0 auto;
-            display: grid;
-            grid-template-columns: 1fr;
-            /* Single column on mobile */
-            gap: 12px;
-            width: 100%;
-            max-width: 450px;
-            justify-items: center;
-        }
+    /* Layout */
+    .page { max-width: 800px; margin: 0 auto; padding: 0 24px; }
 
-        .links a {
-            padding: 14px 24px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1em;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: block;
-            text-align: center;
-        }
+    /* Hero */
+    .hero {
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--accent-text); background: var(--accent-soft);
+      padding: 5px 14px; border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(40px, 8vw, 64px);
+      font-weight: 900; line-height: 1.05;
+      letter-spacing: -0.035em;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero .tagline {
+      font-size: 19px; line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 540px; margin: 0 auto;
+    }
 
-        .links a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-        }
+    /* Section headers */
+    .section-header {
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 20px; padding-top: 60px;
+    }
 
-        .links a:active {
-            transform: translateY(0);
-        }
+    /* Product cards */
+    .products { display: grid; gap: 20px; }
 
-        /* Facebook link - blue gradient */
-        .links a[href*="facebook"] {
-            background: linear-gradient(135deg, #4267B2 0%, #365899 100%);
-        }
+    .product-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .product-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 40px -12px rgba(16, 185, 129, 0.1);
+    }
+    @media (max-width: 600px) {
+      .product-card { grid-template-columns: 1fr; }
+    }
 
-        .links a[href*="facebook"]:hover {
-            background: linear-gradient(135deg, #365899 0%, #4267B2 100%);
-        }
+    .product-icon {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 16px;
+    }
+    .product-icon.emerald { background: var(--accent-soft); }
+    .product-icon.purple { background: var(--purple-soft); }
 
-        /* Ko-Fi link - red/pink gradient */
-        .links a[href*="ko-fi"] {
-            background: linear-gradient(135deg, #FF5E5B 0%, #C73E1D 100%);
-        }
+    .product-card h3 {
+      font-size: 22px; font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .product-card .product-sub {
+      font-size: 13px; font-weight: 600;
+      color: var(--accent-text); margin-bottom: 10px;
+    }
+    .product-card.purple-accent .product-sub { color: var(--purple-text); }
+    .product-card p {
+      font-size: 14px; line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
 
-        .links a[href*="ko-fi"]:hover {
-            background: linear-gradient(135deg, #C73E1D 0%, #FF5E5B 100%);
-        }
+    .product-links {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .product-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; font-size: 13px; font-weight: 600;
+      text-decoration: none; border-radius: 10px;
+      transition: all 0.15s;
+    }
+    .product-link:active { transform: scale(0.97); }
+    .product-link.primary {
+      background: var(--accent); color: #fff;
+    }
+    .product-link.primary:hover { background: #059669; }
+    .product-link.primary.purple {
+      background: var(--purple); color: #fff;
+    }
+    .product-link.primary.purple:hover { opacity: 0.85; }
+    .product-link.secondary {
+      background: var(--bg-subtle); color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+    .product-link.secondary:hover { background: var(--border); color: var(--text); }
 
-        /* DeviantArt link - green gradient */
-        .links a[href*="deviantart"] {
-            background: linear-gradient(135deg, #05CC47 0%, #00A33C 100%);
-        }
+    .product-badges {
+      display: flex; flex-direction: column; gap: 8px;
+      align-self: start; padding-top: 8px;
+    }
+    .product-stat {
+      text-align: center; padding: 10px 16px;
+      background: var(--bg-subtle); border-radius: 12px;
+      min-width: 90px;
+    }
+    .product-stat .num {
+      font-size: 22px; font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      color: var(--accent);
+    }
+    .product-card.purple-accent .product-stat .num { color: var(--purple); }
+    .product-stat .label {
+      font-size: 11px; color: var(--text-muted);
+      font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
 
-        .links a[href*="deviantart"]:hover {
-            background: linear-gradient(135deg, #00A33C 0%, #05CC47 100%);
-        }
+    /* Features strip */
+    .features-strip {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .feature-tag {
+      font-size: 12px; font-weight: 600;
+      padding: 4px 10px; border-radius: 8px;
+      background: var(--bg-subtle); color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
 
-        /* thothai link - teal/purple gradient */
-        .links a[href*="thothai"] {
-            background: linear-gradient(135deg, #20B2AA 0%, #9370DB 100%);
-        }
+    /* Art section */
+    .art-section {
+      padding: 0 0 40px;
+    }
+    .art-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    @media (max-width: 500px) {
+      .art-card { flex-direction: column; text-align: center; }
+    }
+    .art-icon {
+      width: 64px; height: 64px; flex-shrink: 0;
+      background: var(--amber-soft);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+    }
+    .art-content { flex: 1; }
+    .art-content h3 {
+      font-size: 18px; font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .art-content p {
+      font-size: 14px; color: var(--text-secondary);
+      line-height: 1.6; margin-bottom: 14px;
+    }
+    .art-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    @media (max-width: 500px) {
+      .art-links { justify-content: center; }
+    }
+    .art-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 14px; font-size: 13px; font-weight: 600;
+      text-decoration: none; border-radius: 10px;
+      background: var(--bg-subtle); color: var(--text-secondary);
+      border: 1px solid var(--border); transition: all 0.15s;
+    }
+    .art-link:hover { background: var(--border); color: var(--text); }
 
-        .links a[href*="thothai"]:hover {
-            background: linear-gradient(135deg, #9370DB 0%, #20B2AA 100%);
-        }
-
-        /* Adjust layout for larger screens */
-        @media (min-width: 600px) {
-            .links {
-                grid-template-columns: repeat(2, 1fr);
-                /* 2 columns on desktop */
-                gap: 14px;
-            }
-        }
-
-        .preview {
-            margin-top: 30px;
-            width: 300px;
-            height: 300px;
-            border: 3px solid rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            overflow: hidden;
-            background: white;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        }
-
-        .preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 1s ease-in-out;
-        }
-
-        /* Mobile-specific tweaks */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8em;
-                /* Smaller header on mobile */
-            }
-
-            p {
-                font-size: 1em;
-                /* Smaller text on mobile */
-            }
-
-            .preview {
-                width: 200px;
-                /* Smaller preview on mobile */
-                height: 200px;
-            }
-        }
-    </style>
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 0 60px;
+      border-top: 1px solid var(--border);
+      margin-top: 60px;
+    }
+    .footer-brand {
+      font-size: 18px; font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .footer-brand span { color: var(--accent); }
+    .footer-sub {
+      font-size: 13px; color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      display: flex; gap: 20px; justify-content: center;
+      flex-wrap: wrap;
+    }
+    .footer-link {
+      font-size: 13px; font-weight: 600;
+      color: var(--text-muted); text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-link:hover { color: var(--accent); }
+  </style>
 </head>
-
 <body>
+  <!-- Theme Toggle -->
+  <div class="theme-toggle">
+    <button class="theme-btn" data-theme="light" title="Light">&#9728;</button>
+    <button class="theme-btn" data-theme="system" title="System">&#9211;</button>
+    <button class="theme-btn" data-theme="dark" title="Dark">&#9790;</button>
+  </div>
 
-    <header>
-        <h1>Welcome to Axly's Customs!</h1>
-        <p>Your go-to spot for amazing custom art creations. Check out our gallery or support us directly!</p>
-        <div class="links">
-            <a href="https://www.deviantart.com/axlyscustoms" target="_blank" rel="noopener noreferrer">DeviantArt</a>
-            <a href="https://ko-fi.com/r9customs" target="_blank" rel="noopener noreferrer">Ko-Fi</a>
-            <a href="https://www.facebook.com/share/1HWYA9LHNQ/?mibextid=wwXIfr" target="_blank"
-                rel="noopener noreferrer">Facebook</a>
-            <a href="/thothai/" target="_blank" rel="noopener noreferrer">ThothAI</a>
+  <div class="page">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-badge">Axly's Customs</div>
+      <h1>From discovery engines to digital art — <span>built for the curious</span></h1>
+      <p class="tagline">
+        Axly's Customs is a small workshop building AI tools, creative projects,
+        and whatever's next. If you like discovering new things, you're in the right place.
+      </p>
+    </section>
+
+    <!-- Creative -->
+    <section class="art-section">
+      <div class="section-header">Creative</div>
+      <div class="art-card">
+        <div class="art-icon">&#127912;</div>
+        <div class="art-content">
+          <h3>Custom Digital Art</h3>
+          <p>Where it all started. Custom art creations, commissions, and original work. Check out the gallery or support the craft.</p>
+          <div class="art-links">
+            <a href="https://www.facebook.com/share/1HWYA9LHNQ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="art-link">Facebook</a>
+            <a href="https://www.deviantart.com/axlyscustoms" target="_blank" rel="noopener noreferrer" class="art-link">DeviantArt</a>
+            <a href="https://ko-fi.com/r9customs" target="_blank" rel="noopener noreferrer" class="art-link">Ko-Fi</a>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <div class="preview">
-        <img id="preview-img" src="" alt="Art Preview">
+    <!-- Products -->
+    <div class="section-header">Products</div>
+    <div class="products">
+      <!-- Goldmine -->
+      <div class="product-card">
+        <div>
+          <div class="product-icon emerald">&#9935;</div>
+          <h3>Goldmine</h3>
+          <div class="product-sub">AI Tool Discovery Engine</div>
+          <p>
+            Surfaces emerging AI tools and developer repos before they go mainstream.
+            Scored by real momentum data across 6 sources — zero human curation.
+          </p>
+          <div class="product-links">
+            <a href="https://pickaxe-b2f.pages.dev" class="product-link primary">Open Pickaxe</a>
+            <a href="https://the-shovel.pages.dev" class="product-link secondary">The Shovel Newsletter</a>
+          </div>
+          <div class="features-strip">
+            <span class="feature-tag">GitHub</span>
+            <span class="feature-tag">Hacker News</span>
+            <span class="feature-tag">Product Hunt</span>
+            <span class="feature-tag">Reddit</span>
+            <span class="feature-tag">arXiv</span>
+            <span class="feature-tag">Dev.to</span>
+          </div>
+        </div>
+        <div class="product-badges">
+          <div class="product-stat">
+            <div class="num" id="tool-count">3.8k</div>
+            <div class="label">Tools</div>
+          </div>
+          <div class="product-stat">
+            <div class="num">6</div>
+            <div class="label">Sources</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ThothAI -->
+      <div class="product-card purple-accent">
+        <div>
+          <div class="product-icon purple">&#128218;</div>
+          <h3>ThothAI</h3>
+          <div class="product-sub">Local AI Document Assistant</div>
+          <p>
+            Upload PDFs, build knowledge bases, and ask questions — all processed
+            locally on your device. No cloud, no internet required, no data leaves your machine.
+          </p>
+          <div class="product-links">
+            <a href="/thothai/" class="product-link primary purple">Learn More</a>
+            <a href="#" class="product-link secondary">Windows</a>
+            <a href="#" class="product-link secondary">iOS (TestFlight)</a>
+          </div>
+          <div class="features-strip">
+            <span class="feature-tag">100% Local</span>
+            <span class="feature-tag">PDF Q&A</span>
+            <span class="feature-tag">Knowledge Bases</span>
+            <span class="feature-tag">Windows + iOS</span>
+          </div>
+        </div>
+        <div class="product-badges">
+          <div class="product-stat">
+            <div class="num">2</div>
+            <div class="label">Platforms</div>
+          </div>
+          <div class="product-stat">
+            <div class="num">0</div>
+            <div class="label">Cloud Deps</div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script>
-        let images = [];
-        let currentIndex = 0;
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-brand">Axly's <span>Customs</span></div>
+      <div class="footer-sub">Building practical AI tools since 2026</div>
+      <div class="footer-links">
+        <a href="https://pickaxe-b2f.pages.dev" class="footer-link">Pickaxe</a>
+        <a href="https://the-shovel.pages.dev" class="footer-link">The Shovel</a>
+        <a href="/thothai/" class="footer-link">ThothAI</a>
+        <a href="https://www.deviantart.com/axlyscustoms" target="_blank" rel="noopener noreferrer" class="footer-link">DeviantArt</a>
+        <a href="https://ko-fi.com/r9customs" target="_blank" rel="noopener noreferrer" class="footer-link">Ko-Fi</a>
+        <a href="https://www.facebook.com/share/1HWYA9LHNQ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="footer-link">Facebook</a>
+      </div>
+    </footer>
+  </div>
 
-        // Shuffle function (Fisher-Yates)
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-
-        function changeBackground() {
-            if (images.length === 0) return;
-            document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
-            currentIndex = (currentIndex + 1) % images.length;
-        }
-
-        function changePreview() {
-            if (images.length === 0) return;
-            const previewImg = document.getElementById('preview-img');
-            previewImg.style.opacity = 0;  // Fade out
-            setTimeout(() => {
-                previewImg.src = images[currentIndex];
-                previewImg.style.opacity = 1;  // Fade in
-            }, 1000);
-        }
-
-        // Load images from JSON
-        fetch('images.json')
-            .then(response => response.json())
-            .then(data => {
-                images = shuffleArray(data);
-
-                // Initial setup
-                if (images.length > 0) {
-                    document.body.style.backgroundImage = `url('${images[0]}')`;
-                    document.getElementById('preview-img').src = images[0];
-
-                    // Start rotation
-                    setInterval(() => {
-                        changeBackground();
-                        changePreview();
-                    }, 5000);
-                }
-            })
-            .catch(error => console.error('Error loading images:', error));
-    </script>
-
+  <script>
+    function getTheme() {
+      return localStorage.getItem('axly-theme') || 'system'
+    }
+    function applyTheme(mode) {
+      const isDark = mode === 'dark' || (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      document.body.classList.toggle('dark', isDark)
+      document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.theme === mode)
+      })
+    }
+    document.querySelectorAll('.theme-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.dataset.theme
+        localStorage.setItem('axly-theme', mode)
+        applyTheme(mode)
+      })
+    })
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if (getTheme() === 'system') applyTheme('system')
+    })
+    applyTheme(getTheme())
+  </script>
 </body>
-
 </html>
