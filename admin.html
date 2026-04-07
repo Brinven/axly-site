@@ -252,6 +252,25 @@
                 </p>
             </div>
 
+            <!-- Gallery Thumbnails Section -->
+            <div class="form-group" style="padding: 20px; background: #f0f8ff; border-radius: 8px; border: 1px solid #d0e8ff;">
+                <label>Gallery Thumbnails</label>
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                    <button onclick="syncThumbnails()" id="sync-btn" style="min-width: 180px;">Sync Gallery Thumbnails</button>
+                    <span id="thumb-status" style="font-size: 0.85em; color: #666;"></span>
+                </div>
+                <p style="font-size: 0.8em; color: #666; margin-top: 5px;">
+                    Generates compressed thumbnails for all active images and commits them to GitHub.
+                    The gallery page at <code>/gallery/</code> will update automatically.
+                </p>
+                <div id="thumb-progress" style="display:none; margin-top: 10px;">
+                    <div style="background: #e0e0e0; border-radius: 8px; height: 8px; overflow: hidden;">
+                        <div id="thumb-bar" style="background: linear-gradient(135deg, #667eea, #764ba2); height: 100%; width: 0%; transition: width 0.3s;"></div>
+                    </div>
+                    <div id="thumb-log" style="font-size: 0.8em; color: #666; margin-top: 5px; max-height: 120px; overflow-y: auto;"></div>
+                </div>
+            </div>
+
             <!-- Library Section -->
             <div class="image-list">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -262,7 +281,7 @@
                 <div id="image-list">
                     <!-- Images will be populated here -->
                 </div>
-                <div style="text-align: center; margin-top: 20px; color: #888; font-size: 0.8em;">v1.02</div>
+                <div style="text-align: center; margin-top: 20px; color: #888; font-size: 0.8em;">v1.03</div>
             </div>
         </div>
     </div>
@@ -599,6 +618,200 @@
             el.textContent = msg;
             el.className = type;
             el.style.display = type === 'none' ? 'none' : 'block';
+        }
+
+        // --- Thumbnail Generation ---
+
+        const THUMB_WIDTH = 400;
+        const THUMB_QUALITY = 0.80;
+        const THUMBS_DIR = 'images/thumbs';
+
+        function thumbLog(msg) {
+            const log = document.getElementById('thumb-log');
+            log.textContent += msg + '\n';
+            log.scrollTop = log.scrollHeight;
+        }
+
+        function thumbProgress(pct) {
+            document.getElementById('thumb-bar').style.width = pct + '%';
+        }
+
+        async function getExistingThumbs() {
+            // List files in images/thumbs/
+            try {
+                const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${THUMBS_DIR}?ref=${BRANCH}`;
+                const files = await githubFetch(url);
+                const map = {};
+                files.forEach(f => { map[f.name] = f.sha; });
+                return map;
+            } catch (e) {
+                // Folder doesn't exist yet
+                return {};
+            }
+        }
+
+        function getThumbName(imagePath) {
+            // images/foo.png -> foo.jpg
+            const filename = imagePath.split('/').pop();
+            const stem = filename.substring(0, filename.lastIndexOf('.'));
+            return stem + '.jpg';
+        }
+
+        function generateThumbnailBlob(imageUrl) {
+            return new Promise((resolve, reject) => {
+                const img = new window.Image();
+                img.crossOrigin = 'anonymous';
+                img.onload = () => {
+                    const ratio = THUMB_WIDTH / img.width;
+                    const height = Math.round(img.height * ratio);
+                    const canvas = document.createElement('canvas');
+                    canvas.width = THUMB_WIDTH;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, THUMB_WIDTH, height);
+                    canvas.toBlob(blob => {
+                        if (blob) resolve(blob);
+                        else reject(new Error('Canvas toBlob failed'));
+                    }, 'image/jpeg', THUMB_QUALITY);
+                };
+                img.onerror = () => reject(new Error('Failed to load image'));
+                img.src = imageUrl;
+            });
+        }
+
+        function blobToBase64(blob) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result.split(',')[1]);
+                reader.onerror = reject;
+                reader.readAsDataURL(blob);
+            });
+        }
+
+        async function syncThumbnails() {
+            const btn = document.getElementById('sync-btn');
+            const statusEl = document.getElementById('thumb-status');
+            const progressDiv = document.getElementById('thumb-progress');
+            const logEl = document.getElementById('thumb-log');
+
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span> Working...';
+            statusEl.textContent = '';
+            logEl.textContent = '';
+            progressDiv.style.display = 'block';
+            thumbProgress(0);
+
+            try {
+                // 1. Get active images from images.json
+                const { content: activeImages } = await fetchLatestRotation();
+                thumbLog(`Active images: ${activeImages.length}`);
+
+                // 2. Get existing thumbnails
+                const existingThumbs = await getExistingThumbs();
+                thumbLog(`Existing thumbnails: ${Object.keys(existingThumbs).length}`);
+
+                // 3. Figure out what needs generating
+                const needed = [];
+                const activeThumbNames = new Set();
+
+                activeImages.forEach(imgPath => {
+                    const thumbName = getThumbName(imgPath);
+                    activeThumbNames.add(thumbName);
+                    if (!existingThumbs[thumbName]) {
+                        needed.push({ imgPath, thumbName });
+                    }
+                });
+
+                // 4. Find orphan thumbnails to delete
+                const orphans = [];
+                Object.keys(existingThumbs).forEach(name => {
+                    if (!activeThumbNames.has(name)) {
+                        orphans.push({ name, sha: existingThumbs[name] });
+                    }
+                });
+
+                thumbLog(`Need to generate: ${needed.length}`);
+                thumbLog(`Orphans to remove: ${orphans.length}`);
+
+                if (needed.length === 0 && orphans.length === 0) {
+                    thumbLog('Everything is up to date!');
+                    statusEl.textContent = 'All thumbnails are current.';
+                    statusEl.style.color = '#155724';
+                    thumbProgress(100);
+                    return;
+                }
+
+                const total = needed.length + orphans.length;
+                let done = 0;
+
+                // 5. Generate missing thumbnails
+                for (const { imgPath, thumbName } of needed) {
+                    try {
+                        const rawUrl = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${imgPath}`;
+                        thumbLog(`Generating: ${thumbName}...`);
+
+                        const blob = await generateThumbnailBlob(rawUrl);
+                        const base64 = await blobToBase64(blob);
+                        const thumbPath = `${THUMBS_DIR}/${thumbName}`;
+
+                        // Check if file exists (might have been created since we checked)
+                        const body = {
+                            message: `Generate thumbnail: ${thumbName}`,
+                            content: base64,
+                            branch: BRANCH
+                        };
+                        if (existingThumbs[thumbName]) {
+                            body.sha = existingThumbs[thumbName];
+                        }
+
+                        await githubFetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${thumbPath}`, {
+                            method: 'PUT',
+                            body: JSON.stringify(body)
+                        });
+
+                        const sizeKB = Math.round(blob.size / 1024);
+                        thumbLog(`  OK (${sizeKB} KB)`);
+                    } catch (e) {
+                        thumbLog(`  FAILED: ${e.message}`);
+                    }
+
+                    done++;
+                    thumbProgress(Math.round(done / total * 100));
+                }
+
+                // 6. Delete orphan thumbnails
+                for (const { name, sha } of orphans) {
+                    try {
+                        thumbLog(`Removing orphan: ${name}...`);
+                        await githubFetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${THUMBS_DIR}/${name}`, {
+                            method: 'DELETE',
+                            body: JSON.stringify({
+                                message: `Remove orphan thumbnail: ${name}`,
+                                sha: sha,
+                                branch: BRANCH
+                            })
+                        });
+                        thumbLog('  Removed');
+                    } catch (e) {
+                        thumbLog(`  FAILED: ${e.message}`);
+                    }
+
+                    done++;
+                    thumbProgress(Math.round(done / total * 100));
+                }
+
+                thumbProgress(100);
+                statusEl.textContent = `Done! ${needed.length} generated, ${orphans.length} removed.`;
+                statusEl.style.color = '#155724';
+
+            } catch (e) {
+                thumbLog(`Error: ${e.message}`);
+                statusEl.textContent = 'Sync failed. See log above.';
+                statusEl.style.color = '#dc3545';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Sync Gallery Thumbnails';
+            }
         }
     </script>
 </body>
