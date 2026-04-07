@@ -1,0 +1,23 @@
+# Axly's Customs
+
+> A small workshop building practical AI-powered tools, creative projects, and whatever's next.
+
+## Products
+
+- [Goldmine](https://pickaxe.axly.com): AI tool discovery engine — surfaces emerging AI tools and developer repos before they go mainstream, scored by real momentum data across 6 sources
+- [Pickaxe](https://pickaxe.axly.com): The search interface for Goldmine's AI tool database
+- [The Shovel](https://shovel.axly.com): Weekly newsletter highlighting the best AI tools discovered by Goldmine
+- [ThothAI](https://axly.com/thothai/): Local AI document assistant — upload PDFs, build knowledge bases, ask questions. 100% offline, no cloud, no data leaves your machine. Available on Windows and iOS.
+
+## Creative
+
+- [Custom Digital Art](https://www.deviantart.com/axlyscustoms): Original art creations, commissions, and gallery
+
+## Links
+
+- Homepage: https://axly.com
+- Goldmine / Pickaxe: https://pickaxe.axly.com
+- The Shovel Newsletter: https://shovel.axly.com
+- ThothAI: https://axly.com/thothai/
+- DeviantArt: https://www.deviantart.com/axlyscustoms
+- Facebook: https://www.facebook.com/people/Axlys-Customs/61582103295229/
