@@ -9,6 +9,13 @@
 - [The Shovel](https://shovel.axly.com): Weekly newsletter highlighting the best AI tools discovered by Goldmine
 - [ThothAI](https://axly.com/thothai/): Local AI document assistant — upload PDFs, build knowledge bases, ask questions. 100% offline, no cloud, no data leaves your machine. Available on Windows and iOS.
 
+## Blog
+
+- [How Goldmine Scores AI Tools Before They Go Mainstream](https://axly.com/blog/how-goldmine-scores-ai-tools/): How the Goldmine Hype Index works — scoring AI tools across 6 platforms using real momentum data
+- [Why ThothAI Processes Everything on Your Device](https://axly.com/blog/why-thothai-processes-everything-locally/): The design philosophy behind building a fully local, offline AI document assistant
+- [What Is RAG and Why It Matters for Your Documents](https://axly.com/blog/what-is-rag-and-why-it-matters/): Retrieval-Augmented Generation explained simply — how AI can search your documents before answering
+- [The 6 Platforms We Monitor to Find AI Tools Early](https://axly.com/blog/6-platforms-we-monitor-to-find-ai-tools/): What each platform tells us about whether an AI tool has real momentum
+
 ## Creative
 
 - [Custom Digital Art](https://www.deviantart.com/axlyscustoms): Original art creations, commissions, and gallery
