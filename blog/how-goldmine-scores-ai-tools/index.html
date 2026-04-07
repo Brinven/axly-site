@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Goldmine Scores AI Tools Before They Go Mainstream | Axly's Customs Blog</title>
+  <meta name="description" content="Discover how Goldmine uses real momentum data from 6 platforms to find trending AI tools before the hype cycle. Zero human curation, purely algorithmic scoring.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://axly.com/blog/how-goldmine-scores-ai-tools/">
+  <meta property="og:title" content="How Goldmine Scores AI Tools Before They Go Mainstream">
+  <meta property="og:description" content="Discover how Goldmine uses real momentum data from 6 platforms to find trending AI tools before the hype cycle. Zero human curation, purely algorithmic scoring.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://axly.com/blog/how-goldmine-scores-ai-tools/">
+  <meta property="og:site_name" content="Axly's Customs">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How Goldmine Scores AI Tools Before They Go Mainstream">
+  <meta name="twitter:description" content="Discover how Goldmine uses real momentum data from 6 platforms to find trending AI tools before the hype cycle. Zero human curation, purely algorithmic scoring.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How Goldmine Scores AI Tools Before They Go Mainstream",
+    "description": "Discover how Goldmine uses real momentum data from 6 platforms to find trending AI tools before the hype cycle. Zero human curation, purely algorithmic scoring.",
+    "datePublished": "2026-04-07",
+    "author": { "@type": "Organization", "name": "Axly's Customs", "url": "https://axly.com" },
+    "publisher": { "@type": "Organization", "name": "Axly's Customs", "url": "https://axly.com" },
+    "url": "https://axly.com/blog/how-goldmine-scores-ai-tools/"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #fafafa; --bg-elevated: #ffffff; --text: #18181b;
+      --text-secondary: #52525b; --text-muted: #a1a1aa; --border: #e4e4e7;
+      --accent: #10b981; --accent-soft: #ecfdf5; --accent-text: #047857;
+    }
+    .dark {
+      --bg: #09090b; --bg-elevated: #18181b; --text: #fafafa;
+      --text-secondary: #a1a1aa; --text-muted: #52525b; --border: #27272a;
+      --accent: #10b981; --accent-soft: #052e16; --accent-text: #6ee7b7;
+    }
+    body {
+      font-family: 'Geist', system-ui, -apple-system, sans-serif;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased; min-height: 100dvh;
+      transition: background 0.3s, color 0.3s;
+    }
+    .theme-toggle {
+      position: fixed; top: 20px; right: 20px; display: flex; gap: 4px;
+      background: var(--bg-elevated); border: 1px solid var(--border);
+      border-radius: 12px; padding: 4px; z-index: 50;
+    }
+    .theme-btn {
+      width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+      border: none; border-radius: 8px; background: transparent; color: var(--text-muted);
+      cursor: pointer; font-size: 16px; transition: all 0.15s;
+    }
+    .theme-btn.active { background: var(--accent); color: #fff; }
+    .theme-btn:hover:not(.active) { color: var(--text); background: var(--border); }
+    .page { max-width: 720px; margin: 0 auto; padding: 80px 24px 60px; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600; color: var(--accent-text);
+      text-decoration: none; margin-bottom: 32px;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .post-meta {
+      font-size: 13px; font-weight: 600; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px;
+    }
+    .post-title {
+      font-size: clamp(28px, 5vw, 40px); font-weight: 900;
+      letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 24px;
+    }
+    .post-body { font-size: 16px; line-height: 1.8; color: var(--text-secondary); }
+    .post-body h2 {
+      font-size: 22px; font-weight: 800; color: var(--text);
+      margin: 40px 0 16px; letter-spacing: -0.02em;
+    }
+    .post-body h3 {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      margin: 32px 0 12px;
+    }
+    .post-body p { margin-bottom: 16px; }
+    .post-body a { color: var(--accent-text); text-decoration: underline; }
+    .post-body a:hover { color: var(--accent); }
+    .post-body ul, .post-body ol { margin: 0 0 16px 24px; }
+    .post-body li { margin-bottom: 8px; }
+    .post-body strong { color: var(--text); }
+    .post-body blockquote {
+      border-left: 3px solid var(--accent); padding: 12px 20px; margin: 24px 0;
+      background: var(--accent-soft); border-radius: 0 8px 8px 0;
+      font-style: italic;
+    }
+    .post-cta {
+      margin-top: 48px; padding: 28px; background: var(--bg-elevated);
+      border: 1px solid var(--border); border-radius: 16px; text-align: center;
+    }
+    .post-cta h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; color: var(--text); }
+    .post-cta p { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+    .post-cta a {
+      display: inline-block; padding: 10px 24px; background: var(--accent); color: #fff;
+      border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 700;
+    }
+    .post-cta a:hover { opacity: 0.85; }
+    .footer {
+      text-align: center; padding: 32px 0; border-top: 1px solid var(--border);
+      margin-top: 48px; font-size: 13px; color: var(--text-muted);
+    }
+    .footer a { color: var(--accent-text); text-decoration: none; font-weight: 600; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle">
+    <button class="theme-btn" data-theme="light" title="Light">&#9728;</button>
+    <button class="theme-btn" data-theme="system" title="System">&#9211;</button>
+    <button class="theme-btn" data-theme="dark" title="Dark">&#9790;</button>
+  </div>
+  <div class="page">
+    <a href="/blog/" class="back-link">&larr; All Posts</a>
+    <div class="post-meta">April 7, 2026</div>
+    <h1 class="post-title">How Goldmine Scores AI Tools Before They Go Mainstream</h1>
+    <article class="post-body">
+
+      <p>Most "discover AI tools" lists you find online have the same problem: somebody picked them. An editor, a sponsor, an influencer with a referral link. The list reflects their taste, their deals, and whatever landed in their inbox that week. There's nothing wrong with curation as a concept, but when you're trying to find new AI tools that are <em>actually</em> gaining traction, opinions are a terrible signal.</p>
+
+      <p>That's why I built <strong>Goldmine</strong>. It's an AI tool discovery engine that surfaces emerging tools and developer repos based on real momentum data — not vibes. No human curation. No sponsored placements. Just an algorithm watching what's moving across the internet and telling you what's worth paying attention to.</p>
+
+      <p>Here's how it actually works under the hood.</p>
+
+      <h2>The 6 Platforms We Watch</h2>
+
+      <p>To discover trending AI tools before they blow up, you need to watch the places where early adopters hang out. Goldmine tracks activity across six platforms, each one telling a different part of the story:</p>
+
+      <ul>
+        <li><strong>GitHub</strong> — Stars, forks, and trending repos. This is where you see developers actually adopting something, not just talking about it.</li>
+        <li><strong>Hacker News</strong> — Upvotes and comment threads. HN is the canary in the coal mine for developer interest. A tool that hits the front page with genuine discussion is worth watching.</li>
+        <li><strong>Product Hunt</strong> — Launches and upvote velocity. PH catches tools at their debut moment, when they're brand new and competing for attention.</li>
+        <li><strong>Reddit</strong> — Mentions and upvotes across relevant subreddits. Reddit is messy but honest. If people are recommending a tool unprompted in r/MachineLearning or r/LocalLLaMA, that's a strong signal.</li>
+        <li><strong>arXiv</strong> — Research papers. Some of the most important AI tools start as papers before they become products. Tracking arXiv catches things months before they hit mainstream.</li>
+        <li><strong>Dev.to</strong> — Blog posts and reactions. When developers write tutorials and getting-started guides about a tool, adoption is already happening.</li>
+      </ul>
+
+      <p>Each platform contributes a different kind of signal. A GitHub star means something different than a Hacker News upvote. A Dev.to tutorial means something different than an arXiv citation. Goldmine weighs them accordingly.</p>
+
+      <h2>The Goldmine Hype Index</h2>
+
+      <p>Raw numbers from six platforms would be noise. A repo with 50,000 stars that got 3 new ones today is not interesting. A repo with 200 stars that got 180 of them in the last 72 hours absolutely is. The difference is <strong>momentum</strong>.</p>
+
+      <p>The <strong>Goldmine Hype Index</strong> is the composite score we assign to every tool we track. It's not a simple sum of platform metrics. It factors in:</p>
+
+      <ul>
+        <li><strong>Velocity</strong> — How fast is this tool gaining attention right now? A spike matters more than a slow drip.</li>
+        <li><strong>Cross-platform presence</strong> — Is this tool showing up in one place, or everywhere? A tool trending on GitHub <em>and</em> Hacker News <em>and</em> Reddit is a fundamentally different signal than one that only popped on Product Hunt.</li>
+        <li><strong>Recency</strong> — Newer signals weigh heavier. We care about what's happening now, not what happened six months ago.</li>
+        <li><strong>Platform-specific context</strong> — 500 upvotes on Hacker News is a big deal. 500 upvotes on Reddit is Tuesday. The scoring accounts for what "high signal" actually means on each platform.</li>
+      </ul>
+
+      <p>The result is a single number that tells you how much real-world momentum a tool has. Not how popular it is overall — how much it's <em>moving</em> right now. That's the difference between finding AI tools early and reading about them after everyone else already knows.</p>
+
+      <h2>Badges That Tell You Why</h2>
+
+      <p>A score alone doesn't tell the whole story, so Goldmine also assigns badges that give you instant context about what's happening with a tool:</p>
+
+      <ul>
+        <li><strong>Rising Star</strong> — Fast growth. This tool's Hype Index is climbing rapidly. Whatever is driving attention, it's accelerating.</li>
+        <li><strong>Just Dropped</strong> — Brand new. This tool appeared in our tracking recently and is already generating signal. Worth watching early.</li>
+        <li><strong>Cross-Buzz</strong> — Trending on multiple platforms simultaneously. This is arguably the strongest indicator that something is real. When GitHub, HN, and Reddit all light up for the same tool in the same week, pay attention.</li>
+      </ul>
+
+      <p>These badges are assigned algorithmically, not editorially. If a tool earns a Cross-Buzz badge, it's because the data says so — not because someone on our team thought it was cool.</p>
+
+      <h2>3,800+ Tools and Growing</h2>
+
+      <p>As of today, Goldmine is actively tracking over <strong>3,800 AI tools and developer repos</strong>. That number grows every day as new tools appear across the platforms we monitor. The system is designed to catch things early — sometimes within hours of a tool's first public appearance.</p>
+
+      <p>You don't need to check all 3,800 yourself, though. That's where the two interfaces come in.</p>
+
+      <h3>Pickaxe: Search and Explore</h3>
+
+      <p><a href="https://pickaxe.axly.com">Pickaxe</a> is the search interface for the full Goldmine database. If you want to discover AI tools in a specific category, compare Hype Index scores, or just browse what's trending today, Pickaxe is where you do it. Think of it as the search engine for AI tool discovery — type what you're looking for and see what's actually gaining traction, ranked by real data.</p>
+
+      <h3>The Shovel: Weekly Top 10</h3>
+
+      <p>If you don't want to go digging yourself, <a href="https://shovel.axly.com">The Shovel</a> delivers the top trending AI tools to your inbox every Friday. It's a weekly newsletter that surfaces the highest-scoring tools from the past seven days. No fluff, no sponsored picks — just the tools with the most momentum that week, ranked by the Hype Index.</p>
+
+      <blockquote>The free tier gets the top 10 every week. The paid tier ($3/month) expands that to the top 30 plus AI evaluate prompts that help you quickly assess whether a tool is relevant to your workflow. Pickaxe access is $6/month for full search and exploration.</blockquote>
+
+      <h2>Why Algorithmic Discovery Matters</h2>
+
+      <p>The AI tool landscape is moving absurdly fast. New repos, new products, new papers — every single day. No human curator can keep up, and even if they could, their biases would shape what you see. Sponsored lists are even worse: you're seeing what someone paid to put in front of you, not what's actually good.</p>
+
+      <p>Goldmine doesn't have opinions. It watches the platforms where developers and researchers actually spend their time, measures what's gaining real traction, and surfaces it. That's it. The algorithm doesn't care who built the tool, who's funding it, or whether it has a slick landing page. It cares about momentum.</p>
+
+      <p>If you're a developer trying to find new AI tools before they go mainstream — before the blog posts, before the YouTube tutorials, before "50 AI Tools You Need in 2026" listicles — this is the approach that actually works. Watch the data. Trust the signals. Ignore the noise.</p>
+
+      <p>That's what Goldmine does. And if you want to see it in action, <a href="https://pickaxe.axly.com">start with Pickaxe</a> or <a href="https://shovel.axly.com">subscribe to The Shovel</a>. Either way, you'll be finding tools weeks before everyone else catches on.</p>
+
+    </article>
+    <div class="post-cta">
+      <h3>Find Trending AI Tools First</h3>
+      <p>Get the top 10 AI tools ranked by real momentum data, delivered to your inbox every Friday.</p>
+      <a href="https://shovel.axly.com">Subscribe to The Shovel</a>
+    </div>
+    <footer class="footer">
+      <a href="https://axly.com/">Axly's Customs</a> &middot;
+      <a href="/blog/">Blog</a> &middot;
+      <a href="https://pickaxe.axly.com">Pickaxe</a> &middot;
+      <a href="https://shovel.axly.com">The Shovel</a>
+    </footer>
+  </div>
+  <script>
+    function getTheme() { return localStorage.getItem('axly-theme') || 'system' }
+    function applyTheme(m) {
+      const d = m === 'dark' || (m === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)
+      document.body.classList.toggle('dark', d)
+      document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.dataset.theme === m))
+    }
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      b.addEventListener('click', () => { localStorage.setItem('axly-theme', b.dataset.theme); applyTheme(b.dataset.theme) })
+    })
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (getTheme() === 'system') applyTheme('system') })
+    applyTheme(getTheme())
+  </script>
+</body>
+</html>

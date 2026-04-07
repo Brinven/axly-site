@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why ThothAI Processes Everything on Your Device | Axly's Customs Blog</title>
+  <meta name="description" content="ThothAI is a local AI document assistant that processes PDFs entirely on your device. No cloud, no accounts, no data leaving your machine. Here's why.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://axly.com/blog/why-thothai-processes-everything-locally/">
+  <meta property="og:title" content="Why ThothAI Processes Everything on Your Device">
+  <meta property="og:description" content="ThothAI is a local AI document assistant that processes PDFs entirely on your device. No cloud, no accounts, no data leaving your machine. Here's why.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://axly.com/blog/why-thothai-processes-everything-locally/">
+  <meta property="og:site_name" content="Axly's Customs">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Why ThothAI Processes Everything on Your Device">
+  <meta name="twitter:description" content="ThothAI is a local AI document assistant that processes PDFs entirely on your device. No cloud, no accounts, no data leaving your machine. Here's why.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Why ThothAI Processes Everything on Your Device",
+    "description": "ThothAI is a local AI document assistant that processes PDFs entirely on your device. No cloud, no accounts, no data leaving your machine. Here's why.",
+    "datePublished": "2026-04-07",
+    "author": { "@type": "Organization", "name": "Axly's Customs", "url": "https://axly.com" },
+    "publisher": { "@type": "Organization", "name": "Axly's Customs", "url": "https://axly.com" },
+    "url": "https://axly.com/blog/why-thothai-processes-everything-locally/"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #fafafa; --bg-elevated: #ffffff; --text: #18181b;
+      --text-secondary: #52525b; --text-muted: #a1a1aa; --border: #e4e4e7;
+      --accent: #10b981; --accent-soft: #ecfdf5; --accent-text: #047857;
+    }
+    .dark {
+      --bg: #09090b; --bg-elevated: #18181b; --text: #fafafa;
+      --text-secondary: #a1a1aa; --text-muted: #52525b; --border: #27272a;
+      --accent: #10b981; --accent-soft: #052e16; --accent-text: #6ee7b7;
+    }
+    body { font-family: 'Geist', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; min-height: 100dvh; transition: background 0.3s, color 0.3s; }
+    .theme-toggle { position: fixed; top: 20px; right: 20px; display: flex; gap: 4px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 4px; z-index: 50; }
+    .theme-btn { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: none; border-radius: 8px; background: transparent; color: var(--text-muted); cursor: pointer; font-size: 16px; transition: all 0.15s; }
+    .theme-btn.active { background: var(--accent); color: #fff; }
+    .theme-btn:hover:not(.active) { color: var(--text); background: var(--border); }
+    .page { max-width: 720px; margin: 0 auto; padding: 80px 24px 60px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--accent-text); text-decoration: none; margin-bottom: 32px; }
+    .back-link:hover { text-decoration: underline; }
+    .post-meta { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px; }
+    .post-title { font-size: clamp(28px, 5vw, 40px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 24px; }
+    .post-body { font-size: 16px; line-height: 1.8; color: var(--text-secondary); }
+    .post-body h2 { font-size: 22px; font-weight: 800; color: var(--text); margin: 40px 0 16px; letter-spacing: -0.02em; }
+    .post-body h3 { font-size: 18px; font-weight: 700; color: var(--text); margin: 32px 0 12px; }
+    .post-body p { margin-bottom: 16px; }
+    .post-body a { color: var(--accent-text); text-decoration: underline; }
+    .post-body a:hover { color: var(--accent); }
+    .post-body ul, .post-body ol { margin: 0 0 16px 24px; }
+    .post-body li { margin-bottom: 8px; }
+    .post-body strong { color: var(--text); }
+    .post-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 24px 0; background: var(--accent-soft); border-radius: 0 8px 8px 0; font-style: italic; }
+    .post-cta { margin-top: 48px; padding: 28px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; text-align: center; }
+    .post-cta h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; color: var(--text); }
+    .post-cta p { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+    .post-cta a { display: inline-block; padding: 10px 24px; background: var(--accent); color: #fff; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 700; }
+    .post-cta a:hover { opacity: 0.85; }
+    .footer { text-align: center; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 48px; font-size: 13px; color: var(--text-muted); }
+    .footer a { color: var(--accent-text); text-decoration: none; font-weight: 600; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle">
+    <button class="theme-btn" data-theme="light" title="Light">&#9728;</button>
+    <button class="theme-btn" data-theme="system" title="System">&#9211;</button>
+    <button class="theme-btn" data-theme="dark" title="Dark">&#9790;</button>
+  </div>
+  <div class="page">
+    <a href="/blog/" class="back-link">&larr; All Posts</a>
+    <div class="post-meta">April 7, 2026</div>
+    <h1 class="post-title">Why ThothAI Processes Everything on Your Device</h1>
+    <article class="post-body">
+
+      <p>Every time you upload a document to a cloud AI service, you're making a trust decision. You're trusting that the company won't log your data. That they won't use it for training. That their servers won't get breached. That some future policy change won't retroactively apply to everything you already sent them.</p>
+
+      <p>When I started building <a href="https://axly.com/thothai/">ThothAI</a>, I decided to skip all of that. Not because I think cloud services are evil, but because I think there's a better way to build an AI document assistant&mdash;one where your files never leave your hands.</p>
+
+      <h2>The Problem with Cloud AI for Documents</h2>
+
+      <p>Here's how most AI document tools work: you upload your PDF, it gets sent to a remote server, processed by a model you don't control, and then the answer comes back. Convenient? Sure. But think about what just happened. Your document&mdash;maybe a legal contract, a medical record, internal financial data&mdash;now exists on someone else's infrastructure.</p>
+
+      <p>Most services will tell you they don't store your data. Some even mean it. But the architecture itself is the problem. <strong>The moment data leaves your device, you've lost control of it.</strong> You're relying on policies, not physics. And policies change.</p>
+
+      <p>For anyone handling sensitive documents&mdash;attorneys dealing with client privileged materials, healthcare professionals bound by HIPAA, businesses with proprietary internal docs&mdash;this isn't an abstract concern. It's a liability.</p>
+
+      <h2>What "Fully Local" Actually Means</h2>
+
+      <p>ThothAI is a <strong>local AI document assistant</strong> for Windows and iOS. When I say local, I mean it literally. The AI model runs on your device. Your documents are processed on your device. The answers are generated on your device. Nothing phones home.</p>
+
+      <p>The first time you open ThothAI, it downloads a LiquidAI LFM model from Hugging Face&mdash;about 843 MB in MLX format. That's a one-time download. After that, <strong>everything works 100% offline</strong>. You could disconnect from the internet entirely and ThothAI would keep working exactly the same way.</p>
+
+      <p>No account required. No subscription. No API keys. No server to go down. No terms of service that change next quarter.</p>
+
+      <h2>Two Modes, One Philosophy</h2>
+
+      <p>ThothAI has two ways to work, and both follow the same local-first principle:</p>
+
+      <h3>RAG Mode: Chat with Your PDFs Locally</h3>
+
+      <p>This is the core use case. Import your PDFs, ask questions, and get answers grounded in your actual documents. Every response includes <strong>source citations</strong>&mdash;which specific documents and which page numbers the answer came from. You can verify anything the AI tells you.</p>
+
+      <p>You organize documents into <strong>Knowledge Bases</strong>&mdash;collections grouped by topic. Work docs in one, study notes in another, recipes in a third. Import PDFs from your device, iCloud Drive, Dropbox, or Google Drive. Once imported, the documents are indexed locally and stay on your device.</p>
+
+      <p>This is what makes ThothAI a genuine <strong>offline PDF AI</strong>. The retrieval, the generation, the citation tracking&mdash;all of it happens on-device.</p>
+
+      <h3>Chatbot Mode: A General AI Assistant</h3>
+
+      <p>Sometimes you just want to have a conversation with an AI without attaching documents. Chatbot mode gives you that, still running the same local model. If you want, you can enable optional DuckDuckGo web search integration&mdash;privacy-focused, no tracking&mdash;but it's entirely opt-in. The default is offline.</p>
+
+      <h2>Why Local Matters More Than You Think</h2>
+
+      <p>Privacy is the obvious reason, but it's not the only one. Here's what local processing actually gives you:</p>
+
+      <ul>
+        <li><strong>No dependency on someone else's uptime.</strong> Cloud AI services go down. Rate limits kick in. Pricing changes. None of that applies here.</li>
+        <li><strong>Predictable performance.</strong> ThothAI shows performance stats on every response&mdash;tokens per second, retrieval time. Your hardware is the only variable, and it doesn't change between sessions.</li>
+        <li><strong>No surprises.</strong> There's no model swap happening behind the scenes, no A/B testing on your queries, no sudden behavior changes because the provider updated their system prompt.</li>
+        <li><strong>True ownership.</strong> Your documents, your model, your device. That's it. The full stack is in your hands.</li>
+      </ul>
+
+      <h2>Who This Is Built For</h2>
+
+      <p>I built ThothAI as a <strong>private document AI</strong> for people who can't afford to be casual about where their data goes:</p>
+
+      <ul>
+        <li><strong>Legal professionals</strong> who handle client-privileged documents and can't risk any third-party exposure.</li>
+        <li><strong>Healthcare workers</strong> operating under HIPAA, where sending patient data to a cloud API is a compliance nightmare.</li>
+        <li><strong>Students and researchers</strong> who want to chat with their PDF libraries&mdash;papers, textbooks, notes&mdash;without uploading their entire research pipeline to a corporate server.</li>
+        <li><strong>Business teams</strong> working with internal documents, financials, strategy decks, or anything that shouldn't exist outside the organization.</li>
+        <li><strong>Anyone who's just tired of creating accounts</strong> and handing over data for the privilege of using a tool.</li>
+      </ul>
+
+      <h2>The Tradeoffs, Honestly</h2>
+
+      <p>I'm not going to pretend local AI has no downsides. Cloud models from the big providers are larger, sometimes more capable on complex reasoning tasks, and they get updated frequently. A local model running on a phone or laptop is working with more constraints than a data center full of GPUs.</p>
+
+      <p>But for the task ThothAI is designed for&mdash;searching your documents, retrieving relevant passages, and generating grounded answers with citations&mdash;the LiquidAI LFM model handles it well. You're not asking it to write a novel or solve graduate-level math. You're asking it to read your PDFs and give you accurate, cited answers. That's a very tractable problem for a well-chosen local model.</p>
+
+      <p>And the tradeoff goes the other way too. Every time a cloud service has an outage, changes its pricing, deprecates an API, or updates its terms&mdash;local users don't notice. The 843 MB model on your device just keeps working.</p>
+
+      <h2>The Design Decision</h2>
+
+      <blockquote>If the architecture requires trust, the architecture is wrong.</blockquote>
+
+      <p>That's the principle behind ThothAI. I didn't want to build something that works great "as long as you trust us." I wanted to build something where the question of trust doesn't come up at all, because your data never goes anywhere.</p>
+
+      <p>No cloud processing. No telemetry. No analytics on your queries. No "anonymous usage data." The app runs, the model runs, your documents stay yours. That's the entire privacy policy.</p>
+
+      <p>If you've been looking for a way to <strong>chat with PDFs locally</strong>&mdash;without accounts, without subscriptions, without wondering where your data ends up&mdash;that's exactly what ThothAI was built to do.</p>
+
+    </article>
+    <div class="post-cta">
+      <h3>Try ThothAI &mdash; Your Documents, Your Device</h3>
+      <p>A local AI document assistant for Windows and iOS. No cloud, no accounts, no data leaving your machine.</p>
+      <a href="https://axly.com/thothai/">Learn More About ThothAI</a>
+    </div>
+    <footer class="footer">
+      <a href="https://axly.com/">Axly's Customs</a> &middot;
+      <a href="/blog/">Blog</a> &middot;
+      <a href="https://pickaxe.axly.com">Pickaxe</a> &middot;
+      <a href="https://shovel.axly.com">The Shovel</a>
+    </footer>
+  </div>
+  <script>
+    function getTheme() { return localStorage.getItem('axly-theme') || 'system' }
+    function applyTheme(m) {
+      const d = m === 'dark' || (m === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)
+      document.body.classList.toggle('dark', d)
+      document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.dataset.theme === m))
+    }
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      b.addEventListener('click', () => { localStorage.setItem('axly-theme', b.dataset.theme); applyTheme(b.dataset.theme) })
+    })
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (getTheme() === 'system') applyTheme('system') })
+    applyTheme(getTheme())
+  </script>
+</body>
+</html>

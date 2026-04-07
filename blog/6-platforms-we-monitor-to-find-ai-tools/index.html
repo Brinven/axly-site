@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 6 Platforms We Monitor to Find AI Tools Early | Axly's Customs Blog</title>
+  <meta name="description" content="GitHub, Hacker News, Product Hunt, Reddit, arXiv, and Dev.to — each tells a different story about whether an AI tool is real. Here's what Goldmine looks for on each.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://axly.com/blog/6-platforms-we-monitor-to-find-ai-tools/">
+  <meta property="og:title" content="The 6 Platforms We Monitor to Find AI Tools Early">
+  <meta property="og:description" content="GitHub, Hacker News, Product Hunt, Reddit, arXiv, and Dev.to — each tells a different story about whether an AI tool is real.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://axly.com/blog/6-platforms-we-monitor-to-find-ai-tools/">
+  <meta property="og:site_name" content="Axly's Customs">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The 6 Platforms We Monitor to Find AI Tools Early">
+  <meta name="twitter:description" content="GitHub, Hacker News, Product Hunt, Reddit, arXiv, and Dev.to — each tells a different story about whether an AI tool is real.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The 6 Platforms We Monitor to Find AI Tools Early",
+    "description": "GitHub, Hacker News, Product Hunt, Reddit, arXiv, and Dev.to — each tells a different story about whether an AI tool is real. Here's what Goldmine looks for on each.",
+    "datePublished": "2026-04-07",
+    "author": { "@type": "Organization", "name": "Axly's Customs", "url": "https://axly.com" },
+    "publisher": { "@type": "Organization", "name": "Axly's Customs", "url": "https://axly.com" },
+    "url": "https://axly.com/blog/6-platforms-we-monitor-to-find-ai-tools/"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #fafafa; --bg-elevated: #ffffff; --text: #18181b; --text-secondary: #52525b; --text-muted: #a1a1aa; --border: #e4e4e7; --accent: #10b981; --accent-soft: #ecfdf5; --accent-text: #047857; }
+    .dark { --bg: #09090b; --bg-elevated: #18181b; --text: #fafafa; --text-secondary: #a1a1aa; --text-muted: #52525b; --border: #27272a; --accent: #10b981; --accent-soft: #052e16; --accent-text: #6ee7b7; }
+    body { font-family: 'Geist', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; min-height: 100dvh; transition: background 0.3s, color 0.3s; }
+    .theme-toggle { position: fixed; top: 20px; right: 20px; display: flex; gap: 4px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 4px; z-index: 50; }
+    .theme-btn { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: none; border-radius: 8px; background: transparent; color: var(--text-muted); cursor: pointer; font-size: 16px; transition: all 0.15s; }
+    .theme-btn.active { background: var(--accent); color: #fff; }
+    .theme-btn:hover:not(.active) { color: var(--text); background: var(--border); }
+    .page { max-width: 720px; margin: 0 auto; padding: 80px 24px 60px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--accent-text); text-decoration: none; margin-bottom: 32px; }
+    .back-link:hover { text-decoration: underline; }
+    .post-meta { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px; }
+    .post-title { font-size: clamp(28px, 5vw, 40px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 24px; }
+    .post-body { font-size: 16px; line-height: 1.8; color: var(--text-secondary); }
+    .post-body h2 { font-size: 22px; font-weight: 800; color: var(--text); margin: 40px 0 16px; letter-spacing: -0.02em; }
+    .post-body h3 { font-size: 18px; font-weight: 700; color: var(--text); margin: 32px 0 12px; }
+    .post-body p { margin-bottom: 16px; }
+    .post-body a { color: var(--accent-text); text-decoration: underline; }
+    .post-body a:hover { color: var(--accent); }
+    .post-body ul, .post-body ol { margin: 0 0 16px 24px; }
+    .post-body li { margin-bottom: 8px; }
+    .post-body strong { color: var(--text); }
+    .post-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 24px 0; background: var(--accent-soft); border-radius: 0 8px 8px 0; font-style: italic; }
+    .post-cta { margin-top: 48px; padding: 28px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; text-align: center; }
+    .post-cta h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; color: var(--text); }
+    .post-cta p { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+    .post-cta a { display: inline-block; padding: 10px 24px; background: var(--accent); color: #fff; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 700; margin: 0 6px; }
+    .post-cta a:hover { opacity: 0.85; }
+    .footer { text-align: center; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 48px; font-size: 13px; color: var(--text-muted); }
+    .footer a { color: var(--accent-text); text-decoration: none; font-weight: 600; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle">
+    <button class="theme-btn" data-theme="light" title="Light">&#9728;</button>
+    <button class="theme-btn" data-theme="system" title="System">&#9211;</button>
+    <button class="theme-btn" data-theme="dark" title="Dark">&#9790;</button>
+  </div>
+  <div class="page">
+    <a href="/blog/" class="back-link">&larr; All Posts</a>
+    <div class="post-meta">April 7, 2026</div>
+    <h1 class="post-title">The 6 Platforms We Monitor to Find AI Tools Early</h1>
+    <article class="post-body">
+
+      <p>Every week, hundreds of new AI tools launch. Most of them are wrappers around the same APIs with a fresh coat of paint. A handful are genuinely interesting. And a few will become tools you use every day.</p>
+
+      <p>The question is: how do you find those few without wading through the noise?</p>
+
+      <p>That's the problem <a href="https://pickaxe.axly.com">Goldmine</a> was built to solve. Instead of relying on someone's curated list or a tech blog's sponsored picks, we monitor six platforms where real developers and builders spend their time — and we track what's actually gaining traction across all of them.</p>
+
+      <p>Here's what each platform tells us and why it matters.</p>
+
+      <h2>1. GitHub — The builder's signal</h2>
+
+      <p>GitHub is where developers put their actual work. When a repo starts gaining stars rapidly, that's not marketing — that's real people looking at the code and deciding it's worth bookmarking.</p>
+
+      <p><strong>What we track:</strong> Star velocity (how fast stars are growing, not just total count), fork count (people building on it), trending status, and repository activity (commits, issues, PRs).</p>
+
+      <p><strong>Why it matters:</strong> A tool that's trending on GitHub has passed the first credibility test — real developers have examined the code and found it worth their time. This is the highest-signal platform in our pipeline.</p>
+
+      <p><strong>What it misses:</strong> Not every great tool is open source. Commercial products with closed repos won't show up here. That's why GitHub is one of six signals, not the only one.</p>
+
+      <h2>2. Hacker News — The taste filter</h2>
+
+      <p>Hacker News has the most critical audience in tech. If something hits the front page of HN and stays there, it has survived a gauntlet of skeptics, nitpickers, and domain experts.</p>
+
+      <p><strong>What we track:</strong> Upvotes, comment count, time on front page, and comment sentiment (are people excited or tearing it apart?).</p>
+
+      <p><strong>Why it matters:</strong> HN readers are disproportionately early adopters and technical founders. High engagement here often predicts which tools will show up in production codebases six months later.</p>
+
+      <p><strong>What it misses:</strong> HN has strong biases — it tends to favor developer tools and infrastructure over consumer products. A brilliant design tool might never get traction there.</p>
+
+      <h2>3. Product Hunt — The launch signal</h2>
+
+      <p>Product Hunt is where builders go to announce things. It's the closest thing to an opening bell for new products.</p>
+
+      <p><strong>What we track:</strong> Launch upvotes, daily ranking, maker engagement in comments, and whether the product has shipped a working demo or just a landing page.</p>
+
+      <p><strong>Why it matters:</strong> A strong Product Hunt launch means the builder invested in a real launch strategy and the community responded. It's particularly valuable for catching non-open-source tools that wouldn't show up on GitHub.</p>
+
+      <p><strong>What it misses:</strong> Product Hunt can be gamed with coordinated upvoting. A tool with 500 upvotes and zero comments is suspicious. That's why we cross-reference with the other five platforms.</p>
+
+      <h2>4. Reddit — The honest reaction</h2>
+
+      <p>Reddit is where people talk about tools when they think the maker isn't listening. Subreddits like r/MachineLearning, r/LocalLLaMA, r/artificial, and r/SideProject are goldmines (pun intended) for candid takes on new tools.</p>
+
+      <p><strong>What we track:</strong> Post upvotes, comment volume, cross-posting between subreddits, and whether people are sharing their actual experiences versus just reposting the launch announcement.</p>
+
+      <p><strong>Why it matters:</strong> Reddit catches the tools that are genuinely useful in practice, not just impressive in demos. When someone posts "I replaced X with this new tool and it actually works," that's a strong signal.</p>
+
+      <p><strong>What it misses:</strong> Reddit skews toward hobbyists and enthusiasts. Enterprise tools rarely get Reddit buzz even when they're transformative.</p>
+
+      <h2>5. arXiv — The research signal</h2>
+
+      <p>arXiv is where academic papers get published before peer review. It's the bleeding edge — this is where the techniques behind tomorrow's tools get described for the first time.</p>
+
+      <p><strong>What we track:</strong> Paper citations, GitHub repos linked from papers (the "code available" signal), Hugging Face model releases tied to papers, and cross-references with tools appearing on other platforms.</p>
+
+      <p><strong>Why it matters:</strong> Many of the most important AI tools started as research papers. Stable Diffusion, LoRA, RAG itself — all had arXiv papers before they had products. Tracking arXiv gives us a preview of what's coming.</p>
+
+      <p><strong>What it misses:</strong> Most arXiv papers never become usable tools. The signal is noisy and requires cross-referencing to be useful — which is exactly what Goldmine does.</p>
+
+      <h2>6. Dev.to — The practitioner's take</h2>
+
+      <p>Dev.to is a community blogging platform where developers write tutorials, reviews, and deep dives. When someone writes a 2,000-word walkthrough of a tool they actually used, that's qualitatively different from a tweet.</p>
+
+      <p><strong>What we track:</strong> Post reactions, comment engagement, and whether the content is a genuine review/tutorial versus a thinly veiled product announcement.</p>
+
+      <p><strong>Why it matters:</strong> Dev.to posts tend to come from people who've actually used the tool in a real project. A detailed integration guide means the tool is mature enough to be practical, not just theoretically interesting.</p>
+
+      <p><strong>What it misses:</strong> Dev.to is smaller than the other platforms. The signal is valuable but lower volume.</p>
+
+      <h2>Why cross-platform matters</h2>
+
+      <p>Any single platform can be misleading. A tool can trend on Product Hunt through coordinated upvoting. A GitHub repo can get starred by bots. A Reddit post can go viral for the wrong reasons.</p>
+
+      <p>But when a tool shows up on <em>multiple</em> platforms simultaneously — that's the <strong>"Cross-Buzz"</strong> signal, and it's one of the strongest indicators we've found. A tool that's trending on GitHub, getting discussed on Hacker News, <em>and</em> receiving genuine reviews on Dev.to has passed three independent filters.</p>
+
+      <blockquote>No single platform tells the whole truth. The intersection of all six is where the real signal lives.</blockquote>
+
+      <p>That intersection is what the <a href="https://pickaxe.axly.com">Goldmine Hype Index</a> calculates. Each platform contributes its score, weighted by how reliable that signal tends to be, and the composite tells you whether a tool has genuine momentum or just a good marketing team.</p>
+
+      <h2>See it in action</h2>
+
+      <p>Every Friday, <a href="https://shovel.axly.com">The Shovel newsletter</a> delivers the top-scoring tools from the past week — free. If you want the full database with daily updates, <a href="https://pickaxe.axly.com">Pickaxe</a> lets you search, filter, and explore all 3,800+ tools we're tracking.</p>
+
+    </article>
+    <div class="post-cta">
+      <h3>Don't miss next week's top tools</h3>
+      <p>The Shovel delivers the top 10 AI tools every Friday, scored by real momentum data. Free.</p>
+      <a href="https://shovel.axly.com">Subscribe to The Shovel</a>
+      <a href="https://pickaxe.axly.com" style="background:var(--bg);color:var(--accent-text);border:1px solid var(--border);">Try Pickaxe</a>
+    </div>
+    <footer class="footer">
+      <a href="https://axly.com/">Axly's Customs</a> &middot;
+      <a href="/blog/">Blog</a> &middot;
+      <a href="https://pickaxe.axly.com">Pickaxe</a> &middot;
+      <a href="https://shovel.axly.com">The Shovel</a>
+    </footer>
+  </div>
+  <script>
+    function getTheme() { return localStorage.getItem('axly-theme') || 'system' }
+    function applyTheme(m) {
+      const d = m === 'dark' || (m === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)
+      document.body.classList.toggle('dark', d)
+      document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.dataset.theme === m))
+    }
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      b.addEventListener('click', () => { localStorage.setItem('axly-theme', b.dataset.theme); applyTheme(b.dataset.theme) })
+    })
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (getTheme() === 'system') applyTheme('system') })
+    applyTheme(getTheme())
+  </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Axly's Customs</title>
+  <meta name="description" content="Thoughts on AI tools, local-first software, and building things for the curious. From the workshop behind Goldmine, ThothAI, and Axly's Customs.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://axly.com/blog/">
+  <meta property="og:title" content="Blog — Axly's Customs">
+  <meta property="og:description" content="Thoughts on AI tools, local-first software, and building things for the curious.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://axly.com/blog/">
+  <meta property="og:site_name" content="Axly's Customs">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Blog — Axly's Customs">
+  <meta name="twitter:description" content="Thoughts on AI tools, local-first software, and building things for the curious.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #fafafa; --bg-elevated: #ffffff; --text: #18181b;
+      --text-secondary: #52525b; --text-muted: #a1a1aa; --border: #e4e4e7;
+      --accent: #10b981; --accent-soft: #ecfdf5; --accent-text: #047857;
+    }
+    .dark {
+      --bg: #09090b; --bg-elevated: #18181b; --text: #fafafa;
+      --text-secondary: #a1a1aa; --text-muted: #52525b; --border: #27272a;
+      --accent: #10b981; --accent-soft: #052e16; --accent-text: #6ee7b7;
+    }
+    body {
+      font-family: 'Geist', system-ui, -apple-system, sans-serif;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased; min-height: 100dvh;
+      transition: background 0.3s, color 0.3s;
+    }
+    .theme-toggle {
+      position: fixed; top: 20px; right: 20px; display: flex; gap: 4px;
+      background: var(--bg-elevated); border: 1px solid var(--border);
+      border-radius: 12px; padding: 4px; z-index: 50;
+    }
+    .theme-btn {
+      width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+      border: none; border-radius: 8px; background: transparent; color: var(--text-muted);
+      cursor: pointer; font-size: 16px; transition: all 0.15s;
+    }
+    .theme-btn.active { background: var(--accent); color: #fff; }
+    .theme-btn:hover:not(.active) { color: var(--text); background: var(--border); }
+
+    .page { max-width: 720px; margin: 0 auto; padding: 80px 24px 60px; }
+
+    .back-home {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600; color: var(--accent-text);
+      text-decoration: none; margin-bottom: 24px;
+    }
+    .back-home:hover { text-decoration: underline; }
+
+    .blog-header { margin-bottom: 48px; }
+    .blog-header h1 {
+      font-size: clamp(32px, 6vw, 48px); font-weight: 900;
+      letter-spacing: -0.03em; margin-bottom: 12px;
+    }
+    .blog-header p {
+      font-size: 17px; color: var(--text-secondary); line-height: 1.6;
+    }
+
+    .post-list { display: flex; flex-direction: column; gap: 20px; }
+
+    .post-card {
+      background: var(--bg-elevated); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px; text-decoration: none; color: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s; display: block;
+    }
+    .post-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.08);
+    }
+    .post-card .post-date {
+      font-size: 12px; font-weight: 600; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;
+    }
+    .post-card h2 {
+      font-size: 20px; font-weight: 800; letter-spacing: -0.02em;
+      margin-bottom: 8px; line-height: 1.3;
+    }
+    .post-card p {
+      font-size: 14px; color: var(--text-secondary); line-height: 1.6;
+    }
+    .post-card .read-more {
+      display: inline-block; margin-top: 12px; font-size: 13px; font-weight: 600;
+      color: var(--accent-text);
+    }
+    .post-tags {
+      display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap;
+    }
+    .post-tag {
+      font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px;
+      background: var(--accent-soft); color: var(--accent-text);
+    }
+
+    .footer {
+      text-align: center; padding: 32px 0; border-top: 1px solid var(--border);
+      margin-top: 48px; font-size: 13px; color: var(--text-muted);
+    }
+    .footer a { color: var(--accent-text); text-decoration: none; font-weight: 600; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle">
+    <button class="theme-btn" data-theme="light" title="Light">&#9728;</button>
+    <button class="theme-btn" data-theme="system" title="System">&#9211;</button>
+    <button class="theme-btn" data-theme="dark" title="Dark">&#9790;</button>
+  </div>
+
+  <div class="page">
+    <a href="https://axly.com/" class="back-home">&larr; Axly's Customs</a>
+
+    <div class="blog-header">
+      <h1>Blog</h1>
+      <p>Thoughts on AI tools, local-first software, and building things for the curious.</p>
+    </div>
+
+    <div class="post-list" id="post-list">
+      <div style="text-align:center;padding:40px;color:var(--text-muted);">Loading posts...</div>
+    </div>
+
+    <footer class="footer">
+      <a href="https://axly.com/">Axly's Customs</a> &middot;
+      <a href="https://pickaxe.axly.com">Pickaxe</a> &middot;
+      <a href="https://shovel.axly.com">The Shovel</a> &middot;
+      <a href="https://axly.com/thothai/">ThothAI</a> &middot;
+      <a href="https://axly.com/gallery/">Gallery</a>
+    </footer>
+  </div>
+
+  <script>
+    // Theme
+    function getTheme() { return localStorage.getItem('axly-theme') || 'system' }
+    function applyTheme(m) {
+      const d = m === 'dark' || (m === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)
+      document.body.classList.toggle('dark', d)
+      document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.dataset.theme === m))
+    }
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      b.addEventListener('click', () => { localStorage.setItem('axly-theme', b.dataset.theme); applyTheme(b.dataset.theme) })
+    })
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (getTheme() === 'system') applyTheme('system') })
+    applyTheme(getTheme())
+
+    // Posts
+    async function loadPosts() {
+      const list = document.getElementById('post-list')
+      try {
+        const res = await fetch('/blog/posts.json')
+        const posts = await res.json()
+        // Sort newest first
+        posts.sort((a, b) => b.date.localeCompare(a.date))
+
+        list.innerHTML = ''
+        posts.forEach(post => {
+          const date = new Date(post.date + 'T00:00:00')
+          const dateStr = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+
+          const card = document.createElement('a')
+          card.href = `/blog/${post.slug}/`
+          card.className = 'post-card'
+          card.innerHTML = `
+            <div class="post-date">${dateStr}</div>
+            <h2>${post.title}</h2>
+            <p>${post.excerpt}</p>
+            <div class="post-tags">${post.tags.map(t => `<span class="post-tag">${t}</span>`).join('')}</div>
+            <span class="read-more">Read more &rarr;</span>
+          `
+          list.appendChild(card)
+        })
+      } catch (e) {
+        list.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted);">Could not load posts.</div>'
+      }
+    }
+    loadPosts()
+  </script>
+</body>
+</html>

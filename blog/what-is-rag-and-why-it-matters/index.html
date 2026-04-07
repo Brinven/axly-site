@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Is RAG and Why It Matters for Your Documents | Axly's Customs Blog</title>
+  <meta name="description" content="Retrieval-Augmented Generation lets AI search your actual documents before answering. Learn how RAG works, why it beats plain chatbots, and how ThothAI uses it locally.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://axly.com/blog/what-is-rag-and-why-it-matters/">
+  <meta property="og:title" content="What Is RAG and Why It Matters for Your Documents">
+  <meta property="og:description" content="Retrieval-Augmented Generation lets AI search your actual documents before answering. Learn how RAG works and why it beats plain chatbots.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://axly.com/blog/what-is-rag-and-why-it-matters/">
+  <meta property="og:site_name" content="Axly's Customs">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="What Is RAG and Why It Matters for Your Documents">
+  <meta name="twitter:description" content="Retrieval-Augmented Generation lets AI search your actual documents before answering. Learn how RAG works and why it beats plain chatbots.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "What Is RAG and Why It Matters for Your Documents",
+    "description": "Retrieval-Augmented Generation lets AI search your actual documents before answering. Learn how RAG works, why it beats plain chatbots, and how ThothAI uses it locally.",
+    "datePublished": "2026-04-07",
+    "author": { "@type": "Organization", "name": "Axly's Customs", "url": "https://axly.com" },
+    "publisher": { "@type": "Organization", "name": "Axly's Customs", "url": "https://axly.com" },
+    "url": "https://axly.com/blog/what-is-rag-and-why-it-matters/"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #fafafa; --bg-elevated: #ffffff; --text: #18181b; --text-secondary: #52525b; --text-muted: #a1a1aa; --border: #e4e4e7; --accent: #10b981; --accent-soft: #ecfdf5; --accent-text: #047857; }
+    .dark { --bg: #09090b; --bg-elevated: #18181b; --text: #fafafa; --text-secondary: #a1a1aa; --text-muted: #52525b; --border: #27272a; --accent: #10b981; --accent-soft: #052e16; --accent-text: #6ee7b7; }
+    body { font-family: 'Geist', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; min-height: 100dvh; transition: background 0.3s, color 0.3s; }
+    .theme-toggle { position: fixed; top: 20px; right: 20px; display: flex; gap: 4px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 4px; z-index: 50; }
+    .theme-btn { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: none; border-radius: 8px; background: transparent; color: var(--text-muted); cursor: pointer; font-size: 16px; transition: all 0.15s; }
+    .theme-btn.active { background: var(--accent); color: #fff; }
+    .theme-btn:hover:not(.active) { color: var(--text); background: var(--border); }
+    .page { max-width: 720px; margin: 0 auto; padding: 80px 24px 60px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--accent-text); text-decoration: none; margin-bottom: 32px; }
+    .back-link:hover { text-decoration: underline; }
+    .post-meta { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px; }
+    .post-title { font-size: clamp(28px, 5vw, 40px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 24px; }
+    .post-body { font-size: 16px; line-height: 1.8; color: var(--text-secondary); }
+    .post-body h2 { font-size: 22px; font-weight: 800; color: var(--text); margin: 40px 0 16px; letter-spacing: -0.02em; }
+    .post-body h3 { font-size: 18px; font-weight: 700; color: var(--text); margin: 32px 0 12px; }
+    .post-body p { margin-bottom: 16px; }
+    .post-body a { color: var(--accent-text); text-decoration: underline; }
+    .post-body a:hover { color: var(--accent); }
+    .post-body ul, .post-body ol { margin: 0 0 16px 24px; }
+    .post-body li { margin-bottom: 8px; }
+    .post-body strong { color: var(--text); }
+    .post-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 24px 0; background: var(--accent-soft); border-radius: 0 8px 8px 0; font-style: italic; }
+    .post-cta { margin-top: 48px; padding: 28px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; text-align: center; }
+    .post-cta h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; color: var(--text); }
+    .post-cta p { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+    .post-cta a { display: inline-block; padding: 10px 24px; background: var(--accent); color: #fff; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 700; }
+    .post-cta a:hover { opacity: 0.85; }
+    .footer { text-align: center; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 48px; font-size: 13px; color: var(--text-muted); }
+    .footer a { color: var(--accent-text); text-decoration: none; font-weight: 600; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle">
+    <button class="theme-btn" data-theme="light" title="Light">&#9728;</button>
+    <button class="theme-btn" data-theme="system" title="System">&#9211;</button>
+    <button class="theme-btn" data-theme="dark" title="Dark">&#9790;</button>
+  </div>
+  <div class="page">
+    <a href="/blog/" class="back-link">&larr; All Posts</a>
+    <div class="post-meta">April 7, 2026</div>
+    <h1 class="post-title">What Is RAG and Why It Matters for Your Documents</h1>
+    <article class="post-body">
+
+      <p>If you've used ChatGPT or any other AI chatbot, you've probably noticed something: they're great at sounding confident and terrible at being accurate about <em>your</em> stuff. Ask a chatbot about your company's expense policy or what's on page 47 of a contract, and you'll get a polished, completely fabricated answer.</p>
+
+      <p>That's not a bug — it's a fundamental limitation of how those models work. They were trained on the internet, not your documents. They don't know what's in your files because they've never seen them.</p>
+
+      <p><strong>RAG fixes this.</strong></p>
+
+      <h2>RAG in plain language</h2>
+
+      <p>RAG stands for <strong>Retrieval-Augmented Generation</strong>. The name is academic, but the idea is dead simple: before the AI answers your question, it searches your actual documents first.</p>
+
+      <p>Think of it like the difference between asking a random person on the street for legal advice versus asking a lawyer who has your case file open in front of them. Both might be articulate. Only one has the facts.</p>
+
+      <p>Here's what happens when you ask a RAG-powered system a question:</p>
+
+      <ol>
+        <li><strong>Retrieval:</strong> Your question gets converted into a search query. The system scans your documents — PDFs, manuals, notes, whatever you've loaded — and finds the most relevant passages.</li>
+        <li><strong>Augmentation:</strong> Those passages get handed to the AI along with your question. Now the model has context — real text from your real files.</li>
+        <li><strong>Generation:</strong> The AI writes an answer based on what it actually found in your documents, not what it vaguely remembers from internet training data.</li>
+      </ol>
+
+      <p>The result: answers that are grounded in your data, with citations pointing to specific documents and page numbers.</p>
+
+      <h2>Why regular chatbots fall short</h2>
+
+      <p>Standard AI chatbots (even good ones) have two problems when it comes to your documents:</p>
+
+      <p><strong>Problem 1: They hallucinate.</strong> When a chatbot doesn't have the answer, it doesn't say "I don't know." It generates something plausible-sounding that may be completely wrong. In a casual conversation, this is annoying. When you're referencing a legal contract or medical protocol, it's dangerous.</p>
+
+      <p><strong>Problem 2: They require uploading.</strong> To use your documents with cloud AI, you have to upload them to someone else's servers. For a recipe collection, that's fine. For client case files, patient records, proprietary research, or internal company documents? That's a non-starter for many people.</p>
+
+      <p>RAG solves the first problem by giving the AI actual source material to work from. And when you run RAG locally — like <a href="https://axly.com/thothai/">ThothAI</a> does — you solve both problems at once.</p>
+
+      <h2>How ThothAI uses RAG</h2>
+
+      <p>When we built <a href="https://axly.com/thothai/">ThothAI</a>, RAG was the core design decision. Here's how it works in practice:</p>
+
+      <h3>1. You create a Knowledge Base</h3>
+      <p>A Knowledge Base is just a named collection of PDFs. You might have one called "Work Documents," another called "Tax Records," and another called "D&D Campaign Notes." They stay separate so the AI searches the right context for each question.</p>
+
+      <h3>2. ThothAI processes your PDFs</h3>
+      <p>When you add PDFs to a Knowledge Base, ThothAI extracts the text, breaks it into searchable chunks, and builds a local search index. This happens entirely on your device. Processing time depends on document size — a typical PDF takes a few seconds, a 500-page manual might take a minute or two.</p>
+
+      <h3>3. You ask questions in natural language</h3>
+      <p>Select a Knowledge Base, type your question, and ThothAI handles the rest. The RAG pipeline searches your documents, finds relevant passages, and generates an answer.</p>
+
+      <h3>4. Every answer includes source citations</h3>
+      <p>This is the part that makes RAG genuinely useful: every answer tells you exactly where the information came from. You'll see the document name and page number for each source. Tap a citation to jump directly to that page in the PDF viewer and verify it yourself.</p>
+
+      <blockquote>The AI isn't asking you to trust it. It's showing its work.</blockquote>
+
+      <h2>RAG vs. just pasting text into ChatGPT</h2>
+
+      <p>You might be thinking: "Can't I just copy-paste my document into ChatGPT?" You can, but there are real limitations:</p>
+
+      <ul>
+        <li><strong>Context window limits:</strong> AI models can only process a certain amount of text at once. A 200-page PDF won't fit. RAG doesn't have this problem because it only retrieves the <em>relevant</em> passages, not the entire document.</li>
+        <li><strong>Multiple documents:</strong> RAG can search across dozens of PDFs in a single query. Copy-pasting doesn't scale.</li>
+        <li><strong>Citations:</strong> When you paste text into a chatbot, you lose all page references. RAG maintains them.</li>
+        <li><strong>Privacy:</strong> Copy-pasting into a cloud chatbot means that text is now on someone else's server. With a local RAG system, it never leaves your machine.</li>
+      </ul>
+
+      <h2>When RAG matters most</h2>
+
+      <p>RAG isn't necessary for every AI interaction. If you're asking "explain quantum entanglement" or "write me a poem," a standard chatbot is fine — it's drawing on general knowledge.</p>
+
+      <p>RAG becomes essential when:</p>
+
+      <ul>
+        <li><strong>Accuracy matters more than creativity.</strong> Legal research, medical references, compliance documents, academic papers — anywhere a wrong answer has real consequences.</li>
+        <li><strong>Your documents are the source of truth.</strong> Internal SOPs, product manuals, client files, research data — information that doesn't exist on the open internet.</li>
+        <li><strong>You need to cite sources.</strong> If someone asks "where did you get that?" you need a better answer than "the AI said so."</li>
+        <li><strong>Privacy is non-negotiable.</strong> Client confidentiality, HIPAA compliance, trade secrets, personal records — anything you wouldn't email to a stranger.</li>
+      </ul>
+
+      <h2>The future is local RAG</h2>
+
+      <p>Two years ago, running an AI model on a phone or laptop wasn't practical. The models were too big, the hardware too slow. That's changed fast. Models like the LiquidAI LFM series that ThothAI uses are specifically optimized for on-device inference — they run well on modern phones and laptops with reasonable memory.</p>
+
+      <p>This means you can have a RAG-powered AI assistant that runs entirely on your device, with no internet connection, no subscription, and no data leaving your machine. That's not a future promise — <a href="https://axly.com/thothai/">it's what ThothAI does today</a> on Windows and iOS.</p>
+
+      <p>The combination of local AI models and RAG is genuinely new territory. For the first time, non-technical people can have a private, document-aware AI assistant without any cloud infrastructure. That's worth paying attention to.</p>
+
+    </article>
+    <div class="post-cta">
+      <h3>Try RAG on your own documents</h3>
+      <p>ThothAI runs entirely on your device. Upload PDFs, ask questions, get answers with source citations — no cloud, no account needed.</p>
+      <a href="https://axly.com/thothai/">Explore ThothAI</a>
+    </div>
+    <footer class="footer">
+      <a href="https://axly.com/">Axly's Customs</a> &middot;
+      <a href="/blog/">Blog</a> &middot;
+      <a href="https://pickaxe.axly.com">Pickaxe</a> &middot;
+      <a href="https://shovel.axly.com">The Shovel</a>
+    </footer>
+  </div>
+  <script>
+    function getTheme() { return localStorage.getItem('axly-theme') || 'system' }
+    function applyTheme(m) {
+      const d = m === 'dark' || (m === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)
+      document.body.classList.toggle('dark', d)
+      document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.dataset.theme === m))
+    }
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      b.addEventListener('click', () => { localStorage.setItem('axly-theme', b.dataset.theme); applyTheme(b.dataset.theme) })
+    })
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (getTheme() === 'system') applyTheme('system') })
+    applyTheme(getTheme())
+  </script>
+</body>
+</html>
