@@ -6,9 +6,45 @@
   <title>Axly's Customs — Tools That Put AI to Work</title>
   <meta name="description" content="Axly's Customs builds practical AI-powered tools. Home of Goldmine (AI tool discovery), ThothAI (local document AI), and custom digital art.">
   <meta name="theme-color" content="#09090b">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://axly.com/">
+  <!-- Open Graph -->
   <meta property="og:title" content="Axly's Customs — Tools That Put AI to Work">
   <meta property="og:description" content="We build practical AI-powered tools. Home of Goldmine, ThothAI, and custom digital art.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://axly.com/">
+  <meta property="og:image" content="https://axly.com/images/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Axly's Customs">
+  <meta property="og:locale" content="en_US">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Axly's Customs — Tools That Put AI to Work">
+  <meta name="twitter:description" content="We build practical AI-powered tools. Home of Goldmine, ThothAI, and custom digital art.">
+  <meta name="twitter:image" content="https://axly.com/images/og-preview.png">
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Axly's Customs",
+    "url": "https://axly.com",
+    "description": "A small workshop building practical AI-powered tools, creative projects, and digital art.",
+    "sameAs": [
+      "https://www.facebook.com/people/Axlys-Customs/61582103295229/",
+      "https://www.deviantart.com/axlyscustoms"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Axly's Customs",
+    "url": "https://axly.com"
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -298,6 +334,33 @@
       transition: color 0.15s;
     }
     .footer-link:hover { color: var(--accent); }
+
+    /* About section */
+    .about-section { padding: 0 0 40px; }
+    .about-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+    }
+    .about-card h2 {
+      font-size: 24px; font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .about-card p {
+      font-size: 15px; line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+    .about-card p:last-child { margin-bottom: 0; }
+
+    /* Section H2 */
+    .section-title {
+      font-size: 24px; font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px; padding-top: 60px;
+    }
   </style>
 </head>
 <body>
@@ -319,16 +382,54 @@
       </p>
     </section>
 
+    <!-- About -->
+    <section class="about-section">
+      <h2 class="section-title">What We Build</h2>
+      <div class="section-header">About Axly's Customs</div>
+      <div class="about-card">
+        <p>
+          Axly's Customs is a one-person workshop focused on building practical tools
+          that put AI to work in everyday workflows. We're not chasing hype — we build
+          things that solve real problems, from discovering the best new AI tools before
+          they go viral, to running a document assistant that never sends your data to the cloud.
+        </p>
+        <p>
+          Our flagship product, <a href="https://pickaxe.axly.com">Goldmine</a>, tracks
+          emerging AI tools and developer repos across six major platforms — GitHub, Hacker News,
+          Product Hunt, Reddit, arXiv, and Dev.to — scoring them by real momentum data instead of
+          marketing buzz. Its companion newsletter, <a href="https://shovel.axly.com">The Shovel</a>,
+          delivers the week's best finds straight to your inbox.
+        </p>
+        <p>
+          <a href="/thothai/">ThothAI</a> takes a different approach: a fully local AI document
+          assistant for Windows and iOS. Upload PDFs, build knowledge bases, and ask questions —
+          all processed on your device with zero cloud dependencies. Your data stays yours.
+        </p>
+        <p>
+          Before there were AI tools, there was art. Axly's Customs started as a digital art
+          studio, and that creative spirit still runs through everything we make. Whether it's
+          a new product or an original illustration, we're always building something for the curious.
+        </p>
+        <p>
+          Everything here is built by one person — no VC funding, no growth teams, no enterprise
+          sales. Just tools that work, made for developers, researchers, creators, and anyone
+          who'd rather discover things themselves than wait for an algorithm to decide what's trending.
+          If that sounds like you, poke around. There's always something new in the workshop.
+        </p>
+      </div>
+    </section>
+
     <!-- Creative -->
     <section class="art-section">
-      <div class="section-header">Creative</div>
+      <h2 class="section-title">Creative</h2>
+      <div class="section-header">Art &amp; Commissions</div>
       <div class="art-card">
         <div class="art-icon">&#127912;</div>
         <div class="art-content">
           <h3>Custom Digital Art</h3>
-          <p>Where it all started. Custom art creations, commissions, and original work. Check out the gallery or support the craft.</p>
+          <p>Where it all started. Custom digital art creations spanning fantasy, cyberpunk, steampunk, and modern styles. Browse the gallery for original work, or commission something unique. Every piece is crafted with the same care we put into our tools.</p>
           <div class="art-links">
-            <a href="https://www.facebook.com/share/1HWYA9LHNQ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="art-link">Facebook</a>
+            <a href="https://www.facebook.com/people/Axlys-Customs/61582103295229/" target="_blank" rel="noopener noreferrer" class="art-link">Facebook</a>
             <a href="https://www.deviantart.com/axlyscustoms" target="_blank" rel="noopener noreferrer" class="art-link">DeviantArt</a>
             <a href="https://ko-fi.com/r9customs" target="_blank" rel="noopener noreferrer" class="art-link">Ko-Fi</a>
           </div>
@@ -337,17 +438,20 @@
     </section>
 
     <!-- Products -->
-    <div class="section-header">Products</div>
+    <h2 class="section-title">Products</h2>
+    <div class="section-header">AI-Powered Tools</div>
     <div class="products">
       <!-- Goldmine -->
       <div class="product-card">
         <div>
-          <img src="/images/goldmine-logo.png" alt="Goldmine" style="width:48px;height:48px;border-radius:12px;margin-bottom:16px;" />
+          <img src="/images/goldmine-logo.png" alt="Goldmine AI tool discovery engine logo" width="48" height="48" style="border-radius:12px;margin-bottom:16px;" />
           <h3>Goldmine</h3>
           <div class="product-sub">AI Tool Discovery Engine</div>
           <p>
             Surfaces emerging AI tools and developer repos before they go mainstream.
-            Scored by real momentum data across 6 sources — zero human curation.
+            Scored by real momentum data across 6 sources — GitHub stars, Hacker News
+            upvotes, Product Hunt launches, Reddit mentions, arXiv papers, and Dev.to posts.
+            Zero human curation, zero sponsored placements. Just signal.
           </p>
           <div class="product-links">
             <a href="https://pickaxe.axly.com" class="product-link primary">Open Pickaxe</a>
@@ -377,15 +481,17 @@
       <!-- ThothAI -->
       <div class="product-card purple-accent">
         <div>
-          <img src="/thothai/thoth-logo.jpg" alt="ThothAI" style="width:48px;height:48px;border-radius:12px;margin-bottom:16px;" />
+          <img src="/thothai/thoth-logo.jpg" alt="ThothAI local AI document assistant logo" width="48" height="48" loading="lazy" style="border-radius:12px;margin-bottom:16px;" />
           <h3>ThothAI</h3>
           <div class="product-sub">Local AI Document Assistant</div>
           <p>
             Upload PDFs, build knowledge bases, and ask questions — all processed
             locally on your device. No cloud, no internet required, no data leaves your machine.
+            Perfect for sensitive documents, research, legal files, and anything you don't want
+            in someone else's server.
           </p>
           <div class="product-links">
-            <a href="/thothai/" class="product-link primary purple">Learn More</a>
+            <a href="/thothai/" class="product-link primary purple">Explore ThothAI</a>
             <a href="#" class="product-link secondary">Windows</a>
             <a href="#" class="product-link secondary">iOS (TestFlight)</a>
           </div>
@@ -412,14 +518,15 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-brand">Axly's <span>Customs</span></div>
-      <div class="footer-sub">Building practical AI tools since 2026</div>
+      <div class="footer-sub">Building practical AI tools since 2025</div>
       <div class="footer-links">
-        <a href="https://pickaxe.axly.com" class="footer-link">Pickaxe</a>
-        <a href="https://shovel.axly.com" class="footer-link">The Shovel</a>
-        <a href="/thothai/" class="footer-link">ThothAI</a>
+        <a href="https://pickaxe.axly.com" class="footer-link">Pickaxe — AI Tool Search</a>
+        <a href="https://shovel.axly.com" class="footer-link">The Shovel Newsletter</a>
+        <a href="/thothai/" class="footer-link">ThothAI — Local Document AI</a>
+        <a href="/goldmine/" class="footer-link">Goldmine</a>
         <a href="https://www.deviantart.com/axlyscustoms" target="_blank" rel="noopener noreferrer" class="footer-link">DeviantArt</a>
         <a href="https://ko-fi.com/r9customs" target="_blank" rel="noopener noreferrer" class="footer-link">Ko-Fi</a>
-        <a href="https://www.facebook.com/share/1HWYA9LHNQ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="footer-link">Facebook</a>
+        <a href="https://www.facebook.com/people/Axlys-Customs/61582103295229/" target="_blank" rel="noopener noreferrer" class="footer-link">Facebook</a>
       </div>
     </footer>
   </div>
