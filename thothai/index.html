@@ -328,6 +328,106 @@
             }
         }
 
+        /* How It Works */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            counter-reset: step;
+        }
+        .step {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            display: block;
+            width: 48px; height: 48px; line-height: 48px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            color: var(--bg-color);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .step h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-silver);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+        .step p { font-size: 0.95rem; }
+
+        /* Use Cases */
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .use-case {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .use-case i {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+        .use-case h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            color: var(--accent-silver);
+            margin-bottom: 0.5rem;
+        }
+        .use-case p { font-size: 0.85rem; }
+
+        /* Resources */
+        .resources-grid {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .resource-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+        }
+        .resource-card i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .resource-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-silver);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .resource-card p { font-size: 0.9rem; margin-bottom: 1rem; }
+
+        footer a { color: var(--accent-gold); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -360,35 +460,114 @@
             <h1>Thoth AI</h1>
             <div class="tagline">The Librarian</div>
             <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto 2rem auto;">
-                Ancient wisdom meets modern intelligence. A powerful LLM with built-in RAG capabilities, allowing you to
-                converse with your own customized Knowledgebases.
+                A private, offline AI document assistant for Windows and iOS. Upload your PDFs,
+                build custom knowledge bases, and get answers with source citations — all processed
+                locally on your device. No cloud. No internet. No data ever leaves your machine.
             </p>
-            <a href="#features" class="btn">Discover More</a>
+            <a href="#how-it-works" class="btn">See How It Works</a>
         </div>
     </div>
 
+    <section id="how-it-works" style="text-align: center;">
+        <h2>How It Works</h2>
+        <p style="max-width: 600px; margin: 0 auto;">
+            ThothAI runs entirely on your device. Download the AI model once, then everything works
+            offline — no account, no subscription, no cloud processing.
+        </p>
+        <div class="steps">
+            <div class="step">
+                <h3>Download the AI Model</h3>
+                <p>A one-time download of about 843 MB. ThothAI uses LiquidAI LFM models optimized for
+                    on-device inference. After this, you never need an internet connection again.</p>
+            </div>
+            <div class="step">
+                <h3>Build a Knowledge Base</h3>
+                <p>Create collections of PDFs organized by topic — work documents, recipes, study notes,
+                    product manuals, whatever you need. Import from your device, iCloud Drive, Dropbox, or Google Drive.</p>
+            </div>
+            <div class="step">
+                <h3>Ask Questions</h3>
+                <p>Type a question in plain language. ThothAI searches your documents, finds relevant passages,
+                    and generates an answer with source citations — including exact page numbers you can tap to verify.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="features">
-        <h2>The Power of Thoth</h2>
+        <h2>Features</h2>
         <div class="feature-grid">
             <div class="card">
                 <h3><i class="fa-solid fa-brain" style="color:var(--accent-gold); margin-right: 10px;"></i> RAG
                     Intelligence</h3>
-                <p>Retrieval-Augmented Generation at its core. Ingest your PDFs and documents into custom
-                    "Knowledgebases" and let Thoth reference them instantly.</p>
+                <p>Retrieval-Augmented Generation at its core. Ingest your PDFs into custom knowledge bases
+                    and ThothAI searches them to answer your questions — citing specific documents and page numbers
+                    so you can verify every claim.</p>
             </div>
             <div class="card">
                 <h3><i class="fa-solid fa-comments" style="color:var(--accent-gold); margin-right: 10px;"></i> Natural
                     Conversation</h3>
                 <p>Talk to your data as naturally as you talk to a friend. Thoth understands context, nuance, and
-                    complex queries across your entire library.</p>
+                    complex queries across your entire library. Conversation history is saved and searchable so you
+                    can pick up where you left off.</p>
             </div>
             <div class="card">
                 <h3><i class="fa-solid fa-shield-halved" style="color:var(--accent-gold); margin-right: 10px;"></i>
-                    Secure & Private</h3>
-                <p>Your knowledge stays yours. Thoth processes data locally and securely, ensuring your proprietary
-                    information never leaves your control.</p>
+                    100% Private</h3>
+                <p>Your knowledge stays yours. The AI model runs directly on your device — no server, no API calls,
+                    no account required. Sensitive legal documents, medical records, financial data, proprietary research —
+                    none of it ever leaves your control.</p>
             </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-globe" style="color:var(--accent-gold); margin-right: 10px;"></i> Web
+                    Search</h3>
+                <p>Need answers beyond your documents? Toggle on Web Search in Chatbot mode. ThothAI queries the web
+                    through DuckDuckGo for privacy and generates answers with clickable source links — while all
+                    AI processing still happens on your device.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-microchip" style="color:var(--accent-gold); margin-right: 10px;"></i> Multiple
+                    AI Models</h3>
+                <p>Choose from several LiquidAI LFM models downloaded from Hugging Face. ThothAI shows your available
+                    memory budget and recommends the best model for your device. Swap models anytime depending on your
+                    speed and quality needs.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-gauge-high" style="color:var(--accent-gold); margin-right: 10px;"></i> Real-Time
+                    Performance</h3>
+                <p>Every response shows live stats — token count, generation speed (tokens per second), and retrieval time.
+                    You always know exactly how fast ThothAI is working and can optimize by closing background apps
+                    or switching models.</p>
+            </div>
+        </div>
+    </section>
 
+    <section style="text-align: center;">
+        <h2>Who It's For</h2>
+        <p style="max-width: 600px; margin: 0 auto;">
+            Anyone who works with documents and values privacy. ThothAI turns static PDFs into
+            searchable, conversational knowledge — without trusting a third party with your data.
+        </p>
+        <div class="use-cases">
+            <div class="use-case">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <h3>Legal Professionals</h3>
+                <p>Search case files, contracts, and briefs without uploading confidential client data to the cloud.</p>
+            </div>
+            <div class="use-case">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h3>Students &amp; Researchers</h3>
+                <p>Build knowledge bases from textbooks, papers, and lecture notes. Get answers with page citations.</p>
+            </div>
+            <div class="use-case">
+                <i class="fa-solid fa-stethoscope"></i>
+                <h3>Healthcare Workers</h3>
+                <p>Reference medical literature, protocols, and guidelines without HIPAA concerns.</p>
+            </div>
+            <div class="use-case">
+                <i class="fa-solid fa-briefcase"></i>
+                <h3>Business &amp; IT</h3>
+                <p>Query internal docs, SOPs, product manuals, and compliance documents on your own terms.</p>
+            </div>
         </div>
     </section>
 
@@ -430,10 +609,33 @@
         <p style="margin-top: 3rem; font-style: italic; color: #555;">Mac & Android versions coming soon.</p>
     </section>
 
+    <section style="text-align: center;">
+        <h2>Resources</h2>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <i class="fa-solid fa-book"></i>
+                <h3>User Manual</h3>
+                <p>Complete guide to ThothAI for iOS — setup, knowledge bases, RAG mode, web search, and more.</p>
+                <a href="ThothAI_User_Manual.pdf" class="btn" style="padding: 10px 24px; font-size: 0.8rem; margin-top: 0;">Download PDF</a>
+            </div>
+            <div class="resource-card">
+                <i class="fa-solid fa-lock"></i>
+                <h3>Privacy Policy</h3>
+                <p>How ThothAI handles your data (short version: it doesn't leave your device).</p>
+                <a href="privacy.html" class="btn" style="padding: 10px 24px; font-size: 0.8rem; margin-top: 0;">Read Policy</a>
+            </div>
+            <div class="resource-card">
+                <i class="fa-solid fa-house"></i>
+                <h3>Axly's Customs</h3>
+                <p>ThothAI is built by Axly's Customs — a workshop for practical AI tools and creative projects.</p>
+                <a href="https://axly.com/" class="btn" style="padding: 10px 24px; font-size: 0.8rem; margin-top: 0;">Visit Home</a>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p><a href="privacy.html" class="btn" style="margin-bottom: 1.5rem; padding: 12px 30px; font-size: 0.85rem;">Privacy Policy</a></p>
-        <p>&copy; 2026 Thoth AI. Built by Axly's Customs.</p>
-        <p><a href="https://axly.com/" style="color: #444; text-decoration: none;">Return to Axly's Customs</a></p>
+        <p>&copy; 2026 ThothAI. Built by <a href="https://axly.com/">Axly's Customs</a>.</p>
+        <p style="margin-top: 8px;"><a href="privacy.html">Privacy Policy</a> &middot; <a href="ThothAI_User_Manual.pdf">User Manual</a> &middot; <a href="https://axly.com/">Axly.com</a></p>
     </footer>
 
 </body>
