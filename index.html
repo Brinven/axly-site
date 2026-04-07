@@ -126,7 +126,7 @@
 
     /* Hero */
     .hero {
-      padding: 120px 0 80px;
+      padding: 80px 0 40px;
       text-align: center;
     }
     .hero-badge {
@@ -156,6 +156,9 @@
       text-transform: uppercase; letter-spacing: 0.06em;
       color: var(--text-muted);
       margin-bottom: 20px; padding-top: 60px;
+    }
+    .section-title + .section-header {
+      padding-top: 0;
     }
 
     /* Product cards */
@@ -359,8 +362,42 @@
     .section-title {
       font-size: 24px; font-weight: 800;
       letter-spacing: -0.02em;
-      margin-bottom: 8px; padding-top: 60px;
+      margin-bottom: 8px; padding-top: 48px;
     }
+    .section-title:first-child {
+      padding-top: 0;
+    }
+
+    /* Blog section */
+    .blog-preview {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+    }
+    .blog-preview-list { margin-top: 16px; }
+    .blog-preview-item {
+      display: block;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.15s;
+    }
+    .blog-preview-item:last-child { border-bottom: none; }
+    .blog-preview-item:hover { color: var(--accent); }
+    .blog-preview-item .bp-date {
+      font-size: 12px; color: var(--text-muted); font-weight: 600;
+    }
+    .blog-preview-item .bp-title {
+      font-size: 15px; font-weight: 700;
+    }
+    .blog-view-all {
+      display: inline-block; margin-top: 16px;
+      font-size: 14px; font-weight: 700;
+      color: var(--accent-text); text-decoration: none;
+    }
+    .blog-view-all:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -516,6 +553,16 @@
       </div>
     </div>
 
+    <!-- Blog -->
+    <h2 class="section-title">From the Blog</h2>
+    <div class="section-header">Latest Posts</div>
+    <div class="blog-preview">
+      <div class="blog-preview-list" id="blog-preview-list">
+        <!-- Loaded dynamically from posts.json -->
+      </div>
+      <a href="/blog/" class="blog-view-all">View all posts &rarr;</a>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-brand">Axly's <span>Customs</span></div>
@@ -555,6 +602,26 @@
       if (getTheme() === 'system') applyTheme('system')
     })
     applyTheme(getTheme())
+
+    // Load blog preview
+    fetch('/blog/posts.json')
+      .then(r => r.json())
+      .then(posts => {
+        posts.sort((a, b) => b.date.localeCompare(a.date))
+        const list = document.getElementById('blog-preview-list')
+        if (!list) return
+        list.innerHTML = ''
+        posts.slice(0, 3).forEach(post => {
+          const date = new Date(post.date + 'T00:00:00')
+          const dateStr = date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+          const a = document.createElement('a')
+          a.href = '/blog/' + post.slug + '/'
+          a.className = 'blog-preview-item'
+          a.innerHTML = '<div class="bp-date">' + dateStr + '</div><div class="bp-title">' + post.title + '</div>'
+          list.appendChild(a)
+        })
+      })
+      .catch(() => {})
   </script>
 </body>
 </html>
