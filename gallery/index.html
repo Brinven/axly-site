@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Custom Digital Art by Axly's Customs</title>
+  <meta name="description" content="Browse original digital art by Axly's Customs. Fantasy, cyberpunk, steampunk, and modern illustrations. Commissions available.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://axly.com/gallery/">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Gallery — Custom Digital Art by Axly's Customs">
+  <meta property="og:description" content="Browse original digital art spanning fantasy, cyberpunk, steampunk, and modern styles. Commissions available.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://axly.com/gallery/">
+  <meta property="og:site_name" content="Axly's Customs">
+  <meta property="og:locale" content="en_US">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Gallery — Custom Digital Art by Axly's Customs">
+  <meta name="twitter:description" content="Original digital art spanning fantasy, cyberpunk, steampunk, and modern styles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #fafafa;
+      --bg-elevated: #ffffff;
+      --text: #18181b;
+      --text-secondary: #52525b;
+      --text-muted: #a1a1aa;
+      --border: #e4e4e7;
+      --accent: #10b981;
+      --accent-text: #047857;
+    }
+
+    .dark {
+      --bg: #09090b;
+      --bg-elevated: #18181b;
+      --text: #fafafa;
+      --text-secondary: #a1a1aa;
+      --text-muted: #52525b;
+      --border: #27272a;
+      --accent: #10b981;
+      --accent-text: #6ee7b7;
+    }
+
+    body {
+      font-family: 'Geist', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100dvh;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Theme toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 4px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 4px;
+      z-index: 50;
+    }
+    .theme-btn {
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border: none; border-radius: 8px;
+      background: transparent; color: var(--text-muted);
+      cursor: pointer; font-size: 16px; transition: all 0.15s;
+    }
+    .theme-btn.active { background: var(--accent); color: #fff; }
+    .theme-btn:hover:not(.active) { color: var(--text); background: var(--border); }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+    }
+
+    /* Header */
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent-text);
+      text-decoration: none;
+      margin-bottom: 24px;
+    }
+    .back-home:hover { text-decoration: underline; }
+
+    .gallery-header h1 {
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .gallery-header p {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Gallery grid — masonry-style columns */
+    .gallery-grid {
+      columns: 3;
+      column-gap: 16px;
+    }
+    @media (max-width: 900px) { .gallery-grid { columns: 2; } }
+    @media (max-width: 500px) { .gallery-grid { columns: 1; } }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .gallery-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+    .dark .gallery-item:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Loading state */
+    .gallery-loading {
+      text-align: center;
+      padding: 60px 0;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 92vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      color: #fff;
+      font-size: 32px;
+      cursor: pointer;
+      z-index: 1001;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      border-radius: 50%;
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 36px;
+      cursor: pointer;
+      z-index: 1001;
+      background: rgba(0,0,0,0.4);
+      border: none;
+      border-radius: 50%;
+      width: 56px; height: 56px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+    .lightbox-prev { left: 16px; }
+    .lightbox-next { right: 16px; }
+
+    /* CTA */
+    .gallery-cta {
+      text-align: center;
+      margin-top: 48px;
+      padding: 32px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+    .gallery-cta h2 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .gallery-cta p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+    .cta-links {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.15s;
+    }
+    .cta-link.primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .cta-link.primary:hover { opacity: 0.85; }
+    .cta-link.secondary {
+      background: var(--bg);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+    .cta-link.secondary:hover { background: var(--border); color: var(--text); }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .footer a {
+      color: var(--accent-text);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <div class="theme-toggle">
+    <button class="theme-btn" data-theme="light" title="Light">&#9728;</button>
+    <button class="theme-btn" data-theme="system" title="System">&#9211;</button>
+    <button class="theme-btn" data-theme="dark" title="Dark">&#9790;</button>
+  </div>
+
+  <div class="page">
+    <!-- Header -->
+    <div class="gallery-header">
+      <a href="https://axly.com/" class="back-home">&larr; Axly's Customs</a>
+      <h1>Digital Art Gallery</h1>
+      <p>
+        Original illustrations spanning fantasy, cyberpunk, steampunk, post-apocalyptic, and modern styles.
+        Every piece created by Axly's Customs.
+      </p>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="gallery-loading">Loading gallery...</div>
+    </div>
+
+    <!-- CTA -->
+    <div class="gallery-cta">
+      <h2>Like what you see?</h2>
+      <p>Browse the full collection on DeviantArt or commission a custom piece.</p>
+      <div class="cta-links">
+        <a href="https://www.deviantart.com/axlyscustoms" target="_blank" rel="noopener noreferrer" class="cta-link primary">View on DeviantArt</a>
+        <a href="https://ko-fi.com/r9customs" target="_blank" rel="noopener noreferrer" class="cta-link secondary">Support on Ko-Fi</a>
+        <a href="https://axly.com/" class="cta-link secondary">Back to Axly's Customs</a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <a href="https://axly.com/">Axly's Customs</a> &middot;
+      <a href="https://axly.com/thothai/">ThothAI</a> &middot;
+      <a href="https://pickaxe.axly.com">Pickaxe</a> &middot;
+      <a href="https://shovel.axly.com">The Shovel</a>
+    </footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&lsaquo;</button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next">&rsaquo;</button>
+    <img id="lightbox-img" src="" alt="Full size artwork">
+  </div>
+
+  <script>
+    // --- Theme ---
+    function getTheme() { return localStorage.getItem('axly-theme') || 'system' }
+    function applyTheme(mode) {
+      const isDark = mode === 'dark' || (mode === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)
+      document.body.classList.toggle('dark', isDark)
+      document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.dataset.theme === mode))
+    }
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      b.addEventListener('click', () => { localStorage.setItem('axly-theme', b.dataset.theme); applyTheme(b.dataset.theme) })
+    })
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (getTheme() === 'system') applyTheme('system') })
+    applyTheme(getTheme())
+
+    // --- Gallery ---
+    const grid = document.getElementById('gallery-grid')
+    let images = []
+    let currentIndex = 0
+
+    async function loadGallery() {
+      try {
+        const res = await fetch('/images.json')
+        images = await res.json()
+
+        if (!images.length) {
+          grid.innerHTML = '<div class="gallery-loading">No images in gallery.</div>'
+          return
+        }
+
+        grid.innerHTML = ''
+        images.forEach((imgPath, i) => {
+          // Derive thumbnail path: images/foo.png -> images/thumbs/foo.jpg
+          const filename = imgPath.split('/').pop()
+          const stem = filename.substring(0, filename.lastIndexOf('.'))
+          const thumbPath = `/${imgPath.split('/').slice(0, -1).join('/')}/thumbs/${stem}.jpg`
+          const fullPath = `/${imgPath}`
+
+          const item = document.createElement('div')
+          item.className = 'gallery-item'
+          item.onclick = () => openLightbox(i)
+
+          const img = document.createElement('img')
+          img.loading = 'lazy'
+          img.alt = `Digital art by Axly's Customs — piece ${i + 1}`
+          img.src = thumbPath
+          // Fall back to full image if no thumbnail
+          img.onerror = function () { if (this.src !== fullPath) this.src = fullPath }
+
+          item.appendChild(img)
+          grid.appendChild(item)
+        })
+      } catch (e) {
+        grid.innerHTML = '<div class="gallery-loading">Could not load gallery.</div>'
+        console.error(e)
+      }
+    }
+
+    // --- Lightbox ---
+    const lightbox = document.getElementById('lightbox')
+    const lightboxImg = document.getElementById('lightbox-img')
+
+    function openLightbox(index) {
+      currentIndex = index
+      lightboxImg.src = '/' + images[index]
+      lightbox.classList.add('active')
+      document.body.style.overflow = 'hidden'
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active')
+      document.body.style.overflow = ''
+      lightboxImg.src = ''
+    }
+
+    function navigate(dir) {
+      currentIndex = (currentIndex + dir + images.length) % images.length
+      lightboxImg.src = '/' + images[currentIndex]
+    }
+
+    document.getElementById('lightbox-close').onclick = closeLightbox
+    document.getElementById('lightbox-prev').onclick = (e) => { e.stopPropagation(); navigate(-1) }
+    document.getElementById('lightbox-next').onclick = (e) => { e.stopPropagation(); navigate(1) }
+    lightbox.onclick = (e) => { if (e.target === lightbox) closeLightbox() }
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return
+      if (e.key === 'Escape') closeLightbox()
+      if (e.key === 'ArrowLeft') navigate(-1)
+      if (e.key === 'ArrowRight') navigate(1)
+    })
+
+    // Init
+    loadGallery()
+  </script>
+</body>
+</html>
