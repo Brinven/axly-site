@@ -2,28 +2,28 @@
   {
     "slug": "how-goldmine-scores-ai-tools",
     "title": "How Goldmine Scores AI Tools Before They Go Mainstream",
-    "date": "2026-04-07",
+    "date": "2026-03-10",
     "excerpt": "Most AI tool lists are curated by humans with opinions. Goldmine uses real momentum data from 6 platforms to surface what's actually gaining traction — before the hype cycle kicks in.",
     "tags": ["goldmine", "ai-tools", "product"]
   },
   {
     "slug": "why-thothai-processes-everything-locally",
     "title": "Why ThothAI Processes Everything on Your Device",
-    "date": "2026-04-07",
+    "date": "2026-03-18",
     "excerpt": "Cloud AI is convenient until it isn't. ThothAI runs entirely on your device — no servers, no accounts, no data leaving your machine. Here's why we built it that way.",
     "tags": ["thothai", "privacy", "local-ai"]
   },
   {
     "slug": "what-is-rag-and-why-it-matters",
     "title": "What Is RAG and Why It Matters for Your Documents",
-    "date": "2026-04-07",
+    "date": "2026-03-26",
     "excerpt": "Retrieval-Augmented Generation sounds complicated, but the idea is simple: instead of guessing, the AI searches your actual documents first. Here's how it works and why it's better.",
     "tags": ["thothai", "rag", "explainer"]
   },
   {
     "slug": "6-platforms-we-monitor-to-find-ai-tools",
     "title": "The 6 Platforms We Monitor to Find AI Tools Early",
-    "date": "2026-04-07",
+    "date": "2026-04-03",
     "excerpt": "GitHub, Hacker News, Product Hunt, Reddit, arXiv, and Dev.to — each one tells a different story about whether an AI tool is real or just noise. Here's what we look for on each.",
     "tags": ["goldmine", "ai-tools", "behind-the-scenes"]
   }
