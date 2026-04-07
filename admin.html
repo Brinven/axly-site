@@ -252,6 +252,20 @@
                 </p>
             </div>
 
+            <!-- Site Stats Section -->
+            <div class="form-group" style="padding: 20px; background: #f5fff5; border-radius: 8px; border: 1px solid #c3e6cb;">
+                <label>Site Stats</label>
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                    <label style="font-weight: normal; font-size: 0.9em; margin: 0;">Tool Count:</label>
+                    <input type="text" id="tool-count-input" placeholder="4k+" style="width: 100px; padding: 8px;">
+                    <button onclick="saveStats()" id="stats-btn" style="min-width: 80px;">Save</button>
+                    <span id="stats-status" style="font-size: 0.85em; color: #666;"></span>
+                </div>
+                <p style="font-size: 0.8em; color: #666; margin-top: 5px;">
+                    Updates the tool count shown on the homepage Goldmine card. Commits to <code>stats.json</code>.
+                </p>
+            </div>
+
             <!-- Gallery Thumbnails Section -->
             <div class="form-group" style="padding: 20px; background: #f0f8ff; border-radius: 8px; border: 1px solid #d0e8ff;">
                 <label>Gallery Thumbnails</label>
@@ -328,6 +342,7 @@
             document.getElementById('auth-section').style.display = 'none';
             document.getElementById('main-interface').style.display = 'block';
             loadLibrary();
+            loadStats();
         }
 
         // --- Core Functions ---
@@ -618,6 +633,67 @@
             el.textContent = msg;
             el.className = type;
             el.style.display = type === 'none' ? 'none' : 'block';
+        }
+
+        // --- Site Stats ---
+
+        const STATS_JSON = 'stats.json';
+
+        async function loadStats() {
+            try {
+                const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${STATS_JSON}?ref=${BRANCH}`;
+                const res = await githubFetch(url);
+                const stats = JSON.parse(atob(res.content));
+                document.getElementById('tool-count-input').value = stats.tool_count || '';
+            } catch (e) {
+                console.warn('Could not load stats.json', e);
+            }
+        }
+
+        async function saveStats() {
+            const btn = document.getElementById('stats-btn');
+            const statusEl = document.getElementById('stats-status');
+            const value = document.getElementById('tool-count-input').value.trim();
+
+            if (!value) { statusEl.textContent = 'Enter a value'; statusEl.style.color = '#dc3545'; return; }
+
+            btn.disabled = true;
+            btn.textContent = '...';
+            statusEl.textContent = '';
+
+            try {
+                // Get current SHA
+                let sha = null;
+                try {
+                    const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${STATS_JSON}?ref=${BRANCH}`;
+                    const res = await githubFetch(url, { cache: 'no-store' });
+                    sha = res.sha;
+                } catch (e) {}
+
+                const today = new Date().toISOString().split('T')[0];
+                const content = JSON.stringify({ tool_count: value, updated: today }, null, 4);
+                const body = {
+                    message: `Update tool count to ${value}`,
+                    content: btoa(content),
+                    branch: BRANCH
+                };
+                if (sha) body.sha = sha;
+
+                await githubFetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${STATS_JSON}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(body)
+                });
+
+                statusEl.textContent = 'Saved!';
+                statusEl.style.color = '#155724';
+                setTimeout(() => { statusEl.textContent = ''; }, 3000);
+            } catch (e) {
+                statusEl.textContent = 'Failed: ' + e.message;
+                statusEl.style.color = '#dc3545';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Save';
+            }
         }
 
         // --- Thumbnail Generation ---

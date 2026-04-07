@@ -603,6 +603,15 @@
     })
     applyTheme(getTheme())
 
+    // Load tool count from stats.json
+    fetch('/stats.json')
+      .then(r => r.json())
+      .then(data => {
+        const el = document.getElementById('tool-count')
+        if (el && data.tool_count) el.textContent = data.tool_count
+      })
+      .catch(() => {})
+
     // Load blog preview
     fetch('/blog/posts.json')
       .then(r => r.json())
