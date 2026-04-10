@@ -134,6 +134,26 @@ p { max-width: 68ch; }
 .secondary-text { color: var(--color-secondary); }
 
 
+/* --- Skip Link (a11y) --- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-base);
+  background: var(--color-accent);
+  color: oklch(1 0 0);
+  padding: var(--space-sm) var(--space-base);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  z-index: 200;
+  transition: top var(--transition-fast);
+}
+.skip-link:focus {
+  top: var(--space-base);
+}
+
+
 /* --- Layout --- */
 .container {
   width: 90%;

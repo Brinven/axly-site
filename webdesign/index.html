@@ -52,10 +52,14 @@
   }
   </script>
 
-  <!-- Fonts -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Fonts — only weights used -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Saira:wght@600;700;800;900&family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
@@ -148,19 +152,15 @@
       color: var(--color-text-muted);
       line-height: 1.5;
     }
-    /* Connector line between steps */
+    /* Connector line between steps — a line from each step to the next */
     .step:not(:last-child)::after {
       content: '';
       position: absolute;
       top: 40px;
-      right: 0;
-      width: 50%;
+      right: -1px;
+      width: calc(var(--space-lg) + 2px);
       height: 1px;
       background: var(--color-border);
-    }
-    .step:not(:first-child)::after {
-      left: 0;
-      width: 100%;
     }
 
     @media (max-width: 768px) {
@@ -635,7 +635,7 @@
             <p style="font-size: var(--text-sm); color: var(--color-text-muted);">
               Want to go deeper upfront? Download the full questionnaire and send it back when you're ready.
             </p>
-            <a href="/.claude/Axly-Client-Intake-Questionnaire (2).docx" class="intake-download" download>
+            <a href="/assets/Axly-Client-Intake-Questionnaire.docx" class="intake-download" download>
               Download Full Questionnaire &darr;
             </a>
           </div>
