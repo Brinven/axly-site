@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Axly's Customs — Tools That Put AI to Work</title>
   <meta name="description" content="Axly's Customs builds practical AI-powered tools. Home of Goldmine (AI tool discovery), ThothAI (local document AI), and custom digital art.">
-  <meta name="theme-color" content="#09090b">
+  <meta name="theme-color" content="#0f0b2e">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://axly.com/">
+
   <!-- Open Graph -->
   <meta property="og:title" content="Axly's Customs — Tools That Put AI to Work">
   <meta property="og:description" content="We build practical AI-powered tools. Home of Goldmine, ThothAI, and custom digital art.">
@@ -18,11 +19,13 @@
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Axly's Customs">
   <meta property="og:locale" content="en_US">
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Axly's Customs — Tools That Put AI to Work">
   <meta name="twitter:description" content="We build practical AI-powered tools. Home of Goldmine, ThothAI, and custom digital art.">
   <meta name="twitter:image" content="https://axly.com/images/og-preview.png">
+
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
@@ -45,592 +48,381 @@
     "url": "https://axly.com"
   }
   </script>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    :root {
-      --bg: #fafafa;
-      --bg-elevated: #ffffff;
-      --bg-subtle: #f4f4f5;
-      --text: #18181b;
-      --text-secondary: #52525b;
-      --text-muted: #a1a1aa;
-      --border: #e4e4e7;
-      --accent: #10b981;
-      --accent-soft: #ecfdf5;
-      --accent-text: #047857;
-      --purple: #8b5cf6;
-      --purple-soft: #f5f3ff;
-      --purple-text: #6d28d9;
-      --amber: #f59e0b;
-      --amber-soft: #fffbeb;
-      --amber-text: #b45309;
-    }
-
-    .dark {
-      --bg: #09090b;
-      --bg-elevated: #18181b;
-      --bg-subtle: #1c1c1f;
-      --text: #fafafa;
-      --text-secondary: #a1a1aa;
-      --text-muted: #52525b;
-      --border: #27272a;
-      --accent: #10b981;
-      --accent-soft: #052e16;
-      --accent-text: #6ee7b7;
-      --purple: #a78bfa;
-      --purple-soft: #1e1b3a;
-      --purple-text: #c4b5fd;
-      --amber: #fbbf24;
-      --amber-soft: #1c1408;
-      --amber-text: #fcd34d;
-    }
-
-    body {
-      font-family: 'Geist', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      min-height: 100dvh;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    /* Theme toggle */
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      gap: 4px;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 4px;
-      z-index: 50;
-    }
-    .theme-btn {
-      width: 36px; height: 36px;
-      display: flex; align-items: center; justify-content: center;
-      border: none; border-radius: 8px;
-      background: transparent; color: var(--text-muted);
-      cursor: pointer; font-size: 16px; transition: all 0.15s;
-    }
-    .theme-btn.active { background: var(--accent); color: #fff; }
-    .theme-btn:hover:not(.active) { color: var(--text); background: var(--border); }
-
-    /* Layout */
-    .page { max-width: 800px; margin: 0 auto; padding: 0 24px; }
-
-    /* Hero */
-    .hero {
-      padding: 80px 0 40px;
-      text-align: center;
-    }
-    .hero-badge {
-      display: inline-block;
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--accent-text); background: var(--accent-soft);
-      padding: 5px 14px; border-radius: 999px;
-      margin-bottom: 24px;
-    }
-    .hero h1 {
-      font-size: clamp(40px, 8vw, 64px);
-      font-weight: 900; line-height: 1.05;
-      letter-spacing: -0.035em;
-      margin-bottom: 16px;
-    }
-    .hero h1 span { color: var(--accent); }
-    .hero .tagline {
-      font-size: 19px; line-height: 1.6;
-      color: var(--text-secondary);
-      max-width: 540px; margin: 0 auto;
-    }
-
-    /* Section headers */
-    .section-header {
-      font-size: 12px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.06em;
-      color: var(--text-muted);
-      margin-bottom: 20px; padding-top: 60px;
-    }
-    .section-title + .section-header {
-      padding-top: 0;
-    }
-
-    /* Product cards */
-    .products { display: grid; gap: 20px; }
-
-    .product-card {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 32px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 24px;
-      align-items: start;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .product-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 8px 40px -12px rgba(16, 185, 129, 0.1);
-    }
-    @media (max-width: 600px) {
-      .product-card { grid-template-columns: 1fr; }
-    }
-
-    .product-icon {
-      width: 48px; height: 48px;
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px; margin-bottom: 16px;
-    }
-    .product-icon.emerald { background: var(--accent-soft); }
-    .product-icon.purple { background: var(--purple-soft); }
-
-    .product-card h3 {
-      font-size: 22px; font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 4px;
-    }
-    .product-card .product-sub {
-      font-size: 13px; font-weight: 600;
-      color: var(--accent-text); margin-bottom: 10px;
-    }
-    .product-card.purple-accent .product-sub { color: var(--purple-text); }
-    .product-card p {
-      font-size: 14px; line-height: 1.7;
-      color: var(--text-secondary);
-      margin-bottom: 16px;
-    }
-
-    .product-links {
-      display: flex; gap: 8px; flex-wrap: wrap;
-    }
-    .product-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 8px 16px; font-size: 13px; font-weight: 600;
-      text-decoration: none; border-radius: 10px;
-      transition: all 0.15s;
-    }
-    .product-link:active { transform: scale(0.97); }
-    .product-link.primary {
-      background: var(--accent); color: #fff;
-    }
-    .product-link.primary:hover { background: #059669; }
-    .product-link.primary.purple {
-      background: var(--purple); color: #fff;
-    }
-    .product-link.primary.purple:hover { opacity: 0.85; }
-    .product-link.secondary {
-      background: var(--bg-subtle); color: var(--text-secondary);
-      border: 1px solid var(--border);
-    }
-    .product-link.secondary:hover { background: var(--border); color: var(--text); }
-
-    .product-badges {
-      display: flex; flex-direction: column; gap: 8px;
-      align-self: start; padding-top: 8px;
-    }
-    .product-stat {
-      text-align: center; padding: 10px 16px;
-      background: var(--bg-subtle); border-radius: 12px;
-      min-width: 90px;
-    }
-    .product-stat .num {
-      font-size: 22px; font-weight: 800;
-      font-variant-numeric: tabular-nums;
-      color: var(--accent);
-    }
-    .product-card.purple-accent .product-stat .num { color: var(--purple); }
-    .product-stat .label {
-      font-size: 11px; color: var(--text-muted);
-      font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    /* Features strip */
-    .features-strip {
-      display: flex; gap: 16px; flex-wrap: wrap;
-      margin-top: 12px;
-    }
-    .feature-tag {
-      font-size: 12px; font-weight: 600;
-      padding: 4px 10px; border-radius: 8px;
-      background: var(--bg-subtle); color: var(--text-muted);
-      border: 1px solid var(--border);
-    }
-
-    /* Art section */
-    .art-section {
-      padding: 0 0 40px;
-    }
-    .art-card {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 32px;
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-    @media (max-width: 500px) {
-      .art-card { flex-direction: column; text-align: center; }
-    }
-    .art-icon {
-      width: 64px; height: 64px; flex-shrink: 0;
-      background: var(--amber-soft);
-      border-radius: 16px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 32px;
-    }
-    .art-content { flex: 1; }
-    .art-content h3 {
-      font-size: 18px; font-weight: 800;
-      margin-bottom: 6px;
-    }
-    .art-content p {
-      font-size: 14px; color: var(--text-secondary);
-      line-height: 1.6; margin-bottom: 14px;
-    }
-    .art-links { display: flex; gap: 8px; flex-wrap: wrap; }
-    @media (max-width: 500px) {
-      .art-links { justify-content: center; }
-    }
-    .art-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 8px 14px; font-size: 13px; font-weight: 600;
-      text-decoration: none; border-radius: 10px;
-      background: var(--bg-subtle); color: var(--text-secondary);
-      border: 1px solid var(--border); transition: all 0.15s;
-    }
-    .art-link:hover { background: var(--border); color: var(--text); }
-
-    /* Footer */
-    .footer {
-      text-align: center;
-      padding: 40px 0 60px;
-      border-top: 1px solid var(--border);
-      margin-top: 60px;
-    }
-    .footer-brand {
-      font-size: 18px; font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 6px;
-    }
-    .footer-brand span { color: var(--accent); }
-    .footer-sub {
-      font-size: 13px; color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-    .footer-links {
-      display: flex; gap: 20px; justify-content: center;
-      flex-wrap: wrap;
-    }
-    .footer-link {
-      font-size: 13px; font-weight: 600;
-      color: var(--text-muted); text-decoration: none;
-      transition: color 0.15s;
-    }
-    .footer-link:hover { color: var(--accent); }
-
-    /* About section */
-    .about-section { padding: 0 0 40px; }
-    .about-card {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 32px;
-    }
-    .about-card h2 {
-      font-size: 24px; font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-    }
-    .about-card p {
-      font-size: 15px; line-height: 1.7;
-      color: var(--text-secondary);
-      margin-bottom: 12px;
-    }
-    .about-card p:last-child { margin-bottom: 0; }
-
-    /* Section H2 */
-    .section-title {
-      font-size: 24px; font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px; padding-top: 48px;
-    }
-    .section-title:first-child {
-      padding-top: 0;
-    }
-
-    /* Blog section */
-    .blog-preview {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 32px;
-    }
-    .blog-preview-list { margin-top: 16px; }
-    .blog-preview-item {
-      display: block;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.15s;
-    }
-    .blog-preview-item:last-child { border-bottom: none; }
-    .blog-preview-item:hover { color: var(--accent); }
-    .blog-preview-item .bp-date {
-      font-size: 12px; color: var(--text-muted); font-weight: 600;
-    }
-    .blog-preview-item .bp-title {
-      font-size: 15px; font-weight: 700;
-    }
-    .blog-view-all {
-      display: inline-block; margin-top: 16px;
-      font-size: 14px; font-weight: 700;
-      color: var(--accent-text); text-decoration: none;
-    }
-    .blog-view-all:hover { text-decoration: underline; }
-  </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <!-- Theme Toggle -->
-  <div class="theme-toggle">
-    <button class="theme-btn" data-theme="light" title="Light">&#9728;</button>
-    <button class="theme-btn" data-theme="system" title="System">&#9211;</button>
-    <button class="theme-btn" data-theme="dark" title="Dark">&#9790;</button>
+
+  <!-- ========== NAVIGATION ========== -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="/" class="nav-logo">
+        <!-- TODO: Replace with logo PNG/SVG when ready -->
+        <span>Axly's Customs</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/webdesign/" class="nav-link">Web Design</a>
+        <a href="https://pickaxe.axly.com" class="nav-link">Goldmine</a>
+        <a href="/thothai/" class="nav-link">ThothAI</a>
+        <a href="/gallery/" class="nav-link">Art</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/webdesign/" class="btn btn-primary nav-cta">Get a Website</a>
+      </div>
+
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" role="dialog" aria-label="Navigation menu">
+    <a href="/webdesign/">Web Design</a>
+    <a href="https://pickaxe.axly.com">Goldmine</a>
+    <a href="/thothai/">ThothAI</a>
+    <a href="/gallery/">Art</a>
+    <a href="/blog/">Blog</a>
+    <a href="/webdesign/" class="btn btn-primary" style="margin-top: var(--space-lg);">Get a Website</a>
   </div>
 
-  <div class="page">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-badge">Axly's Customs</div>
-      <h1>From discovery engines to digital art — <span>built for the curious</span></h1>
-      <p class="tagline">
-        Axly's Customs is a small workshop building AI tools, creative projects,
-        and whatever's next. If you like discovering new things, you're in the right place.
-      </p>
-    </section>
 
-    <!-- About -->
-    <section class="about-section">
-      <h2 class="section-title">What We Build</h2>
-      <div class="section-header">About Axly's Customs</div>
-      <div class="about-card">
-        <p>
-          Axly's Customs is a one-person workshop focused on building practical tools
-          that put AI to work in everyday workflows. We're not chasing hype — we build
-          things that solve real problems, from discovering the best new AI tools before
-          they go viral, to running a document assistant that never sends your data to the cloud.
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+      <div class="hero-glow"></div>
+
+      <div class="hero-content container">
+        <!-- ASSET REQUEST: Hero uses logo PNG for now. SVG preferred when available.
+             Also: abstract geometric background graphic (1920x1080, deep navy with
+             subtle hot pink/steel blue angular shapes echoing logo wing motif). -->
+        <img src="/images/goldmine-logo.png" alt="Axly's Customs logo" class="hero-logo"
+             width="140" height="140" loading="eager">
+
+        <h1>Tools That Put<br>AI to <span class="accent-text">Work</span></h1>
+
+        <p class="hero-subtitle">
+          I build discovery engines, AI assistants, digital art, and websites
+          — one project at a time. No hype. Just tools that work.
         </p>
-        <p>
-          Our flagship product, <a href="https://pickaxe.axly.com">Goldmine</a>, tracks
-          emerging AI tools and developer repos across six major platforms — GitHub, Hacker News,
-          Product Hunt, Reddit, arXiv, and Dev.to — scoring them by real momentum data instead of
-          marketing buzz. Its companion newsletter, <a href="https://shovel.axly.com">The Shovel</a>,
-          delivers the week's best finds straight to your inbox.
-        </p>
-        <p>
-          <a href="/thothai/">ThothAI</a> takes a different approach: a fully local AI document
-          assistant for Windows and iOS. Upload PDFs, build knowledge bases, and ask questions —
-          all processed on your device with zero cloud dependencies. Your data stays yours.
-        </p>
-        <p>
-          Before there were AI tools, there was art. Axly's Customs started as a digital art
-          studio, and that creative spirit still runs through everything we make. Whether it's
-          a new product or an original illustration, we're always building something for the curious.
-        </p>
-        <p>
-          Everything here is built by one person — no VC funding, no growth teams, no enterprise
-          sales. Just tools that work, made for developers, researchers, creators, and anyone
-          who'd rather discover things themselves than wait for an algorithm to decide what's trending.
-          If that sounds like you, poke around. There's always something new in the workshop.
-        </p>
+
+        <div class="hero-ctas">
+          <a href="/webdesign/" class="btn btn-primary">Get a Website</a>
+          <a href="#services" class="btn btn-secondary">Explore the Workshop</a>
+        </div>
       </div>
     </section>
 
-    <!-- Creative -->
-    <section class="art-section">
-      <h2 class="section-title">Creative</h2>
-      <div class="section-header">Art &amp; Commissions</div>
-      <div class="art-card">
-        <div class="art-icon">&#127912;</div>
-        <div class="art-content">
-          <h3>Custom Digital Art</h3>
-          <p>Where it all started. Custom digital art creations spanning fantasy, cyberpunk, steampunk, and modern styles. Browse the gallery for original work, or commission something unique. Every piece is crafted with the same care we put into our tools.</p>
-          <div class="art-links">
-            <a href="/gallery/" class="art-link" style="background:var(--accent);color:#fff;border-color:var(--accent);">View Gallery</a>
-            <a href="https://www.deviantart.com/axlyscustoms" target="_blank" rel="noopener noreferrer" class="art-link">DeviantArt</a>
-            <a href="https://ko-fi.com/r9customs" target="_blank" rel="noopener noreferrer" class="art-link">Ko-Fi</a>
-            <a href="https://www.facebook.com/people/Axlys-Customs/61582103295229/" target="_blank" rel="noopener noreferrer" class="art-link">Facebook</a>
+
+    <!-- ========== SERVICES STRIP ========== -->
+    <section class="services-strip" id="services">
+      <div class="container">
+        <span class="label">What I Build</span>
+
+        <!-- ASSET REQUEST: 4 custom service icons (80x80, chrome/metallic on transparent,
+             angular style matching logo wings):
+             1. Web Design — browser/code hybrid
+             2. Goldmine — pickaxe or discovery motif
+             3. ThothAI — document/brain motif
+             4. Art — palette or brush motif -->
+        <div class="services-grid reveal-stagger">
+          <a href="/webdesign/" class="service-item featured">
+            <div class="service-icon"><!-- ICON: Web Design --></div>
+            <h3>Web Design</h3>
+            <p>Fast, professional websites for small businesses. Built clean, launched fast, looks like you paid a lot more.</p>
+            <span class="service-arrow">Learn more &rarr;</span>
+          </a>
+
+          <a href="https://pickaxe.axly.com" class="service-item">
+            <div class="service-icon"><!-- ICON: Goldmine --></div>
+            <h3>Goldmine</h3>
+            <p>AI tool discovery engine. Surfaces what's real before the hype.</p>
+            <span class="service-arrow">Open &rarr;</span>
+          </a>
+
+          <a href="/thothai/" class="service-item">
+            <div class="service-icon"><!-- ICON: ThothAI --></div>
+            <h3>ThothAI</h3>
+            <p>Local AI document assistant. Your data stays on your device.</p>
+            <span class="service-arrow">Explore &rarr;</span>
+          </a>
+
+          <a href="/gallery/" class="service-item">
+            <div class="service-icon"><!-- ICON: Art --></div>
+            <h3>Digital Art</h3>
+            <p>Custom digital creations. Fantasy, cyberpunk, modern — all original.</p>
+            <span class="service-arrow">View &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== WEB DESIGN TEASER ========== -->
+    <section class="webdesign-section" id="webdesign-preview">
+      <div class="container">
+        <div class="webdesign-grid reveal">
+          <div class="webdesign-content">
+            <span class="label">New Service</span>
+            <h2>Your Business Deserves a <span class="accent-text">Real Website</span></h2>
+            <p>
+              Fast, professional, built for small businesses. Custom design, mobile-first,
+              launched in weeks — not months. Looks like you paid a lot more than you did.
+            </p>
+            <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+              <a href="/webdesign/" class="btn btn-primary">See Pricing &amp; Details</a>
+              <a href="/webdesign/#intake" class="btn btn-secondary">Start a Project</a>
+            </div>
+          </div>
+
+          <!-- ASSET REQUEST: Web design section graphic (~600x400, metallic/chrome aesthetic,
+               abstract browser frame or code/design hybrid, transparent background) -->
+          <div class="webdesign-graphic">
+            [ Web Design graphic — 600&times;400 ]
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Products -->
-    <h2 class="section-title">Products</h2>
-    <div class="section-header">AI-Powered Tools</div>
-    <div class="products">
-      <!-- Goldmine -->
-      <div class="product-card">
-        <div>
-          <img src="/images/goldmine-logo.png" alt="Goldmine AI tool discovery engine logo" width="48" height="48" style="border-radius:12px;margin-bottom:16px;" />
-          <h3>Goldmine</h3>
-          <div class="product-sub">AI Tool Discovery Engine</div>
+
+    <!-- ========== GOLDMINE ========== -->
+    <section class="goldmine-section" id="goldmine">
+      <div class="container">
+        <div class="goldmine-layout">
+          <div class="reveal">
+            <div class="goldmine-logo-wrap">
+              <img src="/images/goldmine-logo.png" alt="Goldmine AI tool discovery engine logo"
+                   width="56" height="56" loading="lazy">
+              <h2>Goldmine</h2>
+            </div>
+
+            <div class="goldmine-stats">
+              <div>
+                <div class="goldmine-stat-number" id="tool-count">4k+</div>
+                <div class="goldmine-stat-label">Tools Tracked</div>
+              </div>
+              <div>
+                <div class="goldmine-stat-number">6</div>
+                <div class="goldmine-stat-label">Data Sources</div>
+              </div>
+            </div>
+
+            <p class="goldmine-desc">
+              Surfaces emerging AI tools and developer repos before they go mainstream.
+              Scored by real momentum data — GitHub stars, Hacker News upvotes,
+              Product Hunt launches, Reddit mentions, arXiv papers, and Dev.to posts.
+              Zero human curation, zero sponsored placements. Just signal.
+            </p>
+
+            <div class="goldmine-sources reveal-stagger">
+              <span class="source-tag">GitHub</span>
+              <span class="source-tag">Hacker News</span>
+              <span class="source-tag">Product Hunt</span>
+              <span class="source-tag">Reddit</span>
+              <span class="source-tag">arXiv</span>
+              <span class="source-tag">Dev.to</span>
+            </div>
+
+            <div class="goldmine-links">
+              <a href="https://pickaxe.axly.com" class="btn btn-primary">Open Pickaxe</a>
+              <a href="https://shovel.axly.com" class="btn btn-secondary">The Shovel Newsletter</a>
+            </div>
+          </div>
+
+          <div class="goldmine-features reveal-stagger">
+            <div class="goldmine-feature">
+              <h4>Pickaxe</h4>
+              <p>The search engine. Browse, filter, and discover AI tools ranked by real traction — not marketing spend.</p>
+            </div>
+            <div class="goldmine-feature">
+              <h4>The Shovel</h4>
+              <p>Weekly newsletter delivering the best AI tool finds straight to your inbox. The signal without the noise.</p>
+            </div>
+            <div class="goldmine-feature">
+              <h4>No Sponsorships</h4>
+              <p>Every tool earns its ranking through data. No pay-to-play, no affiliate deals, no editorial bias.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== THE SHOVEL — Newsletter CTA ========== -->
+    <section class="shovel-section" id="shovel">
+      <div class="container reveal">
+        <!-- ASSET REQUEST: Shovel/newsletter graphic (~200x200, metallic envelope or inbox
+             concept, eye-catching, transparent background) -->
+        <span class="label">Newsletter</span>
+        <h2>The Best AI Tools, <span class="secondary-text">Delivered Weekly</span></h2>
+        <p>
+          The Shovel digs through the noise so you don't have to. Every week,
+          the top AI tools and repos — scored by real data, explained in plain
+          language, delivered to your inbox for free.
+        </p>
+        <div class="shovel-cta">
+          <a href="https://shovel.axly.com" class="btn btn-primary">Subscribe to The Shovel</a>
+        </div>
+        <div class="shovel-frequency">Free &middot; Weekly &middot; No spam</div>
+      </div>
+    </section>
+
+
+    <!-- ========== THOTHAI ========== -->
+    <section class="thothai-section" id="thothai">
+      <div class="container">
+        <div class="thothai-layout">
+          <div class="thothai-visual reveal-stagger">
+            <span class="thothai-badge badge-local">100% Local</span>
+            <span class="thothai-badge badge-private">Zero Cloud Dependencies</span>
+          </div>
+
+          <div class="thothai-content reveal">
+            <div class="thothai-logo-wrap">
+              <img src="/thothai/thoth-logo.jpg" alt="ThothAI local AI document assistant logo"
+                   width="56" height="56" loading="lazy">
+              <h2>ThothAI</h2>
+            </div>
+
+            <p>
+              Upload PDFs, build knowledge bases, and ask questions — all processed
+              locally on your device. No cloud, no internet required, no data leaves
+              your machine. Perfect for sensitive documents, research, legal files,
+              and anything you don't want on someone else's server.
+            </p>
+
+            <div class="thothai-platforms">
+              <span class="platform-tag">Windows</span>
+              <span class="platform-tag">iOS</span>
+              <span class="platform-tag">PDF Q&amp;A</span>
+              <span class="platform-tag">Knowledge Bases</span>
+            </div>
+
+            <div class="thothai-links">
+              <a href="/thothai/" class="btn btn-secondary">Explore ThothAI</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== DIGITAL ART ========== -->
+    <section class="art-section" id="art">
+      <div class="container">
+        <span class="label">Creative</span>
+        <h2 class="reveal">Where It All <span class="accent-text">Started</span></h2>
+        <p class="art-lead reveal">
+          Custom digital art spanning fantasy, cyberpunk, steampunk, and modern styles.
+          Every piece crafted with the same care that goes into the tools.
+        </p>
+
+        <!-- Dynamically loaded from images.json — shows 4 random pieces with thumbnails -->
+        <div class="art-strip reveal-stagger" id="art-strip">
+          <!-- JS populates this -->
+        </div>
+
+        <div class="reveal" style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+          <a href="/gallery/" class="btn btn-primary">View Gallery</a>
+          <a href="https://www.facebook.com/people/Axlys-Customs/61582103295229/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Facebook</a>
+          <a href="https://www.deviantart.com/axlyscustoms" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">DeviantArt</a>
+          <a href="https://ko-fi.com/r9customs" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Ko-Fi</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== ABOUT ========== -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="about-layout reveal">
+          <span class="label">About</span>
+          <h2>One Person. Real Tools. <span class="accent-text">No Hype.</span></h2>
           <p>
-            Surfaces emerging AI tools and developer repos before they go mainstream.
-            Scored by real momentum data across 6 sources — GitHub stars, Hacker News
-            upvotes, Product Hunt launches, Reddit mentions, arXiv papers, and Dev.to posts.
-            Zero human curation, zero sponsored placements. Just signal.
+            Axly's Customs is a one-person workshop focused on building practical tools
+            that put AI to work in everyday workflows. I'm not chasing hype — I build
+            things that solve real problems, from discovering the best new AI tools before
+            they go viral, to running a document assistant that never sends your data to the cloud.
           </p>
-          <div class="product-links">
-            <a href="https://pickaxe.axly.com" class="product-link primary">Open Pickaxe</a>
-            <a href="https://shovel.axly.com" class="product-link secondary">The Shovel Newsletter</a>
-          </div>
-          <div class="features-strip">
-            <span class="feature-tag">GitHub</span>
-            <span class="feature-tag">Hacker News</span>
-            <span class="feature-tag">Product Hunt</span>
-            <span class="feature-tag">Reddit</span>
-            <span class="feature-tag">arXiv</span>
-            <span class="feature-tag">Dev.to</span>
-          </div>
+          <p>
+            Before there were AI tools, there was art. Axly's Customs started as a digital art
+            studio, and that creative spirit still runs through everything I make. Whether it's
+            a new product or an original illustration, I'm always building something for the curious.
+          </p>
+          <p>
+            Everything here is built by one person — no VC funding, no growth teams, no enterprise
+            sales. Just tools that work, made for developers, researchers, creators, and anyone
+            who'd rather discover things themselves than wait for an algorithm to decide what's trending.
+          </p>
         </div>
-        <div class="product-badges">
-          <div class="product-stat">
-            <div class="num" id="tool-count">3.8k</div>
-            <div class="label">Tools</div>
+      </div>
+    </section>
+
+
+    <!-- ========== BLOG TEASER ========== -->
+    <section class="blog-section" id="blog">
+      <div class="container">
+        <h2 class="reveal">From the <span class="secondary-text">Blog</span></h2>
+
+        <!-- Dynamically loaded from posts.json -->
+        <div class="blog-list reveal" id="blog-list">
+          <!-- JS populates this -->
+        </div>
+
+        <a href="/blog/" class="blog-view-all reveal">View all posts &rarr;</a>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Axly's Customs</div>
+          <div class="footer-tagline">Building practical AI tools since 2025</div>
+        </div>
+
+        <div class="footer-links-grid">
+          <div class="footer-col">
+            <h4>Products</h4>
+            <a href="https://pickaxe.axly.com">Pickaxe</a>
+            <a href="https://shovel.axly.com">The Shovel</a>
+            <a href="/thothai/">ThothAI</a>
+            <a href="/gallery/">Art Gallery</a>
           </div>
-          <div class="product-stat">
-            <div class="num">6</div>
-            <div class="label">Sources</div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="/webdesign/">Web Design</a>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <a href="/blog/">Blog</a>
+            <a href="https://www.facebook.com/people/Axlys-Customs/61582103295229/" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.deviantart.com/axlyscustoms" target="_blank" rel="noopener noreferrer">DeviantArt</a>
+            <a href="https://ko-fi.com/r9customs" target="_blank" rel="noopener noreferrer">Ko-Fi</a>
           </div>
         </div>
       </div>
 
-      <!-- ThothAI -->
-      <div class="product-card purple-accent">
-        <div>
-          <img src="/thothai/thoth-logo.jpg" alt="ThothAI local AI document assistant logo" width="48" height="48" loading="lazy" style="border-radius:12px;margin-bottom:16px;" />
-          <h3>ThothAI</h3>
-          <div class="product-sub">Local AI Document Assistant</div>
-          <p>
-            Upload PDFs, build knowledge bases, and ask questions — all processed
-            locally on your device. No cloud, no internet required, no data leaves your machine.
-            Perfect for sensitive documents, research, legal files, and anything you don't want
-            in someone else's server.
-          </p>
-          <div class="product-links">
-            <a href="/thothai/" class="product-link primary purple">Explore ThothAI</a>
-            <a href="#" class="product-link secondary">Windows</a>
-            <a href="#" class="product-link secondary">iOS (TestFlight)</a>
-          </div>
-          <div class="features-strip">
-            <span class="feature-tag">100% Local</span>
-            <span class="feature-tag">PDF Q&A</span>
-            <span class="feature-tag">Knowledge Bases</span>
-            <span class="feature-tag">Windows + iOS</span>
-          </div>
-        </div>
-        <div class="product-badges">
-          <div class="product-stat">
-            <div class="num">2</div>
-            <div class="label">Platforms</div>
-          </div>
-          <div class="product-stat">
-            <div class="num">0</div>
-            <div class="label">Cloud Deps</div>
-          </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="footer-year"></span> Axly's Customs. All rights reserved.</span>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/people/Axlys-Customs/61582103295229/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+          <a href="https://www.deviantart.com/axlyscustoms" target="_blank" rel="noopener noreferrer" aria-label="DeviantArt">DA</a>
+          <a href="https://ko-fi.com/r9customs" target="_blank" rel="noopener noreferrer" aria-label="Ko-Fi">KF</a>
         </div>
       </div>
     </div>
+  </footer>
 
-    <!-- Blog -->
-    <h2 class="section-title">From the Blog</h2>
-    <div class="section-header">Latest Posts</div>
-    <div class="blog-preview">
-      <div class="blog-preview-list" id="blog-preview-list">
-        <!-- Loaded dynamically from posts.json -->
-      </div>
-      <a href="/blog/" class="blog-view-all">View all posts &rarr;</a>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-brand">Axly's <span>Customs</span></div>
-      <div class="footer-sub">Building practical AI tools since 2025</div>
-      <div class="footer-links">
-        <a href="/blog/" class="footer-link">Blog</a>
-        <a href="https://pickaxe.axly.com" class="footer-link">Pickaxe — AI Tool Search</a>
-        <a href="https://shovel.axly.com" class="footer-link">The Shovel Newsletter</a>
-        <a href="/thothai/" class="footer-link">ThothAI — Local Document AI</a>
-        <a href="/gallery/" class="footer-link">Gallery</a>
-        <a href="https://www.deviantart.com/axlyscustoms" target="_blank" rel="noopener noreferrer" class="footer-link">DeviantArt</a>
-        <a href="https://ko-fi.com/r9customs" target="_blank" rel="noopener noreferrer" class="footer-link">Ko-Fi</a>
-        <a href="https://www.facebook.com/people/Axlys-Customs/61582103295229/" target="_blank" rel="noopener noreferrer" class="footer-link">Facebook</a>
-      </div>
-    </footer>
-  </div>
-
-  <script>
-    function getTheme() {
-      return localStorage.getItem('axly-theme') || 'system'
-    }
-    function applyTheme(mode) {
-      const isDark = mode === 'dark' || (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
-      document.body.classList.toggle('dark', isDark)
-      document.querySelectorAll('.theme-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.theme === mode)
-      })
-    }
-    document.querySelectorAll('.theme-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const mode = btn.dataset.theme
-        localStorage.setItem('axly-theme', mode)
-        applyTheme(mode)
-      })
-    })
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-      if (getTheme() === 'system') applyTheme('system')
-    })
-    applyTheme(getTheme())
-
-    // Load tool count from stats.json
-    fetch('/stats.json')
-      .then(r => r.json())
-      .then(data => {
-        const el = document.getElementById('tool-count')
-        if (el && data.tool_count) el.textContent = data.tool_count
-      })
-      .catch(() => {})
-
-    // Load blog preview
-    fetch('/blog/posts.json')
-      .then(r => r.json())
-      .then(posts => {
-        posts.sort((a, b) => b.date.localeCompare(a.date))
-        const list = document.getElementById('blog-preview-list')
-        if (!list) return
-        list.innerHTML = ''
-        posts.slice(0, 3).forEach(post => {
-          const date = new Date(post.date + 'T00:00:00')
-          const dateStr = date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
-          const a = document.createElement('a')
-          a.href = '/blog/' + post.slug + '/'
-          a.className = 'blog-preview-item'
-          a.innerHTML = '<div class="bp-date">' + dateStr + '</div><div class="bp-title">' + post.title + '</div>'
-          list.appendChild(a)
-        })
-      })
-      .catch(() => {})
-  </script>
+  <script src="/js/main.js" defer></script>
 </body>
 </html>
