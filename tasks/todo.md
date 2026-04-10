@@ -28,15 +28,15 @@
 - [ ] Run `/polish` on homepage
 
 ## Phase 3: /webdesign/ Page
-- [ ] Hero / value prop
-- [ ] What You Get (outcomes, not features)
-- [ ] How It Works (4-step process)
-- [ ] Pricing tiers (honest, plain display)
-- [ ] Intake form (Web3Forms, placeholder key)
-- [ ] Portfolio placeholder (commented out)
-- [ ] Footer CTA
-- [ ] /webdesign/thank-you/ page
-- [ ] SEO: meta, schema, add to sitemap
+- [x] Hero / value prop
+- [x] What You Get (outcomes framed as benefits, numbered)
+- [x] How It Works (4-step process with connector lines)
+- [x] Pricing tiers (Base $1,500 + Email add-on + Custom)
+- [x] Intake form (Web3Forms, placeholder key — replace before launch)
+- [x] Portfolio placeholder (commented out in HTML)
+- [x] Footer CTA (phone + email — placeholders, fill before launch)
+- [x] /webdesign/thank-you/ page (noindex)
+- [x] SEO: meta, schema (Service type), OG tags, added to sitemap
 - [ ] Run `/polish` on webdesign page
 
 ## Phase 4: Admin Refresh
