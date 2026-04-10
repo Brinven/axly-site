@@ -38,7 +38,7 @@ axly.com is the primary brand hub for Axly's Customs — a one-person creative/m
 - Sections: About, Products (Goldmine, ThothAI), Creative (art/commissions), Blog teaser
 - Footer with nav links
 - SEO groundwork recently completed (meta, schema, sitemap, etc.) — **preserve all SEO work**
-- Hosted on Cloudflare Pages/Workers, backed by GitHub repo
+- Hosted on GitHub Pages (DNS through Cloudflare), backed by GitHub repo
 
 **What's missing:**
 - Web Design service — not on the site at all
@@ -175,10 +175,10 @@ Note for CC: Display pricing honestly and plainly. No dark patterns, no "startin
 ## Technical Requirements
 
 ### Stack (do not change)
-- Cloudflare Pages for static hosting
-- Cloudflare Workers for any dynamic functionality
+- GitHub Pages for static hosting (main branch, custom domain via CNAME)
+- DNS managed through Cloudflare (proxy/CDN only — hosting is GitHub Pages)
 - GitHub repo for source control (CC has access)
-- Existing D1/KV bindings for Goldmine — **do not touch these**
+- Goldmine backend is a SEPARATE repo with its own Cloudflare Workers/D1/KV — not in this repo
 
 ### New Technical Additions
 - Web3Forms integration for /webdesign/ intake form
@@ -261,7 +261,7 @@ CC should load and apply these skills for this project:
 - [ ] Impeccable `/audit` passes with no critical findings
 - [ ] Tested on mobile (375px) and desktop (1440px)
 - [ ] All links working — no 404s
-- [ ] Deployed to Cloudflare Pages via GitHub push
+- [ ] Merged to main — GitHub Pages auto-deploys
 - [ ] Live at axly.com
 
 ---
