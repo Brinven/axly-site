@@ -136,6 +136,22 @@
   }
 
 
+  /* --- Contact Info (anti-scrape: assembled via JS, not in raw HTML) --- */
+  const contactEl = document.getElementById('contact-info');
+
+  if (contactEl) {
+    const p = ['281', '658', '6530'];
+    const e = ['anotos', 'axly', 'com'];
+    const phone = p.join('-');
+    const email = e[0] + '@' + e[1] + '.' + e[2];
+
+    contactEl.innerHTML =
+      '<a href="tel:+1' + p.join('') + '">(' + p[0] + ') ' + p[1] + '-' + p[2] + '</a>' +
+      '<span>&middot;</span>' +
+      '<a href="ma' + 'ilto:' + email + '">' + email + '</a>';
+  }
+
+
   /* --- Copyright Year --- */
   const yearEl = document.getElementById('footer-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
