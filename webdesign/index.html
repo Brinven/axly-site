@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Design for Small Businesses — Axly's Customs</title>
+  <meta name="description" content="Professional website design for small businesses in the Houston area — Axly's Customs. Fast, clean, mobile-first. Get a free quote.">
+  <meta name="theme-color" content="#0f0b2e">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://axly.com/webdesign/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Web Design for Small Businesses — Axly's Customs">
+  <meta property="og:description" content="Professional website design for small businesses. Fast, clean, mobile-first. Get a free quote.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://axly.com/webdesign/">
+  <meta property="og:image" content="https://axly.com/images/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Axly's Customs">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Web Design for Small Businesses — Axly's Customs">
+  <meta name="twitter:description" content="Professional website design for small businesses. Fast, clean, mobile-first. Get a free quote.">
+  <meta name="twitter:image" content="https://axly.com/images/og-preview.png">
+
+  <!-- Structured Data — Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Small Business Web Design",
+    "provider": {
+      "@type": "Organization",
+      "name": "Axly's Customs",
+      "url": "https://axly.com"
+    },
+    "description": "Professional website design for small businesses. Custom design, mobile-first, fast-loading. Includes domain setup, hosting, SEO, and contact forms.",
+    "url": "https://axly.com/webdesign/",
+    "areaServed": {
+      "@type": "Place",
+      "name": "Houston, Texas"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "1500",
+      "priceCurrency": "USD",
+      "description": "Base site — up to 5 pages, custom design, mobile-first, 1 year hosting included"
+    }
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* === /webdesign/ page-specific styles === */
+
+    .wd-hero {
+      padding-top: 120px;
+      padding-bottom: var(--section-pad);
+      text-align: center;
+    }
+    .wd-hero h1 { max-width: 18ch; margin-inline: auto; margin-bottom: var(--space-lg); }
+    .wd-hero p {
+      font-size: var(--text-lg);
+      color: var(--color-chrome);
+      max-width: 52ch;
+      margin-inline: auto;
+      margin-bottom: var(--space-xl);
+      line-height: 1.6;
+    }
+    .wd-hero-ctas {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* What You Get */
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+    .outcome {
+      padding: var(--space-xl);
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+    }
+    .outcome h3 {
+      margin-bottom: var(--space-sm);
+      font-size: var(--text-lg);
+    }
+    .outcome p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .outcome-number {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 900;
+      color: var(--color-accent);
+      line-height: 1;
+      margin-bottom: var(--space-md);
+    }
+
+    /* How It Works */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+      counter-reset: step;
+    }
+    .step {
+      position: relative;
+      padding: var(--space-xl) var(--space-lg);
+      text-align: center;
+    }
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      display: block;
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: 900;
+      color: var(--color-accent);
+      opacity: 0.3;
+      margin-bottom: var(--space-md);
+      line-height: 1;
+    }
+    .step h3 {
+      font-size: var(--text-base);
+      margin-bottom: var(--space-sm);
+    }
+    .step p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+    /* Connector line between steps */
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 40px;
+      right: 0;
+      width: 50%;
+      height: 1px;
+      background: var(--color-border);
+    }
+    .step:not(:first-child)::after {
+      left: 0;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .steps {
+        grid-template-columns: 1fr;
+        gap: var(--space-base);
+      }
+      .step { text-align: left; display: flex; gap: var(--space-lg); align-items: flex-start; padding: var(--space-lg) 0; }
+      .step::before { margin-bottom: 0; flex-shrink: 0; font-size: var(--text-2xl); min-width: 40px; }
+      .step::after { display: none; }
+      .step h3, .step p { text-align: left; }
+    }
+
+    /* Pricing */
+    .pricing-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: var(--space-2xl);
+      margin-top: var(--space-xl);
+      align-items: start;
+    }
+
+    .price-card {
+      padding: var(--space-2xl);
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius-lg);
+    }
+
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: 900;
+      color: var(--color-accent);
+      line-height: 1;
+      margin-bottom: var(--space-xs);
+    }
+    .price-label {
+      font-size: var(--text-base);
+      color: var(--color-chrome);
+      margin-bottom: var(--space-xl);
+    }
+
+    .price-features {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+    .price-feature {
+      display: flex;
+      gap: var(--space-md);
+      align-items: flex-start;
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+    .price-check {
+      color: var(--color-accent);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .pricing-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .addon-card, .custom-card {
+      padding: var(--space-xl);
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+    }
+    .addon-card h3, .custom-card h3 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-md);
+    }
+
+    .addon-option {
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--color-border-subtle);
+      font-size: var(--text-sm);
+      line-height: 1.6;
+    }
+    .addon-option:last-child { border-bottom: none; }
+    .addon-option strong {
+      color: var(--color-text);
+      display: block;
+    }
+    .addon-option span {
+      color: var(--color-text-muted);
+    }
+
+    .custom-card p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-base);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .pricing-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Intake Form */
+    .intake-section {
+      background: var(--color-bg-elevated);
+      border-top: 1px solid var(--color-border-subtle);
+      border-bottom: 1px solid var(--color-border-subtle);
+    }
+    .intake-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: var(--space-3xl);
+      align-items: start;
+    }
+    .intake-info h2 { margin-bottom: var(--space-base); }
+    .intake-info p {
+      color: var(--color-chrome);
+      margin-bottom: var(--space-lg);
+      line-height: 1.6;
+    }
+    .intake-download {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-accent);
+      padding: var(--space-md) var(--space-lg);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius-md);
+      transition: background var(--transition-fast);
+    }
+    .intake-download:hover {
+      background: var(--color-accent-soft);
+    }
+
+    .intake-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .form-group label {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      padding: var(--space-md) var(--space-base);
+      background: var(--color-bg);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      transition: border-color var(--transition-fast);
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--color-accent);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--color-text-muted);
+    }
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      align-self: flex-start;
+      font-size: var(--text-base);
+      padding: var(--space-base) var(--space-2xl);
+    }
+
+    @media (max-width: 768px) {
+      .intake-layout { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* Footer CTA */
+    .footer-cta {
+      text-align: center;
+      padding-block: var(--space-3xl);
+    }
+    .footer-cta h2 { margin-bottom: var(--space-base); }
+    .footer-cta p {
+      color: var(--color-chrome);
+      margin-inline: auto;
+      margin-bottom: var(--space-lg);
+      font-size: var(--text-lg);
+    }
+    .footer-cta-contacts {
+      display: flex;
+      gap: var(--space-xl);
+      justify-content: center;
+      flex-wrap: wrap;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: var(--text-base);
+    }
+    .footer-cta-contacts a {
+      color: var(--color-accent);
+      transition: opacity var(--transition-fast);
+    }
+    .footer-cta-contacts a:hover { opacity: 0.8; }
+    .footer-cta-contacts span { color: var(--color-text-muted); }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="/" class="nav-logo">
+        <span>Axly's Customs</span>
+      </a>
+      <div class="nav-links">
+        <a href="/webdesign/" class="nav-link">Web Design</a>
+        <a href="https://pickaxe.axly.com" class="nav-link">Goldmine</a>
+        <a href="/thothai/" class="nav-link">ThothAI</a>
+        <a href="/gallery/" class="nav-link">Art</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="#intake" class="btn btn-primary nav-cta">Get Started</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="mobile-menu" role="dialog" aria-label="Navigation menu">
+    <a href="/webdesign/">Web Design</a>
+    <a href="https://pickaxe.axly.com">Goldmine</a>
+    <a href="/thothai/">ThothAI</a>
+    <a href="/gallery/">Art</a>
+    <a href="/blog/">Blog</a>
+    <a href="#intake" class="btn btn-primary" style="margin-top: var(--space-lg);">Get Started</a>
+  </div>
+
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="wd-hero">
+      <div class="container reveal">
+        <span class="label">Web Design</span>
+        <h1>Your Business Deserves a <span class="accent-text">Real Website</span></h1>
+        <p>
+          Fast, professional, built for small businesses. Custom design, mobile-first,
+          launched in weeks — not months. Looks like you paid a lot more than you did.
+        </p>
+        <div class="wd-hero-ctas">
+          <a href="#intake" class="btn btn-primary">Get Started</a>
+          <!-- PORTFOLIO CTA: Uncomment when demo sites are ready
+          <a href="#portfolio" class="btn btn-secondary">See What We Build</a>
+          -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== WHAT YOU GET ========== -->
+    <section id="outcomes">
+      <div class="container">
+        <span class="label">What You Get</span>
+        <h2 class="reveal">A Website That <span class="accent-text">Works</span> for You</h2>
+
+        <!-- ASSET REQUEST: 5 outcome icons (64x64, chrome/metallic, transparent BG):
+             1. Custom design — paintbrush/palette
+             2. Mobile — phone/responsive
+             3. Fast — lightning/speed
+             4. Found online — magnifying glass/search
+             5. Ongoing support — wrench/gear -->
+        <div class="outcomes-grid reveal-stagger">
+          <div class="outcome">
+            <div class="outcome-number">01</div>
+            <h3>Designed for Your Brand</h3>
+            <p>Not a template. Your site is built from scratch around your business, your colors, your personality. It looks and feels like you.</p>
+          </div>
+          <div class="outcome">
+            <div class="outcome-number">02</div>
+            <h3>Looks Great on Every Phone</h3>
+            <p>Mobile-first from the ground up. Your customers are on their phones — your site will load fast and look sharp on every screen size.</p>
+          </div>
+          <div class="outcome">
+            <div class="outcome-number">03</div>
+            <h3>Fast. Really Fast.</h3>
+            <p>Clean code, optimized images, no bloat. Your site loads in under 2 seconds — not 10. Faster sites get more calls.</p>
+          </div>
+          <div class="outcome">
+            <div class="outcome-number">04</div>
+            <h3>Found on Google</h3>
+            <p>Built-in SEO so local customers can actually find you. Business schema, sitemap, meta descriptions — the stuff that matters, done right.</p>
+          </div>
+          <div class="outcome">
+            <div class="outcome-number">05</div>
+            <h3>Domain, Hosting, All of It</h3>
+            <p>We set up your domain, connect your hosting, configure your email. You don't need to figure out the tech — that's what we're here for.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section id="process">
+      <div class="container">
+        <span class="label">How It Works</span>
+        <h2 class="reveal">Four Steps to <span class="accent-text">Launch</span></h2>
+
+        <div class="steps reveal-stagger">
+          <div class="step">
+            <div>
+              <h3>Fill Out the Form</h3>
+              <p>Tell us about your business, what you need, and your timeline. Takes about 5 minutes.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>We Talk</h3>
+              <p>Quick call or message to nail down the details. We'll ask the right questions so you don't have to guess.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>You Get a Design</h3>
+              <p>We build your site and send a preview. You review it, we refine it, until it's exactly right.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>We Launch</h3>
+              <p>Domain connected, hosting live, email working. Your site is up and taking calls.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PORTFOLIO SECTION: Add when 3+ client sites are live
+    <section id="portfolio">
+      <div class="container">
+        <span class="label">Our Work</span>
+        <h2>Sites We've Built</h2>
+        <div class="portfolio-grid">
+          // Portfolio items go here — CityWide Landscape, demo sites, etc.
+        </div>
+      </div>
+    </section>
+    -->
+
+
+    <!-- ========== PRICING ========== -->
+    <section id="pricing">
+      <div class="container">
+        <span class="label">Pricing</span>
+        <h2 class="reveal">Honest Pricing. <span class="accent-text">No Surprises.</span></h2>
+
+        <div class="pricing-layout reveal">
+          <!-- Base tier -->
+          <div class="price-card">
+            <div class="price-amount">$1,500</div>
+            <div class="price-label">Base Site — everything you need to launch</div>
+
+            <div class="price-features">
+              <div class="price-feature">
+                <span class="price-check">&check;</span>
+                <span>Up to 5 pages (Home, Services, About, Contact, Thank You)</span>
+              </div>
+              <div class="price-feature">
+                <span class="price-check">&check;</span>
+                <span>Custom design built from your branding</span>
+              </div>
+              <div class="price-feature">
+                <span class="price-check">&check;</span>
+                <span>Mobile-first, fast-loading, clean code</span>
+              </div>
+              <div class="price-feature">
+                <span class="price-check">&check;</span>
+                <span>Contact form so customers can reach you</span>
+              </div>
+              <div class="price-feature">
+                <span class="price-check">&check;</span>
+                <span>Domain + hosting setup</span>
+              </div>
+              <div class="price-feature">
+                <span class="price-check">&check;</span>
+                <span>Local SEO (Google schema, sitemap, meta tags)</span>
+              </div>
+              <div class="price-feature">
+                <span class="price-check">&check;</span>
+                <span>1 year hosting included ($250/yr after)</span>
+              </div>
+            </div>
+
+            <a href="#intake" class="btn btn-primary" style="width: 100%; justify-content: center;">Get Started</a>
+          </div>
+
+          <!-- Sidebar: add-ons + custom -->
+          <div class="pricing-sidebar">
+            <div class="addon-card">
+              <h3>+ Email Setup</h3>
+              <div class="addon-option">
+                <strong>Email Forwarding</strong>
+                <span>Cloudflare Email Routing — included free</span>
+              </div>
+              <div class="addon-option">
+                <strong>Full Mailboxes (Zoho Mail)</strong>
+                <span>Up to 5 inboxes, works with any email app. $75 setup, ~$12/mo after free tier.</span>
+              </div>
+              <div class="addon-option">
+                <strong>Google Workspace or Microsoft 365</strong>
+                <span>$12/user/month (billed through provider) + $50 setup fee</span>
+              </div>
+            </div>
+
+            <div class="custom-card">
+              <h3>Need Something Bigger?</h3>
+              <p>
+                More pages, booking systems, e-commerce, custom features — we build those too.
+                Every project is different, so let's talk about what you need.
+              </p>
+              <a href="#intake" class="btn btn-secondary" style="width: 100%; justify-content: center;">Contact Us for a Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== INTAKE FORM ========== -->
+    <section class="intake-section" id="intake">
+      <div class="container">
+        <div class="intake-layout reveal">
+          <div class="intake-info">
+            <span class="label">Start a Project</span>
+            <h2>Tell Us About Your <span class="accent-text">Business</span></h2>
+            <p>
+              Fill this out and we'll get back to you within a day. This is just to start the
+              conversation — we'll figure out the details together.
+            </p>
+            <p style="font-size: var(--text-sm); color: var(--color-text-muted);">
+              Want to go deeper upfront? Download the full questionnaire and send it back when you're ready.
+            </p>
+            <a href="/.claude/Axly-Client-Intake-Questionnaire (2).docx" class="intake-download" download>
+              Download Full Questionnaire &darr;
+            </a>
+          </div>
+
+          <form class="intake-form" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Web3Forms config -->
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+            <!-- Replace YOUR_WEB3FORMS_KEY with actual key before launch -->
+            <input type="hidden" name="subject" value="New web design inquiry from axly.com">
+            <input type="hidden" name="redirect" value="https://axly.com/webdesign/thank-you/">
+            <input type="checkbox" name="botcheck" style="display:none">
+
+            <div class="form-group">
+              <label for="business">Business Name *</label>
+              <input type="text" id="business" name="business_name" required placeholder="e.g. Joe's BBQ">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name *</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555">
+            </div>
+
+            <div class="form-group">
+              <label for="what">What does your business do? *</label>
+              <input type="text" id="what" name="business_description" required placeholder="e.g. We're a landscaping company in Katy, TX">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pages">How many pages do you need?</label>
+                <select id="pages" name="page_count">
+                  <option value="" selected disabled>Select...</option>
+                  <option value="1-3">1–3 pages</option>
+                  <option value="4-5">4–5 pages (base package)</option>
+                  <option value="6-10">6–10 pages</option>
+                  <option value="10+">10+ pages</option>
+                  <option value="not-sure">Not sure yet</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="logo">Do you have a logo?</label>
+                <select id="logo" name="has_logo">
+                  <option value="" selected disabled>Select...</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                  <option value="need-one">I need one</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="domain">Do you have a domain?</label>
+                <select id="domain" name="has_domain">
+                  <option value="" selected disabled>Select...</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                  <option value="not-sure">Not sure</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="timeline">What's your timeline?</label>
+                <select id="timeline" name="timeline">
+                  <option value="" selected disabled>Select...</option>
+                  <option value="asap">As soon as possible</option>
+                  <option value="1-2-weeks">1–2 weeks</option>
+                  <option value="1-month">About a month</option>
+                  <option value="flexible">Flexible</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="details">Tell us about your project</label>
+              <textarea id="details" name="project_details" rows="5" placeholder="Anything else you'd like us to know — goals, features, sites you admire, whatever comes to mind."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit">Send It Over</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== FOOTER CTA ========== -->
+    <section class="footer-cta">
+      <div class="container reveal">
+        <h2>Rather Just <span class="accent-text">Talk</span>?</h2>
+        <p>No forms required. Reach out however works best for you.</p>
+        <div class="footer-cta-contacts">
+          <!-- TODO: Add Mike's actual phone and email before launch -->
+          <a href="tel:+1XXXXXXXXXX">(XXX) XXX-XXXX</a>
+          <span>&middot;</span>
+          <a href="mailto:hello@axly.com">hello@axly.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Axly's Customs</div>
+          <div class="footer-tagline">Building practical AI tools since 2025</div>
+        </div>
+        <div class="footer-links-grid">
+          <div class="footer-col">
+            <h4>Products</h4>
+            <a href="https://pickaxe.axly.com">Pickaxe</a>
+            <a href="https://shovel.axly.com">The Shovel</a>
+            <a href="/thothai/">ThothAI</a>
+            <a href="/gallery/">Art Gallery</a>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="/webdesign/">Web Design</a>
+          </div>
+          <div class="footer-col">
+            <h4>Connect</h4>
+            <a href="/blog/">Blog</a>
+            <a href="https://www.facebook.com/people/Axlys-Customs/61582103295229/" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.deviantart.com/axlyscustoms" target="_blank" rel="noopener noreferrer">DeviantArt</a>
+            <a href="https://ko-fi.com/r9customs" target="_blank" rel="noopener noreferrer">Ko-Fi</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="footer-year"></span> Axly's Customs. All rights reserved.</span>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/people/Axlys-Customs/61582103295229/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+          <a href="https://www.deviantart.com/axlyscustoms" target="_blank" rel="noopener noreferrer" aria-label="DeviantArt">DA</a>
+          <a href="https://ko-fi.com/r9customs" target="_blank" rel="noopener noreferrer" aria-label="Ko-Fi">KF</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
