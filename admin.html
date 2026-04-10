@@ -4,29 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Axly's Customs - Admin Panel</title>
+    <title>Admin Panel — Axly's Customs</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Tokens (subset from main site) */
+        :root {
+            --color-bg:          oklch(0.13 0.03 280);
+            --color-bg-elevated: oklch(0.17 0.025 280);
+            --color-bg-subtle:   oklch(0.21 0.02 280);
+            --color-text:        oklch(0.93 0.005 280);
+            --color-text-secondary: oklch(0.75 0.01 270);
+            --color-text-muted:  oklch(0.50 0.015 280);
+            --color-accent:      oklch(0.70 0.12 230);
+            --color-accent-hover: oklch(0.63 0.12 230);
+            --color-secondary:   oklch(0.65 0.25 350);
+            --color-border:      oklch(0.25 0.015 280);
+            --color-border-subtle: oklch(0.20 0.010 280);
+            --color-chrome:      oklch(0.78 0.008 270);
+            --color-error:       oklch(0.60 0.20 25);
+            --color-success:     oklch(0.65 0.18 145);
+            --font-display: 'Saira', sans-serif;
+            --font-body:    'Lexend', sans-serif;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-body);
             margin: 0;
             padding: 20px;
-            background-color: #f4f4f9;
-            color: #333;
+            background-color: var(--color-bg);
+            color: var(--color-text-secondary);
             display: flex;
             flex-direction: column;
             align-items: center;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
         }
 
         h1 {
-            color: #4a4a4a;
+            font-family: var(--font-display);
+            color: var(--color-text);
             margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        h3 {
+            font-family: var(--font-display);
+            color: var(--color-text);
+            font-weight: 700;
         }
 
         .container {
-            background: white;
+            background: var(--color-bg-elevated);
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
             width: 100%;
             max-width: 800px;
         }
@@ -38,7 +75,10 @@
         label {
             display: block;
             margin-bottom: 8px;
-            font-weight: bold;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--color-text);
         }
 
         input[type="text"],
@@ -46,28 +86,56 @@
         input[type="file"] {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
             box-sizing: border-box;
+            background: var(--color-bg);
+            color: var(--color-text);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+        input[type="file"] {
+            color: var(--color-text-muted);
+        }
+
+        code {
+            background: var(--color-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            color: var(--color-accent);
         }
 
         button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--color-accent);
+            color: oklch(1 0 0);
             border: none;
             padding: 10px 15px;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
+            font-family: var(--font-display);
             font-size: 14px;
-            transition: opacity 0.3s;
+            font-weight: 600;
+            transition: background 0.2s, opacity 0.2s;
         }
 
         button.secondary {
-            background: #6c757d;
+            background: var(--color-bg-subtle);
+            color: var(--color-text-muted);
+            border: 1px solid var(--color-border);
+        }
+        button.secondary:hover {
+            background: var(--color-border);
+            color: var(--color-text);
         }
 
         button.danger {
-            background: #dc3545;
+            background: var(--color-error);
         }
 
         button:hover {
@@ -75,40 +143,43 @@
         }
 
         button:disabled {
-            background: #ccc;
+            background: var(--color-bg-subtle);
+            color: var(--color-text-muted);
             cursor: not-allowed;
+            opacity: 0.6;
         }
 
         #status {
             margin-top: 20px;
             padding: 10px;
-            border-radius: 5px;
+            border-radius: 6px;
             text-align: center;
             display: none;
             white-space: pre-wrap;
+            font-size: 0.9rem;
         }
 
         .success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+            background-color: oklch(0.20 0.04 145);
+            color: oklch(0.75 0.15 145);
+            border: 1px solid oklch(0.30 0.06 145);
         }
 
         .error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+            background-color: oklch(0.20 0.04 25);
+            color: oklch(0.75 0.15 25);
+            border: 1px solid oklch(0.30 0.06 25);
         }
 
         .loading {
-            background-color: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeeba;
+            background-color: oklch(0.20 0.04 85);
+            color: oklch(0.75 0.10 85);
+            border: 1px solid oklch(0.30 0.05 85);
         }
 
         .image-list {
             margin-top: 30px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid var(--color-border);
             padding-top: 20px;
         }
 
@@ -118,24 +189,31 @@
             gap: 15px;
             align-items: center;
             padding: 10px;
-            border-bottom: 1px solid #f0f0f0;
-            background: #fff;
+            border-bottom: 1px solid var(--color-border-subtle);
+            background: var(--color-bg-elevated);
+            transition: background 0.15s;
         }
 
         .image-item:hover {
-            background-color: #fafafa;
+            background-color: var(--color-bg-subtle);
         }
 
         .image-item img {
             width: 50px;
             height: 50px;
             object-fit: cover;
-            border-radius: 5px;
-            border: 1px solid #ddd;
+            border-radius: 6px;
+            border: 1px solid var(--color-border);
         }
 
         .image-info {
             word-break: break-all;
+        }
+        .image-info strong {
+            color: var(--color-text);
+        }
+        .image-info small {
+            color: var(--color-text-muted) !important;
         }
 
         .controls {
@@ -164,7 +242,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #ccc;
+            background-color: var(--color-bg-subtle);
+            border: 1px solid var(--color-border);
             transition: .4s;
             border-radius: 34px;
         }
@@ -175,25 +254,27 @@
             height: 16px;
             width: 16px;
             left: 4px;
-            bottom: 4px;
-            background-color: white;
+            bottom: 3px;
+            background-color: var(--color-chrome);
             transition: .4s;
             border-radius: 50%;
         }
 
         input:checked+.slider {
-            background-color: #667eea;
+            background-color: var(--color-accent);
+            border-color: var(--color-accent);
         }
 
         input:checked+.slider:before {
             transform: translateX(26px);
+            background-color: oklch(1 0 0);
         }
 
         /* Loading Spinner */
         .spinner {
-            border: 3px solid #f3f3f3;
+            border: 3px solid var(--color-border);
             border-radius: 50%;
-            border-top: 3px solid #667eea;
+            border-top: 3px solid var(--color-accent);
             width: 20px;
             height: 20px;
             animation: spin 1s linear infinite;
@@ -203,13 +284,20 @@
         }
 
         @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-            100% {
-                transform: rotate(360deg);
-            }
+        /* Section panels — override inline styles */
+        [style*="background: #f8f9fa"],
+        [style*="background: #f5fff5"],
+        [style*="background: #f0f8ff"] {
+            background: var(--color-bg-subtle) !important;
+            border-color: var(--color-border) !important;
+        }
+
+        p {
+            color: var(--color-text-muted);
         }
     </style>
 </head>
@@ -241,7 +329,7 @@
             </div>
 
             <!-- Upload Section -->
-            <div class="form-group" style="padding: 20px; background: #f8f9fa; border-radius: 8px;">
+            <div class="form-group" style="padding: 20px; background: var(--color-bg-subtle); border-radius: 8px; border: 1px solid var(--color-border);">
                 <label for="file-input">Upload New Image</label>
                 <div style="display: flex; gap: 10px; align-items: center;">
                     <input type="file" id="file-input" accept="image/*" style="background: white;">
@@ -253,7 +341,7 @@
             </div>
 
             <!-- Site Stats Section -->
-            <div class="form-group" style="padding: 20px; background: #f5fff5; border-radius: 8px; border: 1px solid #c3e6cb;">
+            <div class="form-group" style="padding: 20px; background: var(--color-bg-subtle); border-radius: 8px; border: 1px solid var(--color-border);">
                 <label>Site Stats</label>
                 <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
                     <label style="font-weight: normal; font-size: 0.9em; margin: 0;">Tool Count:</label>
@@ -267,7 +355,7 @@
             </div>
 
             <!-- Gallery Thumbnails Section -->
-            <div class="form-group" style="padding: 20px; background: #f0f8ff; border-radius: 8px; border: 1px solid #d0e8ff;">
+            <div class="form-group" style="padding: 20px; background: var(--color-bg-subtle); border-radius: 8px; border: 1px solid var(--color-border);">
                 <label>Gallery Thumbnails</label>
                 <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
                     <button onclick="syncThumbnails()" id="sync-btn" style="min-width: 180px;">Sync Gallery Thumbnails</button>
@@ -278,8 +366,8 @@
                     The gallery page at <code>/gallery/</code> will update automatically.
                 </p>
                 <div id="thumb-progress" style="display:none; margin-top: 10px;">
-                    <div style="background: #e0e0e0; border-radius: 8px; height: 8px; overflow: hidden;">
-                        <div id="thumb-bar" style="background: linear-gradient(135deg, #667eea, #764ba2); height: 100%; width: 0%; transition: width 0.3s;"></div>
+                    <div style="background: var(--color-bg); border-radius: 8px; height: 8px; overflow: hidden;">
+                        <div id="thumb-bar" style="background: var(--color-accent); height: 100%; width: 0%; transition: width 0.3s;"></div>
                     </div>
                     <div id="thumb-log" style="font-size: 0.8em; color: #666; margin-top: 5px; max-height: 120px; overflow-y: auto;"></div>
                 </div>

@@ -40,7 +40,7 @@
 - [ ] Run `/polish` on webdesign page
 
 ## Phase 4: Admin Refresh
-- [ ] Light CSS refresh on admin.html to match new design
+- [x] Light CSS refresh on admin.html to match new design
 
 ## Phase 5: Quality
 - [ ] Run `/audit` — full site
