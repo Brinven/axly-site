@@ -7,14 +7,16 @@ PRD: `axly-redesign-PRD.md`
 
 ## Stack (locked)
 - **HTML / CSS / JS** — no frameworks, no build steps
-- **Cloudflare Pages** — static hosting via GitHub (main branch = production)
+- **GitHub Pages** — static hosting from `main` branch, custom domain via CNAME
+- **DNS through Cloudflare** — but hosting is GitHub Pages, NOT Cloudflare Pages
 - **Web3Forms** — contact form backend for /webdesign/ intake
 - **Google Fonts** — loaded async with display=swap
 
 ## Branch Strategy
-- `main` = production (auto-deploys to axly.com)
-- `redesign` = all work happens here (Cloudflare generates preview URL)
+- `main` = production (GitHub Pages auto-deploys to axly.com)
+- `redesign` = all work happens here
 - `pre-redesign` tag = rollback point
+- Preview via local server (`python -m http.server 8080`) — no branch preview URLs
 - Merge to main only when approved by Mike
 
 ## Critical Safety Rules
