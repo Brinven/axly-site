@@ -329,10 +329,10 @@ section {
    ============================================================ */
 .hero {
   position: relative;
-  min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 80px; /* clear fixed nav */
+  padding-top: clamp(120px, 18vh, 180px);
+  padding-bottom: clamp(60px, 10vh, 100px);
   overflow: hidden;
 }
 
