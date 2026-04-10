@@ -1,6 +1,10 @@
 # Axly's Customs
 
-> A small workshop building practical AI-powered tools, creative projects, and whatever's next.
+> A small workshop building practical AI-powered tools, creative projects, web design services, and whatever's next.
+
+## Services
+
+- [Web Design](https://axly.com/webdesign/): Professional website design for small businesses — custom design, mobile-first, fast-loading. Base site $1,500 including domain setup, hosting, SEO, and contact forms. Houston area and remote.
 
 ## Products
 
