@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axly.com — Font Pairing Specimens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700;800;900&family=Lexend:wght@300;400;500;600;700&family=Chakra+Petch:wght@300;400;500;600;700&family=Anybody:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: oklch(0.15 0.04 280);
+      color: oklch(0.95 0.005 280);
+      padding: 48px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-family: system-ui;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: oklch(0.65 0.25 350);
+      margin-bottom: 48px;
+    }
+
+    .option {
+      margin-bottom: 80px;
+      padding: 48px;
+      border: 1px solid oklch(0.3 0.02 280);
+      border-radius: 16px;
+    }
+    .option-label {
+      font-family: system-ui;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: oklch(0.7 0.12 230);
+      margin-bottom: 8px;
+    }
+    .option-rec {
+      font-family: system-ui;
+      font-size: 12px;
+      color: oklch(0.65 0.25 350);
+      margin-bottom: 32px;
+      font-weight: 600;
+    }
+    .option-fonts {
+      font-family: system-ui;
+      font-size: 13px;
+      color: oklch(0.6 0.02 280);
+      margin-bottom: 40px;
+    }
+
+    .specimen-row { margin-bottom: 40px; }
+    .specimen-label {
+      font-family: system-ui;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: oklch(0.5 0.02 280);
+      margin-bottom: 8px;
+    }
+
+    /* Option A: Saira + Lexend */
+    .opt-a .display-hero {
+      font-family: 'Saira', sans-serif;
+      font-weight: 900;
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+    .opt-a .display-h2 {
+      font-family: 'Saira', sans-serif;
+      font-weight: 800;
+      font-size: clamp(24px, 4vw, 40px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .opt-a .display-h3 {
+      font-family: 'Saira', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+    .opt-a .body-text {
+      font-family: 'Lexend', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 65ch;
+      color: oklch(0.78 0.01 270);
+    }
+    .opt-a .body-small {
+      font-family: 'Lexend', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 1.5;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: oklch(0.6 0.02 280);
+    }
+    .opt-a .cta-btn {
+      display: inline-block;
+      font-family: 'Saira', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      background: oklch(0.65 0.25 350);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 16px;
+    }
+
+    /* Option B: Chakra Petch + Lexend */
+    .opt-b .display-hero {
+      font-family: 'Chakra Petch', sans-serif;
+      font-weight: 700;
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .opt-b .display-h2 {
+      font-family: 'Chakra Petch', sans-serif;
+      font-weight: 600;
+      font-size: clamp(24px, 4vw, 40px);
+      line-height: 1.15;
+    }
+    .opt-b .display-h3 {
+      font-family: 'Chakra Petch', sans-serif;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+    .opt-b .body-text {
+      font-family: 'Lexend', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 65ch;
+      color: oklch(0.78 0.01 270);
+    }
+    .opt-b .body-small {
+      font-family: 'Lexend', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 1.5;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: oklch(0.6 0.02 280);
+    }
+    .opt-b .cta-btn {
+      display: inline-block;
+      font-family: 'Chakra Petch', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.03em;
+      background: oklch(0.65 0.25 350);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 16px;
+    }
+
+    /* Option C: Anybody + Lexend */
+    .opt-c .display-hero {
+      font-family: 'Anybody', sans-serif;
+      font-weight: 900;
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+    .opt-c .display-h2 {
+      font-family: 'Anybody', sans-serif;
+      font-weight: 800;
+      font-size: clamp(24px, 4vw, 40px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .opt-c .display-h3 {
+      font-family: 'Anybody', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+    .opt-c .body-text {
+      font-family: 'Lexend', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 65ch;
+      color: oklch(0.78 0.01 270);
+    }
+    .opt-c .body-small {
+      font-family: 'Lexend', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 1.5;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: oklch(0.6 0.02 280);
+    }
+    .opt-c .cta-btn {
+      display: inline-block;
+      font-family: 'Anybody', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      background: oklch(0.65 0.25 350);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 16px;
+    }
+
+    .accent { color: oklch(0.65 0.25 350); }
+    .blue { color: oklch(0.7 0.12 230); }
+
+    .divider {
+      border: none;
+      border-top: 1px solid oklch(0.25 0.02 280);
+      margin: 32px 0;
+    }
+
+    .pricing-example {
+      margin-top: 24px;
+    }
+    .price {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+    .price-label {
+      font-size: 14px;
+      color: oklch(0.6 0.02 280);
+    }
+  </style>
+</head>
+<body>
+  <h1>Axly.com Font Pairing Specimens — Open in Browser</h1>
+
+  <!-- OPTION A -->
+  <div class="option opt-a">
+    <div class="option-label">Option A — Recommended</div>
+    <div class="option-rec">My pick. Racing/industrial DNA in the display, designed-for-screens readability in the body.</div>
+    <div class="option-fonts">Display: <strong>Saira</strong> (Omnibus-Type, variable 100-900) &nbsp;|&nbsp; Body: <strong>Lexend</strong> (variable 100-900)</div>
+
+    <div class="specimen-row">
+      <div class="specimen-label">Hero headline</div>
+      <div class="display-hero">From discovery engines<br>to digital art — <span class="accent">built for the curious</span></div>
+    </div>
+
+    <div class="specimen-row">
+      <div class="specimen-label">Section heading</div>
+      <div class="display-h2">Your Business Deserves a Real Website</div>
+    </div>
+
+    <div class="specimen-row">
+      <div class="specimen-label">Card / product heading</div>
+      <div class="display-h3">Goldmine — <span class="blue">AI Tool Discovery Engine</span></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="specimen-row">
+      <div class="specimen-label">Body copy</div>
+      <div class="body-text">Surfaces emerging AI tools and developer repos before they go mainstream. Scored by real momentum data across 6 sources — GitHub stars, Hacker News upvotes, Product Hunt launches, Reddit mentions, arXiv papers, and Dev.to posts. Zero human curation, zero sponsored placements. Just signal.</div>
+    </div>
+
+    <div class="specimen-row">
+      <div class="specimen-label">Labels / tags</div>
+      <div class="body-small">GitHub &nbsp;&bull;&nbsp; Hacker News &nbsp;&bull;&nbsp; Product Hunt &nbsp;&bull;&nbsp; Reddit &nbsp;&bull;&nbsp; arXiv &nbsp;&bull;&nbsp; Dev.to</div>
+    </div>
+
+    <div class="specimen-row">
+      <div class="specimen-label">CTA button</div>
+      <span class="cta-btn">Get a Website</span>
+    </div>
+
+    <div class="specimen-row pricing-example">
+      <div class="specimen-label">Pricing display</div>
+      <div class="price accent" style="font-family:'Saira',sans-serif;">$1,500</div>
+      <div class="price-label" style="font-family:'Lexend',sans-serif;">Base site — everything you need to launch</div>
+    </div>
+  </div>
+
+  <!-- OPTION B -->
+  <div class="option opt-b">
+    <div class="option-label">Option B</div>
+    <div class="option-rec">More angular and technical. Square terminals feel like stamped metal. Could lean too "video game" for the web design audience.</div>
+    <div class="option-fonts">Display: <strong>Chakra Petch</strong> (Cadson Demak, 300-700) &nbsp;|&nbsp; Body: <strong>Lexend</strong> (variable 100-900)</div>
+
+    <div class="specimen-row">
+      <div class="specimen-label">Hero headline</div>
+      <div class="display-hero">From discovery engines<br>to digital art — <span class="accent">built for the curious</span></div>
+    </div>
+
+    <div class="specimen-row">
+      <div class="specimen-label">Section heading</div>
+      <div class="display-h2">Your Business Deserves a Real Website</div>
+    </div>
+
+    <div class="specimen-row">
+      <div class="specimen-label">Card / product heading</div>
+      <div class="display-h3">Goldmine — <span class="blue">AI Tool Discovery Engine</span></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="specimen-row">
+      <div class="specimen-label">Body copy</div>
+      <div class="body-text">Surfaces emerging AI tools and developer repos before they go mainstream. Scored by real momentum data across 6 sources — GitHub stars, Hacker News upvotes, Product Hunt launches, Reddit mentions, arXiv papers, and Dev.to posts. Zero human curation, zero sponsored placements. Just signal.</div>
+    </div>
+
+    <div class="specimen-row">
+      <div class="specimen-label">Labels / tags</div>
+      <div class="body-small">GitHub &nbsp;&bull;&nbsp; Hacker News &nbsp;&bull;&nbsp; Product Hunt &nbsp;&bull;&nbsp; Reddit &nbsp;&bull;&nbsp; arXiv &nbsp;&bull;&nbsp; Dev.to</div>
+    </div>
+
+    <div class="specimen-row">
+      <div class="specimen-label">CTA button</div>
+      <span class="cta-btn">Get a Website</span>
+    </div>
+
+    <div class="specimen-row pricing-example">
+      <div class="specimen-label">Pricing display</div>
+      <div class="price accent" style="font-family:'Chakra Petch',sans-serif;">$1,500</div>
+      <div class="price-label" style="font-family:'Lexend',sans-serif;">Base site — everything you need to launch</div>
+    </div>
+  </div>
+
+  <!-- OPTION C -->
+  <div class="option opt-c">
+    <div class="option-label">Option C</div>
+    <div class="option-rec">Wildcard. Anybody has unusual proportions that demand attention — wider, bolder, more expressive. High personality, high risk.</div>
+    <div class="option-fonts">Display: <strong>Anybody</strong> (Etcetera Type, variable 100-900) &nbsp;|&nbsp; Body: <strong>Lexend</strong> (variable 100-900)</div>
+
+    <div class="specimen-row">
+      <div class="specimen-label">Hero headline</div>
+      <div class="display-hero">From discovery engines<br>to digital art — <span class="accent">built for the curious</span></div>
+    </div>
+
+    <div class="specimen-row">
+      <div class="specimen-label">Section heading</div>
+      <div class="display-h2">Your Business Deserves a Real Website</div>
+    </div>
+
+    <div class="specimen-row">
+      <div class="specimen-label">Card / product heading</div>
+      <div class="display-h3">Goldmine — <span class="blue">AI Tool Discovery Engine</span></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="specimen-row">
+      <div class="specimen-label">Body copy</div>
+      <div class="body-text">Surfaces emerging AI tools and developer repos before they go mainstream. Scored by real momentum data across 6 sources — GitHub stars, Hacker News upvotes, Product Hunt launches, Reddit mentions, arXiv papers, and Dev.to posts. Zero human curation, zero sponsored placements. Just signal.</div>
+    </div>
+
+    <div class="specimen-row">
+      <div class="specimen-label">Labels / tags</div>
+      <div class="body-small">GitHub &nbsp;&bull;&nbsp; Hacker News &nbsp;&bull;&nbsp; Product Hunt &nbsp;&bull;&nbsp; Reddit &nbsp;&bull;&nbsp; arXiv &nbsp;&bull;&nbsp; Dev.to</div>
+    </div>
+
+    <div class="specimen-row">
+      <div class="specimen-label">CTA button</div>
+      <span class="cta-btn">Get a Website</span>
+    </div>
+
+    <div class="specimen-row pricing-example">
+      <div class="specimen-label">Pricing display</div>
+      <div class="price accent" style="font-family:'Anybody',sans-serif;">$1,500</div>
+      <div class="price-label" style="font-family:'Lexend',sans-serif;">Base site — everything you need to launch</div>
+    </div>
+  </div>
+
+</body>
+</html>
