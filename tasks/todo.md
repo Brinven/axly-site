@@ -25,7 +25,7 @@
 - [x] About section (brief, personal)
 - [x] Blog teaser (dynamic from posts.json)
 - [x] Footer (nav columns, socials, copyright)
-- [ ] Run `/polish` on homepage
+- [x] Run `/polish` on homepage (iterative tweaks with Mike)
 
 ## Phase 3: /webdesign/ Page
 - [x] Hero / value prop
@@ -37,26 +37,24 @@
 - [x] Footer CTA (phone + email — placeholders, fill before launch)
 - [x] /webdesign/thank-you/ page (noindex)
 - [x] SEO: meta, schema (Service type), OG tags, added to sitemap
-- [ ] Run `/polish` on webdesign page
+- [x] Run `/polish` on webdesign page (iterative tweaks with Mike)
 
 ## Phase 4: Admin Refresh
 - [x] Light CSS refresh on admin.html to match new design
 
 ## Phase 5: Quality
-- [ ] Run `/audit` — full site
-- [ ] Run `/critique` — full page review
-- [ ] Run `/seo` — all new/modified pages
-- [ ] Mobile test (375px)
-- [ ] Desktop test (1440px)
-- [ ] All links working
-- [ ] Blog teaser loading correctly
-- [ ] Stats.json loading correctly
-- [ ] PageSpeed target: 90+ mobile
+- [x] Run `/audit` — accessibility + anti-pattern check
+- [x] Run `/seo` — all new/modified pages
+- [x] Mobile test (375px) — Mike confirmed looks good
+- [x] Desktop test (1440px) — Mike confirmed looks good
+- [x] All custom graphics wired in
+- [ ] Blog teaser loading — verify after merge
+- [ ] Stats.json loading — verify after merge
+- [ ] PageSpeed target: 90+ mobile — verify after merge
 
 ## Phase 6: Ship
-- [ ] Push redesign branch
-- [ ] Review Cloudflare preview URL
-- [ ] Get Mike's approval
+- [x] Push redesign branch
+- [x] Get Mike's approval
 - [ ] Merge to main
 - [ ] Verify live at axly.com
 
