@@ -14,7 +14,7 @@
   <meta property="og:description" content="Professional website design for small businesses. Fast, clean, mobile-first. Get a free quote.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://axly.com/webdesign/">
-  <meta property="og:image" content="https://axly.com/images/og-preview.png">
+  <meta property="og:image" content="https://axly.com/images/og-webdesign.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Axly's Customs">
@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Web Design for Small Businesses — Axly's Customs">
   <meta name="twitter:description" content="Professional website design for small businesses. Fast, clean, mobile-first. Get a free quote.">
-  <meta name="twitter:image" content="https://axly.com/images/og-preview.png">
+  <meta name="twitter:image" content="https://axly.com/images/og-webdesign.png">
 
   <!-- Structured Data — Service -->
   <script type="application/ld+json">
@@ -110,12 +110,10 @@
       color: var(--color-text-muted);
       line-height: 1.6;
     }
-    .outcome-number {
-      font-family: var(--font-display);
-      font-size: var(--text-2xl);
-      font-weight: 900;
-      color: var(--color-accent);
-      line-height: 1;
+    .outcome-icon {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
       margin-bottom: var(--space-md);
     }
 
@@ -131,18 +129,15 @@
       position: relative;
       padding: var(--space-xl) var(--space-lg);
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .step::before {
-      counter-increment: step;
-      content: counter(step);
-      display: block;
-      font-family: var(--font-display);
-      font-size: var(--text-3xl);
-      font-weight: 900;
-      color: var(--color-accent);
-      opacity: 0.3;
+    .step-icon {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
       margin-bottom: var(--space-md);
-      line-height: 1;
     }
     .step h3 {
       font-size: var(--text-base);
@@ -169,8 +164,8 @@
         grid-template-columns: 1fr;
         gap: var(--space-base);
       }
-      .step { text-align: left; display: flex; gap: var(--space-lg); align-items: flex-start; padding: var(--space-lg) 0; }
-      .step::before { margin-bottom: 0; flex-shrink: 0; font-size: var(--text-2xl); min-width: 40px; }
+      .step { text-align: left; flex-direction: row; gap: var(--space-lg); align-items: flex-start; padding: var(--space-lg) 0; }
+      .step-icon { flex-shrink: 0; margin-bottom: 0; }
       .step::after { display: none; }
       .step h3, .step p { text-align: left; }
     }
@@ -406,6 +401,7 @@
   <header class="site-header">
     <nav class="nav container">
       <a href="/" class="nav-logo">
+        <img src="/images/axly-logo-nav.png" alt="Axly's Customs" width="40" height="40">
         <span>Axly's Customs</span>
       </a>
       <div class="nav-links">
@@ -458,35 +454,29 @@
         <span class="label">What You Get</span>
         <h2 class="reveal">A Website That <span class="accent-text">Works</span> for You</h2>
 
-        <!-- ASSET REQUEST: 5 outcome icons (64x64, chrome/metallic, transparent BG):
-             1. Custom design — paintbrush/palette
-             2. Mobile — phone/responsive
-             3. Fast — lightning/speed
-             4. Found online — magnifying glass/search
-             5. Ongoing support — wrench/gear -->
         <div class="outcomes-grid reveal-stagger">
           <div class="outcome">
-            <div class="outcome-number">01</div>
+            <img src="/images/icon-outcome-design.png" alt="" class="outcome-icon" width="64" height="64" loading="lazy">
             <h3>Designed for Your Brand</h3>
             <p>Not a template. Your site is built from scratch around your business, your colors, your personality. It looks and feels like you.</p>
           </div>
           <div class="outcome">
-            <div class="outcome-number">02</div>
+            <img src="/images/icon-outcome-mobile.png" alt="" class="outcome-icon" width="64" height="64" loading="lazy">
             <h3>Looks Great on Every Phone</h3>
             <p>Mobile-first from the ground up. Your customers are on their phones — your site will load fast and look sharp on every screen size.</p>
           </div>
           <div class="outcome">
-            <div class="outcome-number">03</div>
+            <img src="/images/icon-outcome-fast.png" alt="" class="outcome-icon" width="64" height="64" loading="lazy">
             <h3>Fast. Really Fast.</h3>
             <p>Clean code, optimized images, no bloat. Your site loads in under 2 seconds — not 10. Faster sites get more calls.</p>
           </div>
           <div class="outcome">
-            <div class="outcome-number">04</div>
+            <img src="/images/icon-outcome-seo.png" alt="" class="outcome-icon" width="64" height="64" loading="lazy">
             <h3>Found on Google</h3>
             <p>Built-in SEO so local customers can actually find you. Business schema, sitemap, meta descriptions — the stuff that matters, done right.</p>
           </div>
           <div class="outcome">
-            <div class="outcome-number">05</div>
+            <img src="/images/icon-outcome-setup.png" alt="" class="outcome-icon" width="64" height="64" loading="lazy">
             <h3>Domain, Hosting, All of It</h3>
             <p>We set up your domain, connect your hosting, configure your email. You don't need to figure out the tech — that's what we're here for.</p>
           </div>
@@ -503,24 +493,28 @@
 
         <div class="steps reveal-stagger">
           <div class="step">
+            <img src="/images/icon-step-form.png" alt="" class="step-icon" width="64" height="64" loading="lazy">
             <div>
               <h3>Fill Out the Form</h3>
               <p>Tell us about your business, what you need, and your timeline. Takes about 5 minutes.</p>
             </div>
           </div>
           <div class="step">
+            <img src="/images/icon-step-talk.png" alt="" class="step-icon" width="64" height="64" loading="lazy">
             <div>
               <h3>We Talk</h3>
               <p>Quick call or message to nail down the details. We'll ask the right questions so you don't have to guess.</p>
             </div>
           </div>
           <div class="step">
+            <img src="/images/icon-step-design.png" alt="" class="step-icon" width="64" height="64" loading="lazy">
             <div>
               <h3>You Get a Design</h3>
               <p>We build your site and send a preview. You review it, we refine it, until it's exactly right.</p>
             </div>
           </div>
           <div class="step">
+            <img src="/images/icon-step-launch.png" alt="" class="step-icon" width="64" height="64" loading="lazy">
             <div>
               <h3>We Launch</h3>
               <p>Domain connected, hosting live, email working. Your site is up and taking calls.</p>

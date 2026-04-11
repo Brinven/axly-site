@@ -334,6 +334,8 @@ section {
   padding-top: clamp(120px, 18vh, 180px);
   padding-bottom: clamp(60px, 10vh, 100px);
   overflow: hidden;
+  background: url('/images/hero-bg.webp') center center / cover no-repeat;
+  background-blend-mode: screen;
 }
 
 /* Geometric background — angular shapes echoing logo wings */
@@ -522,19 +524,12 @@ div.service-icon {
   line-height: 1.6;
 }
 
-/* Placeholder for custom graphic — flag for Mike */
 .webdesign-graphic {
-  aspect-ratio: 4 / 3;
-  background: var(--color-bg-subtle);
-  border: 1px solid var(--color-border);
+  width: 100%;
+  max-width: 480px;
+  height: auto;
   border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-muted);
-  font-family: var(--font-display);
-  font-size: var(--text-sm);
-  font-weight: 600;
+  object-fit: contain;
 }
 
 
@@ -656,6 +651,14 @@ div.service-icon {
   border-top: 1px solid var(--color-border-subtle);
   border-bottom: 1px solid var(--color-border-subtle);
   text-align: center;
+}
+
+.shovel-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-inline: auto;
+  margin-bottom: var(--space-lg);
 }
 
 .shovel-section h2 {
