@@ -67,7 +67,7 @@
 
   /* Layout */
   --max-width:   1200px;
-  --section-pad: clamp(4rem, 10vw, 7rem);
+  --section-pad: clamp(2.5rem, 6vw, 4rem);
 
   /* Motion */
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
@@ -239,7 +239,7 @@ section {
   gap: var(--space-md);
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   color: var(--color-text);
   letter-spacing: -0.02em;
 }
@@ -331,11 +331,12 @@ section {
   position: relative;
   display: flex;
   align-items: center;
-  padding-top: clamp(120px, 18vh, 180px);
+  padding-top: clamp(100px, 14vh, 140px);
   padding-bottom: clamp(60px, 10vh, 100px);
   overflow: hidden;
-  background: url('/images/hero-bg.webp') center center / cover no-repeat;
-  background-blend-mode: screen;
+  background:
+    linear-gradient(to bottom, oklch(0.13 0.03 280 / 0.88), oklch(0.13 0.03 280 / 0.92)),
+    url('/images/hero-bg.webp') center center / cover no-repeat;
 }
 
 /* Geometric background — angular shapes echoing logo wings */
