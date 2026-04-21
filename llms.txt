@@ -12,6 +12,7 @@
 - [Pickaxe](https://pickaxe.axly.com): The search interface for Goldmine's AI tool database
 - [The Shovel](https://shovel.axly.com): Weekly newsletter highlighting the best AI tools discovered by Goldmine
 - [ThothAI](https://axly.com/thothai/): Local AI document assistant — upload PDFs, build knowledge bases, ask questions. 100% offline, no cloud, no data leaves your machine. Available on Windows and iOS.
+- [Axly Wallpapers](https://wallpapers.axly.com): Tiered AI-generated wallpaper service. A new wallpaper every day in 5 resolutions (desktop FHD/QHD/4K, ultrawide, mobile). Free tier shows the Wallpaper of the Week; email signup unlocks the last 10; $2.99/mo Pro unlocks the full archive and the daily drop.
 
 ## Blog
 
@@ -30,5 +31,6 @@
 - Goldmine / Pickaxe: https://pickaxe.axly.com
 - The Shovel Newsletter: https://shovel.axly.com
 - ThothAI: https://axly.com/thothai/
+- Axly Wallpapers: https://wallpapers.axly.com
 - DeviantArt: https://www.deviantart.com/axlyscustoms
 - Facebook: https://www.facebook.com/people/Axlys-Customs/61582103295229/
