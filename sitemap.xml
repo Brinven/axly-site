@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>https://axly.com/blog/</loc>
-    <lastmod>2026-04-07</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -69,6 +69,30 @@
   <url>
     <loc>https://axly.com/blog/6-platforms-we-monitor-to-find-ai-tools/</loc>
     <lastmod>2026-04-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://axly.com/blog/70-github-repos-no-cs-degree/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://axly.com/blog/zero-telemetry-one-time-pricing/</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://axly.com/blog/prd-first-development/</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://axly.com/blog/persistent-memory-for-ai/</loc>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>

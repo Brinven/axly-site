@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Every App I Build Has Zero Telemetry and One-Time Pricing | Axly's Customs Blog</title>
+  <meta name="description" content="Why every Axly's Customs app is local-first, one-time purchase, and zero telemetry. No accounts, no subscriptions, no data leaving your device, by design.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://axly.com/blog/zero-telemetry-one-time-pricing/">
+  <meta property="og:title" content="Why Every App I Build Has Zero Telemetry and One-Time Pricing">
+  <meta property="og:description" content="Why every Axly's Customs app is local-first, one-time purchase, and zero telemetry. No accounts, no subscriptions, no data leaving your device, by design.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://axly.com/blog/zero-telemetry-one-time-pricing/">
+  <meta property="og:site_name" content="Axly's Customs">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Why Every App I Build Has Zero Telemetry and One-Time Pricing">
+  <meta name="twitter:description" content="Why every Axly's Customs app is local-first, one-time purchase, and zero telemetry. No accounts, no subscriptions, no data leaving your device, by design.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Why Every App I Build Has Zero Telemetry and One-Time Pricing",
+    "description": "Why every Axly's Customs app is local-first, one-time purchase, and zero telemetry. No accounts, no subscriptions, no data leaving your device, by design.",
+    "datePublished": "2026-05-23",
+    "author": { "@type": "Organization", "name": "Axly's Customs", "url": "https://axly.com" },
+    "publisher": { "@type": "Organization", "name": "Axly's Customs", "url": "https://axly.com" },
+    "url": "https://axly.com/blog/zero-telemetry-one-time-pricing/"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #fafafa; --bg-elevated: #ffffff; --text: #18181b; --text-secondary: #52525b; --text-muted: #a1a1aa; --border: #e4e4e7; --accent: #10b981; --accent-soft: #ecfdf5; --accent-text: #047857; }
+    .dark { --bg: #09090b; --bg-elevated: #18181b; --text: #fafafa; --text-secondary: #a1a1aa; --text-muted: #52525b; --border: #27272a; --accent: #10b981; --accent-soft: #052e16; --accent-text: #6ee7b7; }
+    body { font-family: 'Geist', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; min-height: 100dvh; transition: background 0.3s, color 0.3s; }
+    .theme-toggle { position: fixed; top: 20px; right: 20px; display: flex; gap: 4px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 4px; z-index: 50; }
+    .theme-btn { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: none; border-radius: 8px; background: transparent; color: var(--text-muted); cursor: pointer; font-size: 16px; transition: all 0.15s; }
+    .theme-btn.active { background: var(--accent); color: #fff; }
+    .theme-btn:hover:not(.active) { color: var(--text); background: var(--border); }
+    .page { max-width: 720px; margin: 0 auto; padding: 80px 24px 60px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--accent-text); text-decoration: none; margin-bottom: 32px; }
+    .back-link:hover { text-decoration: underline; }
+    .post-meta { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px; }
+    .post-title { font-size: clamp(28px, 5vw, 40px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 24px; }
+    .post-body { font-size: 16px; line-height: 1.8; color: var(--text-secondary); }
+    .post-body h2 { font-size: 22px; font-weight: 800; color: var(--text); margin: 40px 0 16px; letter-spacing: -0.02em; }
+    .post-body h3 { font-size: 18px; font-weight: 700; color: var(--text); margin: 32px 0 12px; }
+    .post-body p { margin-bottom: 16px; }
+    .post-body a { color: var(--accent-text); text-decoration: underline; }
+    .post-body a:hover { color: var(--accent); }
+    .post-body ul, .post-body ol { margin: 0 0 16px 24px; }
+    .post-body li { margin-bottom: 8px; }
+    .post-body strong { color: var(--text); }
+    .post-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 24px 0; background: var(--accent-soft); border-radius: 0 8px 8px 0; font-style: italic; }
+    .post-subtitle { font-size: 18px; color: var(--text-secondary); font-style: italic; margin-bottom: 32px; }
+    .post-cta { margin-top: 48px; padding: 28px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; text-align: center; }
+    .post-cta h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; color: var(--text); }
+    .post-cta p { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+    .post-cta a { display: inline-block; padding: 10px 24px; background: var(--accent); color: #fff; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 700; }
+    .post-cta a:hover { opacity: 0.85; }
+    .footer { text-align: center; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 48px; font-size: 13px; color: var(--text-muted); }
+    .footer a { color: var(--accent-text); text-decoration: none; font-weight: 600; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle">
+    <button class="theme-btn" data-theme="light" title="Light">&#9728;</button>
+    <button class="theme-btn" data-theme="system" title="System">&#9211;</button>
+    <button class="theme-btn" data-theme="dark" title="Dark">&#9790;</button>
+  </div>
+  <div class="page">
+    <a href="/blog/" class="back-link">&larr; All Posts</a>
+    <div class="post-meta">May 23, 2026</div>
+    <h1 class="post-title">Why Every App I Build Has Zero Telemetry and One-Time Pricing</h1>
+    <p class="post-subtitle">It's not an accident, it's the whole point.</p>
+    <article class="post-body">
+
+      <p>If you've used anything from Axly's Customs you've probably noticed a pattern. No account required. No subscription. No "we may share your data with trusted partners." You pay once, you own it, and it runs on your machine.</p>
+
+      <p>That's not an oversight. It's a decision I made early and haven't changed.</p>
+
+      <h2>I got tired of renting software</h2>
+
+      <p>At some point, and I think a lot of people hit this wall, I looked at my monthly subscriptions and realized I didn't own anything. I was paying to access tools that could change their pricing, change their features, or just disappear. Tools that required an internet connection to work. Tools that were quietly sending data somewhere I couldn't see.</p>
+
+      <p>I build software for a living now. So I got to decide how mine would work.</p>
+
+      <p>Every app I ship runs locally. Your data stays on your device. There's no server I'm running that knows you exist. When you close the app, nothing phones home.</p>
+
+      <h2>One-time pricing because I actually respect your budget</h2>
+
+      <p>Subscriptions make sense for some businesses. If you're running infrastructure on my behalf, charge me monthly, fair enough.</p>
+
+      <p>But most apps don't do that. Most apps charge monthly because it's a better revenue model, not because it costs them anything per month to serve you. I don't think that's a good deal for users and I'm not interested in building my business on it.</p>
+
+      <p>Everything I sell is a one-time purchase. You pay, you own it, done. If I ship a major update that meaningfully changes what the app is, I might charge for that, but your original purchase doesn't expire and I don't hold features hostage behind a paywall.</p>
+
+      <h2>The Texas law thing</h2>
+
+      <p>Every app ships with a proper EULA and privacy policy, governed by Texas law. Not because lawyers told me to, I'm a solo developer, I'm not exactly drowning in legal counsel, but because being explicit about what the software does and doesn't do is just the right thing.</p>
+
+      <p>The privacy policy is short because there's not much to say. The app runs on your machine. It doesn't collect data. It doesn't have a backend watching you. That's it.</p>
+
+      <h2>Local-first isn't a constraint, it's a feature</h2>
+
+      <p>I've heard the argument that local-first software is harder to build and harder to monetize. Both are true. But there's something genuinely satisfying about shipping a tool that works on a plane, works when the API is down, works ten years from now when I've moved on to other things.</p>
+
+      <p>You own it. It runs. That's the deal.</p>
+
+      <blockquote>It's the kind of software I wanted to use. So it's the kind of software I build.</blockquote>
+
+      <p><em>More about Axly's Customs apps at <a href="https://axly.com">axly.com</a>, one-time purchase, no account required. More thoughts on building this way at <a href="/blog/">axly.com/blog</a>.</em></p>
+
+    </article>
+    <div class="post-cta">
+      <h3>Own your tools</h3>
+      <p>Every Axly's Customs app is a one-time purchase that runs on your machine. No account, no subscription, no data leaving your device.</p>
+      <a href="https://axly.com/">Explore Axly's Customs</a>
+    </div>
+    <footer class="footer">
+      <a href="https://axly.com/">Axly's Customs</a> &middot;
+      <a href="/blog/">Blog</a> &middot;
+      <a href="https://pickaxe.axly.com">Pickaxe</a> &middot;
+      <a href="https://shovel.axly.com">The Shovel</a>
+    </footer>
+  </div>
+  <script>
+    function getTheme() { return localStorage.getItem('axly-theme') || 'system' }
+    function applyTheme(m) {
+      const d = m === 'dark' || (m === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)
+      document.body.classList.toggle('dark', d)
+      document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.dataset.theme === m))
+    }
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      b.addEventListener('click', () => { localStorage.setItem('axly-theme', b.dataset.theme); applyTheme(b.dataset.theme) })
+    })
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (getTheme() === 'system') applyTheme('system') })
+    applyTheme(getTheme())
+  </script>
+</body>
+</html>

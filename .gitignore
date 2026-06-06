@@ -1,0 +1,3 @@
+# Local-only blog draft staging — raw markdown, not for publishing.
+# Kept out of the repo so drafts are never served publicly by GitHub Pages.
+tasks/blog-drafts/

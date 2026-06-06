@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your AI Forgets Everything. Here's How I Fixed It. | Axly's Customs Blog</title>
+  <meta name="description" content="Your AI forgets everything between sessions. How I gave mine persistent memory with two systems, Hindsight for technical facts, Ib for relational context.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://axly.com/blog/persistent-memory-for-ai/">
+  <meta property="og:title" content="Your AI Forgets Everything. Here's How I Fixed It.">
+  <meta property="og:description" content="Your AI forgets everything between sessions. How I gave mine persistent memory with two systems, Hindsight for technical facts, Ib for relational context.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://axly.com/blog/persistent-memory-for-ai/">
+  <meta property="og:site_name" content="Axly's Customs">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Your AI Forgets Everything. Here's How I Fixed It.">
+  <meta name="twitter:description" content="Your AI forgets everything between sessions. How I gave mine persistent memory with two systems, Hindsight for technical facts, Ib for relational context.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Your AI Forgets Everything. Here's How I Fixed It.",
+    "description": "Your AI forgets everything between sessions. How I gave mine persistent memory with two systems, Hindsight for technical facts, Ib for relational context.",
+    "datePublished": "2026-06-05",
+    "author": { "@type": "Organization", "name": "Axly's Customs", "url": "https://axly.com" },
+    "publisher": { "@type": "Organization", "name": "Axly's Customs", "url": "https://axly.com" },
+    "url": "https://axly.com/blog/persistent-memory-for-ai/"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #fafafa; --bg-elevated: #ffffff; --text: #18181b; --text-secondary: #52525b; --text-muted: #a1a1aa; --border: #e4e4e7; --accent: #10b981; --accent-soft: #ecfdf5; --accent-text: #047857; }
+    .dark { --bg: #09090b; --bg-elevated: #18181b; --text: #fafafa; --text-secondary: #a1a1aa; --text-muted: #52525b; --border: #27272a; --accent: #10b981; --accent-soft: #052e16; --accent-text: #6ee7b7; }
+    body { font-family: 'Geist', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; min-height: 100dvh; transition: background 0.3s, color 0.3s; }
+    .theme-toggle { position: fixed; top: 20px; right: 20px; display: flex; gap: 4px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 4px; z-index: 50; }
+    .theme-btn { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: none; border-radius: 8px; background: transparent; color: var(--text-muted); cursor: pointer; font-size: 16px; transition: all 0.15s; }
+    .theme-btn.active { background: var(--accent); color: #fff; }
+    .theme-btn:hover:not(.active) { color: var(--text); background: var(--border); }
+    .page { max-width: 720px; margin: 0 auto; padding: 80px 24px 60px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--accent-text); text-decoration: none; margin-bottom: 32px; }
+    .back-link:hover { text-decoration: underline; }
+    .post-meta { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px; }
+    .post-title { font-size: clamp(28px, 5vw, 40px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 24px; }
+    .post-body { font-size: 16px; line-height: 1.8; color: var(--text-secondary); }
+    .post-body h2 { font-size: 22px; font-weight: 800; color: var(--text); margin: 40px 0 16px; letter-spacing: -0.02em; }
+    .post-body h3 { font-size: 18px; font-weight: 700; color: var(--text); margin: 32px 0 12px; }
+    .post-body p { margin-bottom: 16px; }
+    .post-body a { color: var(--accent-text); text-decoration: underline; }
+    .post-body a:hover { color: var(--accent); }
+    .post-body ul, .post-body ol { margin: 0 0 16px 24px; }
+    .post-body li { margin-bottom: 8px; }
+    .post-body strong { color: var(--text); }
+    .post-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 24px 0; background: var(--accent-soft); border-radius: 0 8px 8px 0; font-style: italic; }
+    .post-subtitle { font-size: 18px; color: var(--text-secondary); font-style: italic; margin-bottom: 32px; }
+    .post-cta { margin-top: 48px; padding: 28px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; text-align: center; }
+    .post-cta h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; color: var(--text); }
+    .post-cta p { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+    .post-cta a { display: inline-block; padding: 10px 24px; background: var(--accent); color: #fff; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 700; }
+    .post-cta a:hover { opacity: 0.85; }
+    .footer { text-align: center; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 48px; font-size: 13px; color: var(--text-muted); }
+    .footer a { color: var(--accent-text); text-decoration: none; font-weight: 600; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle">
+    <button class="theme-btn" data-theme="light" title="Light">&#9728;</button>
+    <button class="theme-btn" data-theme="system" title="System">&#9211;</button>
+    <button class="theme-btn" data-theme="dark" title="Dark">&#9790;</button>
+  </div>
+  <div class="page">
+    <a href="/blog/" class="back-link">&larr; All Posts</a>
+    <div class="post-meta">June 5, 2026</div>
+    <h1 class="post-title">Your AI Forgets Everything. Here's How I Fixed It.</h1>
+    <p class="post-subtitle">Building a persistent memory system that actually works.</p>
+    <article class="post-body">
+
+      <p>If you read my last piece about <a href="/blog/prd-first-development/">PRD-first development</a>, you know I'm big on giving your AI a fixed point to work from. A document it can always return to. A north star.</p>
+
+      <p>But there's a problem the PRD doesn't solve.</p>
+
+      <p>Every time you start a new session, your AI wakes up with no memory of you. Doesn't know your projects. Doesn't know your stack preferences. Doesn't know that you spent three hours last Tuesday debugging a specific issue and landed on a specific fix. You either re-explain everything from scratch, or you paste in context and hope for the best.</p>
+
+      <p>For a while I just lived with it. Then it started costing me real time.</p>
+
+      <h2>The amnesia problem</h2>
+
+      <p>Here's what it looks like in practice. You build something. You make decisions, why you picked this library, why you structured the database this way, what the gotcha was with the audio pipeline. Good decisions, documented in your head.</p>
+
+      <p>Two weeks later you come back to the project. New session. Your AI is a stranger who's never met you or your code.</p>
+
+      <p>You can put notes in your CLAUDE.md, and you should. But that's project-specific. It doesn't know anything about <em>you</em>, your preferences, your infrastructure, your history across every other thing you've built. And it sure doesn't carry context between conversations.</p>
+
+      <p>I needed something that would.</p>
+
+      <h2>The first piece: Hindsight</h2>
+
+      <p>I found an open source project called Hindsight, built by Vectorize. It's an MIT-licensed, self-hostable memory server that connects to your AI via MCP, the same protocol Claude uses to talk to external tools. You run it locally, your AI connects to it, and suddenly it has a place to store and retrieve structured facts across sessions.</p>
+
+      <p>The three core operations are exactly what they sound like: <strong>retain</strong> (store something), <strong>recall</strong> (search for something), <strong>reflect</strong> (reason across what's stored). Each project gets its own memory bank. When I start a conversation about an app I'm building, the relevant bank loads in, stack decisions, port assignments, known gotchas, milestone history. The AI arrives already knowing the shape of what we're working on.</p>
+
+      <p>It solved the technical memory problem completely. But I realized pretty quickly that technical facts were only half of what I was missing.</p>
+
+      <p><em>(If you want to check it out: <a href="https://github.com/vectorize-io/hindsight">github.com/vectorize-io/hindsight</a>)</em></p>
+
+      <h2>The second piece: Ib</h2>
+
+      <p>The other half is harder to describe. It's the relational stuff. How I like to work. What I'm currently focused on. Decisions I've made across projects and why. The context that makes an interaction feel continuous rather than like starting over every single time.</p>
+
+      <p>Hindsight wasn't designed for that, it's a structured fact store, and that's what makes it good at its job. So I built a second system called Ib to sit alongside it.</p>
+
+      <p>Ib is fuzzier and more personal. It accumulates context over time, surfaces what's actually relevant to the current conversation, and quietly lets things decay when they stop being useful. Less like a database, more like working with someone who's been paying attention. It runs its own curation pass using a local LLM, so nothing leaves my machine.</p>
+
+      <p>The two systems split the job cleanly:</p>
+
+      <ul>
+        <li><strong>Hindsight</strong>, technical facts, by project. Structured, reliable, retrievable on demand.</li>
+        <li><strong>Ib</strong>, relational context, across everything. Soft, cumulative, personal.</li>
+      </ul>
+
+      <h2>What it feels like</h2>
+
+      <p>Let me give you a specific example.</p>
+
+      <p>The other night I was more than halfway through building an app. Not planning it, actually building it. We'd been deep in it long enough that we'd even decided to rename the project mid-build, which happens. At some point I switched from the web interface over to Claude Code to keep going.</p>
+
+      <p>It already knew.</p>
+
+      <p>Not because I pasted anything in. Not because I summarized where we were. Claude Code picked up the project mid-stream, correct name and all, and just asked if we were continuing. That was it. Zero re-prompting, zero lost context.</p>
+
+      <p>That's the moment it stopped feeling like a trick and started feeling like infrastructure.</p>
+
+      <p>I don't re-explain my stack every session anymore. I don't re-litigate decisions I already made. When I reference a project by name, the AI already knows what it is, what it's built on, and what the open questions are. On the relational side, it's the difference between working with a tool and working with a collaborator.</p>
+
+      <h2>The honest take</h2>
+
+      <p>Most people building with AI are leaving a lot on the table by not solving the memory problem. Your workflow, your preferences, your hard-won project knowledge, it evaporates at the end of every session.</p>
+
+      <p>It doesn't have to.</p>
+
+      <p>Start with Hindsight if this sounds interesting, it's free, open source, and gets you most of the way there out of the box. The relational layer is a further step, but even just having a structured technical memory changes how this whole thing feels.</p>
+
+      <blockquote>Less wrestling with a stateless chatbot. More like a build partner who actually shows up.</blockquote>
+
+      <p><em>This is part of the infrastructure behind Axly's Customs, local-first apps, no telemetry, no subscriptions. More at <a href="/blog/">axly.com/blog</a>. And if you missed the <a href="/blog/prd-first-development/">PRD-first workflow piece</a> that started this series, go read that one first, this builds on it.</em></p>
+
+    </article>
+    <div class="post-cta">
+      <h3>Start with Hindsight</h3>
+      <p>It's free, open source, and MIT-licensed, the fastest way to give your AI persistent memory across sessions.</p>
+      <a href="https://github.com/vectorize-io/hindsight">Get Hindsight on GitHub</a>
+    </div>
+    <footer class="footer">
+      <a href="https://axly.com/">Axly's Customs</a> &middot;
+      <a href="/blog/">Blog</a> &middot;
+      <a href="https://pickaxe.axly.com">Pickaxe</a> &middot;
+      <a href="https://shovel.axly.com">The Shovel</a>
+    </footer>
+  </div>
+  <script>
+    function getTheme() { return localStorage.getItem('axly-theme') || 'system' }
+    function applyTheme(m) {
+      const d = m === 'dark' || (m === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)
+      document.body.classList.toggle('dark', d)
+      document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.dataset.theme === m))
+    }
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      b.addEventListener('click', () => { localStorage.setItem('axly-theme', b.dataset.theme); applyTheme(b.dataset.theme) })
+    })
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (getTheme() === 'system') applyTheme('system') })
+    applyTheme(getTheme())
+  </script>
+</body>
+</html>

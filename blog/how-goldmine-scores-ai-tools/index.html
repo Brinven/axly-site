@@ -129,7 +129,7 @@
 
       <p>Most "discover AI tools" lists you find online have the same problem: somebody picked them. An editor, a sponsor, an influencer with a referral link. The list reflects their taste, their deals, and whatever landed in their inbox that week. There's nothing wrong with curation as a concept, but when you're trying to find new AI tools that are <em>actually</em> gaining traction, opinions are a terrible signal.</p>
 
-      <p>That's why I built <strong>Goldmine</strong>. It's an AI tool discovery engine that surfaces emerging tools and developer repos based on real momentum data — not vibes. No human curation. No sponsored placements. Just an algorithm watching what's moving across the internet and telling you what's worth paying attention to.</p>
+      <p>That's why I built <strong>Goldmine</strong>. It's an AI tool discovery engine that surfaces emerging tools and developer repos based on real momentum data, not vibes. No human curation. No sponsored placements. Just an algorithm watching what's moving across the internet and telling you what's worth paying attention to.</p>
 
       <p>Here's how it actually works under the hood.</p>
 
@@ -138,12 +138,12 @@
       <p>To discover trending AI tools before they blow up, you need to watch the places where early adopters hang out. Goldmine tracks activity across six platforms, each one telling a different part of the story:</p>
 
       <ul>
-        <li><strong>GitHub</strong> — Stars, forks, and trending repos. This is where you see developers actually adopting something, not just talking about it.</li>
-        <li><strong>Hacker News</strong> — Upvotes and comment threads. HN is the canary in the coal mine for developer interest. A tool that hits the front page with genuine discussion is worth watching.</li>
-        <li><strong>Product Hunt</strong> — Launches and upvote velocity. PH catches tools at their debut moment, when they're brand new and competing for attention.</li>
-        <li><strong>Reddit</strong> — Mentions and upvotes across relevant subreddits. Reddit is messy but honest. If people are recommending a tool unprompted in r/MachineLearning or r/LocalLLaMA, that's a strong signal.</li>
-        <li><strong>arXiv</strong> — Research papers. Some of the most important AI tools start as papers before they become products. Tracking arXiv catches things months before they hit mainstream.</li>
-        <li><strong>Dev.to</strong> — Blog posts and reactions. When developers write tutorials and getting-started guides about a tool, adoption is already happening.</li>
+        <li><strong>GitHub</strong>, Stars, forks, and trending repos. This is where you see developers actually adopting something, not just talking about it.</li>
+        <li><strong>Hacker News</strong>, Upvotes and comment threads. HN is the canary in the coal mine for developer interest. A tool that hits the front page with genuine discussion is worth watching.</li>
+        <li><strong>Product Hunt</strong>, Launches and upvote velocity. PH catches tools at their debut moment, when they're brand new and competing for attention.</li>
+        <li><strong>Reddit</strong>, Mentions and upvotes across relevant subreddits. Reddit is messy but honest. If people are recommending a tool unprompted in r/MachineLearning or r/LocalLLaMA, that's a strong signal.</li>
+        <li><strong>arXiv</strong>, Research papers. Some of the most important AI tools start as papers before they become products. Tracking arXiv catches things months before they hit mainstream.</li>
+        <li><strong>Dev.to</strong>, Blog posts and reactions. When developers write tutorials and getting-started guides about a tool, adoption is already happening.</li>
       </ul>
 
       <p>Each platform contributes a different kind of signal. A GitHub star means something different than a Hacker News upvote. A Dev.to tutorial means something different than an arXiv citation. Goldmine weighs them accordingly.</p>
@@ -155,49 +155,49 @@
       <p>The <strong>Goldmine Hype Index</strong> is the composite score we assign to every tool we track. It's not a simple sum of platform metrics. It factors in:</p>
 
       <ul>
-        <li><strong>Velocity</strong> — How fast is this tool gaining attention right now? A spike matters more than a slow drip.</li>
-        <li><strong>Cross-platform presence</strong> — Is this tool showing up in one place, or everywhere? A tool trending on GitHub <em>and</em> Hacker News <em>and</em> Reddit is a fundamentally different signal than one that only popped on Product Hunt.</li>
-        <li><strong>Recency</strong> — Newer signals weigh heavier. We care about what's happening now, not what happened six months ago.</li>
-        <li><strong>Platform-specific context</strong> — 500 upvotes on Hacker News is a big deal. 500 upvotes on Reddit is Tuesday. The scoring accounts for what "high signal" actually means on each platform.</li>
+        <li><strong>Velocity</strong>, How fast is this tool gaining attention right now? A spike matters more than a slow drip.</li>
+        <li><strong>Cross-platform presence</strong>, Is this tool showing up in one place, or everywhere? A tool trending on GitHub <em>and</em> Hacker News <em>and</em> Reddit is a fundamentally different signal than one that only popped on Product Hunt.</li>
+        <li><strong>Recency</strong>, Newer signals weigh heavier. We care about what's happening now, not what happened six months ago.</li>
+        <li><strong>Platform-specific context</strong>, 500 upvotes on Hacker News is a big deal. 500 upvotes on Reddit is Tuesday. The scoring accounts for what "high signal" actually means on each platform.</li>
       </ul>
 
-      <p>The result is a single number that tells you how much real-world momentum a tool has. Not how popular it is overall — how much it's <em>moving</em> right now. That's the difference between finding AI tools early and reading about them after everyone else already knows.</p>
+      <p>The result is a single number that tells you how much real-world momentum a tool has. Not how popular it is overall, how much it's <em>moving</em> right now. That's the difference between finding AI tools early and reading about them after everyone else already knows.</p>
 
       <h2>Badges That Tell You Why</h2>
 
       <p>A score alone doesn't tell the whole story, so Goldmine also assigns badges that give you instant context about what's happening with a tool:</p>
 
       <ul>
-        <li><strong>Rising Star</strong> — Fast growth. This tool's Hype Index is climbing rapidly. Whatever is driving attention, it's accelerating.</li>
-        <li><strong>Just Dropped</strong> — Brand new. This tool appeared in our tracking recently and is already generating signal. Worth watching early.</li>
-        <li><strong>Cross-Buzz</strong> — Trending on multiple platforms simultaneously. This is arguably the strongest indicator that something is real. When GitHub, HN, and Reddit all light up for the same tool in the same week, pay attention.</li>
+        <li><strong>Rising Star</strong>, Fast growth. This tool's Hype Index is climbing rapidly. Whatever is driving attention, it's accelerating.</li>
+        <li><strong>Just Dropped</strong>, Brand new. This tool appeared in our tracking recently and is already generating signal. Worth watching early.</li>
+        <li><strong>Cross-Buzz</strong>, Trending on multiple platforms simultaneously. This is arguably the strongest indicator that something is real. When GitHub, HN, and Reddit all light up for the same tool in the same week, pay attention.</li>
       </ul>
 
-      <p>These badges are assigned algorithmically, not editorially. If a tool earns a Cross-Buzz badge, it's because the data says so — not because someone on our team thought it was cool.</p>
+      <p>These badges are assigned algorithmically, not editorially. If a tool earns a Cross-Buzz badge, it's because the data says so, not because someone on our team thought it was cool.</p>
 
       <h2>3,800+ Tools and Growing</h2>
 
-      <p>As of today, Goldmine is actively tracking over <strong>3,800 AI tools and developer repos</strong>. That number grows every day as new tools appear across the platforms we monitor. The system is designed to catch things early — sometimes within hours of a tool's first public appearance.</p>
+      <p>As of today, Goldmine is actively tracking over <strong>3,800 AI tools and developer repos</strong>. That number grows every day as new tools appear across the platforms we monitor. The system is designed to catch things early, sometimes within hours of a tool's first public appearance.</p>
 
       <p>You don't need to check all 3,800 yourself, though. That's where the two interfaces come in.</p>
 
       <h3>Pickaxe: Search and Explore</h3>
 
-      <p><a href="https://pickaxe.axly.com">Pickaxe</a> is the search interface for the full Goldmine database. If you want to discover AI tools in a specific category, compare Hype Index scores, or just browse what's trending today, Pickaxe is where you do it. Think of it as the search engine for AI tool discovery — type what you're looking for and see what's actually gaining traction, ranked by real data.</p>
+      <p><a href="https://pickaxe.axly.com">Pickaxe</a> is the search interface for the full Goldmine database. If you want to discover AI tools in a specific category, compare Hype Index scores, or just browse what's trending today, Pickaxe is where you do it. Think of it as the search engine for AI tool discovery, type what you're looking for and see what's actually gaining traction, ranked by real data.</p>
 
       <h3>The Shovel: Weekly Top 10</h3>
 
-      <p>If you don't want to go digging yourself, <a href="https://shovel.axly.com">The Shovel</a> delivers the top trending AI tools to your inbox every Friday. It's a weekly newsletter that surfaces the highest-scoring tools from the past seven days. No fluff, no sponsored picks — just the tools with the most momentum that week, ranked by the Hype Index.</p>
+      <p>If you don't want to go digging yourself, <a href="https://shovel.axly.com">The Shovel</a> delivers the top trending AI tools to your inbox every Friday. It's a weekly newsletter that surfaces the highest-scoring tools from the past seven days. No fluff, no sponsored picks, just the tools with the most momentum that week, ranked by the Hype Index.</p>
 
       <blockquote>The free tier gets the top 10 every week. The paid tier ($3/month) expands that to the top 30 plus AI evaluate prompts that help you quickly assess whether a tool is relevant to your workflow. Pickaxe access is $6/month for full search and exploration.</blockquote>
 
       <h2>Why Algorithmic Discovery Matters</h2>
 
-      <p>The AI tool landscape is moving absurdly fast. New repos, new products, new papers — every single day. No human curator can keep up, and even if they could, their biases would shape what you see. Sponsored lists are even worse: you're seeing what someone paid to put in front of you, not what's actually good.</p>
+      <p>The AI tool landscape is moving absurdly fast. New repos, new products, new papers, every single day. No human curator can keep up, and even if they could, their biases would shape what you see. Sponsored lists are even worse: you're seeing what someone paid to put in front of you, not what's actually good.</p>
 
       <p>Goldmine doesn't have opinions. It watches the platforms where developers and researchers actually spend their time, measures what's gaining real traction, and surfaces it. That's it. The algorithm doesn't care who built the tool, who's funding it, or whether it has a slick landing page. It cares about momentum.</p>
 
-      <p>If you're a developer trying to find new AI tools before they go mainstream — before the blog posts, before the YouTube tutorials, before "50 AI Tools You Need in 2026" listicles — this is the approach that actually works. Watch the data. Trust the signals. Ignore the noise.</p>
+      <p>If you're a developer trying to find new AI tools before they go mainstream, before the blog posts, before the YouTube tutorials, before "50 AI Tools You Need in 2026" listicles, this is the approach that actually works. Watch the data. Trust the signals. Ignore the noise.</p>
 
       <p>That's what Goldmine does. And if you want to see it in action, <a href="https://pickaxe.axly.com">start with Pickaxe</a> or <a href="https://shovel.axly.com">subscribe to The Shovel</a>. Either way, you'll be finding tools weeks before everyone else catches on.</p>
 

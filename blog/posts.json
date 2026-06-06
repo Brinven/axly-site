@@ -3,14 +3,14 @@
     "slug": "how-goldmine-scores-ai-tools",
     "title": "How Goldmine Scores AI Tools Before They Go Mainstream",
     "date": "2026-03-10",
-    "excerpt": "Most AI tool lists are curated by humans with opinions. Goldmine uses real momentum data from 6 platforms to surface what's actually gaining traction — before the hype cycle kicks in.",
+    "excerpt": "Most AI tool lists are curated by humans with opinions. Goldmine uses real momentum data from 6 platforms to surface what's actually gaining traction, before the hype cycle kicks in.",
     "tags": ["goldmine", "ai-tools", "product"]
   },
   {
     "slug": "why-thothai-processes-everything-locally",
     "title": "Why ThothAI Processes Everything on Your Device",
     "date": "2026-03-18",
-    "excerpt": "Cloud AI is convenient until it isn't. ThothAI runs entirely on your device — no servers, no accounts, no data leaving your machine. Here's why we built it that way.",
+    "excerpt": "Cloud AI is convenient until it isn't. ThothAI runs entirely on your device, no servers, no accounts, no data leaving your machine. Here's why we built it that way.",
     "tags": ["thothai", "privacy", "local-ai"]
   },
   {
@@ -24,7 +24,35 @@
     "slug": "6-platforms-we-monitor-to-find-ai-tools",
     "title": "The 6 Platforms We Monitor to Find AI Tools Early",
     "date": "2026-04-03",
-    "excerpt": "GitHub, Hacker News, Product Hunt, Reddit, arXiv, and Dev.to — each one tells a different story about whether an AI tool is real or just noise. Here's what we look for on each.",
+    "excerpt": "GitHub, Hacker News, Product Hunt, Reddit, arXiv, and Dev.to, each one tells a different story about whether an AI tool is real or just noise. Here's what we look for on each.",
     "tags": ["goldmine", "ai-tools", "behind-the-scenes"]
+  },
+  {
+    "slug": "70-github-repos-no-cs-degree",
+    "title": "70+ GitHub Repos in a Year. No CS Degree. Here's How.",
+    "date": "2026-05-16",
+    "excerpt": "Thirty years in IT, zero formal dev background, and 70+ repos shipped in about a year. The honest story of what changed when I started building with AI, and why domain knowledge matters more than knowing how to code.",
+    "tags": ["building-with-ai", "story", "ai-tools"]
+  },
+  {
+    "slug": "zero-telemetry-one-time-pricing",
+    "title": "Why Every App I Build Has Zero Telemetry and One-Time Pricing",
+    "date": "2026-05-23",
+    "excerpt": "No accounts, no subscriptions, no data leaving your device. Why every app I ship is local-first and one-time purchase, a decision I made early and haven't changed.",
+    "tags": ["local-first", "privacy", "philosophy"]
+  },
+  {
+    "slug": "prd-first-development",
+    "title": "Stop Vibing and Write the Doc First",
+    "date": "2026-05-30",
+    "excerpt": "Pure vibes coding works right up until it doesn't. How writing a simple PRD and a CLAUDE.md before any code stopped me throwing away half my builds, and kept the AI from drifting off-scope.",
+    "tags": ["building-with-ai", "workflow", "claude-code"]
+  },
+  {
+    "slug": "persistent-memory-for-ai",
+    "title": "Your AI Forgets Everything. Here's How I Fixed It.",
+    "date": "2026-06-05",
+    "excerpt": "Every new session, your AI wakes up a stranger. How I gave mine persistent memory with two systems, Hindsight for technical facts, Ib for relational context, so it stops forgetting between conversations.",
+    "tags": ["building-with-ai", "memory", "local-first"]
   }
 ]
