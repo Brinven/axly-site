@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stop Vibing and Write the Doc First | Axly's Customs Blog</title>
+  <meta name="description" content="Pure vibes coding works until it doesn't. How a simple PRD and a CLAUDE.md before any code stopped me throwing away builds and kept the AI on-scope.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://axly.com/blog/prd-first-development/">
+  <meta property="og:title" content="Stop Vibing and Write the Doc First">
+  <meta property="og:description" content="Pure vibes coding works until it doesn't. How a simple PRD and a CLAUDE.md before any code stopped me throwing away builds and kept the AI on-scope.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://axly.com/blog/prd-first-development/">
+  <meta property="og:site_name" content="Axly's Customs">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Stop Vibing and Write the Doc First">
+  <meta name="twitter:description" content="Pure vibes coding works until it doesn't. How a simple PRD and a CLAUDE.md before any code stopped me throwing away builds and kept the AI on-scope.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Stop Vibing and Write the Doc First",
+    "description": "Pure vibes coding works until it doesn't. How a simple PRD and a CLAUDE.md before any code stopped me throwing away builds and kept the AI on-scope.",
+    "datePublished": "2026-05-30",
+    "author": { "@type": "Organization", "name": "Axly's Customs", "url": "https://axly.com" },
+    "publisher": { "@type": "Organization", "name": "Axly's Customs", "url": "https://axly.com" },
+    "url": "https://axly.com/blog/prd-first-development/"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #fafafa; --bg-elevated: #ffffff; --text: #18181b; --text-secondary: #52525b; --text-muted: #a1a1aa; --border: #e4e4e7; --accent: #10b981; --accent-soft: #ecfdf5; --accent-text: #047857; }
+    .dark { --bg: #09090b; --bg-elevated: #18181b; --text: #fafafa; --text-secondary: #a1a1aa; --text-muted: #52525b; --border: #27272a; --accent: #10b981; --accent-soft: #052e16; --accent-text: #6ee7b7; }
+    body { font-family: 'Geist', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; min-height: 100dvh; transition: background 0.3s, color 0.3s; }
+    .theme-toggle { position: fixed; top: 20px; right: 20px; display: flex; gap: 4px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 4px; z-index: 50; }
+    .theme-btn { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: none; border-radius: 8px; background: transparent; color: var(--text-muted); cursor: pointer; font-size: 16px; transition: all 0.15s; }
+    .theme-btn.active { background: var(--accent); color: #fff; }
+    .theme-btn:hover:not(.active) { color: var(--text); background: var(--border); }
+    .page { max-width: 720px; margin: 0 auto; padding: 80px 24px 60px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--accent-text); text-decoration: none; margin-bottom: 32px; }
+    .back-link:hover { text-decoration: underline; }
+    .post-meta { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px; }
+    .post-title { font-size: clamp(28px, 5vw, 40px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 24px; }
+    .post-body { font-size: 16px; line-height: 1.8; color: var(--text-secondary); }
+    .post-body h2 { font-size: 22px; font-weight: 800; color: var(--text); margin: 40px 0 16px; letter-spacing: -0.02em; }
+    .post-body h3 { font-size: 18px; font-weight: 700; color: var(--text); margin: 32px 0 12px; }
+    .post-body p { margin-bottom: 16px; }
+    .post-body a { color: var(--accent-text); text-decoration: underline; }
+    .post-body a:hover { color: var(--accent); }
+    .post-body ul, .post-body ol { margin: 0 0 16px 24px; }
+    .post-body li { margin-bottom: 8px; }
+    .post-body strong { color: var(--text); }
+    .post-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 24px 0; background: var(--accent-soft); border-radius: 0 8px 8px 0; font-style: italic; }
+    .post-subtitle { font-size: 18px; color: var(--text-secondary); font-style: italic; margin-bottom: 32px; }
+    .post-cta { margin-top: 48px; padding: 28px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; text-align: center; }
+    .post-cta h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; color: var(--text); }
+    .post-cta p { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+    .post-cta a { display: inline-block; padding: 10px 24px; background: var(--accent); color: #fff; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 700; }
+    .post-cta a:hover { opacity: 0.85; }
+    .footer { text-align: center; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 48px; font-size: 13px; color: var(--text-muted); }
+    .footer a { color: var(--accent-text); text-decoration: none; font-weight: 600; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle">
+    <button class="theme-btn" data-theme="light" title="Light">&#9728;</button>
+    <button class="theme-btn" data-theme="system" title="System">&#9211;</button>
+    <button class="theme-btn" data-theme="dark" title="Dark">&#9790;</button>
+  </div>
+  <div class="page">
+    <a href="/blog/" class="back-link">&larr; All Posts</a>
+    <div class="post-meta">May 30, 2026</div>
+    <h1 class="post-title">Stop Vibing and Write the Doc First</h1>
+    <p class="post-subtitle">How a simple PRD changed the way I ship apps.</p>
+    <article class="post-body">
+
+      <p>I'm not a trained developer. I've got 30 years of IT under my belt and somewhere along the way I started building apps with AI. Lots of them. Over 70 GitHub repos in about a year.</p>
+
+      <p>For a while I was pure vibes. Describe the thing, let Claude Code run, see what happens. It works! Right up until it doesn't.</p>
+
+      <p>You know the feeling, three hours in and the AI has made seventeen decisions you didn't ask for, the scope has quietly doubled, and you're staring at code you don't fully understand trying to figure out why the thing it built isn't the thing you wanted.</p>
+
+      <p>I found a fix. It's not sexy. It's a document.</p>
+
+      <h2>The PRD</h2>
+
+      <p>PRD stands for Product Requirements Document. Sounds corporate. Isn't.</p>
+
+      <p>It's just you writing down, before a single line of code gets written, what you're actually building. What it does. What it doesn't do. What "done" looks like.</p>
+
+      <p>Mine have a pretty consistent structure:</p>
+
+      <ul>
+        <li><strong>What it is</strong>, two or three sentences, plain English</li>
+        <li><strong>Must-Haves</strong>, the things without which it doesn't ship</li>
+        <li><strong>Nice-to-Haves</strong>, the things that can wait</li>
+        <li><strong>Non-Goals</strong>, explicitly what this thing will <em>never</em> do</li>
+        <li><strong>MVP Milestones</strong>, numbered, small, shippable checkpoints</li>
+        <li><strong>Stack</strong>, exact tech choices, decided upfront</li>
+        <li><strong>Risks</strong>, the stuff most likely to blow up</li>
+      </ul>
+
+      <p>That last one is underrated. Writing down "the audio pipeline on iOS has a 60-second session limit" before you start means Claude Code gets told about it upfront, not after it's already built something that breaks because of it.</p>
+
+      <h2>The CLAUDE.md</h2>
+
+      <p>The PRD is for you. CLAUDE.md is for your AI.</p>
+
+      <p>It lives in the project root and it's the first thing Claude Code reads when it picks up your project. Think of it as the standing orders. It covers:</p>
+
+      <ul>
+        <li>The tech stack in a table (exact packages, exact versions)</li>
+        <li>Code stubs for anything complicated or easy to get wrong</li>
+        <li>A Gotchas list, things that <em>will</em> bite you if not addressed early</li>
+        <li>A Scope Guard, one line that says "do not add features not in this file"</li>
+        <li>A Build Checklist, the steps to verify the thing actually works</li>
+      </ul>
+
+      <p>That Scope Guard line is doing more work than it looks like. Without it, AI assistants are genuinely trying to be helpful, so they'll add things. Error handling you didn't ask for. A feature that seemed related. A refactor of something that was fine. The CLAUDE.md tells it: no. Build what's here.</p>
+
+      <h2>The workflow</h2>
+
+      <ol>
+        <li>I write the PRD. Usually with Claude's help in chat, I describe the app, it helps me think through edge cases and structure.</li>
+        <li>I turn that into a CLAUDE.md, adding stack details, gotchas, and stubs.</li>
+        <li>I hand it to Claude Code with: <em>"Read CLAUDE.md. Build Milestone 1 only."</em></li>
+        <li>We go milestone by milestone.</li>
+      </ol>
+
+      <p>That's it.</p>
+
+      <p>The whole thing takes maybe an hour before any code runs. But I've stopped having days where I throw away half a build because it went in the wrong direction. I've stopped getting AI hallucinations about my own app's structure. I've stopped arguing with the model about scope.</p>
+
+      <h2>Why it works</h2>
+
+      <p>AI coding assistants are powerful but they're stateless. Every session they start fresh. Without a document that says exactly what this thing is and how it should be built, they're making it up as they go, and so are you.</p>
+
+      <p>The PRD and CLAUDE.md aren't about process for process's sake. They're about giving the model (and yourself) a fixed point to return to. A north star the conversation can't drift away from.</p>
+
+      <p>I ship more, I throw away less, and when I come back to a project after two weeks I'm not re-explaining everything from scratch.</p>
+
+      <blockquote>Write the doc first. Then vibe.</blockquote>
+
+      <p><em>I build local-first apps under the Axly's Customs banner, no telemetry, no subscriptions, built for people who'd rather own their tools. More of this kind of thing lives at <a href="/blog/">axly.com/blog</a>.</em></p>
+
+    </article>
+    <div class="post-cta">
+      <h3>Next in the series</h3>
+      <p>Once your workflow is dialed in, the next problem is that your AI forgets everything between sessions. Here's the memory system I built to fix it.</p>
+      <a href="/blog/persistent-memory-for-ai/">Read: Your AI Forgets Everything</a>
+    </div>
+    <footer class="footer">
+      <a href="https://axly.com/">Axly's Customs</a> &middot;
+      <a href="/blog/">Blog</a> &middot;
+      <a href="https://pickaxe.axly.com">Pickaxe</a> &middot;
+      <a href="https://shovel.axly.com">The Shovel</a>
+    </footer>
+  </div>
+  <script>
+    function getTheme() { return localStorage.getItem('axly-theme') || 'system' }
+    function applyTheme(m) {
+      const d = m === 'dark' || (m === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)
+      document.body.classList.toggle('dark', d)
+      document.querySelectorAll('.theme-btn').forEach(b => b.classList.toggle('active', b.dataset.theme === m))
+    }
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      b.addEventListener('click', () => { localStorage.setItem('axly-theme', b.dataset.theme); applyTheme(b.dataset.theme) })
+    })
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (getTheme() === 'system') applyTheme('system') })
+    applyTheme(getTheme())
+  </script>
+</body>
+</html>
