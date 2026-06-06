@@ -1,3 +1,8 @@
 # Local-only blog draft staging — raw markdown, not for publishing.
 # Kept out of the repo so drafts are never served publicly by GitHub Pages.
 tasks/blog-drafts/
+
+# Backup/source copies of the site icons. The same assets are already wired
+# into the live site (renamed) under /images/. Nothing references this folder;
+# it's a local-only working set. Safe to keep out of the repo.
+images/GImages/
