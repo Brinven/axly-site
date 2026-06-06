@@ -364,9 +364,20 @@
       <div class="container">
         <h2 class="reveal">From the <span class="secondary-text">Blog</span></h2>
 
-        <!-- Dynamically loaded from posts.json -->
+        <!-- Static fallback (crawlable without JS); main.js re-renders the 3 newest from posts.json -->
         <div class="blog-list reveal" id="blog-list">
-          <!-- JS populates this -->
+          <a href="/blog/persistent-memory-for-ai/" class="blog-item">
+            <span class="blog-item-title">Your AI Forgets Everything. Here's How I Fixed It.</span>
+            <span class="blog-item-date">Jun 5, 2026</span>
+          </a>
+          <a href="/blog/prd-first-development/" class="blog-item">
+            <span class="blog-item-title">Stop Vibing and Write the Doc First</span>
+            <span class="blog-item-date">May 30, 2026</span>
+          </a>
+          <a href="/blog/zero-telemetry-one-time-pricing/" class="blog-item">
+            <span class="blog-item-title">Why Every App I Build Has Zero Telemetry and One-Time Pricing</span>
+            <span class="blog-item-date">May 23, 2026</span>
+          </a>
         </div>
 
         <a href="/blog/" class="blog-view-all reveal">View all posts &rarr;</a>
