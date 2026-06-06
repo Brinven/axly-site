@@ -12,6 +12,15 @@ PRD: `axly-redesign-PRD.md`
 - **Web3Forms** — contact form backend for /webdesign/ intake
 - **Google Fonts** — loaded async with display=swap
 
+## Memory
+Persistent memory for this project routes as follows:
+- **Hindsight bank `axly-site`** — durable project facts: stack/hosting, the blog publishing workflow, brand/design tokens, SEO + content conventions, and off-limits rules. Check this bank at the start of a session and retain new project facts here. **This is the bank claude.ai can read.**
+- **Ib** — personal/relational context and Mike's working preferences (e.g., the *why* behind the blog em-dash convention).
+- **Hindsight bank `axly-infra`** — cross-project infra only (pm2, ports, Cloudflare DNS, Tailscale).
+- **Claude Code local file-memory** (`~/.claude/projects/G--AxlyGitHub-axlyapps-axly-site/memory/*.md`) — working notes for this CC instance. NOT visible to claude.ai, so anything claude.ai needs must also live in `axly-site` or Ib.
+
+Don't duplicate across stores. Skip anything reachable via `git log`.
+
 ## Branch Strategy
 - `main` = production (GitHub Pages auto-deploys to axly.com)
 - `redesign` = all work happens here
