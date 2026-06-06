@@ -1,9 +1,7 @@
-# Axly.com — Site Redesign
+# Axly.com — Website
 
 ## Project Context
-Full aesthetic redesign of axly.com + new /webdesign/ service page.
-This is NOT an MSP/IT site. Brand is creative, maker-driven, AI-forward.
-PRD: `axly-redesign-PRD.md`
+Public marketing/portfolio site for Axly's Customs. Creative, maker-driven, AI-forward brand — NOT an MSP/IT site. The full redesign shipped 2026-04-10; this repo is now in **ongoing maintenance + content mode** (blog posts, tweaks, occasional new sections). Original redesign PRD: `axly-redesign-PRD.md`.
 
 ## Stack (locked)
 - **HTML / CSS / JS** — no frameworks, no build steps
@@ -22,63 +20,69 @@ Persistent memory for this project routes as follows:
 Don't duplicate across stores. Skip anything reachable via `git log`.
 
 ## Branch Strategy
-- `main` = production (GitHub Pages auto-deploys to axly.com)
-- `redesign` = all work happens here
-- `pre-redesign` tag = rollback point
-- Preview via local server (`python -m http.server 8080`) — no branch preview URLs
-- Merge to main only when approved by Mike
+- `main` = production. GitHub Pages auto-deploys to axly.com on every push.
+- Work happens **directly on `main`** (solo, no PR review). Commit + push when Mike says so.
+- `pre-redesign` tag = rollback point for the original redesign. The `redesign` branch is historical (already merged).
+- Preview locally: `python -m http.server 8099`, then browse the page. No branch preview URLs.
 
 ## Critical Safety Rules
-- **goldmine/index.html** — READ ONLY. Do not modify.
-- **Goldmine backend** — lives in separate repo. Not in scope.
-- **All existing SEO** — meta, schema, OG tags, canonical URLs, sitemap — preserve exactly
-- **blog/posts.json** + blog post pages — do not modify
-- **stats.json fetch** + **blog preview fetch** — preserve these JS mechanisms
-- **thothai/** — leave alone for now (revisit after redesign is complete)
+- **goldmine/index.html** — READ ONLY. Do not modify. (Goldmine backend lives in a separate repo, out of scope.)
+- **thothai/** — leave alone.
+- **All existing SEO** — meta, schema, OG tags, canonical URLs, sitemap — preserve exactly.
+- **JS fetch mechanisms** — preserve the `posts.json`, `images.json`, and `stats.json` client-side fetches in `js/main.js`.
+- The blog **is** actively maintained now (see Blog Publishing Workflow). It is no longer frozen — but follow the workflow and don't break the fetch mechanism.
 
-## File Architecture (new)
-```
-/
-├── index.html              ← Redesigned homepage
-├── css/style.css           ← Extracted, token-based CSS
-├── js/main.js              ← Extracted JS (theme, blog fetch, stats fetch, scroll reveals)
-├── webdesign/
-│   ├── index.html          ← NEW service page
-│   └── thank-you/
-│       └── index.html      ← NEW form confirmation
-├── admin.html              ← Light refresh to match new design
-├── goldmine/index.html     ← DO NOT TOUCH
-├── gallery/index.html      ← Light refresh later if needed
-├── thothai/                ← DO NOT TOUCH (for now)
-├── blog/                   ← DO NOT TOUCH content; homepage teaser redesigned
-└── [everything else stays]
-```
+## Blog Publishing Workflow
+Adding a post touches **5 spots** (3 tracked content locations + 2 static-render spots):
+1. `blog/<slug>/index.html` — standalone page from the existing template (Geist font, light/dark toggle, BlogPosting JSON-LD, OG/canonical/Twitter meta, CTA).
+2. `blog/posts.json` — `{slug, title, date, excerpt, tags}` entry (source of truth for the JS).
+3. `sitemap.xml` — a `<url>` entry.
+4. `blog/index.html` — a **static** `<a class="post-card">` card (newest-first). The listing must NOT be JS-only; non-JS crawlers / AI answer engines need it.
+5. `index.html` homepage teaser — a **static** `blog-item`, IF the post is among the 3 newest.
+- Draft markdown is staged in `tasks/blog-drafts/` (gitignored, local-only — never deploys).
+- Backdate publish dates so posts don't look dumped on the same day.
 
 ## Brand Tokens
-- Dark-first design (deep navy backgrounds)
-- Chrome/metal accents from logo
-- Hot pink accent, steel blue secondary
-- Bold display font (NOT Inter/Roboto/Arial)
-- CSS custom properties for all colors — no hardcoded values
+- Dark-only design (deep navy backgrounds). No light-mode toggle on the main site (the blog subsection has its own).
+- **Steel-blue primary** accent (buttons, links, CTAs); **hot-pink secondary**, used sparingly for high-impact moments.
+- Chrome/metal accents from the logo.
+- Fonts: **Saira** (display) + **Lexend** (body) on the main site; the **blog** uses **Geist**.
+- CSS custom properties (OKLCH) for all colors — no hardcoded values.
+- No emoji — custom chrome/metallic graphics instead.
 
 ## Copy Rules
-- First person singular ("I build") except web design section ("we")
-- No buzzwords: leverage, synergy, cutting-edge, revolutionize
-- Contractions fine — not corporate copy
-- Preserve all existing copy (refine, don't rewrite)
+- First person singular ("I build") except the web design section ("we").
+- No buzzwords: leverage, synergy, cutting-edge, revolutionize.
+- Contractions fine — not corporate copy.
+- Preserve existing copy (refine, don't rewrite).
+- **Em-dash rule:** BLOG posts contain ZERO em-dashes (use commas) so they read hand-written. The REST of the site deliberately KEEPS its em-dashes as an "I use AI" signal. Do not "fix" em-dashes outside the blog.
 
-## Skills to Use
-- `/shape` — design brief before coding
-- `/impeccable` — throughout build
-- `/polish` — after each major section
-- `/audit` — before final review
-- `/overdrive` — hero sections
-- `/critique` — full-page review before handoff
-- `/seo` — all new/modified pages
+## File Map
+```
+/
+├── index.html              ← Homepage (~11 sections; static blog teaser + JS hydration)
+├── css/style.css           ← Token-based CSS (OKLCH)
+├── js/main.js              ← Theme, scroll reveals, posts.json/images.json/stats.json fetches, anti-scrape contact
+├── webdesign/index.html    ← Service page (Web3Forms intake) + thank-you/
+├── blog/                   ← index.html (static list + JS) + posts.json + <slug>/index.html per post
+├── admin.html              ← Dark-themed admin
+├── goldmine/index.html     ← DO NOT TOUCH
+├── thothai/                ← LEAVE ALONE
+├── gallery/                ← Image gallery
+└── images/                 ← Site assets (images/GImages/ = gitignored local icon backups)
+```
+Wallpapers (`wallpapers.axly.com`) is an external subdomain, a separate property — not in this repo.
+
+## Local-only (gitignored) folders
+- `tasks/blog-drafts/` — raw blog draft markdown.
+- `images/GImages/` — backup/source copies of the site icons (already wired into `/images/` under final names). Leave alone; nothing references them.
 
 ## Logo
-- PNG only for now (SVG coming later)
-- Use as-is, do not alter
+- PNG only for now (SVG coming later). Use as-is, do not alter.
+
+## Useful Skills
+- `/seo` — any new/modified page (blog posts especially)
+- `/polish`, `/critique` — before shipping visual changes
 
 ## Lessons
 See `tasks/lessons.md` for corrections and patterns.
