@@ -85,8 +85,10 @@ async function refreshGrid(root) {
 }
 
 function cardHtml(i) {
+  // Relative src (no leading slash): resolves against / in the real app and
+  // against the subpath in the deployed demo (axly.com/whetstone/demo/).
   const thumb = i.thumb
-    ? `<img class="item-thumb" src="/${esc(i.thumb)}" alt="" loading="lazy">`
+    ? `<img class="item-thumb" src="${esc(i.thumb)}" alt="" loading="lazy">`
     : '<div class="item-thumb placeholder" aria-hidden="true">🗡️</div>';
   const sub = [i.maker, i.model].filter(Boolean).map(esc).join(' · ');
   return `<a class="item-card" href="#/collection/${i.id}">
@@ -325,11 +327,11 @@ function galleryHtml(photos) {
   const main = photos[0];
   const thumbs = photos.map((p, idx) => `
     <span class="gallery-thumb ${idx === 0 ? 'current' : ''}" data-idx="${idx}">
-      <img src="/${esc(p.file_path)}" alt="${esc(p.caption || 'photo')}" loading="lazy">
+      <img src="${esc(p.file_path)}" alt="${esc(p.caption || 'photo')}" loading="lazy">
       ${isDemo() ? '' : `<button class="thumb-del" data-photo-id="${p.id}" aria-label="Delete photo">✕</button>`}
     </span>`).join('');
   return `<div class="gallery">
-    <img class="gallery-main" src="/${esc(main.file_path)}" alt="${esc(main.caption || 'photo')}">
+    <img class="gallery-main" src="${esc(main.file_path)}" alt="${esc(main.caption || 'photo')}">
     ${main.caption ? `<p class="gallery-caption">${esc(main.caption)}</p>` : ''}
     ${photos.length > 1 || !isDemo() ? `<div class="gallery-thumbs">${thumbs}</div>` : ''}
   </div>`;
@@ -342,7 +344,7 @@ function wireGallery(root, item) {
     el.querySelector('img').onclick = () => {
       const p = photos[Number(el.dataset.idx)];
       if (!p || !mainImg) return;
-      mainImg.src = `/${p.file_path}`;
+      mainImg.src = p.file_path;
       const cap = root.querySelector('.gallery-caption');
       if (cap) cap.textContent = p.caption || '';
       root.querySelectorAll('.gallery-thumb').forEach((t) => t.classList.remove('current'));
