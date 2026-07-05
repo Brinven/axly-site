@@ -1,0 +1,5991 @@
+{
+ "/api/dashboard": {
+  "server": {
+   "lan_ip": "100.64.0.42",
+   "port": 4594,
+   "url": "http://100.64.0.42:4594",
+   "tailscale": true
+  },
+  "season": 2025,
+  "week": 18,
+  "matchup": {
+   "opponent_id": 7,
+   "opponent_name": "The Bench Mob"
+  },
+  "me": {
+   "starters": [
+    {
+     "player_id": "PIT",
+     "position_slot": "DEF",
+     "slot_index": 1,
+     "name": "Pittsburgh Steelers",
+     "position": "DEF",
+     "nfl_team": "PIT",
+     "injury_status": null,
+     "rec": {
+      "score": 65,
+      "band": "tossup",
+      "data_sufficiency": 0.66
+     },
+     "live": {
+      "points": 5,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "8151",
+     "position_slot": "FLEX",
+     "slot_index": 1,
+     "name": "Kenneth Walker",
+     "position": "RB",
+     "nfl_team": "KC",
+     "injury_status": null,
+     "rec": {
+      "score": 62.6,
+      "band": "tossup",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 13.3,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "11539",
+     "position_slot": "K",
+     "slot_index": 1,
+     "name": "Jake Bates",
+     "position": "K",
+     "nfl_team": "DET",
+     "injury_status": null,
+     "rec": {
+      "score": 58.3,
+      "band": "tossup",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 13,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "3163",
+     "position_slot": "QB",
+     "slot_index": 1,
+     "name": "Jared Goff",
+     "position": "QB",
+     "nfl_team": "DET",
+     "injury_status": null,
+     "rec": {
+      "score": 69,
+      "band": "tossup",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 15.24,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "9221",
+     "position_slot": "RB",
+     "slot_index": 1,
+     "name": "Jahmyr Gibbs",
+     "position": "RB",
+     "nfl_team": "DET",
+     "injury_status": null,
+     "rec": {
+      "score": 59.8,
+      "band": "tossup",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 17.3,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "11584",
+     "position_slot": "RB",
+     "slot_index": 2,
+     "name": "Bucky Irving",
+     "position": "RB",
+     "nfl_team": "TB",
+     "injury_status": "Questionable",
+     "rec": {
+      "score": 52.7,
+      "band": "tossup",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 9.8,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "1466",
+     "position_slot": "TE",
+     "slot_index": 1,
+     "name": "Travis Kelce",
+     "position": "TE",
+     "nfl_team": "KC",
+     "injury_status": null,
+     "rec": {
+      "score": 41.8,
+      "band": "sit",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 1.2,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "7547",
+     "position_slot": "WR",
+     "slot_index": 1,
+     "name": "Amon-Ra St. Brown",
+     "position": "WR",
+     "nfl_team": "DET",
+     "injury_status": null,
+     "rec": {
+      "score": 70.5,
+      "band": "start",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 13.9,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "6786",
+     "position_slot": "WR",
+     "slot_index": 2,
+     "name": "CeeDee Lamb",
+     "position": "WR",
+     "nfl_team": "DAL",
+     "injury_status": null,
+     "rec": {
+      "score": 64.4,
+      "band": "tossup",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 0.4,
+      "is_final": true
+     }
+    }
+   ],
+   "total": 89.1
+  },
+  "opp": {
+   "starters": [
+    {
+     "player_id": "DEN",
+     "position_slot": "DEF",
+     "slot_index": 1,
+     "name": "Denver Broncos",
+     "position": "DEF",
+     "nfl_team": "DEN",
+     "injury_status": null,
+     "rec": {
+      "score": 67.5,
+      "band": "tossup",
+      "data_sufficiency": 0.66
+     },
+     "live": {
+      "points": 21,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "9488",
+     "position_slot": "FLEX",
+     "slot_index": 1,
+     "name": "Jaxon Smith-Njigba",
+     "position": "WR",
+     "nfl_team": "SEA",
+     "injury_status": null,
+     "rec": {
+      "score": 67.6,
+      "band": "tossup",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 8.4,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "11533",
+     "position_slot": "K",
+     "slot_index": 1,
+     "name": "Brandon Aubrey",
+     "position": "K",
+     "nfl_team": "DAL",
+     "injury_status": null,
+     "rec": {
+      "score": 81,
+      "band": "start",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 4,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "6770",
+     "position_slot": "QB",
+     "slot_index": 1,
+     "name": "Joe Burrow",
+     "position": "QB",
+     "nfl_team": "CIN",
+     "injury_status": null,
+     "rec": {
+      "score": 65,
+      "band": "tossup",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 21.14,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "4034",
+     "position_slot": "RB",
+     "slot_index": 1,
+     "name": "Christian McCaffrey",
+     "position": "RB",
+     "nfl_team": "SF",
+     "injury_status": null,
+     "rec": {
+      "score": 64.8,
+      "band": "tossup",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 5.7,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "8150",
+     "position_slot": "RB",
+     "slot_index": 2,
+     "name": "Kyren Williams",
+     "position": "RB",
+     "nfl_team": "LAR",
+     "injury_status": null,
+     "rec": {
+      "score": 80.4,
+      "band": "start",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 8.1,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "4217",
+     "position_slot": "TE",
+     "slot_index": 1,
+     "name": "George Kittle",
+     "position": "TE",
+     "nfl_team": "SF",
+     "injury_status": "Questionable",
+     "rec": {
+      "score": 66.9,
+      "band": "tossup",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 2.9,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "5045",
+     "position_slot": "WR",
+     "slot_index": 1,
+     "name": "Courtland Sutton",
+     "position": "WR",
+     "nfl_team": "DEN",
+     "injury_status": null,
+     "rec": {
+      "score": 58.6,
+      "band": "tossup",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 0.5,
+      "is_final": true
+     }
+    },
+    {
+     "player_id": "8112",
+     "position_slot": "WR",
+     "slot_index": 2,
+     "name": "Drake London",
+     "position": "WR",
+     "nfl_team": "ATL",
+     "injury_status": "Questionable",
+     "rec": {
+      "score": 42.7,
+      "band": "sit",
+      "data_sufficiency": 0.81
+     },
+     "live": {
+      "points": 13.8,
+      "is_final": true
+     }
+    }
+   ],
+   "total": 85.5
+  },
+  "sync": [
+   {
+    "source": "idmap",
+    "status": "ok",
+    "ran_at": "2026-07-05 19:41:48"
+   },
+   {
+    "source": "nflverse",
+    "status": "ok",
+    "ran_at": "2026-07-05 03:52:41"
+   },
+   {
+    "source": "odds",
+    "status": "ok",
+    "ran_at": "2026-07-05 05:52:41"
+   },
+   {
+    "source": "props",
+    "status": "ok",
+    "ran_at": "2026-07-05 21:51:47"
+   },
+   {
+    "source": "sleeper",
+    "status": "ok",
+    "ran_at": "2026-07-05 19:41:47"
+   }
+  ]
+ },
+ "/api/roster?side=me": {
+  "season": 2025,
+  "side": "me",
+  "lineup": [
+   {
+    "position": "QB",
+    "slot_count": 1,
+    "sort_order": 1
+   },
+   {
+    "position": "RB",
+    "slot_count": 2,
+    "sort_order": 2
+   },
+   {
+    "position": "WR",
+    "slot_count": 2,
+    "sort_order": 3
+   },
+   {
+    "position": "TE",
+    "slot_count": 1,
+    "sort_order": 4
+   },
+   {
+    "position": "FLEX",
+    "slot_count": 1,
+    "sort_order": 5
+   },
+   {
+    "position": "DEF",
+    "slot_count": 1,
+    "sort_order": 6
+   },
+   {
+    "position": "K",
+    "slot_count": 1,
+    "sort_order": 7
+   }
+  ],
+  "starters": [
+   {
+    "player_id": "PIT",
+    "position_slot": "DEF",
+    "slot_index": 1,
+    "name": "Pittsburgh Steelers",
+    "position": "DEF",
+    "nfl_team": "PIT",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "8151",
+    "position_slot": "FLEX",
+    "slot_index": 1,
+    "name": "Kenneth Walker",
+    "position": "RB",
+    "nfl_team": "KC",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "11539",
+    "position_slot": "K",
+    "slot_index": 1,
+    "name": "Jake Bates",
+    "position": "K",
+    "nfl_team": "DET",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "3163",
+    "position_slot": "QB",
+    "slot_index": 1,
+    "name": "Jared Goff",
+    "position": "QB",
+    "nfl_team": "DET",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "9221",
+    "position_slot": "RB",
+    "slot_index": 1,
+    "name": "Jahmyr Gibbs",
+    "position": "RB",
+    "nfl_team": "DET",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "11584",
+    "position_slot": "RB",
+    "slot_index": 2,
+    "name": "Bucky Irving",
+    "position": "RB",
+    "nfl_team": "TB",
+    "injury_status": "Questionable",
+    "practice_participation": null
+   },
+   {
+    "player_id": "1466",
+    "position_slot": "TE",
+    "slot_index": 1,
+    "name": "Travis Kelce",
+    "position": "TE",
+    "nfl_team": "KC",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "7547",
+    "position_slot": "WR",
+    "slot_index": 1,
+    "name": "Amon-Ra St. Brown",
+    "position": "WR",
+    "nfl_team": "DET",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "6786",
+    "position_slot": "WR",
+    "slot_index": 2,
+    "name": "CeeDee Lamb",
+    "position": "WR",
+    "nfl_team": "DAL",
+    "injury_status": null,
+    "practice_participation": null
+   }
+  ],
+  "bench": [
+   {
+    "player_id": "6804",
+    "position_slot": "BENCH",
+    "slot_index": 1,
+    "name": "Jordan Love",
+    "position": "QB",
+    "nfl_team": "GB",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "4984",
+    "position_slot": "BENCH",
+    "slot_index": 1,
+    "name": "Josh Allen",
+    "position": "QB",
+    "nfl_team": "BUF",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "1264",
+    "position_slot": "BENCH",
+    "slot_index": 1,
+    "name": "Justin Tucker",
+    "position": "K",
+    "nfl_team": null,
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "12507",
+    "position_slot": "BENCH",
+    "slot_index": 1,
+    "name": "Omarion Hampton",
+    "position": "RB",
+    "nfl_team": "LAC",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "10859",
+    "position_slot": "BENCH",
+    "slot_index": 1,
+    "name": "Sam LaPorta",
+    "position": "TE",
+    "nfl_team": "DET",
+    "injury_status": "Questionable",
+    "practice_participation": null
+   }
+  ]
+ },
+ "/api/opponents": [
+  {
+   "id": 5,
+   "name": "Gridiron Gary",
+   "created_at": "2026-07-05 22:31:49",
+   "roster_count": 9
+  },
+  {
+   "id": 7,
+   "name": "The Bench Mob",
+   "created_at": "2026-07-05 22:31:49",
+   "roster_count": 9
+  },
+  {
+   "id": 6,
+   "name": "Touchdown Tony",
+   "created_at": "2026-07-05 22:31:49",
+   "roster_count": 9
+  }
+ ],
+ "/api/matchups": {
+  "season": 2025,
+  "weeks": [
+   {
+    "week": 1,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary"
+   },
+   {
+    "week": 2,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony"
+   },
+   {
+    "week": 3,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob"
+   },
+   {
+    "week": 4,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary"
+   },
+   {
+    "week": 5,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony"
+   },
+   {
+    "week": 6,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob"
+   },
+   {
+    "week": 7,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary"
+   },
+   {
+    "week": 8,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony"
+   },
+   {
+    "week": 9,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob"
+   },
+   {
+    "week": 10,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary"
+   },
+   {
+    "week": 11,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony"
+   },
+   {
+    "week": 12,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob"
+   },
+   {
+    "week": 13,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary"
+   },
+   {
+    "week": 14,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony"
+   },
+   {
+    "week": 15,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob"
+   },
+   {
+    "week": 16,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary"
+   },
+   {
+    "week": 17,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony"
+   },
+   {
+    "week": 18,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob"
+   }
+  ]
+ },
+ "/api/live": {
+  "season": 2025,
+  "week": 18,
+  "games": [
+   {
+    "game_id": "2025_18_CAR_TB",
+    "home_team": "TB",
+    "away_team": "CAR",
+    "home_score": 16,
+    "away_score": 14,
+    "status": "post",
+    "kickoff": "2026-01-03T21:30:00.000Z"
+   },
+   {
+    "game_id": "2025_18_SEA_SF",
+    "home_team": "SF",
+    "away_team": "SEA",
+    "home_score": 3,
+    "away_score": 13,
+    "status": "post",
+    "kickoff": "2026-01-04T01:00:00.000Z"
+   },
+   {
+    "game_id": "2025_18_NO_ATL",
+    "home_team": "ATL",
+    "away_team": "NO",
+    "home_score": 19,
+    "away_score": 17,
+    "status": "post",
+    "kickoff": "2026-01-04T18:00:00.000Z"
+   },
+   {
+    "game_id": "2025_18_CLE_CIN",
+    "home_team": "CIN",
+    "away_team": "CLE",
+    "home_score": 18,
+    "away_score": 20,
+    "status": "post",
+    "kickoff": "2026-01-04T18:00:00.000Z"
+   },
+   {
+    "game_id": "2025_18_IND_HOU",
+    "home_team": "HOU",
+    "away_team": "IND",
+    "home_score": 38,
+    "away_score": 30,
+    "status": "post",
+    "kickoff": "2026-01-04T18:00:00.000Z"
+   },
+   {
+    "game_id": "2025_18_TEN_JAX",
+    "home_team": "JAX",
+    "away_team": "TEN",
+    "home_score": 41,
+    "away_score": 7,
+    "status": "post",
+    "kickoff": "2026-01-04T18:00:00.000Z"
+   },
+   {
+    "game_id": "2025_18_GB_MIN",
+    "home_team": "MIN",
+    "away_team": "GB",
+    "home_score": 16,
+    "away_score": 3,
+    "status": "post",
+    "kickoff": "2026-01-04T18:00:00.000Z"
+   },
+   {
+    "game_id": "2025_18_DAL_NYG",
+    "home_team": "NYG",
+    "away_team": "DAL",
+    "home_score": 34,
+    "away_score": 17,
+    "status": "post",
+    "kickoff": "2026-01-04T18:00:00.000Z"
+   },
+   {
+    "game_id": "2025_18_NYJ_BUF",
+    "home_team": "BUF",
+    "away_team": "NYJ",
+    "home_score": 35,
+    "away_score": 8,
+    "status": "post",
+    "kickoff": "2026-01-04T21:25:00.000Z"
+   },
+   {
+    "game_id": "2025_18_DET_CHI",
+    "home_team": "CHI",
+    "away_team": "DET",
+    "home_score": 16,
+    "away_score": 19,
+    "status": "post",
+    "kickoff": "2026-01-04T21:25:00.000Z"
+   },
+   {
+    "game_id": "2025_18_LAC_DEN",
+    "home_team": "DEN",
+    "away_team": "LAC",
+    "home_score": 19,
+    "away_score": 3,
+    "status": "post",
+    "kickoff": "2026-01-04T21:25:00.000Z"
+   },
+   {
+    "game_id": "2025_18_ARI_LA",
+    "home_team": "LAR",
+    "away_team": "ARI",
+    "home_score": 37,
+    "away_score": 20,
+    "status": "post",
+    "kickoff": "2026-01-04T21:25:00.000Z"
+   },
+   {
+    "game_id": "2025_18_KC_LV",
+    "home_team": "LV",
+    "away_team": "KC",
+    "home_score": 14,
+    "away_score": 12,
+    "status": "post",
+    "kickoff": "2026-01-04T21:25:00.000Z"
+   },
+   {
+    "game_id": "2025_18_MIA_NE",
+    "home_team": "NE",
+    "away_team": "MIA",
+    "home_score": 38,
+    "away_score": 10,
+    "status": "post",
+    "kickoff": "2026-01-04T21:25:00.000Z"
+   },
+   {
+    "game_id": "2025_18_WAS_PHI",
+    "home_team": "PHI",
+    "away_team": "WAS",
+    "home_score": 17,
+    "away_score": 24,
+    "status": "post",
+    "kickoff": "2026-01-04T21:25:00.000Z"
+   },
+   {
+    "game_id": "2025_18_BAL_PIT",
+    "home_team": "PIT",
+    "away_team": "BAL",
+    "home_score": 26,
+    "away_score": 24,
+    "status": "post",
+    "kickoff": "2026-01-05T01:20:00.000Z"
+   }
+  ],
+  "any_live": false,
+  "me": {
+   "players": [
+    {
+     "player_id": "PIT",
+     "position_slot": "DEF",
+     "slot_index": 1,
+     "name": "Pittsburgh Steelers",
+     "position": "DEF",
+     "nfl_team": "PIT",
+     "points": 5,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"dst_sack\":3,\"dst_int\":1,\"dst_pa_21_27\":1,\"points_allowed\":24},\"breakdown\":[{\"key\":\"dst_sack\",\"count\":3,\"pts\":3},{\"key\":\"dst_int\",\"count\":1,\"pts\":2}]}"
+    },
+    {
+     "player_id": "8151",
+     "position_slot": "FLEX",
+     "slot_index": 1,
+     "name": "Kenneth Walker",
+     "position": "RB",
+     "nfl_team": "KC",
+     "points": 13.3,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"rush_yd\":97,\"rec\":4,\"rec_yd\":36},\"breakdown\":[{\"key\":\"rush_yd\",\"count\":97,\"pts\":9.7},{\"key\":\"rec_yd\",\"count\":36,\"pts\":3.6}]}"
+    },
+    {
+     "player_id": "11539",
+     "position_slot": "K",
+     "slot_index": 1,
+     "name": "Jake Bates",
+     "position": "K",
+     "nfl_team": "DET",
+     "points": 13,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"fg_0_39\":3,\"fg_40_49\":1,\"fg_miss\":1,\"pat\":1},\"breakdown\":[{\"key\":\"fg_0_39\",\"count\":3,\"pts\":9},{\"key\":\"fg_40_49\",\"count\":1,\"pts\":4},{\"key\":\"fg_miss\",\"count\":1,\"pts\":-1},{\"key\":\"pat\",\"count\":1,\"pts\":1}]}"
+    },
+    {
+     "player_id": "3163",
+     "position_slot": "QB",
+     "slot_index": 1,
+     "name": "Jared Goff",
+     "position": "QB",
+     "nfl_team": "DET",
+     "points": 15.24,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"pass_yd\":331,\"pass_td\":1,\"pass_int\":1},\"breakdown\":[{\"key\":\"pass_yd\",\"count\":331,\"pts\":13.24},{\"key\":\"pass_td\",\"count\":1,\"pts\":4},{\"key\":\"pass_int\",\"count\":1,\"pts\":-2}]}"
+    },
+    {
+     "player_id": "9221",
+     "position_slot": "RB",
+     "slot_index": 1,
+     "name": "Jahmyr Gibbs",
+     "position": "RB",
+     "nfl_team": "DET",
+     "points": 17.3,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"rush_yd\":80,\"rec\":3,\"rec_yd\":33,\"rec_td\":1},\"breakdown\":[{\"key\":\"rush_yd\",\"count\":80,\"pts\":8},{\"key\":\"rec_yd\",\"count\":33,\"pts\":3.3},{\"key\":\"rec_td\",\"count\":1,\"pts\":6}]}"
+    },
+    {
+     "player_id": "11584",
+     "position_slot": "RB",
+     "slot_index": 2,
+     "name": "Bucky Irving",
+     "position": "RB",
+     "nfl_team": "TB",
+     "points": 9.8,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"rush_yd\":85,\"rec\":1,\"rec_yd\":13},\"breakdown\":[{\"key\":\"rush_yd\",\"count\":85,\"pts\":8.5},{\"key\":\"rec_yd\",\"count\":13,\"pts\":1.3}]}"
+    },
+    {
+     "player_id": "1466",
+     "position_slot": "TE",
+     "slot_index": 1,
+     "name": "Travis Kelce",
+     "position": "TE",
+     "nfl_team": "KC",
+     "points": 1.2,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"rec\":3,\"rec_yd\":12},\"breakdown\":[{\"key\":\"rec_yd\",\"count\":12,\"pts\":1.2}]}"
+    },
+    {
+     "player_id": "7547",
+     "position_slot": "WR",
+     "slot_index": 1,
+     "name": "Amon-Ra St. Brown",
+     "position": "WR",
+     "nfl_team": "DET",
+     "points": 13.9,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"rec\":11,\"rec_yd\":139},\"breakdown\":[{\"key\":\"rec_yd\",\"count\":139,\"pts\":13.9}]}"
+    },
+    {
+     "player_id": "6786",
+     "position_slot": "WR",
+     "slot_index": 2,
+     "name": "CeeDee Lamb",
+     "position": "WR",
+     "nfl_team": "DAL",
+     "points": 0.4,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"rec\":1,\"rec_yd\":4},\"breakdown\":[{\"key\":\"rec_yd\",\"count\":4,\"pts\":0.4}]}"
+    },
+    {
+     "player_id": "10859",
+     "position_slot": "BENCH",
+     "slot_index": 1,
+     "name": "Sam LaPorta",
+     "position": "TE",
+     "nfl_team": "DET",
+     "points": 0,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{},\"breakdown\":[]}"
+    },
+    {
+     "player_id": "12507",
+     "position_slot": "BENCH",
+     "slot_index": 1,
+     "name": "Omarion Hampton",
+     "position": "RB",
+     "nfl_team": "LAC",
+     "points": 0,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{},\"breakdown\":[]}"
+    },
+    {
+     "player_id": "1264",
+     "position_slot": "BENCH",
+     "slot_index": 1,
+     "name": "Justin Tucker",
+     "position": "K",
+     "nfl_team": null,
+     "points": 0,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{},\"breakdown\":[]}"
+    },
+    {
+     "player_id": "4984",
+     "position_slot": "BENCH",
+     "slot_index": 1,
+     "name": "Josh Allen",
+     "position": "QB",
+     "nfl_team": "BUF",
+     "points": 0,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{},\"breakdown\":[]}"
+    },
+    {
+     "player_id": "6804",
+     "position_slot": "BENCH",
+     "slot_index": 1,
+     "name": "Jordan Love",
+     "position": "QB",
+     "nfl_team": "GB",
+     "points": 0,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{},\"breakdown\":[]}"
+    }
+   ],
+   "total": 89.1
+  },
+  "opp": {
+   "players": [
+    {
+     "player_id": "DEN",
+     "position_slot": "DEF",
+     "slot_index": 1,
+     "name": "Denver Broncos",
+     "position": "DEF",
+     "nfl_team": "DEN",
+     "points": 21,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"dst_sack\":4,\"dst_int\":1,\"dst_fum_rec\":1,\"dst_td\":1,\"dst_pa_1_6\":1,\"points_allowed\":3},\"breakdown\":[{\"key\":\"dst_sack\",\"count\":4,\"pts\":4},{\"key\":\"dst_int\",\"count\":1,\"pts\":2},{\"key\":\"dst_fum_rec\",\"count\":1,\"pts\":2},{\"key\":\"dst_td\",\"count\":1,\"pts\":6},{\"key\":\"dst_pa_1_6\",\"count\":1,\"pts\":7}]}"
+    },
+    {
+     "player_id": "9488",
+     "position_slot": "FLEX",
+     "slot_index": 1,
+     "name": "Jaxon Smith-Njigba",
+     "position": "WR",
+     "nfl_team": "SEA",
+     "points": 8.4,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"rec\":6,\"rec_yd\":84},\"breakdown\":[{\"key\":\"rec_yd\",\"count\":84,\"pts\":8.4}]}"
+    },
+    {
+     "player_id": "11533",
+     "position_slot": "K",
+     "slot_index": 1,
+     "name": "Brandon Aubrey",
+     "position": "K",
+     "nfl_team": "DAL",
+     "points": 4,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"fg_0_39\":1,\"fg_miss\":1,\"pat\":2},\"breakdown\":[{\"key\":\"fg_0_39\",\"count\":1,\"pts\":3},{\"key\":\"fg_miss\",\"count\":1,\"pts\":-1},{\"key\":\"pat\",\"count\":2,\"pts\":2}]}"
+    },
+    {
+     "player_id": "6770",
+     "position_slot": "QB",
+     "slot_index": 1,
+     "name": "Joe Burrow",
+     "position": "QB",
+     "nfl_team": "CIN",
+     "points": 21.14,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"pass_yd\":236,\"pass_td\":3,\"pass_int\":1,\"rush_yd\":17},\"breakdown\":[{\"key\":\"pass_yd\",\"count\":236,\"pts\":9.44},{\"key\":\"pass_td\",\"count\":3,\"pts\":12},{\"key\":\"pass_int\",\"count\":1,\"pts\":-2},{\"key\":\"rush_yd\",\"count\":17,\"pts\":1.7}]}"
+    },
+    {
+     "player_id": "4034",
+     "position_slot": "RB",
+     "slot_index": 1,
+     "name": "Christian McCaffrey",
+     "position": "RB",
+     "nfl_team": "SF",
+     "points": 5.7,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"rush_yd\":23,\"rec\":6,\"rec_yd\":34},\"breakdown\":[{\"key\":\"rush_yd\",\"count\":23,\"pts\":2.3},{\"key\":\"rec_yd\",\"count\":34,\"pts\":3.4}]}"
+    },
+    {
+     "player_id": "8150",
+     "position_slot": "RB",
+     "slot_index": 2,
+     "name": "Kyren Williams",
+     "position": "RB",
+     "nfl_team": "LAR",
+     "points": 8.1,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"rush_yd\":60,\"rec\":3,\"rec_yd\":21},\"breakdown\":[{\"key\":\"rush_yd\",\"count\":60,\"pts\":6},{\"key\":\"rec_yd\",\"count\":21,\"pts\":2.1}]}"
+    },
+    {
+     "player_id": "4217",
+     "position_slot": "TE",
+     "slot_index": 1,
+     "name": "George Kittle",
+     "position": "TE",
+     "nfl_team": "SF",
+     "points": 2.9,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"rec\":5,\"rec_yd\":29},\"breakdown\":[{\"key\":\"rec_yd\",\"count\":29,\"pts\":2.9}]}"
+    },
+    {
+     "player_id": "5045",
+     "position_slot": "WR",
+     "slot_index": 1,
+     "name": "Courtland Sutton",
+     "position": "WR",
+     "nfl_team": "DEN",
+     "points": 0.5,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"rec\":1,\"rec_yd\":5},\"breakdown\":[{\"key\":\"rec_yd\",\"count\":5,\"pts\":0.5}]}"
+    },
+    {
+     "player_id": "8112",
+     "position_slot": "WR",
+     "slot_index": 2,
+     "name": "Drake London",
+     "position": "WR",
+     "nfl_team": "ATL",
+     "points": 13.8,
+     "is_final": 1,
+     "source": "nflverse_final",
+     "stat_line": "{\"stats\":{\"rec\":4,\"rec_yd\":78,\"rec_td\":1},\"breakdown\":[{\"key\":\"rec_yd\",\"count\":78,\"pts\":7.8},{\"key\":\"rec_td\",\"count\":1,\"pts\":6}]}"
+    }
+   ],
+   "total": 85.5
+  },
+  "matchup": {
+   "opponent_id": 7,
+   "opponent_name": "The Bench Mob"
+  }
+ },
+ "/api/history": {
+  "season": 2025,
+  "seasons": [
+   {
+    "year": 2025,
+    "status": "active"
+   }
+  ],
+  "weeks": [
+   {
+    "week": 1,
+    "my_total": 64,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary",
+    "opponent_total": 114.8,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 2,
+    "my_total": 141.8,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony",
+    "opponent_total": 99.6,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 3,
+    "my_total": 101.8,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob",
+    "opponent_total": 87.1,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 4,
+    "my_total": 106.7,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary",
+    "opponent_total": 74.4,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 5,
+    "my_total": 70.5,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony",
+    "opponent_total": 57.5,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 6,
+    "my_total": 54.5,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob",
+    "opponent_total": 99.5,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 7,
+    "my_total": 95.7,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary",
+    "opponent_total": 41.2,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 8,
+    "my_total": 19.5,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony",
+    "opponent_total": 67.8,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 9,
+    "my_total": 80.1,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob",
+    "opponent_total": 111.4,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 10,
+    "my_total": 96.8,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary",
+    "opponent_total": 74.9,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 11,
+    "my_total": 94.7,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony",
+    "opponent_total": 117.9,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 12,
+    "my_total": 120.5,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob",
+    "opponent_total": 67.9,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 13,
+    "my_total": 88.4,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary",
+    "opponent_total": 76.4,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 14,
+    "my_total": 105.2,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony",
+    "opponent_total": 98.4,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 15,
+    "my_total": 103.8,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob",
+    "opponent_total": 106,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 16,
+    "my_total": 90.9,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary",
+    "opponent_total": 128.9,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 17,
+    "my_total": 45.5,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony",
+    "opponent_total": 100.4,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 18,
+    "my_total": 89.1,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob",
+    "opponent_total": 85.5,
+    "result": "W",
+    "final": true
+   }
+  ],
+  "series": [
+   {
+    "opponent_id": 5,
+    "name": "Gridiron Gary",
+    "wins": 4,
+    "losses": 2,
+    "ties": 0
+   },
+   {
+    "opponent_id": 7,
+    "name": "The Bench Mob",
+    "wins": 3,
+    "losses": 3,
+    "ties": 0
+   },
+   {
+    "opponent_id": 6,
+    "name": "Touchdown Tony",
+    "wins": 3,
+    "losses": 3,
+    "ties": 0
+   }
+  ]
+ },
+ "/api/recommendations": {
+  "season": 2025,
+  "week": 18,
+  "recs": [
+   {
+    "player_id": "10859",
+    "score": 53.4,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.45,
+      "rank": 15,
+      "opp": "CHI",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.59,
+      "implied": 24,
+      "spread_home": 3.5,
+      "total": 51.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.55,
+      "weighted_pts": 8.3,
+      "recent": [
+       5.3,
+       15.7,
+       1.5,
+       11.5
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 0.6,
+      "status": "Questionable",
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 54.2,
+     "final": 53.4,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "11533",
+    "score": 81,
+    "band": "start",
+    "factors": {
+     "matchup": {
+      "value": 0.68,
+      "rank": 22,
+      "opp": "NYG",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.75,
+      "implied": 26.8,
+      "spread_home": -3,
+      "total": 50.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 1,
+      "weighted_pts": 13.1,
+      "recent": [
+       16,
+       5,
+       14.6,
+       23
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 88.1,
+     "final": 81,
+     "band": "start"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "11539",
+    "score": 58.3,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.19,
+      "rank": 7,
+      "opp": "CHI",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.59,
+      "implied": 24,
+      "spread_home": 3.5,
+      "total": 51.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.62,
+      "weighted_pts": 7.4,
+      "recent": [
+       5,
+       6,
+       10,
+       16
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 60.3,
+     "final": 58.3,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "11584",
+    "score": 52.7,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.74,
+      "rank": 24,
+      "opp": "CAR",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.54,
+      "implied": 23.3,
+      "spread_home": 3,
+      "total": 43.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.31,
+      "weighted_pts": 6.3,
+      "recent": [
+       3.3,
+       7.1,
+       7.1,
+       14.1
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 0.6,
+      "status": "Questionable",
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 53.3,
+     "final": 52.7,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "11604",
+    "score": 52.2,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.19,
+      "rank": 7,
+      "opp": "KC",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.15,
+      "implied": 16.5,
+      "spread_home": -3.5,
+      "total": 36.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.57,
+      "weighted_pts": 8.5,
+      "recent": [
+       9.3,
+       2.8,
+       10.6,
+       18.3
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 52.7,
+     "final": 52.2,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "12507",
+    "score": 47.3,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0,
+      "rank": 1,
+      "opp": "DEN",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0,
+      "implied": 11.5,
+      "spread_home": 14.5,
+      "total": 37.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.6,
+      "weighted_pts": 12,
+      "recent": [
+       12,
+       15.5,
+       6.5,
+       12.7
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 46.7,
+     "final": 47.3,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "1264",
+    "score": 0,
+    "band": "sit",
+    "factors": {
+     "missing": [
+      "matchup",
+      "vegas",
+      "form",
+      "health",
+      "props"
+     ],
+     "gates": [
+      "FA"
+     ],
+     "raw": 0,
+     "final": 0,
+     "band": "sit"
+    },
+    "data_sufficiency": 0,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "1466",
+    "score": 41.8,
+    "band": "sit",
+    "factors": {
+     "matchup": {
+      "value": 0.06,
+      "rank": 3,
+      "opp": "LV",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.35,
+      "implied": 20,
+      "spread_home": -3.5,
+      "total": 36.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.21,
+      "weighted_pts": 3.1,
+      "recent": [
+       3.6,
+       0.6,
+       7,
+       0.8
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 39.9,
+     "final": 41.8,
+     "band": "sit"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "3163",
+    "score": 69,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.68,
+      "rank": 22,
+      "opp": "CHI",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.59,
+      "implied": 24,
+      "spread_home": 3.5,
+      "total": 51.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.62,
+      "weighted_pts": 15.5,
+      "recent": [
+       2.1,
+       26.5,
+       25.5,
+       16.2
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 73.3,
+     "final": 69,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "3198",
+    "score": 67.3,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.16,
+      "rank": 6,
+      "opp": "PIT",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.53,
+      "implied": 23,
+      "spread_home": -4.5,
+      "total": 41.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 1,
+      "weighted_pts": 28.1,
+      "recent": [
+       45.6,
+       22.8,
+       10,
+       10.2
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 71.3,
+     "final": 67.3,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "3321",
+    "score": 0,
+    "band": "sit",
+    "factors": {
+     "missing": [
+      "matchup",
+      "vegas",
+      "form",
+      "health",
+      "props"
+     ],
+     "gates": [
+      "FA"
+     ],
+     "raw": 0,
+     "final": 0,
+     "band": "sit"
+    },
+    "data_sufficiency": 0,
+    "computed_at": "2026-07-05 22:31:49"
+   },
+   {
+    "player_id": "391",
+    "score": 0,
+    "band": "sit",
+    "factors": {
+     "missing": [
+      "matchup",
+      "vegas",
+      "form",
+      "health",
+      "props"
+     ],
+     "gates": [
+      "FA"
+     ],
+     "raw": 0,
+     "final": 0,
+     "band": "sit"
+    },
+    "data_sufficiency": 0,
+    "computed_at": "2026-07-05 22:27:15"
+   },
+   {
+    "player_id": "4034",
+    "score": 64.8,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.06,
+      "rank": 3,
+      "opp": "SEA",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.5,
+      "implied": 22.5,
+      "spread_home": -2.5,
+      "total": 47.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 1,
+      "weighted_pts": 21.9,
+      "recent": [
+       24.1,
+       26.6,
+       14.7,
+       13.4
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 68.3,
+     "final": 64.8,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "4046",
+    "score": 52.3,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.48,
+      "rank": 16,
+      "opp": "LV",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.35,
+      "implied": 20,
+      "spread_home": -3.5,
+      "total": 36.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.58,
+      "weighted_pts": 14.4,
+      "recent": [
+       13.1,
+       5.3,
+       29.4,
+       17.1
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 0.6,
+      "status": "Questionable",
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 52.8,
+     "final": 52.3,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:05"
+   },
+   {
+    "player_id": "4195",
+    "score": 63.2,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.61,
+      "rank": 20,
+      "opp": "WAS",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.4,
+      "implied": 20.8,
+      "spread_home": 3,
+      "total": 38.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.54,
+      "weighted_pts": 6.5,
+      "recent": [
+       8,
+       1,
+       7,
+       16
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 66.3,
+     "final": 63.2,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "4217",
+    "score": 66.9,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.68,
+      "rank": 22,
+      "opp": "SEA",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.5,
+      "implied": 22.5,
+      "spread_home": -2.5,
+      "total": 47.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.9,
+      "weighted_pts": 13.6,
+      "recent": [
+       17.5,
+       14.8,
+       6.7,
+       7.8
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 0.6,
+      "status": "Questionable",
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 70.8,
+     "final": 66.9,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "4866",
+    "score": 73.2,
+    "band": "start",
+    "factors": {
+     "matchup": {
+      "value": 0.87,
+      "rank": 28,
+      "opp": "WAS",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.4,
+      "implied": 20.8,
+      "spread_home": 3,
+      "total": 38.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.7,
+      "weighted_pts": 13.9,
+      "recent": [
+       6.8,
+       21.2,
+       15.2,
+       18.2
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 78.5,
+     "final": 73.2,
+     "band": "start"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "4881",
+    "score": 67.2,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.84,
+      "rank": 27,
+      "opp": "PIT",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.53,
+      "implied": 23,
+      "spread_home": -4.5,
+      "total": 41.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.45,
+      "weighted_pts": 11.1,
+      "recent": [
+       4.7,
+       14.6,
+       21.1,
+       6.5
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 71.1,
+     "final": 67.2,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "4984",
+    "score": 81.4,
+    "band": "start",
+    "factors": {
+     "matchup": {
+      "value": 0.97,
+      "rank": 31,
+      "opp": "NYJ",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.71,
+      "implied": 26,
+      "spread_home": 12.5,
+      "total": 39.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.8,
+      "weighted_pts": 20,
+      "recent": [
+       23.2,
+       6.9,
+       24.5,
+       37.8
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 88.7,
+     "final": 81.4,
+     "band": "start"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "5045",
+    "score": 58.6,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.29,
+      "rank": 10,
+      "opp": "LAC",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.71,
+      "implied": 26,
+      "spread_home": 14.5,
+      "total": 37.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.5,
+      "weighted_pts": 10.1,
+      "recent": [
+       4,
+       14.6,
+       17.3,
+       6.2
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 60.5,
+     "final": 58.6,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "5850",
+    "score": 45.9,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.26,
+      "rank": 9,
+      "opp": "MIN",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0,
+      "implied": 12.5,
+      "spread_home": 12.5,
+      "total": 37.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.34,
+      "weighted_pts": 6.7,
+      "recent": [
+       0.3,
+       2.8,
+       21.2,
+       15.2
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 44.9,
+     "final": 45.9,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "5859",
+    "score": 61.5,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.42,
+      "rank": 14,
+      "opp": "MIA",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.9,
+      "implied": 29.3,
+      "spread_home": 14,
+      "total": 44.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.43,
+      "weighted_pts": 8.6,
+      "recent": [
+       6.8,
+       9.5,
+       10.1,
+       10
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 64.2,
+     "final": 61.5,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "6770",
+    "score": 65,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.13,
+      "rank": 5,
+      "opp": "CLE",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.85,
+      "implied": 28.5,
+      "spread_home": 9.5,
+      "total": 47.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.81,
+      "weighted_pts": 20.3,
+      "recent": [
+       20.4,
+       29,
+       5.5,
+       23.4
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 68.5,
+     "final": 65,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "6786",
+    "score": 64.4,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.74,
+      "rank": 24,
+      "opp": "NYG",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.75,
+      "implied": 26.8,
+      "spread_home": -3,
+      "total": 50.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.34,
+      "weighted_pts": 6.8,
+      "recent": [
+       4.6,
+       5.1,
+       11.1,
+       12.1
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 67.7,
+     "final": 64.4,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "6794",
+    "score": 56,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.55,
+      "rank": 18,
+      "opp": "GB",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.65,
+      "implied": 25,
+      "spread_home": 12.5,
+      "total": 37.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.22,
+      "weighted_pts": 4.3,
+      "recent": [
+       3,
+       8.5,
+       2.2,
+       1.1
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 57.3,
+     "final": 56,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "6804",
+    "score": 44,
+    "band": "sit",
+    "factors": {
+     "matchup": {
+      "value": 0,
+      "rank": 1,
+      "opp": "MIN",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0,
+      "implied": 12.5,
+      "spread_home": 12.5,
+      "total": 37.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.48,
+      "weighted_pts": 12.1,
+      "recent": [
+       3.8,
+       13.9,
+       19.3,
+       25.8
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 42.7,
+     "final": 44,
+     "band": "sit"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "6904",
+    "score": 71.2,
+    "band": "start",
+    "factors": {
+     "matchup": {
+      "value": 0.94,
+      "rank": 30,
+      "opp": "WAS",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.4,
+      "implied": 20.8,
+      "spread_home": 3,
+      "total": 38.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.57,
+      "weighted_pts": 14.2,
+      "recent": [
+       8.9,
+       19.4,
+       22.9,
+       2.4
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 76.1,
+     "final": 71.2,
+     "band": "start"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "7547",
+    "score": 70.5,
+    "band": "start",
+    "factors": {
+     "matchup": {
+      "value": 0.84,
+      "rank": 27,
+      "opp": "CHI",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.59,
+      "implied": 24,
+      "spread_home": 3.5,
+      "total": 51.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.55,
+      "weighted_pts": 10.9,
+      "recent": [
+       6.8,
+       5.4,
+       28.4,
+       9.2
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 75.3,
+     "final": 70.5,
+     "band": "start"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "7564",
+    "score": 62.8,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.19,
+      "rank": 7,
+      "opp": "CLE",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.85,
+      "implied": 28.5,
+      "spread_home": 9.5,
+      "total": 47.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.68,
+      "weighted_pts": 13.6,
+      "recent": [
+       18,
+       10.9,
+       13.2,
+       5.2
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 65.7,
+     "final": 62.8,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "7569",
+    "score": 70.9,
+    "band": "start",
+    "factors": {
+     "matchup": {
+      "value": 0.97,
+      "rank": 31,
+      "opp": "IND",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.56,
+      "implied": 23.5,
+      "spread_home": 9.5,
+      "total": 37.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.47,
+      "weighted_pts": 9.4,
+      "recent": [
+       5.7,
+       5.9,
+       20.5,
+       12.1
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 75.7,
+     "final": 70.9,
+     "band": "start"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "8112",
+    "score": 42.7,
+    "band": "sit",
+    "factors": {
+     "matchup": {
+      "value": 0.32,
+      "rank": 11,
+      "opp": "NO",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.59,
+      "implied": 24,
+      "spread_home": 4.5,
+      "total": 43.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.26,
+      "weighted_pts": 5.2,
+      "recent": [
+       0.4,
+       2.7,
+       11.9,
+       18.4
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 0.6,
+      "status": "Questionable",
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 41.1,
+     "final": 42.7,
+     "band": "sit"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "8130",
+    "score": 65.1,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.48,
+      "rank": 16,
+      "opp": "LAR",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.21,
+      "implied": 17.5,
+      "spread_home": 14.5,
+      "total": 49.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.79,
+      "weighted_pts": 11.9,
+      "recent": [
+       13.6,
+       2.7,
+       25.4,
+       5.8
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 68.6,
+     "final": 65.1,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "8150",
+    "score": 80.4,
+    "band": "start",
+    "factors": {
+     "matchup": {
+      "value": 0.94,
+      "rank": 30,
+      "opp": "ARI",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 1,
+      "implied": 32,
+      "spread_home": 14.5,
+      "total": 49.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.67,
+      "weighted_pts": 13.5,
+      "recent": [
+       13,
+       8.5,
+       20.8,
+       15.7
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 87.4,
+     "final": 80.4,
+     "band": "start"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "8151",
+    "score": 62.6,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.68,
+      "rank": 22,
+      "opp": "LV",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.35,
+      "implied": 20,
+      "spread_home": -3.5,
+      "total": 36.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.48,
+      "weighted_pts": 9.7,
+      "recent": [
+       5.7,
+       22.4,
+       1.9,
+       2.8
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 65.5,
+     "final": 62.6,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "8259",
+    "score": 63.5,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.65,
+      "rank": 21,
+      "opp": "DEN",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0,
+      "implied": 11.5,
+      "spread_home": 14.5,
+      "total": 37.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.68,
+      "weighted_pts": 8.2,
+      "recent": [
+       2,
+       10,
+       12,
+       20
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 66.7,
+     "final": 63.5,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "9221",
+    "score": 59.8,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.42,
+      "rank": 14,
+      "opp": "CHI",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.59,
+      "implied": 24,
+      "spread_home": 3.5,
+      "total": 51.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.49,
+      "weighted_pts": 9.8,
+      "recent": [
+       4.4,
+       12.8,
+       5.8,
+       30
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 62.1,
+     "final": 59.8,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "9226",
+    "score": 43.8,
+    "band": "sit",
+    "factors": {
+     "matchup": {
+      "value": 0.13,
+      "rank": 5,
+      "opp": "NE",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.07,
+      "implied": 15.3,
+      "spread_home": 14,
+      "total": 44.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.66,
+      "weighted_pts": 13.2,
+      "recent": [
+       11.2,
+       15,
+       12.7,
+       16.5
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 0.6,
+      "status": "Questionable",
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 42.4,
+     "final": 43.8,
+     "band": "sit"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "9488",
+    "score": 67.6,
+    "band": "tossup",
+    "factors": {
+     "matchup": {
+      "value": 0.61,
+      "rank": 20,
+      "opp": "SF",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.65,
+      "implied": 25,
+      "spread_home": -2.5,
+      "total": 47.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.6,
+      "weighted_pts": 11.9,
+      "recent": [
+       7.2,
+       15.6,
+       11.3,
+       21.1
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 71.6,
+     "final": 67.6,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "9493",
+    "score": 78.7,
+    "band": "start",
+    "factors": {
+     "matchup": {
+      "value": 0.45,
+      "rank": 15,
+      "opp": "ARI",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 1,
+      "implied": 32,
+      "spread_home": 14.5,
+      "total": 49.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 1,
+      "weighted_pts": 21.3,
+      "recent": [
+       10.7,
+       34.5,
+       18.9,
+       28.7
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 85.3,
+     "final": 78.7,
+     "band": "start"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "9509",
+    "score": 73,
+    "band": "start",
+    "factors": {
+     "matchup": {
+      "value": 0.39,
+      "rank": 13,
+      "opp": "NO",
+      "conf": 1,
+      "weight": 0.2
+     },
+     "vegas": {
+      "value": 0.59,
+      "implied": 24,
+      "spread_home": 4.5,
+      "total": 43.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 1,
+      "weighted_pts": 25.8,
+      "recent": [
+       34.9,
+       22.8,
+       21.5,
+       7.4
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props"
+     ],
+     "gates": [],
+     "sufficiency": 0.81,
+     "raw": 78.3,
+     "final": 73,
+     "band": "start"
+    },
+    "data_sufficiency": 0.81,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "BAL",
+    "score": 72.8,
+    "band": "start",
+    "factors": {
+     "matchup": null,
+     "vegas": {
+      "value": 0.74,
+      "implied": 18.5,
+      "spread_home": -4.5,
+      "total": 41.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.76,
+      "weighted_pts": 9.1,
+      "recent": [
+       6,
+       7,
+       23,
+       0
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props",
+      "matchup"
+     ],
+     "gates": [],
+     "sufficiency": 0.66,
+     "raw": 84.4,
+     "final": 72.8,
+     "band": "start"
+    },
+    "data_sufficiency": 0.66,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "DEN",
+    "score": 67.5,
+    "band": "tossup",
+    "factors": {
+     "matchup": null,
+     "vegas": {
+      "value": 1,
+      "implied": 11.5,
+      "spread_home": 14.5,
+      "total": 37.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.48,
+      "weighted_pts": 5.7,
+      "recent": [
+       5,
+       4,
+       7,
+       11
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props",
+      "matchup"
+     ],
+     "gates": [],
+     "sufficiency": 0.66,
+     "raw": 76.4,
+     "final": 67.5,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.66,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "PHI",
+    "score": 76.6,
+    "band": "start",
+    "factors": {
+     "matchup": null,
+     "vegas": {
+      "value": 0.78,
+      "implied": 17.8,
+      "spread_home": 3,
+      "total": 38.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.87,
+      "weighted_pts": 10.4,
+      "recent": [
+       11,
+       5,
+       16,
+       13
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props",
+      "matchup"
+     ],
+     "gates": [],
+     "sufficiency": 0.66,
+     "raw": 90.1,
+     "final": 76.6,
+     "band": "start"
+    },
+    "data_sufficiency": 0.66,
+    "computed_at": "2026-07-05 22:33:42"
+   },
+   {
+    "player_id": "PIT",
+    "score": 65,
+    "band": "tossup",
+    "factors": {
+     "matchup": null,
+     "vegas": {
+      "value": 0.47,
+      "implied": 23,
+      "spread_home": -4.5,
+      "total": 41.5,
+      "source": "nflverse",
+      "conf": 1,
+      "weight": 0.1
+     },
+     "form": {
+      "value": 0.61,
+      "weighted_pts": 7.3,
+      "recent": [
+       10,
+       5,
+       7,
+       4
+      ],
+      "conf": 1,
+      "weight": 0.25
+     },
+     "health": {
+      "value": 1,
+      "status": null,
+      "practice": null,
+      "conf": 1,
+      "weight": 0.2
+     },
+     "props": null,
+     "missing": [
+      "props",
+      "matchup"
+     ],
+     "gates": [],
+     "sufficiency": 0.66,
+     "raw": 72.6,
+     "final": 65,
+     "band": "tossup"
+    },
+    "data_sufficiency": 0.66,
+    "computed_at": "2026-07-05 22:33:42"
+   }
+  ]
+ },
+ "/api/settings": {
+  "scoring_preset": "standard",
+  "odds_quota_remaining": "494",
+  "odds_api_key_present": "1"
+ },
+ "/api/lineup-settings": [
+  {
+   "position": "QB",
+   "slot_count": 1,
+   "sort_order": 1
+  },
+  {
+   "position": "RB",
+   "slot_count": 2,
+   "sort_order": 2
+  },
+  {
+   "position": "WR",
+   "slot_count": 2,
+   "sort_order": 3
+  },
+  {
+   "position": "TE",
+   "slot_count": 1,
+   "sort_order": 4
+  },
+  {
+   "position": "FLEX",
+   "slot_count": 1,
+   "sort_order": 5
+  },
+  {
+   "position": "DEF",
+   "slot_count": 1,
+   "sort_order": 6
+  },
+  {
+   "position": "K",
+   "slot_count": 1,
+   "sort_order": 7
+  }
+ ],
+ "/api/scoring-rules": {
+  "season": 2025,
+  "preset": "standard",
+  "stat_keys": [
+   {
+    "key": "pass_yd",
+    "label": "Passing yards (per yd)",
+    "group": "Passing"
+   },
+   {
+    "key": "pass_td",
+    "label": "Passing TD",
+    "group": "Passing"
+   },
+   {
+    "key": "pass_int",
+    "label": "Interception thrown",
+    "group": "Passing"
+   },
+   {
+    "key": "pass_2pt",
+    "label": "2-pt conversion (pass)",
+    "group": "Passing"
+   },
+   {
+    "key": "rush_yd",
+    "label": "Rushing yards (per yd)",
+    "group": "Rushing"
+   },
+   {
+    "key": "rush_td",
+    "label": "Rushing TD",
+    "group": "Rushing"
+   },
+   {
+    "key": "rush_2pt",
+    "label": "2-pt conversion (rush)",
+    "group": "Rushing"
+   },
+   {
+    "key": "rec",
+    "label": "Reception",
+    "group": "Receiving"
+   },
+   {
+    "key": "rec_yd",
+    "label": "Receiving yards (per yd)",
+    "group": "Receiving"
+   },
+   {
+    "key": "rec_td",
+    "label": "Receiving TD",
+    "group": "Receiving"
+   },
+   {
+    "key": "rec_2pt",
+    "label": "2-pt conversion (rec)",
+    "group": "Receiving"
+   },
+   {
+    "key": "fum_lost",
+    "label": "Fumble lost",
+    "group": "Misc"
+   },
+   {
+    "key": "st_td",
+    "label": "Special teams TD",
+    "group": "Misc"
+   },
+   {
+    "key": "fg_0_39",
+    "label": "FG made 0–39",
+    "group": "Kicking"
+   },
+   {
+    "key": "fg_40_49",
+    "label": "FG made 40–49",
+    "group": "Kicking"
+   },
+   {
+    "key": "fg_50p",
+    "label": "FG made 50+",
+    "group": "Kicking"
+   },
+   {
+    "key": "fg_miss",
+    "label": "FG missed",
+    "group": "Kicking"
+   },
+   {
+    "key": "pat",
+    "label": "XP made",
+    "group": "Kicking"
+   },
+   {
+    "key": "pat_miss",
+    "label": "XP missed",
+    "group": "Kicking"
+   },
+   {
+    "key": "dst_sack",
+    "label": "Sack",
+    "group": "D/ST"
+   },
+   {
+    "key": "dst_int",
+    "label": "Interception",
+    "group": "D/ST"
+   },
+   {
+    "key": "dst_fum_rec",
+    "label": "Fumble recovery",
+    "group": "D/ST"
+   },
+   {
+    "key": "dst_td",
+    "label": "Defensive/return TD",
+    "group": "D/ST"
+   },
+   {
+    "key": "dst_safety",
+    "label": "Safety",
+    "group": "D/ST"
+   },
+   {
+    "key": "dst_block",
+    "label": "Blocked kick",
+    "group": "D/ST"
+   },
+   {
+    "key": "dst_pa_0",
+    "label": "Points allowed: 0",
+    "group": "D/ST points allowed"
+   },
+   {
+    "key": "dst_pa_1_6",
+    "label": "Points allowed: 1–6",
+    "group": "D/ST points allowed"
+   },
+   {
+    "key": "dst_pa_7_13",
+    "label": "Points allowed: 7–13",
+    "group": "D/ST points allowed"
+   },
+   {
+    "key": "dst_pa_14_20",
+    "label": "Points allowed: 14–20",
+    "group": "D/ST points allowed"
+   },
+   {
+    "key": "dst_pa_21_27",
+    "label": "Points allowed: 21–27",
+    "group": "D/ST points allowed"
+   },
+   {
+    "key": "dst_pa_28_34",
+    "label": "Points allowed: 28–34",
+    "group": "D/ST points allowed"
+   },
+   {
+    "key": "dst_pa_35p",
+    "label": "Points allowed: 35+",
+    "group": "D/ST points allowed"
+   }
+  ],
+  "rules": {
+   "dst_block": 2,
+   "dst_fum_rec": 2,
+   "dst_int": 2,
+   "dst_pa_0": 10,
+   "dst_pa_14_20": 1,
+   "dst_pa_1_6": 7,
+   "dst_pa_21_27": 0,
+   "dst_pa_28_34": -1,
+   "dst_pa_35p": -4,
+   "dst_pa_7_13": 4,
+   "dst_sack": 1,
+   "dst_safety": 2,
+   "dst_td": 6,
+   "fg_0_39": 3,
+   "fg_40_49": 4,
+   "fg_50p": 5,
+   "fg_miss": -1,
+   "fum_lost": -2,
+   "pass_2pt": 2,
+   "pass_int": -2,
+   "pass_td": 4,
+   "pass_yd": 0.04,
+   "pat": 1,
+   "pat_miss": -1,
+   "rec": 0,
+   "rec_2pt": 2,
+   "rec_td": 6,
+   "rec_yd": 0.1,
+   "rush_2pt": 2,
+   "rush_td": 6,
+   "rush_yd": 0.1,
+   "st_td": 6
+  }
+ },
+ "/api/sync/status": [
+  {
+   "source": "idmap",
+   "status": "ok",
+   "detail": "{\"crosswalk_rows\":12467,\"crosswalk_filled\":0,\"nflverse_rows\":25033,\"nflverse_filled\":0,\"overrides_applied\":0,\"coverage\":{\"pool\":300,\"gsis_pct\":89,\"espn_pct\":99,\"vets\":270,\"rookies\":30,\"gsis_pct_vets\":99}}",
+   "ran_at": "2026-07-05 19:41:48",
+   "running": false
+  },
+  {
+   "source": "nflverse",
+   "status": "ok",
+   "detail": "{\"schedules\":{\"games_upserted\":842,\"seasons\":\"2024-2025\"},\"stats\":[{\"season\":2025,\"player_weeks\":18521,\"team_weeks\":544},{\"season\":2024,\"player_weeks\":18110,\"team_weeks\":544}],\"def_vs_pos\":{\"season\":2025,\"defvspos_rows\":160,\"through_week\":18},\"finalize\":{\"season\":2025,\"finalized\":180,\"through_week\":18}}",
+   "ran_at": "2026-07-05 03:52:41",
+   "running": false
+  },
+  {
+   "source": "odds",
+   "status": "ok",
+   "detail": "{\"events\":75,\"matched\":75,\"unmatched\":0,\"quota_remaining\":\"494\"}",
+   "ran_at": "2026-07-05 05:52:41",
+   "running": false
+  },
+  {
+   "source": "props",
+   "status": "ok",
+   "detail": "{\"skipped\":\"no upcoming games this week\"}",
+   "ran_at": "2026-07-05 21:51:47",
+   "running": false
+  },
+  {
+   "source": "sleeper",
+   "status": "ok",
+   "detail": "{\"players_upserted\":4375}",
+   "ran_at": "2026-07-05 19:41:47",
+   "running": false
+  }
+ ],
+ "/api/players/unresolved": {
+  "coverage": {
+   "pool": 300,
+   "gsis_pct": 89,
+   "espn_pct": 99,
+   "vets": 270,
+   "rookies": 30,
+   "gsis_pct_vets": 99
+  },
+  "players": [
+   {
+    "id": "13287",
+    "name": "Jeremiyah Love",
+    "position": "RB",
+    "nfl_team": "ARI",
+    "gsis_id": null,
+    "espn_id": "4870808",
+    "search_rank": 15
+   },
+   {
+    "id": "13269",
+    "name": "Fernando Mendoza",
+    "position": "QB",
+    "nfl_team": "LV",
+    "gsis_id": null,
+    "espn_id": "4837248",
+    "search_rank": 39
+   },
+   {
+    "id": "13279",
+    "name": "Carnell Tate",
+    "position": "WR",
+    "nfl_team": "TEN",
+    "gsis_id": null,
+    "espn_id": "4871023",
+    "search_rank": 61
+   },
+   {
+    "id": "13286",
+    "name": "Jadarian Price",
+    "position": "RB",
+    "nfl_team": "SEA",
+    "gsis_id": null,
+    "espn_id": "4685512",
+    "search_rank": 63
+   },
+   {
+    "id": "13281",
+    "name": "Jordyn Tyson",
+    "position": "WR",
+    "nfl_team": "NO",
+    "gsis_id": null,
+    "espn_id": "4880281",
+    "search_rank": 65
+   },
+   {
+    "id": "13294",
+    "name": "Makai Lemon",
+    "position": "WR",
+    "nfl_team": "PHI",
+    "gsis_id": null,
+    "espn_id": "4870795",
+    "search_rank": 77
+   },
+   {
+    "id": "8924",
+    "name": "Thomas Odukoya",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 104
+   },
+   {
+    "id": "13330",
+    "name": "Kenyon Sadiq",
+    "position": "TE",
+    "nfl_team": "NYJ",
+    "gsis_id": null,
+    "espn_id": "5083315",
+    "search_rank": 109
+   },
+   {
+    "id": "13337",
+    "name": "Emmett Johnson",
+    "position": "RB",
+    "nfl_team": "KC",
+    "gsis_id": null,
+    "espn_id": "4832955",
+    "search_rank": 113
+   },
+   {
+    "id": "13345",
+    "name": "Jonah Coleman",
+    "position": "RB",
+    "nfl_team": "DEN",
+    "gsis_id": null,
+    "espn_id": "4702555",
+    "search_rank": 113
+   },
+   {
+    "id": "13298",
+    "name": "KC Concepcion",
+    "position": "WR",
+    "nfl_team": "CLE",
+    "gsis_id": null,
+    "espn_id": "4870653",
+    "search_rank": 120
+   },
+   {
+    "id": "13346",
+    "name": "Denzel Boston",
+    "position": "WR",
+    "nfl_team": "CLE",
+    "gsis_id": null,
+    "espn_id": "4832800",
+    "search_rank": 133
+   },
+   {
+    "id": "13305",
+    "name": "Mike Washington",
+    "position": "RB",
+    "nfl_team": "LV",
+    "gsis_id": null,
+    "espn_id": "4686658",
+    "search_rank": 139
+   },
+   {
+    "id": "13349",
+    "name": "Eli Stowers",
+    "position": "TE",
+    "nfl_team": "PHI",
+    "gsis_id": null,
+    "espn_id": "4431574",
+    "search_rank": 140
+   },
+   {
+    "id": "13275",
+    "name": "Ty Simpson",
+    "position": "QB",
+    "nfl_team": "LAR",
+    "gsis_id": null,
+    "espn_id": "4685522",
+    "search_rank": 141
+   },
+   {
+    "id": "13276",
+    "name": "Omar Cooper",
+    "position": "WR",
+    "nfl_team": "NYJ",
+    "gsis_id": null,
+    "espn_id": "4723820",
+    "search_rank": 146
+   },
+   {
+    "id": "13301",
+    "name": "Antonio Williams",
+    "position": "WR",
+    "nfl_team": "WAS",
+    "gsis_id": null,
+    "espn_id": "5081432",
+    "search_rank": 156
+   },
+   {
+    "id": "13405",
+    "name": "Kaytron Allen",
+    "position": "RB",
+    "nfl_team": "WAS",
+    "gsis_id": null,
+    "espn_id": "4685246",
+    "search_rank": 157
+   },
+   {
+    "id": "13288",
+    "name": "Nicholas Singleton",
+    "position": "RB",
+    "nfl_team": "TEN",
+    "gsis_id": null,
+    "espn_id": "4685555",
+    "search_rank": 167
+   },
+   {
+    "id": "13347",
+    "name": "Demond Claiborne",
+    "position": "RB",
+    "nfl_team": "MIN",
+    "gsis_id": null,
+    "espn_id": "4832846",
+    "search_rank": 176
+   },
+   {
+    "id": "13293",
+    "name": "Ja'Kobi Lane",
+    "position": "WR",
+    "nfl_team": "BAL",
+    "gsis_id": null,
+    "espn_id": "4870847",
+    "search_rank": 182
+   },
+   {
+    "id": "13320",
+    "name": "Zachariah Branch",
+    "position": "WR",
+    "nfl_team": "ATL",
+    "gsis_id": null,
+    "espn_id": "4870612",
+    "search_rank": 185
+   },
+   {
+    "id": "13274",
+    "name": "Germie Bernard",
+    "position": "WR",
+    "nfl_team": "PIT",
+    "gsis_id": null,
+    "espn_id": "4685261",
+    "search_rank": 194
+   },
+   {
+    "id": "13317",
+    "name": "Ted Hurst",
+    "position": "WR",
+    "nfl_team": "TB",
+    "gsis_id": null,
+    "espn_id": "5220680",
+    "search_rank": 196
+   },
+   {
+    "id": "13268",
+    "name": "Elijah Sarratt",
+    "position": "WR",
+    "nfl_team": "BAL",
+    "gsis_id": null,
+    "espn_id": "5088338",
+    "search_rank": 201
+   },
+   {
+    "id": "13353",
+    "name": "Chris Brazzell",
+    "position": "WR",
+    "nfl_team": "CAR",
+    "gsis_id": null,
+    "espn_id": "5091739",
+    "search_rank": 202
+   },
+   {
+    "id": "13311",
+    "name": "Chris Bell",
+    "position": "WR",
+    "nfl_team": "MIA",
+    "gsis_id": null,
+    "espn_id": "4869961",
+    "search_rank": 203
+   },
+   {
+    "id": "13285",
+    "name": "Malachi Fields",
+    "position": "WR",
+    "nfl_team": "NYG",
+    "gsis_id": null,
+    "espn_id": "4682648",
+    "search_rank": 210
+   },
+   {
+    "id": "13278",
+    "name": "Max Klare",
+    "position": "TE",
+    "nfl_team": "LAR",
+    "gsis_id": null,
+    "espn_id": "4833029",
+    "search_rank": 212
+   },
+   {
+    "id": "13401",
+    "name": "Michael Trigg",
+    "position": "TE",
+    "nfl_team": "DAL",
+    "gsis_id": null,
+    "espn_id": "4594749",
+    "search_rank": 212
+   },
+   {
+    "id": "13417",
+    "name": "De'Zhaun Stribling",
+    "position": "WR",
+    "nfl_team": "SF",
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 214
+   },
+   {
+    "id": "9507",
+    "name": "Titus Swen",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 232
+   },
+   {
+    "id": "11504",
+    "name": "Jose Barbon",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 253
+   },
+   {
+    "id": "11502",
+    "name": "Brian Cobbs",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 256
+   },
+   {
+    "id": "7503",
+    "name": "Connor Davis",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 259
+   },
+   {
+    "id": "8102",
+    "name": "DeShon Williams",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 274
+   },
+   {
+    "id": "11544",
+    "name": "Avery Davis",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 276
+   },
+   {
+    "id": "8008",
+    "name": "Josh Imatorbhebhe",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 277
+   },
+   {
+    "id": "8420",
+    "name": "Jack Sorenson",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 280
+   },
+   {
+    "id": "11478",
+    "name": "Gavin Holmes",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 284
+   },
+   {
+    "id": "8218",
+    "name": "Max Borghi",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": "00-0037389",
+    "espn_id": null,
+    "search_rank": 285
+   },
+   {
+    "id": "11158",
+    "name": "Jalen Sample",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 286
+   },
+   {
+    "id": "8831",
+    "name": "Ethan Fernea",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 289
+   },
+   {
+    "id": "10211",
+    "name": "Camerun Peoples",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": "00-0038777",
+    "espn_id": null,
+    "search_rank": 292
+   },
+   {
+    "id": "8212",
+    "name": "Dustin Crum",
+    "position": "QB",
+    "nfl_team": null,
+    "gsis_id": "00-0037209",
+    "espn_id": null,
+    "search_rank": 293
+   },
+   {
+    "id": "12373",
+    "name": "Peter LeBlanc",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 294
+   },
+   {
+    "id": "11548",
+    "name": "Aaron Dykes",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 297
+   },
+   {
+    "id": "11267",
+    "name": "Aron Cruickshank",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 300
+   },
+   {
+    "id": "12168",
+    "name": "Zach Mathis",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 300
+   },
+   {
+    "id": "8707",
+    "name": "Tayon Fleet-Davis",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 301
+   },
+   {
+    "id": "11863",
+    "name": "Leon Johnson",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 302
+   },
+   {
+    "id": "11204",
+    "name": "Duece Watts",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 306
+   },
+   {
+    "id": "10858",
+    "name": "Alex Quevedo",
+    "position": "K",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 307
+   },
+   {
+    "id": "12066",
+    "name": "Elijah Collins",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 310
+   },
+   {
+    "id": "12126",
+    "name": "Isaac Rex",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 311
+   },
+   {
+    "id": "8560",
+    "name": "Davis Cheek",
+    "position": "QB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 314
+   },
+   {
+    "id": "11918",
+    "name": "Ahmarean Brown",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 315
+   },
+   {
+    "id": "11223",
+    "name": "John Hall",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 317
+   },
+   {
+    "id": "11266",
+    "name": "Thyrick Pitts",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 323
+   },
+   {
+    "id": "11387",
+    "name": "Sean Ryan",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 328
+   },
+   {
+    "id": "13404",
+    "name": "Garrett Nussmeier",
+    "position": "QB",
+    "nfl_team": "KC",
+    "gsis_id": null,
+    "espn_id": "4567747",
+    "search_rank": 329
+   },
+   {
+    "id": "13222",
+    "name": "Montana Lemonious-Craig",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 330
+   },
+   {
+    "id": "12156",
+    "name": "James Turner",
+    "position": "K",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 331
+   },
+   {
+    "id": "12018",
+    "name": "Sam Pinckney",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 335
+   },
+   {
+    "id": "11357",
+    "name": "Tyler Adams",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 338
+   },
+   {
+    "id": "12549",
+    "name": "Jordan Petaia",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 339
+   },
+   {
+    "id": "8105",
+    "name": "Brayden Lenius",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 342
+   },
+   {
+    "id": "8260",
+    "name": "Gabe Brkic",
+    "position": "K",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 345
+   },
+   {
+    "id": "8579",
+    "name": "Brandon Peters",
+    "position": "QB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 345
+   },
+   {
+    "id": "12966",
+    "name": "Moose Muhammad",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 351
+   },
+   {
+    "id": "12033",
+    "name": "OJ Hiliare",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 352
+   },
+   {
+    "id": "8632",
+    "name": "JaVonta Payton",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 353
+   },
+   {
+    "id": "11532",
+    "name": "Matthew Trickett",
+    "position": "K",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 355
+   },
+   {
+    "id": "11526",
+    "name": "Malachi Carter",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 355
+   },
+   {
+    "id": "12180",
+    "name": "Alex McNulty",
+    "position": "K",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 357
+   },
+   {
+    "id": "12443",
+    "name": "Devon Garrison",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 357
+   },
+   {
+    "id": "11366",
+    "name": "Chris Coleman",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 357
+   },
+   {
+    "id": "12218",
+    "name": "Jalen Jackson",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 363
+   },
+   {
+    "id": "11486",
+    "name": "Zach Ojile",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 364
+   },
+   {
+    "id": "11415",
+    "name": "Tanner Taula",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 364
+   },
+   {
+    "id": "13227",
+    "name": "Mitch Van Vooren",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 366
+   },
+   {
+    "id": "11077",
+    "name": "Jack Podlesny",
+    "position": "K",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": "4379410",
+    "search_rank": 367
+   },
+   {
+    "id": "7904",
+    "name": "Stevie Scott",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": "00-0036548",
+    "espn_id": null,
+    "search_rank": 367
+   },
+   {
+    "id": "12222",
+    "name": "Joseph Scates",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 368
+   },
+   {
+    "id": "13161",
+    "name": "Zakhari Franklin",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 368
+   },
+   {
+    "id": "12026",
+    "name": "Kobe Lewis",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 369
+   },
+   {
+    "id": "8741",
+    "name": "Jamal Pettigrew",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 370
+   },
+   {
+    "id": "11528",
+    "name": "Garett Maag",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": "00-0039043",
+    "espn_id": null,
+    "search_rank": 370
+   },
+   {
+    "id": "11961",
+    "name": "Emory Jones",
+    "position": "QB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 372
+   },
+   {
+    "id": "8077",
+    "name": "Otis Anderson",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 374
+   },
+   {
+    "id": "8812",
+    "name": "Jonathan Garibay",
+    "position": "K",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": "4569390",
+    "search_rank": 378
+   },
+   {
+    "id": "8751",
+    "name": "Dylan Parham",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 378
+   },
+   {
+    "id": "7733",
+    "name": "Josh Pederson",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 380
+   },
+   {
+    "id": "11359",
+    "name": "Kody Case",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 381
+   },
+   {
+    "id": "9498",
+    "name": "Jadon Haselwood",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": "00-0038483",
+    "espn_id": null,
+    "search_rank": 383
+   },
+   {
+    "id": "12953",
+    "name": "Jalen White",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 384
+   },
+   {
+    "id": "8543",
+    "name": "Drew Estrada",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 386
+   },
+   {
+    "id": "11848",
+    "name": "Casey Bauman",
+    "position": "QB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 387
+   },
+   {
+    "id": "12413",
+    "name": "Hamze El-Zayat",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 387
+   },
+   {
+    "id": "7980",
+    "name": "John Raine",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 388
+   },
+   {
+    "id": "11115",
+    "name": "Terrell Bynum",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 392
+   },
+   {
+    "id": "8438",
+    "name": "Corey Sutton",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 395
+   },
+   {
+    "id": "13303",
+    "name": "Cade Klubnik",
+    "position": "QB",
+    "nfl_team": "NYJ",
+    "gsis_id": null,
+    "espn_id": "4685413",
+    "search_rank": 398
+   },
+   {
+    "id": "11163",
+    "name": "Tim DeMorat",
+    "position": "QB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 403
+   },
+   {
+    "id": "11874",
+    "name": "Jaylen Johnson",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 404
+   },
+   {
+    "id": "11247",
+    "name": "Mac Hippenhammer",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": "00-0038887",
+    "espn_id": null,
+    "search_rank": 405
+   },
+   {
+    "id": "12260",
+    "name": "Mason Fairchild",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 406
+   },
+   {
+    "id": "12435",
+    "name": "Geor'Quarius Spivey",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 408
+   },
+   {
+    "id": "12259",
+    "name": "Taulia Tagovailoa",
+    "position": "QB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 409
+   },
+   {
+    "id": "8824",
+    "name": "Samson Nacua",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": "4048099",
+    "search_rank": 412
+   },
+   {
+    "id": "11543",
+    "name": "Lachlan Pitts",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 413
+   },
+   {
+    "id": "13193",
+    "name": "Ketron Jackson",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 415
+   },
+   {
+    "id": "8201",
+    "name": "Jack Coan",
+    "position": "QB",
+    "nfl_team": null,
+    "gsis_id": "00-0037390",
+    "espn_id": null,
+    "search_rank": 416
+   },
+   {
+    "id": "13272",
+    "name": "Carson Beck",
+    "position": "QB",
+    "nfl_team": "ARI",
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 416
+   },
+   {
+    "id": "11174",
+    "name": "Jack Colletto",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 416
+   },
+   {
+    "id": "12085",
+    "name": "Alec Holler",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 418
+   },
+   {
+    "id": "8421",
+    "name": "Mike Harley",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 418
+   },
+   {
+    "id": "13065",
+    "name": "Ben Wooldridge",
+    "position": "QB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": "4373895",
+    "search_rank": 420
+   },
+   {
+    "id": "12246",
+    "name": "Mike Rigerman",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 424
+   },
+   {
+    "id": "11374",
+    "name": "James Blackman",
+    "position": "QB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 425
+   },
+   {
+    "id": "12226",
+    "name": "Lorenzo Lingard",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 425
+   },
+   {
+    "id": "7926",
+    "name": "Carl Tucker",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 426
+   },
+   {
+    "id": "9223",
+    "name": "Tiyon Evans",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 428
+   },
+   {
+    "id": "8186",
+    "name": "Devon Williams",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": "00-0037187",
+    "espn_id": null,
+    "search_rank": 428
+   },
+   {
+    "id": "12173",
+    "name": "Jaxon Janke",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 431
+   },
+   {
+    "id": "12721",
+    "name": "Kaden Prather",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": "4431509",
+    "search_rank": 431
+   },
+   {
+    "id": "12250",
+    "name": "Riley Sharp",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 438
+   },
+   {
+    "id": "8697",
+    "name": "Kevin Shaa",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 439
+   },
+   {
+    "id": "11537",
+    "name": "Wayne Taulapapa",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 440
+   },
+   {
+    "id": "12363",
+    "name": "Xavier Wade",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 445
+   },
+   {
+    "id": "8721",
+    "name": "De'Montre Tuggle",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 446
+   },
+   {
+    "id": "8222",
+    "name": "Josh Johnson",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 446
+   },
+   {
+    "id": "7092",
+    "name": "Chris Finke",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 447
+   },
+   {
+    "id": "11155",
+    "name": "Christian Sims",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 449
+   },
+   {
+    "id": "13129",
+    "name": "Jermaine Terry",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 452
+   },
+   {
+    "id": "12090",
+    "name": "Corey Crooms",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 454
+   },
+   {
+    "id": "12220",
+    "name": "Brevin Easton",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 455
+   },
+   {
+    "id": "11159",
+    "name": "Zion Bowens",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 461
+   },
+   {
+    "id": "11957",
+    "name": "Sam Schnee",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 461
+   },
+   {
+    "id": "8858",
+    "name": "Keshunn Abram",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 465
+   },
+   {
+    "id": "11282",
+    "name": "Johnny King",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 469
+   },
+   {
+    "id": "7905",
+    "name": "Dylan Soehner",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 470
+   },
+   {
+    "id": "11351",
+    "name": "Thomas Greaney",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 471
+   },
+   {
+    "id": "11213",
+    "name": "Camren McDonald",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 472
+   },
+   {
+    "id": "11530",
+    "name": "Nick Williams",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 472
+   },
+   {
+    "id": "11080",
+    "name": "Malik Knowles",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 474
+   },
+   {
+    "id": "13143",
+    "name": "Dymere Miller",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 477
+   },
+   {
+    "id": "11521",
+    "name": "Jadakis Bonds",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 483
+   },
+   {
+    "id": "12434",
+    "name": "Kairee Robinson",
+    "position": "RB",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 484
+   },
+   {
+    "id": "11452",
+    "name": "Jesse Matthews",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 485
+   },
+   {
+    "id": "13005",
+    "name": "Anthony Torres",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 487
+   },
+   {
+    "id": "11224",
+    "name": "Griffin Hebert",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 494
+   },
+   {
+    "id": "11960",
+    "name": "Steven Stilianos",
+    "position": "TE",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 494
+   },
+   {
+    "id": "12231",
+    "name": "JJ Laap",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 498
+   },
+   {
+    "id": "10230",
+    "name": "Jalen Wayne",
+    "position": "WR",
+    "nfl_team": null,
+    "gsis_id": null,
+    "espn_id": null,
+    "search_rank": 500
+   }
+  ]
+ },
+ "/api/roster?side=5": {
+  "season": 2025,
+  "side": "5",
+  "lineup": [
+   {
+    "position": "QB",
+    "slot_count": 1,
+    "sort_order": 1
+   },
+   {
+    "position": "RB",
+    "slot_count": 2,
+    "sort_order": 2
+   },
+   {
+    "position": "WR",
+    "slot_count": 2,
+    "sort_order": 3
+   },
+   {
+    "position": "TE",
+    "slot_count": 1,
+    "sort_order": 4
+   },
+   {
+    "position": "FLEX",
+    "slot_count": 1,
+    "sort_order": 5
+   },
+   {
+    "position": "DEF",
+    "slot_count": 1,
+    "sort_order": 6
+   },
+   {
+    "position": "K",
+    "slot_count": 1,
+    "sort_order": 7
+   }
+  ],
+  "starters": [
+   {
+    "player_id": "BAL",
+    "position_slot": "DEF",
+    "slot_index": 1,
+    "name": "Baltimore Ravens",
+    "position": "DEF",
+    "nfl_team": "BAL",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "9493",
+    "position_slot": "FLEX",
+    "slot_index": 1,
+    "name": "Puka Nacua",
+    "position": "WR",
+    "nfl_team": "LAR",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "8259",
+    "position_slot": "K",
+    "slot_index": 1,
+    "name": "Cameron Dicker",
+    "position": "K",
+    "nfl_team": "LAC",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "4881",
+    "position_slot": "QB",
+    "slot_index": 1,
+    "name": "Lamar Jackson",
+    "position": "QB",
+    "nfl_team": "BAL",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "4866",
+    "position_slot": "RB",
+    "slot_index": 1,
+    "name": "Saquon Barkley",
+    "position": "RB",
+    "nfl_team": "PHI",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "3198",
+    "position_slot": "RB",
+    "slot_index": 2,
+    "name": "Derrick Henry",
+    "position": "RB",
+    "nfl_team": "BAL",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "11604",
+    "position_slot": "TE",
+    "slot_index": 1,
+    "name": "Brock Bowers",
+    "position": "TE",
+    "nfl_team": "LV",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "7564",
+    "position_slot": "WR",
+    "slot_index": 1,
+    "name": "Ja'Marr Chase",
+    "position": "WR",
+    "nfl_team": "CIN",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "6794",
+    "position_slot": "WR",
+    "slot_index": 2,
+    "name": "Justin Jefferson",
+    "position": "WR",
+    "nfl_team": "MIN",
+    "injury_status": null,
+    "practice_participation": null
+   }
+  ],
+  "bench": []
+ },
+ "/api/history/5": {
+  "opponent": {
+   "id": 5,
+   "name": "Gridiron Gary",
+   "created_at": "2026-07-05 22:31:49"
+  },
+  "record": {
+   "wins": 4,
+   "losses": 2,
+   "ties": 0
+  },
+  "games": [
+   {
+    "season": 2025,
+    "week": 1,
+    "my_total": 64,
+    "opponent_total": 114.8,
+    "result": "L"
+   },
+   {
+    "season": 2025,
+    "week": 4,
+    "my_total": 106.7,
+    "opponent_total": 74.4,
+    "result": "W"
+   },
+   {
+    "season": 2025,
+    "week": 7,
+    "my_total": 95.7,
+    "opponent_total": 41.2,
+    "result": "W"
+   },
+   {
+    "season": 2025,
+    "week": 10,
+    "my_total": 96.8,
+    "opponent_total": 74.9,
+    "result": "W"
+   },
+   {
+    "season": 2025,
+    "week": 13,
+    "my_total": 88.4,
+    "opponent_total": 76.4,
+    "result": "W"
+   },
+   {
+    "season": 2025,
+    "week": 16,
+    "my_total": 90.9,
+    "opponent_total": 128.9,
+    "result": "L"
+   }
+  ]
+ },
+ "/api/roster?side=7": {
+  "season": 2025,
+  "side": "7",
+  "lineup": [
+   {
+    "position": "QB",
+    "slot_count": 1,
+    "sort_order": 1
+   },
+   {
+    "position": "RB",
+    "slot_count": 2,
+    "sort_order": 2
+   },
+   {
+    "position": "WR",
+    "slot_count": 2,
+    "sort_order": 3
+   },
+   {
+    "position": "TE",
+    "slot_count": 1,
+    "sort_order": 4
+   },
+   {
+    "position": "FLEX",
+    "slot_count": 1,
+    "sort_order": 5
+   },
+   {
+    "position": "DEF",
+    "slot_count": 1,
+    "sort_order": 6
+   },
+   {
+    "position": "K",
+    "slot_count": 1,
+    "sort_order": 7
+   }
+  ],
+  "starters": [
+   {
+    "player_id": "DEN",
+    "position_slot": "DEF",
+    "slot_index": 1,
+    "name": "Denver Broncos",
+    "position": "DEF",
+    "nfl_team": "DEN",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "9488",
+    "position_slot": "FLEX",
+    "slot_index": 1,
+    "name": "Jaxon Smith-Njigba",
+    "position": "WR",
+    "nfl_team": "SEA",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "11533",
+    "position_slot": "K",
+    "slot_index": 1,
+    "name": "Brandon Aubrey",
+    "position": "K",
+    "nfl_team": "DAL",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "6770",
+    "position_slot": "QB",
+    "slot_index": 1,
+    "name": "Joe Burrow",
+    "position": "QB",
+    "nfl_team": "CIN",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "4034",
+    "position_slot": "RB",
+    "slot_index": 1,
+    "name": "Christian McCaffrey",
+    "position": "RB",
+    "nfl_team": "SF",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "8150",
+    "position_slot": "RB",
+    "slot_index": 2,
+    "name": "Kyren Williams",
+    "position": "RB",
+    "nfl_team": "LAR",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "4217",
+    "position_slot": "TE",
+    "slot_index": 1,
+    "name": "George Kittle",
+    "position": "TE",
+    "nfl_team": "SF",
+    "injury_status": "Questionable",
+    "practice_participation": null
+   },
+   {
+    "player_id": "5045",
+    "position_slot": "WR",
+    "slot_index": 1,
+    "name": "Courtland Sutton",
+    "position": "WR",
+    "nfl_team": "DEN",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "8112",
+    "position_slot": "WR",
+    "slot_index": 2,
+    "name": "Drake London",
+    "position": "WR",
+    "nfl_team": "ATL",
+    "injury_status": "Questionable",
+    "practice_participation": null
+   }
+  ],
+  "bench": []
+ },
+ "/api/history/7": {
+  "opponent": {
+   "id": 7,
+   "name": "The Bench Mob",
+   "created_at": "2026-07-05 22:31:49"
+  },
+  "record": {
+   "wins": 3,
+   "losses": 3,
+   "ties": 0
+  },
+  "games": [
+   {
+    "season": 2025,
+    "week": 3,
+    "my_total": 101.8,
+    "opponent_total": 87.1,
+    "result": "W"
+   },
+   {
+    "season": 2025,
+    "week": 6,
+    "my_total": 54.5,
+    "opponent_total": 99.5,
+    "result": "L"
+   },
+   {
+    "season": 2025,
+    "week": 9,
+    "my_total": 80.1,
+    "opponent_total": 111.4,
+    "result": "L"
+   },
+   {
+    "season": 2025,
+    "week": 12,
+    "my_total": 120.5,
+    "opponent_total": 67.9,
+    "result": "W"
+   },
+   {
+    "season": 2025,
+    "week": 15,
+    "my_total": 103.8,
+    "opponent_total": 106,
+    "result": "L"
+   },
+   {
+    "season": 2025,
+    "week": 18,
+    "my_total": 89.1,
+    "opponent_total": 85.5,
+    "result": "W"
+   }
+  ]
+ },
+ "/api/roster?side=6": {
+  "season": 2025,
+  "side": "6",
+  "lineup": [
+   {
+    "position": "QB",
+    "slot_count": 1,
+    "sort_order": 1
+   },
+   {
+    "position": "RB",
+    "slot_count": 2,
+    "sort_order": 2
+   },
+   {
+    "position": "WR",
+    "slot_count": 2,
+    "sort_order": 3
+   },
+   {
+    "position": "TE",
+    "slot_count": 1,
+    "sort_order": 4
+   },
+   {
+    "position": "FLEX",
+    "slot_count": 1,
+    "sort_order": 5
+   },
+   {
+    "position": "DEF",
+    "slot_count": 1,
+    "sort_order": 6
+   },
+   {
+    "position": "K",
+    "slot_count": 1,
+    "sort_order": 7
+   }
+  ],
+  "starters": [
+   {
+    "player_id": "PHI",
+    "position_slot": "DEF",
+    "slot_index": 1,
+    "name": "Philadelphia Eagles",
+    "position": "DEF",
+    "nfl_team": "PHI",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "9226",
+    "position_slot": "FLEX",
+    "slot_index": 1,
+    "name": "De'Von Achane",
+    "position": "RB",
+    "nfl_team": "MIA",
+    "injury_status": "Questionable",
+    "practice_participation": null
+   },
+   {
+    "player_id": "4195",
+    "position_slot": "K",
+    "slot_index": 1,
+    "name": "Jake Elliott",
+    "position": "K",
+    "nfl_team": "PHI",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "6904",
+    "position_slot": "QB",
+    "slot_index": 1,
+    "name": "Jalen Hurts",
+    "position": "QB",
+    "nfl_team": "PHI",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "9509",
+    "position_slot": "RB",
+    "slot_index": 1,
+    "name": "Bijan Robinson",
+    "position": "RB",
+    "nfl_team": "ATL",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "5850",
+    "position_slot": "RB",
+    "slot_index": 2,
+    "name": "Josh Jacobs",
+    "position": "RB",
+    "nfl_team": "GB",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "8130",
+    "position_slot": "TE",
+    "slot_index": 1,
+    "name": "Trey McBride",
+    "position": "TE",
+    "nfl_team": "ARI",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "5859",
+    "position_slot": "WR",
+    "slot_index": 1,
+    "name": "A.J. Brown",
+    "position": "WR",
+    "nfl_team": "NE",
+    "injury_status": null,
+    "practice_participation": null
+   },
+   {
+    "player_id": "7569",
+    "position_slot": "WR",
+    "slot_index": 2,
+    "name": "Nico Collins",
+    "position": "WR",
+    "nfl_team": "HOU",
+    "injury_status": null,
+    "practice_participation": null
+   }
+  ],
+  "bench": []
+ },
+ "/api/history/6": {
+  "opponent": {
+   "id": 6,
+   "name": "Touchdown Tony",
+   "created_at": "2026-07-05 22:31:49"
+  },
+  "record": {
+   "wins": 3,
+   "losses": 3,
+   "ties": 0
+  },
+  "games": [
+   {
+    "season": 2025,
+    "week": 2,
+    "my_total": 141.8,
+    "opponent_total": 99.6,
+    "result": "W"
+   },
+   {
+    "season": 2025,
+    "week": 5,
+    "my_total": 70.5,
+    "opponent_total": 57.5,
+    "result": "W"
+   },
+   {
+    "season": 2025,
+    "week": 8,
+    "my_total": 19.5,
+    "opponent_total": 67.8,
+    "result": "L"
+   },
+   {
+    "season": 2025,
+    "week": 11,
+    "my_total": 94.7,
+    "opponent_total": 117.9,
+    "result": "L"
+   },
+   {
+    "season": 2025,
+    "week": 14,
+    "my_total": 105.2,
+    "opponent_total": 98.4,
+    "result": "W"
+   },
+   {
+    "season": 2025,
+    "week": 17,
+    "my_total": 45.5,
+    "opponent_total": 100.4,
+    "result": "L"
+   }
+  ]
+ },
+ "/api/history?season=2025": {
+  "season": 2025,
+  "seasons": [
+   {
+    "year": 2025,
+    "status": "active"
+   }
+  ],
+  "weeks": [
+   {
+    "week": 1,
+    "my_total": 64,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary",
+    "opponent_total": 114.8,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 2,
+    "my_total": 141.8,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony",
+    "opponent_total": 99.6,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 3,
+    "my_total": 101.8,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob",
+    "opponent_total": 87.1,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 4,
+    "my_total": 106.7,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary",
+    "opponent_total": 74.4,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 5,
+    "my_total": 70.5,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony",
+    "opponent_total": 57.5,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 6,
+    "my_total": 54.5,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob",
+    "opponent_total": 99.5,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 7,
+    "my_total": 95.7,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary",
+    "opponent_total": 41.2,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 8,
+    "my_total": 19.5,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony",
+    "opponent_total": 67.8,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 9,
+    "my_total": 80.1,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob",
+    "opponent_total": 111.4,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 10,
+    "my_total": 96.8,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary",
+    "opponent_total": 74.9,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 11,
+    "my_total": 94.7,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony",
+    "opponent_total": 117.9,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 12,
+    "my_total": 120.5,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob",
+    "opponent_total": 67.9,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 13,
+    "my_total": 88.4,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary",
+    "opponent_total": 76.4,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 14,
+    "my_total": 105.2,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony",
+    "opponent_total": 98.4,
+    "result": "W",
+    "final": true
+   },
+   {
+    "week": 15,
+    "my_total": 103.8,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob",
+    "opponent_total": 106,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 16,
+    "my_total": 90.9,
+    "opponent_id": 5,
+    "opponent_name": "Gridiron Gary",
+    "opponent_total": 128.9,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 17,
+    "my_total": 45.5,
+    "opponent_id": 6,
+    "opponent_name": "Touchdown Tony",
+    "opponent_total": 100.4,
+    "result": "L",
+    "final": true
+   },
+   {
+    "week": 18,
+    "my_total": 89.1,
+    "opponent_id": 7,
+    "opponent_name": "The Bench Mob",
+    "opponent_total": 85.5,
+    "result": "W",
+    "final": true
+   }
+  ],
+  "series": [
+   {
+    "opponent_id": 5,
+    "name": "Gridiron Gary",
+    "wins": 4,
+    "losses": 2,
+    "ties": 0
+   },
+   {
+    "opponent_id": 7,
+    "name": "The Bench Mob",
+    "wins": 3,
+    "losses": 3,
+    "ties": 0
+   },
+   {
+    "opponent_id": 6,
+    "name": "Touchdown Tony",
+    "wins": 3,
+    "losses": 3,
+    "ties": 0
+   }
+  ]
+ }
+}
