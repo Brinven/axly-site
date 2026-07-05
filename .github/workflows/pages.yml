@@ -1,0 +1,44 @@
+# axly-site — deploy to GitHub Pages via Actions.
+# Replaces the legacy "deploy from branch" pipeline, which hung for hours on
+# 2026-07-05. This deploys the repo as-is (pure static site) in ~30s with
+# visible logs under the Actions tab.
+name: Deploy site to Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time; a newer push supersedes an in-flight one.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      # Stage only site content — repo internals (working notes, skills,
+      # utility scripts) are public in the repo but should not be SERVED.
+      - name: Stage site
+        run: |
+          rsync -a \
+            --exclude '.git' --exclude '.github' --exclude '.claude' \
+            --exclude 'tasks' --exclude 'scripts' --exclude 'README.md' \
+            --exclude '.gitignore' --exclude '.impeccable.md' \
+            ./ /tmp/site/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: /tmp/site
+      - id: deployment
+        uses: actions/deploy-pages@v4
