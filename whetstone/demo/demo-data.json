@@ -1,0 +1,89 @@
+{
+  "settings": { "collection_name": "Sample Collection", "currency": "USD", "setup_complete": "1" },
+  "dashboard": {
+    "counts": {
+      "total": 8,
+      "sold_total": 1,
+      "by_category": [
+        { "id": 1, "name": "Knife", "count": 4 },
+        { "id": 2, "name": "Sword", "count": 2 },
+        { "id": 3, "name": "Axe/Hawk", "count": 1 },
+        { "id": 4, "name": "Other Melee", "count": 1 }
+      ]
+    },
+    "valuation": {
+      "current_total": 2390,
+      "cost_basis": 2081.99,
+      "unrealized_gain": 308.01,
+      "missing_current": 0,
+      "missing_cost": 0,
+      "realized_gain": -7,
+      "sold_total_price": 38
+    },
+    "server": null
+  },
+  "categories": [
+    { "id": 1, "name": "Knife", "sort_order": 0, "is_default": 1, "item_count": 4, "sold_count": 1 },
+    { "id": 2, "name": "Sword", "sort_order": 1, "is_default": 1, "item_count": 2, "sold_count": 0 },
+    { "id": 3, "name": "Axe/Hawk", "sort_order": 2, "is_default": 1, "item_count": 1, "sold_count": 0 },
+    { "id": 4, "name": "Other Melee", "sort_order": 3, "is_default": 1, "item_count": 1, "sold_count": 0 }
+  ],
+  "items": [
+    { "id": 1, "name": "Spyderco Para 3", "maker": "Spyderco", "model": "Para 3", "category_id": 1, "category_name": "Knife", "current_value": 180, "acquisition_price": 165, "condition": "Excellent", "steel_type": "CPM S45VN", "blade_length": 2.95, "is_sold": 0, "thumb": null },
+    { "id": 2, "name": "Benchmade Bugout 535", "maker": "Benchmade", "model": "Bugout 535", "category_id": 1, "category_name": "Knife", "current_value": 135, "acquisition_price": 119.99, "condition": "Excellent", "steel_type": "CPM S30V", "blade_length": 3.24, "is_sold": 0, "thumb": null },
+    { "id": 3, "name": "Chris Reeve Sebenza 31", "maker": "Chris Reeve Knives", "model": "Sebenza 31", "category_id": 1, "category_name": "Knife", "current_value": 525, "acquisition_price": 475, "condition": "Mint", "steel_type": "CPM MagnaCut", "blade_length": 3.61, "is_sold": 0, "thumb": null },
+    { "id": 4, "name": "ESEE 6", "maker": "ESEE", "model": "6P", "category_id": 1, "category_name": "Knife", "current_value": 140, "acquisition_price": 130, "condition": "User", "steel_type": "1095", "blade_length": 6.5, "is_sold": 0, "thumb": null },
+    { "id": 5, "name": "Hanwei Practical Katana", "maker": "Hanwei", "model": "Practical", "category_id": 2, "category_name": "Sword", "current_value": 340, "acquisition_price": 310, "condition": "Very Good", "steel_type": "1566 high-carbon", "blade_length": 27.6, "is_sold": 0, "thumb": null },
+    { "id": 6, "name": "Albion Squire Arming Sword", "maker": "Albion", "model": "Squire Line", "category_id": 2, "category_name": "Sword", "current_value": 950, "acquisition_price": 780, "condition": "Excellent", "steel_type": "6150 spring steel", "blade_length": 31.5, "is_sold": 0, "thumb": null },
+    { "id": 7, "name": "CRKT Woods Chogan", "maker": "CRKT", "model": "Woods Chogan T-Hawk", "category_id": 3, "category_name": "Axe/Hawk", "current_value": 65, "acquisition_price": 60, "condition": "Good", "steel_type": "1055", "blade_length": 4.21, "is_sold": 0, "thumb": null },
+    { "id": 8, "name": "Cold Steel War Hammer", "maker": "Cold Steel", "model": "90WHA", "category_id": 4, "category_name": "Other Melee", "current_value": 55, "acquisition_price": 42, "condition": "Good", "steel_type": "Drop-forged 1055", "blade_length": null, "is_sold": 0, "thumb": null },
+    { "id": 9, "name": "Kershaw Leek", "maker": "Kershaw", "model": "1660", "category_id": 1, "category_name": "Knife", "current_value": null, "acquisition_price": 45, "condition": "Good", "steel_type": "14C28N", "blade_length": 3, "is_sold": 1, "sold_date": "2025-09-30", "sold_price": 38, "thumb": null }
+  ],
+  "item_details": {
+    "1": { "id": 1, "name": "Spyderco Para 3", "maker": "Spyderco", "model": "Para 3", "category_id": 1, "category_name": "Knife", "acquisition_date": "2024-08-12", "acquisition_price": 165, "current_value": 180, "condition": "Excellent", "storage_location": "EDC rotation", "blade_length": 2.95, "overall_length": 7.27, "weight": 3.37, "steel_type": "CPM S45VN", "handle_material": "G-10", "lock_type": "Compression", "blade_grind": "Full flat", "bevel_type": "V", "bevel_angle": 17.5, "edge_type": "Plain", "notes": "Daily carry champion. Second sprint-run scale set installed; original scales in the parts drawer.", "is_sold": 0, "photos": [] },
+    "2": { "id": 2, "name": "Benchmade Bugout 535", "maker": "Benchmade", "model": "Bugout 535", "category_id": 1, "category_name": "Knife", "acquisition_date": "2023-05-20", "acquisition_price": 119.99, "current_value": 135, "condition": "Excellent", "storage_location": "EDC rotation", "blade_length": 3.24, "overall_length": 7.46, "weight": 1.85, "steel_type": "CPM S30V", "handle_material": "Grivory", "lock_type": "AXIS", "blade_grind": "Full flat", "bevel_type": "V", "bevel_angle": 17, "edge_type": "Plain", "notes": "Featherweight. Lost it in a couch for six months once — hence the storage log.", "is_sold": 0, "photos": [] },
+    "3": { "id": 3, "name": "Chris Reeve Sebenza 31", "maker": "Chris Reeve Knives", "model": "Sebenza 31", "category_id": 1, "category_name": "Knife", "acquisition_date": "2025-02-14", "acquisition_price": 475, "current_value": 525, "condition": "Mint", "storage_location": "Safe", "blade_length": 3.61, "overall_length": 8.335, "weight": 4.7, "steel_type": "CPM MagnaCut", "handle_material": "Titanium", "lock_type": "Frame (Reeve Integral)", "blade_grind": "Hollow", "bevel_type": "V", "bevel_angle": 18, "edge_type": "Plain", "notes": "Valentine's day gift to myself. Birthday-carried only.", "is_sold": 0, "photos": [] },
+    "4": { "id": 4, "name": "ESEE 6", "maker": "ESEE", "model": "6P", "category_id": 1, "category_name": "Knife", "acquisition_date": "2022-04-03", "acquisition_price": 130, "current_value": 140, "condition": "User", "storage_location": "Truck kit", "blade_length": 6.5, "overall_length": 11.75, "weight": 12, "steel_type": "1095", "handle_material": "Micarta", "blade_grind": "Full flat", "bevel_type": "V", "bevel_angle": 20, "edge_type": "Plain", "notes": "The one that actually gets used. Patina earned honestly.", "is_sold": 0, "photos": [] },
+    "5": { "id": 5, "name": "Hanwei Practical Katana", "maker": "Hanwei", "model": "Practical", "category_id": 2, "category_name": "Sword", "acquisition_date": "2022-11-01", "acquisition_price": 310, "current_value": 340, "condition": "Very Good", "storage_location": "Display stand, office", "blade_length": 27.6, "overall_length": 39.4, "weight": 40.6, "steel_type": "1566 high-carbon", "handle_material": "Rayskin + cotton ito", "blade_grind": "Niku (appleseed)", "bevel_type": "Convex", "edge_type": "Plain", "notes": "Cutting practice twice a month. Tatami omote only.", "is_sold": 0, "photos": [] },
+    "6": { "id": 6, "name": "Albion Squire Arming Sword", "maker": "Albion", "model": "Squire Line", "category_id": 2, "category_name": "Sword", "acquisition_date": "2021-07-19", "acquisition_price": 780, "current_value": 950, "condition": "Excellent", "storage_location": "Wall mount, den", "blade_length": 31.5, "overall_length": 38, "weight": 38.4, "steel_type": "6150 spring steel", "handle_material": "Leather over wood core", "blade_grind": "Lenticular", "bevel_type": "Convex", "edge_type": "Plain", "notes": "Type XIV. The grail purchase that started the sword side of the collection.", "is_sold": 0, "photos": [] },
+    "7": { "id": 7, "name": "CRKT Woods Chogan", "maker": "CRKT", "model": "Woods Chogan T-Hawk", "category_id": 3, "category_name": "Axe/Hawk", "acquisition_date": "2023-09-08", "acquisition_price": 60, "current_value": 65, "condition": "Good", "storage_location": "Camping bin", "blade_length": 4.21, "overall_length": 19.13, "weight": 33, "steel_type": "1055", "handle_material": "Tennessee hickory", "edge_type": "Plain", "notes": "Camp beater. Handle re-oiled spring 2026.", "is_sold": 0, "photos": [] },
+    "8": { "id": 8, "name": "Cold Steel War Hammer", "maker": "Cold Steel", "model": "90WHA", "category_id": 4, "category_name": "Other Melee", "acquisition_date": "2024-01-25", "acquisition_price": 42, "current_value": 55, "condition": "Good", "storage_location": "Garage rack", "weight": 40, "steel_type": "Drop-forged 1055", "handle_material": "American hickory", "notes": "Bought as a joke. Kept because it is excellent.", "is_sold": 0, "photos": [] },
+    "9": { "id": 9, "name": "Kershaw Leek", "maker": "Kershaw", "model": "1660", "category_id": 1, "category_name": "Knife", "acquisition_date": "2019-03-10", "acquisition_price": 45, "condition": "Good", "storage_location": null, "blade_length": 3, "overall_length": 7, "weight": 2.4, "steel_type": "14C28N", "handle_material": "410 stainless", "lock_type": "Frame", "blade_grind": "Flat", "bevel_type": "V", "edge_type": "Plain", "notes": "First 'real' knife. Sold to a coworker who needed a starter.", "is_sold": 1, "sold_date": "2025-09-30", "sold_price": 38, "photos": [] }
+  },
+  "custom_fields": [
+    { "id": 1, "field_name": "Sheath material", "field_type": "dropdown", "dropdown_options": "[\"Leather\",\"Kydex\",\"Nylon\"]", "category_id": null, "category_name": null, "is_archived": 0, "sort_order": 0, "value_count": 2 },
+    { "id": 2, "field_name": "Country of origin", "field_type": "text", "dropdown_options": null, "category_id": null, "category_name": null, "is_archived": 0, "sort_order": 1, "value_count": 3 },
+    { "id": 3, "field_name": "Tsuba style", "field_type": "text", "dropdown_options": null, "category_id": 2, "category_name": "Sword", "is_archived": 0, "sort_order": 0, "value_count": 1 }
+  ],
+  "item_field_values": {
+    "4": [
+      { "field_definition_id": 1, "field_name": "Sheath material", "field_type": "dropdown", "is_archived": 0, "value": "Kydex" },
+      { "field_definition_id": 2, "field_name": "Country of origin", "field_type": "text", "is_archived": 0, "value": "USA" }
+    ],
+    "5": [
+      { "field_definition_id": 2, "field_name": "Country of origin", "field_type": "text", "is_archived": 0, "value": "China (Dalian forge)" },
+      { "field_definition_id": 3, "field_name": "Tsuba style", "field_type": "text", "is_archived": 0, "value": "Iron round (maru-gata)" }
+    ],
+    "3": [
+      { "field_definition_id": 2, "field_name": "Country of origin", "field_type": "text", "is_archived": 0, "value": "USA (Idaho)" }
+    ]
+  },
+  "maintenance": {
+    "1": [
+      { "id": 1, "log_date": "2026-06-20", "activity_type": "sharpen", "notes": "Sharpmaker touch-up, 30° inclusive" },
+      { "id": 2, "log_date": "2026-03-02", "activity_type": "clean", "notes": "Full teardown, re-lubed pivot" }
+    ],
+    "4": [
+      { "id": 3, "log_date": "2026-05-11", "activity_type": "oil", "notes": "Re-coated after wet camping weekend" },
+      { "id": 4, "log_date": "2025-12-27", "activity_type": "sharpen", "notes": "Bevel reset on bench stones after batoning" }
+    ],
+    "5": [
+      { "id": 5, "log_date": "2026-04-18", "activity_type": "oil", "notes": "Choji oil after cutting practice" }
+    ]
+  },
+  "wishlist": [
+    { "id": 1, "name": "White River Firecraft FC5", "category_id": 1, "category_name": "Knife", "target_price": 190, "priority": 4, "notes": "S35VN, the bushcraft upgrade" },
+    { "id": 2, "name": "Windlass 15th-c. Longsword", "category_id": 2, "category_name": "Sword", "target_price": 350, "priority": 3, "notes": "For the wall over the bench" },
+    { "id": 3, "name": "Cold Steel Trail Hawk", "category_id": 3, "category_name": "Axe/Hawk", "target_price": 40, "priority": 2, "notes": "Project hawk — strip and re-haft" }
+  ]
+}
