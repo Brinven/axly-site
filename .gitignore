@@ -6,3 +6,8 @@ tasks/blog-drafts/
 # into the live site (renamed) under /images/. Nothing references this folder;
 # it's a local-only working set. Safe to keep out of the repo.
 images/GImages/
+
+# Local working files — never in the public repo (scrubbed from history 2026-07-05)
+.claude/
+tasks/
+
