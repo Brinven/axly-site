@@ -5,6 +5,7 @@ import {
   fetchCategories, isDemo
 } from '../dataAdapter.js';
 import { esc, fmtMoney, toast, openModal, closeModal } from '../ui.js';
+import { icon } from '../icons.js';
 
 const STARS = (p) => '★'.repeat(p) + '☆'.repeat(5 - p);
 
@@ -41,7 +42,7 @@ export async function render(root) {
   root.innerHTML = `
     <div class="page-head">
       <h1>Wishlist</h1>
-      ${isDemo() ? '' : '<button class="btn primary" id="wl-add">➕ Add to wishlist</button>'}
+      ${isDemo() ? '' : `<button class="btn primary" id="wl-add">${icon('plus')} Add to wishlist</button>`}
     </div>
     ${list.length ? `<ul class="rem-list">${rows}</ul>`
       : '<div class="empty">Nothing on the wishlist yet — the grail list starts here.</div>'}

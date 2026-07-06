@@ -3,6 +3,7 @@
 // server.url, which /api/dashboard already computes via server/localIp.js).
 // Vendored qrcode-generator (no bundler). Fails soft to URL-only text if QR gen throws.
 import { esc } from './ui.js';
+import { icon } from './icons.js';
 import qrcode from './vendor/qrcode-generator.js';
 
 // QR as a GIF data-URI <img> (sized in CSS). typeNumber 0 = auto-size; 'M' ECC.
@@ -24,9 +25,23 @@ export function connectBox(server) {
   return `<section class="lan-box">
       <div class="lan-qr-wrap">${qrImg(server.url)}</div>
       <div class="lan-text">
-        <div class="lan-head">📱 Open Whetstone on your phone</div>
+        <div class="lan-head">${icon('phone')} Open Whetstone on your phone</div>
         <p class="lan-sub">On the same WiFi, point your phone's camera at the code — or type this in:</p>
         <code class="lan-url">${esc(server.url)}</code>
+      </div>
+    </section>`;
+}
+
+// Remote-access card (M4). `ts` is the { ip, url } block sourced from
+// `tailscale status --json` — NEVER from localIp.js (Gotcha #3).
+export function remoteBox(ts) {
+  if (!ts || !ts.url) return '';
+  return `<section class="lan-box">
+      <div class="lan-qr-wrap">${qrImg(ts.url)}</div>
+      <div class="lan-text">
+        <div class="lan-head">${icon('qr')} Open Whetstone from anywhere</div>
+        <p class="lan-sub">With the <strong>Tailscale app</strong> on your phone (signed in to the same account), this works at a knife show, a buddy's garage — anywhere with signal:</p>
+        <code class="lan-url">${esc(ts.url)}</code>
       </div>
     </section>`;
 }

@@ -3,7 +3,7 @@
 // Real mode: the local Express server. Demo mode: static demo-data.json,
 // read-only — window.__WHETSTONE_DEMO__ is baked into the demo BUILD at deploy
 // time (Gotcha #9), never toggled at runtime.
-import { get, post, put, del } from './api.js';
+import { get, post, put, del, postWithProgress } from './api.js';
 
 const DEMO_MODE = window.__WHETSTONE_DEMO__ === true;
 
@@ -45,6 +45,7 @@ export async function fetchItems(filter = {}) {
     if (filter.sold === '1') items = items.filter((i) => i.is_sold);
     else if (filter.include_sold !== '1') items = items.filter((i) => !i.is_sold);
     if (filter.category_id) items = items.filter((i) => String(i.category_id) === String(filter.category_id));
+    if (filter.knife_type) items = items.filter((i) => i.knife_type === filter.knife_type);
     if (filter.q) {
       const q = filter.q.toLowerCase();
       items = items.filter((i) => [i.name, i.maker, i.model, i.steel_type]
@@ -71,7 +72,10 @@ export async function updateItem(id, body) { if (DEMO_MODE) demoWrite(); return 
 export async function deleteItem(id) { if (DEMO_MODE) demoWrite(); return del(`/api/items/${id}`); }
 
 // --- Photos (per item) ---
-export async function addPhoto(itemId, body) { if (DEMO_MODE) demoWrite(); return post(`/api/items/${itemId}/photos`, body); }
+export async function addPhoto(itemId, body, onProgress) {
+  if (DEMO_MODE) demoWrite();
+  return postWithProgress(`/api/items/${itemId}/photos`, body, onProgress);
+}
 export async function updatePhoto(itemId, photoId, body) { if (DEMO_MODE) demoWrite(); return put(`/api/items/${itemId}/photos/${photoId}`, body); }
 export async function deletePhoto(itemId, photoId) { if (DEMO_MODE) demoWrite(); return del(`/api/items/${itemId}/photos/${photoId}`); }
 
@@ -102,6 +106,14 @@ export async function fetchMaintenance(itemId) {
 }
 export async function addMaintenance(itemId, body) { if (DEMO_MODE) demoWrite(); return post(`/api/items/${itemId}/maintenance`, body); }
 export async function deleteMaintenance(itemId, logId) { if (DEMO_MODE) demoWrite(); return del(`/api/items/${itemId}/maintenance/${logId}`); }
+
+// --- Tailscale setup (M4) ---
+export async function fetchTailscaleStatus() {
+  if (DEMO_MODE) return { installed: false, state: 'demo' };
+  return get('/api/tailscale/status');
+}
+export async function tailscaleInstall() { if (DEMO_MODE) demoWrite(); return post('/api/tailscale/install', {}); }
+export async function tailscaleUp() { if (DEMO_MODE) demoWrite(); return post('/api/tailscale/up', {}); }
 
 // --- Wishlist (M5) ---
 export async function fetchWishlist() {

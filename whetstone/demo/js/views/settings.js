@@ -3,11 +3,14 @@
 // Custom fields are NEVER deleted — archive/restore only (Gotcha #4). The
 // server has no delete endpoint; this UI must never pretend otherwise.
 import {
-  fetchSettings, saveSettings, fetchDashboard, fetchCategories,
-  fetchCustomFields, createCustomField, updateCustomField, isDemo
+  fetchSettings, saveSettings, fetchCategories,
+  fetchCustomFields, createCustomField, updateCustomField,
+  fetchTailscaleStatus, isDemo
 } from '../dataAdapter.js';
 import { esc, toast, setCurrency, openModal, closeModal } from '../ui.js';
-import { connectBox } from '../qr.js';
+import { remoteBox } from '../qr.js';
+import { icon } from '../icons.js';
+import { setCollectionName } from '../app.js';
 
 const CURRENCIES = ['USD', 'CAD', 'EUR', 'GBP', 'AUD', 'JPY', 'CHF', 'SEK', 'NOK'];
 const FIELD_TYPES = [
@@ -19,9 +22,9 @@ let showArchived = false;
 
 export async function render(root) {
   root.innerHTML = '<h1>Settings</h1><p class="muted">Loading…</p>';
-  let s, d;
+  let s;
   try {
-    [s, d] = await Promise.all([fetchSettings(), fetchDashboard().catch(() => null)]);
+    s = await fetchSettings();
   } catch (e) {
     root.innerHTML = `<h1>Settings</h1><div class="error">${esc(e.message)}</div>`;
     return;
@@ -56,9 +59,11 @@ export async function render(root) {
     <div id="cf-manager"><p class="muted">Loading…</p></div>
 
     <h2 class="section-title">Phone access</h2>
-    ${d && d.server ? connectBox(d.server) : '<div class="empty">Phone-connect info unavailable.</div>'}
-    <p class="muted">Remote access from anywhere (Tailscale) arrives with the first-run wizard — milestone M4.</p>
+    ${isDemo() ? '' : `<div class="quick-add"><a class="btn" href="#/connect">${icon('qr')} Connect your phone — QR codes</a></div>`}
+    <div id="ts-panel"><p class="muted">Checking remote access…</p></div>
   `;
+
+  renderTsSettings(root.querySelector('#ts-panel'), s);
 
   if (isDemo()) {
     // Read-only demo: neutralize the form (a native submit would reload the page).
@@ -76,8 +81,9 @@ export async function render(root) {
         const saved = await saveSettings(body);
         setCurrency(saved.currency);
         const cn = (saved.collection_name && saved.collection_name.trim()) ? saved.collection_name.trim() : 'Whetstone';
+        setCollectionName(cn);
         const el = document.getElementById('collection-name');
-        if (el) el.textContent = cn;
+        if (el) el.textContent = cn === 'Whetstone' ? '' : 'Whetstone';
         document.title = cn === 'Whetstone' ? 'Whetstone' : `${cn} · Whetstone`;
         toast('Settings saved', 'success');
       } catch (err) { toast(err.message, 'error'); }
@@ -85,6 +91,42 @@ export async function render(root) {
   }
 
   renderFieldManager(root.querySelector('#cf-manager'));
+}
+
+// ------------------------------------------------------- remote access (M4)
+
+async function renderTsSettings(panel, settings) {
+  if (isDemo()) { panel.innerHTML = ''; return; }
+  const enabled = settings.tailscale_enabled === '1';
+  let st = null;
+  try { st = await fetchTailscaleStatus(); } catch (e) { /* shown below */ }
+
+  const online = st && st.state === 'online';
+  const statusLine = !enabled
+    ? '<span class="badge">Off</span> Remote access is not set up.'
+    : online
+      ? `<span class="badge active">Connected</span> Reachable from your devices at <code>${esc(st.ip)}</code>.`
+      : `<span class="badge low">Not connected</span> Tailscale is ${st ? esc(st.state.replace('_', ' ')) : 'unreachable'} — re-run setup below.`;
+
+  panel.innerHTML = `
+    <h3 class="section-title">Remote access (Tailscale)</h3>
+    <p>${statusLine}</p>
+    ${enabled && online ? remoteBox({ ip: st.ip, url: st.url }) : ''}
+    <div class="form-actions">
+      <a class="btn ${enabled ? '' : 'primary'}" href="#/welcome">${enabled ? 'Re-run setup wizard' : 'Set up remote access'}</a>
+      ${enabled ? '<button class="btn" id="ts-disable">Turn off remote QR</button>' : ''}
+    </div>
+    ${enabled ? '<p class="muted">Turning this off only hides the remote QR here — it does not uninstall Tailscale or sign you out.</p>' : ''}
+  `;
+
+  const dis = panel.querySelector('#ts-disable');
+  if (dis) dis.onclick = async () => {
+    try {
+      await saveSettings({ tailscale_enabled: '0' });
+      toast('Remote QR turned off', 'success');
+      renderTsSettings(panel, { ...settings, tailscale_enabled: '0' });
+    } catch (e) { toast(e.message, 'error'); }
+  };
 }
 
 // ---------------------------------------------------------------- manager
@@ -129,7 +171,7 @@ async function renderFieldManager(box) {
 
   box.innerHTML = `
     <div class="tab-head between">
-      ${isDemo() ? '<span></span>' : '<button class="btn primary" id="cf-add">➕ Add field</button>'}
+      ${isDemo() ? '<span></span>' : `<button class="btn primary" id="cf-add">${icon('plus')} Add field</button>`}
       <label class="checkbox inline"><input type="checkbox" id="cf-archived" ${showArchived ? 'checked' : ''}> Show archived</label>
     </div>
     ${fields.length ? `<ul class="rem-list">${rows}</ul>`
@@ -221,7 +263,7 @@ function fieldModal(existing, cats, onDone) {
       <label id="cf-opts-wrap" ${(existing && existing.field_type === 'dropdown') ? '' : 'hidden'}>Dropdown options (one per line)
         <textarea name="options" rows="4" placeholder="Leather&#10;Kydex&#10;Nylon">${esc(optsVal)}</textarea>
       </label>
-      ${isEdit && existing.value_count ? `<p class="muted">⚠️ ${existing.value_count} item${existing.value_count === 1 ? ' has' : 's have'} a value in this field — renaming is safe; changing the type may make old values read oddly, but nothing is deleted.</p>` : ''}
+      ${isEdit && existing.value_count ? `<p class="muted">Note: ${existing.value_count} item${existing.value_count === 1 ? ' has' : 's have'} a value in this field — renaming is safe; changing the type may make old values read oddly, but nothing is deleted.</p>` : ''}
       <div class="form-actions">
         <button class="btn primary" type="submit">${isEdit ? 'Save' : 'Add field'}</button>
         <button class="btn" type="button" id="cf-cancel">Cancel</button>

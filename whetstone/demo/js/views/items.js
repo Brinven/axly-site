@@ -1,5 +1,10 @@
-// Whetstone — Collection view: list / detail / add / edit (M2).
-// Routes: #/collection · #/collection/new · #/collection/:id · #/collection/:id/edit
+// Whetstone — Collection views (M6.5 reskin, Lloyd's mockup IA).
+// Routes: #/collection            → category browser (search + tiles)
+//         #/collection/cat/:catId → category list (tabs/sort/view/rail)
+//         #/collection/all        → same list, every category
+//         #/collection/new[/:cat] → add form (category preselected)
+//         #/collection/:id        → detail · #/collection/:id/edit → edit form
+// Dispatch order matters: new → cat → all → :id/edit → :id.
 // All data access goes through dataAdapter.js — never fetch('/api/...') directly.
 import {
   fetchItems, fetchItem, createItem, updateItem, deleteItem,
@@ -8,6 +13,8 @@ import {
   fetchMaintenance, addMaintenance, deleteMaintenance
 } from '../dataAdapter.js';
 import { esc, fmtMoney, toast, openModal, closeModal, todayStr } from '../ui.js';
+import { icon, categoryIcon, isKnifeCategory } from '../icons.js';
+import { setAppbar } from '../app.js';
 
 const ACTIVITY = {
   sharpen: ['🪨', 'Sharpened'],
@@ -18,86 +25,247 @@ const ACTIVITY = {
 };
 
 const CONDITIONS = ['New in Box', 'Mint', 'Excellent', 'Very Good', 'Good', 'Fair', 'Poor', 'User'];
+const KNIFE_TYPES = [['folding', 'Folding'], ['fixed', 'Fixed'], ['auto', 'Auto']];
 
-// List filter survives navigation (dashboard cards set it before jumping here).
-let listFilter = { category_id: '', q: '', include_sold: '' };
-export function setListFilter(f) { listFilter = { category_id: '', q: '', include_sold: '', ...f }; }
+// ---------------------------------------------------------------- state
+
+// Per-category list state (knife tab, search, sold) — survives hash nav.
+const listState = {};
+function stateFor(catKey) {
+  if (!listState[catKey]) listState[catKey] = { tab: '', q: '', sold: '' };
+  return listState[catKey];
+}
+
+// Sort + view mode persist across sessions.
+const PREFS_KEY = 'whetstone-list-prefs';
+const prefs = { sort: 'az', view: 'list' };
+try { Object.assign(prefs, JSON.parse(localStorage.getItem(PREFS_KEY) || '{}')); } catch (e) { /* defaults */ }
+function savePrefs() { try { localStorage.setItem(PREFS_KEY, JSON.stringify(prefs)); } catch (e) { /* private mode */ } }
+
+let browseQ = ''; // browser search survives back-from-detail
+
+// ---------------------------------------------------------------- dispatch
 
 export async function render(root, params = []) {
-  if (params[0] === 'new') return renderForm(root, null);
-  if (params[0] && params[1] === 'edit') return renderForm(root, await fetchItem(params[0]));
+  if (params[0] === 'new') return renderForm(root, null, params[1] || '');
+  if (params[0] === 'cat' && params[1]) return renderList(root, params[1]);
+  if (params[0] === 'all') return renderList(root, null);
+  if (params[0] && params[1] === 'edit') return renderForm(root, await fetchItem(params[0]), '');
   if (params[0]) return renderDetail(root, params[0]);
-  return renderList(root);
+  return renderBrowse(root);
+}
+
+// ---------------------------------------------------------------- browser
+
+async function renderBrowse(root) {
+  root.innerHTML = '<p class="muted">Loading…</p>';
+  let cats;
+  try { cats = await fetchCategories(); }
+  catch (e) { root.innerHTML = `<div class="error">Could not load collection: ${esc(e.message)}</div>`; return; }
+
+  const ordered = [...cats].sort((a, b) => a.sort_order - b.sort_order || a.id - b.id);
+  root.innerHTML = `
+    <div class="filters">
+      <input type="search" id="browse-q" placeholder="Search name, maker, model, steel…"
+             value="${esc(browseQ)}" aria-label="Search entire collection">
+      <a class="btn small" href="#/collection/all">View all</a>
+    </div>
+    <div id="browse-body"></div>
+  `;
+
+  const body = root.querySelector('#browse-body');
+  const tilesHtml = `
+    <div class="tile-grid">
+      ${ordered.map((c) => `<a class="tile" href="#/collection/cat/${c.id}">
+          ${categoryIcon(c.name)}
+          <span>${esc(c.name)}</span>
+          <span class="tile-count">${c.item_count || 0} item${(c.item_count || 0) === 1 ? '' : 's'}</span>
+        </a>`).join('')}
+    </div>`;
+
+  // Typing swaps the tiles for a cross-category result list, in place.
+  async function showResults() {
+    if (!browseQ) { body.innerHTML = tilesHtml; return; }
+    try {
+      const items = await fetchItems({ q: browseQ, include_sold: '1' });
+      body.innerHTML = items.length
+        ? `<ul class="row-list">${items.map(rowHtml).join('')}</ul>`
+        : '<div class="empty small">No matches.</div>';
+    } catch (e) { toast(e.message, 'error'); }
+  }
+
+  let qTimer = null;
+  root.querySelector('#browse-q').addEventListener('input', (e) => {
+    clearTimeout(qTimer);
+    qTimer = setTimeout(() => { browseQ = e.target.value.trim(); showResults(); }, 250);
+  });
+  showResults();
 }
 
 // ---------------------------------------------------------------- list
 
-async function renderList(root) {
-  root.innerHTML = '<h1>Collection</h1><p class="muted">Loading…</p>';
-  let cats, items;
-  try {
-    [cats, items] = await Promise.all([fetchCategories(), fetchItems(listFilter)]);
-  } catch (e) {
-    root.innerHTML = `<h1>Collection</h1><div class="error">Could not load collection: ${esc(e.message)}</div>`;
-    return;
-  }
+async function renderList(root, catId) {
+  const catKey = catId || 'all';
+  const st = stateFor(catKey);
+  root.innerHTML = '<p class="muted">Loading…</p>';
 
-  const catOpts = cats.map((c) =>
-    `<option value="${c.id}" ${String(listFilter.category_id) === String(c.id) ? 'selected' : ''}>${esc(c.name)}</option>`).join('');
+  let cats;
+  try { cats = await fetchCategories(); }
+  catch (e) { root.innerHTML = `<div class="error">${esc(e.message)}</div>`; return; }
+  const cat = catId ? cats.find((c) => String(c.id) === String(catId)) : null;
+  if (catId && !cat) { root.innerHTML = '<div class="error">Category not found.</div>'; return; }
+  const knife = cat ? isKnifeCategory(cat.name) : false;
+  if (!knife) st.tab = '';
+
+  setAppbar({ title: cat ? cat.name : 'All Items', back: '#/collection' });
 
   root.innerHTML = `
     <div class="page-head">
-      <h1>Collection</h1>
-      ${isDemo() ? '' : '<a class="btn primary" href="#/collection/new">➕ Add item</a>'}
+      <h1>${cat ? esc(cat.name) : 'All Items'}</h1>
+      ${isDemo() ? '' : `<a class="btn small primary" href="#/collection/new${catId ? '/' + catId : ''}">${icon('plus')} Add</a>`}
     </div>
+    ${knife ? `<div class="seg" id="knife-tabs" role="tablist">
+      ${[['', 'All'], ...KNIFE_TYPES].map(([v, label]) =>
+        `<button role="tab" data-tab="${v}" class="${st.tab === v ? 'on' : ''}" aria-selected="${st.tab === v}">${label}</button>`).join('')}
+    </div>` : ''}
     <div class="filters">
-      <input type="search" id="item-q" placeholder="Search name, maker, model, steel…" value="${esc(listFilter.q)}" aria-label="Search collection">
-      <select id="item-cat" aria-label="Filter by category">
-        <option value="">All categories</option>
-        ${catOpts}
-      </select>
-      <label class="checkbox inline"><input type="checkbox" id="item-sold" ${listFilter.include_sold === '1' ? 'checked' : ''}> Include sold</label>
+      <input type="search" id="item-q" placeholder="Search…" value="${esc(st.q)}" aria-label="Search this list">
+      <label class="checkbox inline"><input type="checkbox" id="item-sold" ${st.sold === '1' ? 'checked' : ''}> Include sold</label>
     </div>
-    ${items.length ? `<div class="item-grid">${items.map(cardHtml).join('')}</div>`
-      : '<div class="empty">Nothing here yet — tap “Add item” to log the first piece.</div>'}
+    <div class="list-tools">
+      <div class="seg" id="sort-seg">
+        <button data-sort="az" class="${prefs.sort === 'az' ? 'on' : ''}">A–Z</button>
+        <button data-sort="brand" class="${prefs.sort === 'brand' ? 'on' : ''}">Brand</button>
+      </div>
+      <div class="view-toggle">
+        <button id="view-list" class="${prefs.view === 'list' ? 'on' : ''}" aria-label="List view">${icon('list')}</button>
+        <button id="view-grid" class="${prefs.view === 'grid' ? 'on' : ''}" aria-label="Grid view">${icon('grid')}</button>
+      </div>
+    </div>
+    <div class="list-wrap">
+      <div class="list-body" id="list-body"><p class="muted">Loading…</p></div>
+      <nav class="az-rail" id="az-rail" aria-label="Jump to letter" hidden></nav>
+    </div>
   `;
 
+  async function refresh() {
+    const body = root.querySelector('#list-body');
+    const rail = root.querySelector('#az-rail');
+    if (!body) return;
+    let items;
+    try {
+      items = await fetchItems({
+        category_id: catId || '',
+        q: st.q,
+        include_sold: st.sold,
+        knife_type: knife ? st.tab : ''
+      });
+    } catch (e) { toast(e.message, 'error'); return; }
+
+    const key = (i) => ((prefs.sort === 'brand' ? (i.maker || i.name) : i.name) || '').trim();
+    items.sort((a, b) => key(a).localeCompare(key(b), undefined, { sensitivity: 'base' }) || a.name.localeCompare(b.name));
+
+    if (!items.length) {
+      body.innerHTML = `<div class="empty">${st.q || st.tab ? 'No matches.' : 'Nothing here yet.'}</div>`;
+      rail.hidden = true;
+      return;
+    }
+
+    const letterOf = (i) => {
+      const c = key(i).charAt(0).toUpperCase();
+      return c >= 'A' && c <= 'Z' ? c : '#';
+    };
+    body.innerHTML = prefs.view === 'grid'
+      ? `<div class="item-grid">${items.map((i) => cardHtml(i, letterOf(i))).join('')}</div>`
+      : `<ul class="row-list">${items.map((i) => `<li data-letter="${letterOf(i)}">${rowHtml(i)}</li>`).join('')}</ul>`;
+
+    // Alphabet rail: sorted list view with enough rows to be worth jumping.
+    if (prefs.view === 'list' && items.length >= 15) {
+      const present = new Set(items.map(letterOf));
+      rail.innerHTML = ['#', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+        .map((L) => `<a href="#" data-letter="${L}" class="${present.has(L) ? '' : 'off'}">${L}</a>`).join('');
+      rail.hidden = false;
+      rail.querySelectorAll('a:not(.off)').forEach((a) => {
+        a.onclick = (e) => {
+          e.preventDefault();
+          const target = body.querySelector(`[data-letter="${a.dataset.letter}"]`);
+          if (target) target.scrollIntoView({ block: 'start', behavior: 'smooth' });
+        };
+      });
+    } else {
+      rail.hidden = true;
+    }
+  }
+
+  // --- wiring ---
+  if (knife) {
+    root.querySelectorAll('#knife-tabs button').forEach((b) => {
+      b.onclick = () => {
+        st.tab = b.dataset.tab;
+        root.querySelectorAll('#knife-tabs button').forEach((x) => {
+          x.classList.toggle('on', x === b);
+          x.setAttribute('aria-selected', String(x === b));
+        });
+        refresh();
+      };
+    });
+  }
   let qTimer = null;
   root.querySelector('#item-q').addEventListener('input', (e) => {
     clearTimeout(qTimer);
-    qTimer = setTimeout(() => { listFilter.q = e.target.value.trim(); refreshGrid(root); }, 250);
+    qTimer = setTimeout(() => { st.q = e.target.value.trim(); refresh(); }, 250);
   });
-  root.querySelector('#item-cat').onchange = (e) => { listFilter.category_id = e.target.value; refreshGrid(root); };
-  root.querySelector('#item-sold').onchange = (e) => { listFilter.include_sold = e.target.checked ? '1' : ''; refreshGrid(root); };
+  root.querySelector('#item-sold').onchange = (e) => { st.sold = e.target.checked ? '1' : ''; refresh(); };
+  root.querySelectorAll('#sort-seg button').forEach((b) => {
+    b.onclick = () => {
+      prefs.sort = b.dataset.sort;
+      savePrefs();
+      root.querySelectorAll('#sort-seg button').forEach((x) => x.classList.toggle('on', x === b));
+      refresh();
+    };
+  });
+  const viewBtn = (id, mode) => {
+    root.querySelector(id).onclick = () => {
+      prefs.view = mode;
+      savePrefs();
+      root.querySelector('#view-list').classList.toggle('on', mode === 'list');
+      root.querySelector('#view-grid').classList.toggle('on', mode === 'grid');
+      refresh();
+    };
+  };
+  viewBtn('#view-list', 'list');
+  viewBtn('#view-grid', 'grid');
+
+  refresh();
 }
 
-// Re-fetch and swap only the grid so the search box keeps focus while typing.
-async function refreshGrid(root) {
-  try {
-    const items = await fetchItems(listFilter);
-    const grid = root.querySelector('.item-grid') || root.querySelector('.empty');
-    if (!grid) return;
-    const html = items.length
-      ? `<div class="item-grid">${items.map(cardHtml).join('')}</div>`
-      : '<div class="empty">No matches.</div>';
-    grid.outerHTML = html;
-  } catch (e) { toast(e.message, 'error'); }
-}
-
-function cardHtml(i) {
-  // Relative src (no leading slash): resolves against / in the real app and
-  // against the subpath in the deployed demo (axly.com/whetstone/demo/).
+// Shared list row (mockup: bordered thumb, BRAND bold, name, sub line).
+function rowHtml(i) {
   const thumb = i.thumb
     ? `<img class="item-thumb" src="${esc(i.thumb)}" alt="" loading="lazy">`
-    : '<div class="item-thumb placeholder" aria-hidden="true">🗡️</div>';
-  const sub = [i.maker, i.model].filter(Boolean).map(esc).join(' · ');
-  return `<a class="item-card" href="#/collection/${i.id}">
+    : `<span class="item-thumb placeholder" aria-hidden="true">${categoryIcon(i.category_name)}</span>`;
+  const sub = [i.model, i.current_value != null ? fmtMoney(i.current_value) : '']
+    .filter(Boolean).map(esc).join(' · ');
+  return `<a class="item-row" href="#/collection/${i.id}">
     ${thumb}
-    <div class="item-meta">
-      <div class="item-name">${esc(i.name)} ${i.is_sold ? '<span class="badge sold">Sold</span>' : ''}</div>
-      <div class="item-sub">${sub || esc(i.category_name || '')}</div>
-      <div class="item-sub">${i.current_value != null ? fmtMoney(i.current_value) : ''}</div>
-    </div>
+    <span class="item-meta">
+      <span class="item-brand">${esc(i.maker || i.category_name || '')}</span>
+      <span class="item-name">${esc(i.name)} ${i.is_sold ? '<span class="badge sold">Sold</span>' : ''}</span>
+      <span class="item-sub">${sub}</span>
+    </span>
+  </a>`;
+}
+
+function cardHtml(i, letter) {
+  const img = i.thumb
+    ? `<img class="card-img" src="${esc(i.thumb)}" alt="" loading="lazy">`
+    : `<span class="card-img placeholder" aria-hidden="true">${categoryIcon(i.category_name)}</span>`;
+  return `<a class="item-card" href="#/collection/${i.id}" data-letter="${letter}">
+    ${img}
+    <span class="card-meta">
+      <span class="item-brand">${esc(i.maker || i.category_name || '')}</span>
+      <span class="item-name">${esc(i.name)} ${i.is_sold ? '<span class="badge sold">Sold</span>' : ''}</span>
+    </span>
   </a>`;
 }
 
@@ -105,8 +273,7 @@ function cardHtml(i) {
 
 const SPEC_LABELS = [
   ['category_name', 'Category'],
-  ['maker', 'Maker / Brand'],
-  ['model', 'Model'],
+  ['knife_type', 'Type', 'cap'],
   ['condition', 'Condition'],
   ['acquisition_date', 'Acquired'],
   ['acquisition_price', 'Paid', 'money'],
@@ -125,6 +292,12 @@ const SPEC_LABELS = [
   ['sold_date', 'Sold on'],
   ['sold_price', 'Sold for', 'money']
 ];
+
+function fmtSpec(kind, val) {
+  if (kind === 'money') return fmtMoney(val);
+  if (kind === 'cap') return esc(String(val).charAt(0).toUpperCase() + String(val).slice(1));
+  return esc(val);
+}
 
 // Format a custom field value for display, per its type.
 function fmtFieldValue(f) {
@@ -145,12 +318,15 @@ async function renderDetail(root, id) {
   }
   catch (e) { root.innerHTML = `<div class="error">${esc(e.message)}</div>`; return; }
 
+  // Back arrow goes to this item's category list (app.js can't know it).
+  setAppbar({ title: item.category_name || 'Item', back: `#/collection/cat/${item.category_id}` });
+
   const photos = item.photos || [];
   const specs = SPEC_LABELS
     .filter(([k]) => item[k] != null && item[k] !== '')
     .map(([k, label, kind]) => `<div class="spec">
         <div class="spec-label">${label}</div>
-        <div class="spec-value">${kind === 'money' ? fmtMoney(item[k]) : esc(item[k])}</div>
+        <div class="spec-value">${fmtSpec(kind, item[k])}</div>
       </div>`)
     .join('');
 
@@ -164,29 +340,30 @@ async function renderDetail(root, id) {
       </div>`)
     .join('');
 
+  const brandline = [item.maker, item.model].filter(Boolean).map(esc).join(' | ');
+
   root.innerHTML = `
-    <a class="back" href="#/collection">← Collection</a>
     <div class="detail-head">
       <div class="detail-headmeta">
         <h1>${esc(item.name)} ${item.is_sold ? '<span class="badge sold">Sold</span>' : ''}</h1>
-        <div class="muted">${[item.maker, item.model].filter(Boolean).map(esc).join(' · ')}</div>
+        ${brandline ? `<div class="detail-brandline">${brandline}</div>` : ''}
       </div>
       <div class="detail-actions">
         ${isDemo() ? '' : `
-          <a class="btn" href="#/collection/${item.id}/edit">✏️ Edit</a>
-          <button class="btn" id="add-photo">📷 Add photo</button>
+          <a class="btn small" href="#/collection/${item.id}/edit">${icon('pencil')} Edit</a>
+          <button class="btn small" id="add-photo">${icon('camera')} Photo</button>
           ${item.is_sold
-            ? '<button class="btn" id="unsell-item">↩️ Un-sell</button>'
-            : '<button class="btn" id="sell-item">💰 Mark sold</button>'}
-          <button class="btn danger" id="del-item">Delete</button>`}
+            ? `<button class="btn small" id="unsell-item">${icon('undo')} Un-sell</button>`
+            : `<button class="btn small" id="sell-item">${icon('money')} Mark sold</button>`}
+          <button class="btn small danger" id="del-item">${icon('trash')} Delete</button>`}
       </div>
     </div>
-    ${galleryHtml(photos)}
+    ${galleryHtml(photos, item.category_name)}
     <div class="spec-grid">${specs}${customSpecs}</div>
     ${item.notes ? `<h2 class="section-title">Notes</h2><div class="notes-box">${esc(item.notes)}</div>` : ''}
     <div class="tab-head between">
       <h2 class="section-title">Maintenance</h2>
-      ${isDemo() ? '' : '<button class="btn small" id="add-maint">➕ Log entry</button>'}
+      ${isDemo() ? '' : `<button class="btn small" id="add-maint">${icon('plus')} Log entry</button>`}
     </div>
     ${maintenance.length ? `<ul class="event-list">${maintenance.map((m) => maintRow(m)).join('')}</ul>`
       : '<div class="empty small">No maintenance logged yet.</div>'}
@@ -237,7 +414,7 @@ async function renderDetail(root, id) {
   const maintBtn = root.querySelector('#add-maint');
   if (maintBtn) maintBtn.onclick = () => {
     const typeOpts = Object.entries(ACTIVITY)
-      .map(([v, [icon, label]]) => `<option value="${v}">${icon} ${label}</option>`).join('');
+      .map(([v, [ic, label]]) => `<option value="${v}">${ic} ${label}</option>`).join('');
     const m = openModal(`
       <h2>Log maintenance</h2>
       <form class="form" id="maint-form">
@@ -275,17 +452,30 @@ async function renderDetail(root, id) {
   });
 
   const fileInput = root.querySelector('#photo-file');
-  root.querySelector('#add-photo').onclick = () => fileInput.click();
+  const photoBtn = root.querySelector('#add-photo');
+  photoBtn.onclick = () => fileInput.click();
   fileInput.onchange = () => {
     const f = fileInput.files && fileInput.files[0];
     if (!f) return;
+    // Live progress on the button — over Tailscale/cellular a phone photo
+    // takes seconds to send, then the server compresses it. Silence reads
+    // as "broken"; numbers read as "working".
+    const mb = (n) => (n / 1048576).toFixed(1);
+    const setBtn = (txt, disabled) => { photoBtn.textContent = txt; photoBtn.disabled = disabled; };
     const reader = new FileReader();
     reader.onload = async () => {
+      setBtn('Uploading…', true);
       try {
-        await addPhoto(item.id, { photo: reader.result });
+        await addPhoto(item.id, { photo: reader.result }, (loaded, total) => {
+          if (loaded == null) setBtn('Processing…', true);
+          else setBtn(`${mb(loaded)} / ${mb(total)} MB`, true);
+        });
         toast('Photo added', 'success');
         renderDetail(root, item.id);
-      } catch (e) { toast(e.message, 'error'); }
+      } catch (e) {
+        setBtn('Photo', false);
+        toast(e.message, 'error');
+      }
     };
     reader.readAsDataURL(f);
   };
@@ -301,20 +491,21 @@ async function renderDetail(root, id) {
     m.panel.querySelector('#cancel-del').onclick = closeModal;
     m.panel.querySelector('#confirm-del').onclick = async () => {
       try {
+        const catId = item.category_id;
         await deleteItem(item.id);
         closeModal();
         toast('Item deleted', 'success');
-        location.hash = '#/collection';
+        location.hash = `#/collection/cat/${catId}`;
       } catch (e) { toast(e.message, 'error'); }
     };
   };
 }
 
 function maintRow(m) {
-  const [icon, label] = ACTIVITY[m.activity_type] || ACTIVITY.other;
+  const [ic, label] = ACTIVITY[m.activity_type] || ACTIVITY.other;
   return `<li class="event">
     <div class="event-top">
-      <span class="event-type">${icon} ${label}</span>
+      <span class="event-type">${ic} ${label}</span>
       <span class="event-date">${esc(m.log_date)}</span>
       ${isDemo() ? '' : `<button class="btn small danger" data-maint-del="${m.id}" aria-label="Delete entry">✕</button>`}
     </div>
@@ -322,8 +513,10 @@ function maintRow(m) {
   </li>`;
 }
 
-function galleryHtml(photos) {
-  if (!photos.length) return '<div class="empty">No photos yet.</div>';
+function galleryHtml(photos, categoryName) {
+  if (!photos.length) {
+    return `<div class="gallery"><div class="item-thumb placeholder gallery-none" aria-hidden="true" style="width:100%;height:180px;">${categoryIcon(categoryName)}</div></div>`;
+  }
   const main = photos[0];
   const thumbs = photos.map((p, idx) => `
     <span class="gallery-thumb ${idx === 0 ? 'current' : ''}" data-idx="${idx}">
@@ -402,7 +595,32 @@ function cfInput(f, val) {
   }
 }
 
-async function renderForm(root, item) {
+// Knife-type segmented control — rendered only for the knife category.
+// Radio-backed so it rides FormData like every other field.
+function knifeTypeHtml(catName, current) {
+  if (!isKnifeCategory(catName)) return '<div id="knife-type-wrap" hidden></div>';
+  const opts = [...KNIFE_TYPES, ['', '—']];
+  return `<div id="knife-type-wrap">
+    <span class="field-label">Type</span>
+    <div class="seg">
+      ${opts.map(([v, label]) => `<label class="seg-opt ${String(current || '') === v ? 'on' : ''}">
+        <input type="radio" name="knife_type" value="${v}" ${String(current || '') === v ? 'checked' : ''}>${label}
+      </label>`).join('')}
+    </div>
+  </div>`;
+}
+
+function wireKnifeTypeSeg(form) {
+  form.querySelectorAll('#knife-type-wrap .seg-opt input').forEach((r) => {
+    r.addEventListener('change', () => {
+      form.querySelectorAll('#knife-type-wrap .seg-opt').forEach((l) => {
+        l.classList.toggle('on', l.querySelector('input').checked);
+      });
+    });
+  });
+}
+
+async function renderForm(root, item, presetCatId) {
   let cats, cfDefs = [];
   const cfValues = {};
   try {
@@ -413,6 +631,17 @@ async function renderForm(root, item) {
     }
   }
   catch (e) { root.innerHTML = `<div class="error">${esc(e.message)}</div>`; return; }
+
+  const isEdit = !!item;
+  setAppbar({
+    title: isEdit ? 'Edit Item' : 'Add Item',
+    back: isEdit ? `#/collection/${item.id}` : '#/collection'
+  });
+
+  const initialCatId = item ? item.category_id
+    : (presetCatId && cats.some((c) => String(c.id) === String(presetCatId)) ? Number(presetCatId)
+      : (cats[0] ? cats[0].id : ''));
+  const catName = (id) => { const c = cats.find((x) => String(x.id) === String(id)); return c ? c.name : ''; };
 
   const cfApplicable = (catId) => cfDefs.filter((f) => !f.category_id || String(f.category_id) === String(catId));
   const cfFieldsetHtml = (catId) => {
@@ -432,9 +661,8 @@ async function renderForm(root, item) {
     return out;
   };
 
-  const isEdit = !!item;
   const catOpts = cats.map((c) =>
-    `<option value="${c.id}" ${item && item.category_id === c.id ? 'selected' : ''}>${esc(c.name)}</option>`).join('');
+    `<option value="${c.id}" ${String(initialCatId) === String(c.id) ? 'selected' : ''}>${esc(c.name)}</option>`).join('');
   const condVal = item && item.condition ? item.condition : '';
   const condOpts = ['<option value=""></option>']
     .concat((CONDITIONS.includes(condVal) || !condVal ? CONDITIONS : [condVal, ...CONDITIONS])
@@ -442,8 +670,7 @@ async function renderForm(root, item) {
     .join('');
 
   root.innerHTML = `
-    <a class="back" href="${isEdit ? `#/collection/${item.id}` : '#/collection'}">← Back</a>
-    <h1>${isEdit ? `Edit ${esc(item.name)}` : 'Add item'}</h1>
+    <h1>${isEdit ? `Edit ${esc(item.name)}` : `Add ${esc(catName(initialCatId) || 'Item')}`}</h1>
     <form class="form" id="item-form" novalidate>
       <fieldset>
         <legend>Basics</legend>
@@ -453,6 +680,7 @@ async function renderForm(root, item) {
             <select name="category_id" required>${catOpts}</select>
           </label>
         </div>
+        ${knifeTypeHtml(catName(initialCatId), item ? item.knife_type : '')}
         <div class="form-row">
           ${field('Maker / Brand', 'maker', item)}
           ${field('Model', 'model', item)}
@@ -494,34 +722,94 @@ async function renderForm(root, item) {
           ${field('Lock type', 'lock_type', item, { placeholder: 'Folders only — e.g. liner, frame, compression' })}
         </div>
       </fieldset>
-      ${cfFieldsetHtml(item ? item.category_id : (cats[0] ? cats[0].id : ''))}
+      ${cfFieldsetHtml(initialCatId)}
+      <fieldset>
+        <legend>Photos</legend>
+        <div class="photo-slots" id="photo-slots"></div>
+      </fieldset>
       <fieldset>
         <legend>Notes</legend>
         <label>Notes <textarea name="notes" rows="4">${esc(item && item.notes ? item.notes : '')}</textarea></label>
       </fieldset>
       <div class="form-actions">
-        <button class="btn primary" type="submit">${isEdit ? 'Save changes' : 'Add to collection'}</button>
+        <button class="btn primary" type="submit">${isEdit ? 'Save changes' : 'Save'}</button>
         <a class="btn" href="${isEdit ? `#/collection/${item.id}` : '#/collection'}">Cancel</a>
       </div>
     </form>
+    <input type="file" id="form-photo-file" accept="image/*" hidden>
   `;
 
-  // Category switch re-renders the custom fieldset for the new category,
-  // carrying over anything already typed into still-applicable fields.
-  root.querySelector('select[name="category_id"]').onchange = (e) => {
-    const form = root.querySelector('#item-form');
-    for (const c of readCfValues(form)) cfValues[c.field_definition_id] = c.value;
-    form.querySelector('#cf-fieldset').outerHTML = cfFieldsetHtml(e.target.value);
+  const form = root.querySelector('#item-form');
+  wireKnifeTypeSeg(form);
+
+  // --- Photo slots (mockup ADD PHOTO row). Edit mode uploads immediately;
+  // new mode queues files and uploads after the item is created.
+  const queued = []; // File objects (new mode)
+  const fileInput = root.querySelector('#form-photo-file');
+  const slots = root.querySelector('#photo-slots');
+  const mb = (n) => (n / 1048576).toFixed(1);
+
+  function renderSlots() {
+    const existing = (item && item.photos ? item.photos : [])
+      .map((p) => `<span class="photo-slot filled"><img src="${esc(p.file_path)}" alt=""></span>`).join('');
+    const pending = queued
+      .map((f, idx) => `<span class="photo-slot filled"><img src="${URL.createObjectURL(f)}" alt="">
+        <button type="button" class="slot-del" data-q="${idx}" aria-label="Remove photo">✕</button></span>`).join('');
+    slots.innerHTML = `${existing}${pending}
+      <button type="button" class="photo-slot" id="slot-add" aria-label="Add photo">${icon('camera')}</button>`;
+    slots.querySelector('#slot-add').onclick = () => fileInput.click();
+    slots.querySelectorAll('.slot-del').forEach((b) => {
+      b.onclick = () => { queued.splice(Number(b.dataset.q), 1); renderSlots(); };
+    });
+  }
+  renderSlots();
+
+  fileInput.onchange = () => {
+    const f = fileInput.files && fileInput.files[0];
+    fileInput.value = '';
+    if (!f) return;
+    if (!isEdit) { queued.push(f); renderSlots(); return; }
+    // Edit mode: upload now, with live progress on the add slot.
+    const addBtn = slots.querySelector('#slot-add');
+    const reader = new FileReader();
+    reader.onload = async () => {
+      addBtn.disabled = true;
+      try {
+        await addPhoto(item.id, { photo: reader.result }, (loaded, total) => {
+          addBtn.textContent = loaded == null ? '…' : `${mb(loaded)}MB`;
+        });
+        item.photos = (await fetchItem(item.id)).photos;
+        toast('Photo added', 'success');
+        renderSlots();
+      } catch (e) {
+        toast(e.message, 'error');
+        renderSlots();
+      }
+    };
+    reader.readAsDataURL(f);
   };
 
-  root.querySelector('#item-form').onsubmit = async (e) => {
+  // Category switch re-renders the knife-type control + custom fieldset for
+  // the new category, carrying over anything already entered where possible.
+  form.querySelector('select[name="category_id"]').onchange = (e) => {
+    for (const c of readCfValues(form)) cfValues[c.field_definition_id] = c.value;
+    const checked = form.querySelector('#knife-type-wrap input:checked');
+    const currentType = checked ? checked.value : (item ? item.knife_type : '');
+    form.querySelector('#cf-fieldset').outerHTML = cfFieldsetHtml(e.target.value);
+    form.querySelector('#knife-type-wrap').outerHTML = knifeTypeHtml(catName(e.target.value), currentType);
+    wireKnifeTypeSeg(form);
+  };
+
+  form.onsubmit = async (e) => {
     e.preventDefault();
-    const form = e.target;
     const fd = new FormData(form);
     const body = {};
     for (const [k, v] of fd.entries()) if (!k.startsWith('cf_')) body[k] = v;
     if (!body.name || !body.name.trim()) { toast('Name is required', 'error'); return; }
+    // No knife-type control rendered (non-knife category) → clear the field.
+    if (!form.querySelector('#knife-type-wrap input')) body.knife_type = '';
     const cfList = readCfValues(form);
+    const submitBtn = form.querySelector('button[type="submit"]');
     try {
       const saved = isEdit ? await updateItem(item.id, body) : await createItem(body);
       if (cfList.length) {
@@ -530,6 +818,29 @@ async function renderForm(root, item) {
           toast(`Item saved, but custom fields failed: ${cfErr.message}`, 'error');
           location.hash = `#/collection/${saved.id}`;
           return;
+        }
+      }
+      // New mode: upload the queued photos sequentially, with progress.
+      if (!isEdit && queued.length) {
+        submitBtn.disabled = true;
+        for (let i = 0; i < queued.length; i++) {
+          submitBtn.textContent = `Photo ${i + 1}/${queued.length}…`;
+          try {
+            const dataUrl = await new Promise((res, rej) => {
+              const r = new FileReader();
+              r.onload = () => res(r.result);
+              r.onerror = rej;
+              r.readAsDataURL(queued[i]);
+            });
+            await addPhoto(saved.id, { photo: dataUrl }, (loaded) => {
+              submitBtn.textContent = loaded == null
+                ? `Photo ${i + 1}/${queued.length}: processing…`
+                : `Photo ${i + 1}/${queued.length}: ${mb(loaded)}MB`;
+            });
+          } catch (phErr) {
+            toast(`Item saved, but photo ${i + 1} failed: ${phErr.message}`, 'error');
+            break;
+          }
         }
       }
       toast(isEdit ? 'Saved' : 'Added to collection', 'success');

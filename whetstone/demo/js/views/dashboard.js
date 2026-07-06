@@ -1,47 +1,46 @@
-// Whetstone — Dashboard (home). Category counts + connect-your-phone QR.
-// Valuation totals land at M5.
-import { fetchDashboard, isDemo } from '../dataAdapter.js';
+// Whetstone — HOME (M6.5 reskin). Mockup screen 2: big icon-tile grid —
+// YOUR COLLECTION + one quick-add tile per category. Valuation strip below.
+// (File keeps its dashboard.js name to limit sw/demo churn; route is #/home.)
+import { fetchDashboard, fetchCategories, isDemo } from '../dataAdapter.js';
 import { esc, fmtMoney } from '../ui.js';
-import { setListFilter } from './items.js';
-import { connectBox } from '../qr.js';
+import { icon, categoryIcon } from '../icons.js';
 
 export async function render(root) {
-  root.innerHTML = '<h1>Dashboard</h1><p class="muted">Loading…</p>';
-  let d;
-  try { d = await fetchDashboard(); }
-  catch (e) { root.innerHTML = `<h1>Dashboard</h1><div class="error">Could not load dashboard: ${esc(e.message)}</div>`; return; }
+  root.innerHTML = '<p class="muted">Loading…</p>';
+  let d, cats;
+  try { [d, cats] = await Promise.all([fetchDashboard(), fetchCategories()]); }
+  catch (e) { root.innerHTML = `<div class="error">Could not load: ${esc(e.message)}</div>`; return; }
 
-  const CAT_ICONS = { 'Knife': '🔪', 'Sword': '⚔️', 'Axe/Hawk': '🪓', 'Other Melee': '🛡️' };
-  // Each category card opens the Collection filtered to that category.
-  const cards = d.counts.by_category
-    .map((c) => `<button class="card card-btn" data-category-id="${c.id}" aria-label="View ${esc(c.name)}">
-        <div class="card-icon" aria-hidden="true">${CAT_ICONS[c.name] || '🗡️'}</div>
-        <div class="card-count">${c.count}</div>
-        <div class="card-label">${esc(c.name)}</div>
-      </button>`)
-    .join('');
+  const ordered = [...cats].sort((a, b) => a.sort_order - b.sort_order || a.id - b.id);
 
-  const lan = isDemo() ? '' : connectBox(d.server);
+  // Real mode: mockup-style ADD tiles. Demo mode is read-only — the same grid
+  // browses each category instead (write buttons never render in the demo).
+  const catTiles = ordered.map((c) => (isDemo()
+    ? `<a class="tile" href="#/collection/cat/${c.id}">
+        ${categoryIcon(c.name)}
+        <span>${esc(c.name)}</span>
+        <span class="tile-count">${c.item_count || 0} item${(c.item_count || 0) === 1 ? '' : 's'}</span>
+      </a>`
+    : `<a class="tile" href="#/collection/new/${c.id}" aria-label="Add ${esc(c.name)}">
+        ${categoryIcon(c.name)}
+        <span>Add ${esc(c.name)}</span>
+      </a>`)).join('');
 
   root.innerHTML = `
-    <h1>Dashboard</h1>
-    ${isDemo() ? '<div class="lan-box">👋 You’re browsing the Whetstone demo — a read-only sample collection. The real app runs entirely on your own PC.</div>' : `
-    <div class="quick-add">
-      <a class="btn primary" href="#/collection/new">➕ Add item</a>
-      <a class="btn" href="#/collection">🗡️ Browse collection</a>
-    </div>`}
-    ${d.counts.total === 0 ? '<div class="empty">No items yet — tap “Add item” to log the first piece of your collection.</div>' : ''}
-    <div class="cards">${cards}</div>
+    ${isDemo() ? '<div class="lan-box"><div class="lan-text"><div class="lan-head">Whetstone demo</div><p class="lan-sub">A read-only sample collection. The real app runs entirely on your own PC — no cloud, no account.</p></div></div>' : ''}
+    <div class="tile-grid">
+      <a class="tile" href="#/collection" aria-label="Your collection">
+        ${icon('collection')}
+        <span>Your Collection</span>
+        ${d.counts.total ? `<span class="tile-count">${d.counts.total} item${d.counts.total === 1 ? '' : 's'}</span>` : ''}
+      </a>
+      ${catTiles}
+    </div>
+    ${d.counts.total === 0 && d.counts.sold_total === 0 && !isDemo()
+      ? '<div class="empty">No items yet — tap an ADD tile to log the first piece of your collection.</div>' : ''}
     ${valuationHtml(d.valuation, d.counts)}
-    ${lan}
+    ${isDemo() ? '' : `<div class="quick-add"><a class="btn" href="#/connect">${icon('qr')} Connect your phone</a></div>`}
   `;
-
-  root.querySelectorAll('.card-btn').forEach((el) => {
-    el.onclick = () => {
-      setListFilter({ category_id: el.dataset.categoryId });
-      location.hash = '#/collection';
-    };
-  });
 }
 
 // Valuation summary (Critical Accuracy #1): raw sums arrive from the server;
@@ -63,6 +62,6 @@ function valuationHtml(v, counts) {
       <div class="stat"><div class="stat-num${gainClass(v.unrealized_gain)}">${v.unrealized_gain >= 0 ? '+' : ''}${fmtMoney(v.unrealized_gain)}</div><div class="card-label">Unrealized gain/loss</div></div>
       ${counts.sold_total ? `<div class="stat"><div class="stat-num${gainClass(v.realized_gain)}">${v.realized_gain >= 0 ? '+' : ''}${fmtMoney(v.realized_gain)}</div><div class="card-label">Realized (${counts.sold_total} sold)</div></div>` : ''}
     </div>
-    ${missing.length ? `<p class="muted">⚠️ ${missing.join('; ')} — totals only reflect entered figures.</p>` : ''}
+    ${missing.length ? `<p class="muted">${missing.join('; ')} — totals only reflect entered figures.</p>` : ''}
   </section>`;
 }

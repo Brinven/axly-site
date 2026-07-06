@@ -6,18 +6,23 @@
   },
   "dashboard": {
     "counts": {
-      "total": 8,
+      "total": 10,
       "sold_total": 1,
       "by_category": [
         {
           "id": 1,
           "name": "Knife",
-          "count": 4
+          "count": 5
         },
         {
           "id": 2,
           "name": "Sword",
           "count": 2
+        },
+        {
+          "id": 5,
+          "name": "Razor",
+          "count": 1
         },
         {
           "id": 3,
@@ -32,9 +37,9 @@
       ]
     },
     "valuation": {
-      "current_total": 2390,
-      "cost_basis": 2081.99,
-      "unrealized_gain": 308.01,
+      "current_total": 2750,
+      "cost_basis": 2411.99,
+      "unrealized_gain": 338.01,
       "missing_current": 0,
       "missing_cost": 0,
       "realized_gain": -7,
@@ -48,7 +53,7 @@
       "name": "Knife",
       "sort_order": 0,
       "is_default": 1,
-      "item_count": 4,
+      "item_count": 5,
       "sold_count": 1
     },
     {
@@ -60,9 +65,17 @@
       "sold_count": 0
     },
     {
+      "id": 5,
+      "name": "Razor",
+      "sort_order": 2,
+      "is_default": 1,
+      "item_count": 1,
+      "sold_count": 0
+    },
+    {
       "id": 3,
       "name": "Axe/Hawk",
-      "sort_order": 2,
+      "sort_order": 3,
       "is_default": 1,
       "item_count": 1,
       "sold_count": 0
@@ -70,7 +83,7 @@
     {
       "id": 4,
       "name": "Other Melee",
-      "sort_order": 3,
+      "sort_order": 4,
       "is_default": 1,
       "item_count": 1,
       "sold_count": 0
@@ -89,6 +102,7 @@
       "condition": "Excellent",
       "steel_type": "CPM S45VN",
       "blade_length": 2.95,
+      "knife_type": "folding",
       "is_sold": 0,
       "thumb": "photos/1/a.jpg"
     },
@@ -104,6 +118,7 @@
       "condition": "Excellent",
       "steel_type": "CPM S30V",
       "blade_length": 3.24,
+      "knife_type": "folding",
       "is_sold": 0,
       "thumb": "photos/2/a.jpg"
     },
@@ -119,6 +134,7 @@
       "condition": "Mint",
       "steel_type": "CPM MagnaCut",
       "blade_length": 3.61,
+      "knife_type": "folding",
       "is_sold": 0,
       "thumb": "photos/3/a.jpg"
     },
@@ -134,6 +150,7 @@
       "condition": "User",
       "steel_type": "1095",
       "blade_length": 6.5,
+      "knife_type": "fixed",
       "is_sold": 0,
       "thumb": "photos/4/a.jpg"
     },
@@ -209,10 +226,42 @@
       "condition": "Good",
       "steel_type": "14C28N",
       "blade_length": 3,
+      "knife_type": "folding",
       "is_sold": 1,
       "sold_date": "2025-09-30",
       "sold_price": 38,
       "thumb": "photos/9/a.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Dovo Bismarck 6/8",
+      "maker": "Dovo",
+      "model": "Bismarck",
+      "category_id": 5,
+      "category_name": "Razor",
+      "current_value": 160,
+      "acquisition_price": 145,
+      "condition": "Excellent",
+      "steel_type": "Solingen carbon steel",
+      "blade_length": 3.07,
+      "is_sold": 0,
+      "thumb": null
+    },
+    {
+      "id": 11,
+      "name": "Pro-Tech Runt 5",
+      "maker": "Pro-Tech",
+      "model": "R5301",
+      "category_id": 1,
+      "category_name": "Knife",
+      "current_value": 200,
+      "acquisition_price": 185,
+      "condition": "Mint",
+      "steel_type": "CPM MagnaCut",
+      "blade_length": 1.94,
+      "knife_type": "auto",
+      "is_sold": 0,
+      "thumb": null
     }
   ],
   "item_details": {
@@ -234,6 +283,7 @@
       "steel_type": "CPM S45VN",
       "handle_material": "G-10",
       "lock_type": "Compression",
+      "knife_type": "folding",
       "blade_grind": "Full flat",
       "bevel_type": "V",
       "bevel_angle": 17.5,
@@ -273,6 +323,7 @@
       "steel_type": "CPM S30V",
       "handle_material": "Grivory",
       "lock_type": "AXIS",
+      "knife_type": "folding",
       "blade_grind": "Full flat",
       "bevel_type": "V",
       "bevel_angle": 17,
@@ -306,6 +357,7 @@
       "steel_type": "CPM MagnaCut",
       "handle_material": "Titanium",
       "lock_type": "Frame (Reeve Integral)",
+      "knife_type": "folding",
       "blade_grind": "Hollow",
       "bevel_type": "V",
       "bevel_angle": 18,
@@ -350,6 +402,7 @@
       "weight": 12,
       "steel_type": "1095",
       "handle_material": "Micarta",
+      "knife_type": "fixed",
       "blade_grind": "Full flat",
       "bevel_type": "V",
       "bevel_angle": 20,
@@ -511,6 +564,7 @@
       "steel_type": "14C28N",
       "handle_material": "410 stainless",
       "lock_type": "Frame",
+      "knife_type": "folding",
       "blade_grind": "Flat",
       "bevel_type": "V",
       "edge_type": "Plain",
@@ -526,6 +580,56 @@
           "sort_order": 0
         }
       ]
+    },
+    "10": {
+      "id": 10,
+      "name": "Dovo Bismarck 6/8",
+      "maker": "Dovo",
+      "model": "Bismarck",
+      "category_id": 5,
+      "category_name": "Razor",
+      "acquisition_date": "2025-11-02",
+      "acquisition_price": 145,
+      "current_value": 160,
+      "condition": "Excellent",
+      "storage_location": "Bathroom cabinet, stand",
+      "blade_length": 3.07,
+      "overall_length": 9.8,
+      "weight": 2.7,
+      "steel_type": "Solingen carbon steel",
+      "handle_material": "Ebony",
+      "blade_grind": "Full hollow",
+      "bevel_type": "V",
+      "edge_type": "Plain",
+      "notes": "6/8 round point. Weekend shaves only — strop before, oil after.",
+      "is_sold": 0,
+      "photos": []
+    },
+    "11": {
+      "id": 11,
+      "name": "Pro-Tech Runt 5",
+      "maker": "Pro-Tech",
+      "model": "R5301",
+      "category_id": 1,
+      "category_name": "Knife",
+      "acquisition_date": "2026-01-17",
+      "acquisition_price": 185,
+      "current_value": 200,
+      "condition": "Mint",
+      "storage_location": "Safe",
+      "blade_length": 1.94,
+      "overall_length": 4.9,
+      "weight": 1.9,
+      "steel_type": "CPM MagnaCut",
+      "handle_material": "Aluminum",
+      "lock_type": "Button lock",
+      "knife_type": "auto",
+      "blade_grind": "Full flat",
+      "bevel_type": "V",
+      "edge_type": "Plain",
+      "notes": "California-legal sub-2\" auto. Wharncliffe. Fires like a mousetrap.",
+      "is_sold": 0,
+      "photos": []
     }
   },
   "custom_fields": [
